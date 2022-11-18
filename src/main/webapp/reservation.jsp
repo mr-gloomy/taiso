@@ -42,7 +42,7 @@
           <div class="col-lg-8 ftco-animate">
           	<div class="text w-100 text-center mb-md-5 pb-md-5">
 	            <h1 class="mb-4">TAISO</h1>
-	            <p style="font-size: 18px;">타이소타이소타이소타이소</p>
+	            <p style="font-size: 18px;">타이소타이소타이소타이소테스트테스트</p>
             </div>
           </div>
         </div>
