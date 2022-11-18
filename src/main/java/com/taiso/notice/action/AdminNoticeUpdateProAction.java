@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.taiso.notice.db.BoardDTO;
 import com.taiso.notice.db.noticeDAO;
 
-public class AdminNoticeUpdateProAction implements Notice {
+public class AdminNoticeUpdateProAction implements Action {
 
 	@Override
-	public NoticeForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		System.out.println(" M : AdminNoticeUpdateProAction_execute 호출 ");
 		

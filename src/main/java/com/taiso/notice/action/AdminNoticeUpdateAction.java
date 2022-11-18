@@ -5,10 +5,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.taiso.notice.db.BoardDTO;
 import com.taiso.notice.db.noticeDAO;
 
-public class AdminNoticeUpdateAction implements Notice {
+public class AdminNoticeUpdateAction implements Action {
 
 	@Override
-	public NoticeForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		System.out.println(" M : AdminNoticeUpdateAction_execute() 호출 ");
 		
@@ -27,7 +27,7 @@ public class AdminNoticeUpdateAction implements Notice {
 		request.setAttribute("pageNum", pageNum);
 		
 		// 페이지 이동
-		NoticeForward forward = new NoticeForward();
+		ActionForward forward = new ActionForward();
 		forward.setPath("./notice/adminNoticeUpdate.jsp");
 		forward.setRedirect(false);
 		

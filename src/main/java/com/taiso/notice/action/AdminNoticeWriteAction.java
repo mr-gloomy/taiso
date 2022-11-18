@@ -9,10 +9,10 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.taiso.notice.db.BoardDTO;
 import com.taiso.notice.db.noticeDAO;
 
-public class AdminNoticeWriteAction implements Notice {
+public class AdminNoticeWriteAction implements Action {
 
 	@Override
-	public NoticeForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		System.out.println(" M : AdminNoticeWriteAction_execute() 호출 ");
 		
@@ -50,7 +50,7 @@ public class AdminNoticeWriteAction implements Notice {
 		
 		
 		// 페이지 이동정보 생성(티켓 생성)
-		NoticeForward forward = new NoticeForward();
+		ActionForward forward = new ActionForward();
 		forward.setPath("./AdminNoticeList.nb");
 		forward.setRedirect(true);
 		

@@ -6,10 +6,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.taiso.member.db.MemberDAO;
 import com.taiso.member.db.MemberDTO;
 
-public class MemberJoinAction implements Member {
+public class MemberJoinAction implements Action {
 
 	@Override
-	public MemberForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		System.out.println(" M : MemberJoinAction_execute() 호출");
 		
@@ -35,7 +35,7 @@ public class MemberJoinAction implements Member {
 		System.out.println(" M : 회원가입 성공! ");
 		
 		// 페이지 이동(준비)
-		MemberForward forward = new MemberForward();
+		ActionForward forward = new ActionForward();
 		forward.setPath("./MemberLogin.me");
 		forward.setRedirect(true);
 		
