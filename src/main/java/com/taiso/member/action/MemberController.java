@@ -30,8 +30,8 @@ public class MemberController extends HttpServlet {
 
 		
 		
-		Member action = null;
-		MemberForward forward = null; 
+		Action action = null;
+		ActionForward forward = null; 
 		
 		System.out.println(" C : [2단계 시작] 가상주소 매핑 시작 ----------------------------------------");
 		
@@ -39,7 +39,7 @@ public class MemberController extends HttpServlet {
 			System.out.println(" C : /MemberJoin.me 호출 ");
 			System.out.println(" C : [패턴 1] ");
 			
-			forward = new MemberForward();
+			forward = new ActionForward();
 			forward.setPath("./member/memberJoin.jsp");
 			forward.setRedirect(false);
 			
@@ -62,7 +62,7 @@ public class MemberController extends HttpServlet {
 			System.out.println(" C : /MemberIdCheck.me 호출");
 			System.out.println(" C : [패턴 1] ");
 			
-			forward = new MemberForward();
+			forward = new ActionForward();
 			forward.setPath("./member/memberIdCheck.jsp");
 			forward.setRedirect(false);		
 			
@@ -85,7 +85,7 @@ public class MemberController extends HttpServlet {
 			System.out.println(" C : /MemberNickNameCheck.me 호출");
 			System.out.println(" C : [패턴 1] ");
 			
-			forward = new MemberForward();
+			forward = new ActionForward();
 			forward.setPath("./member/memberNickNameCheck.jsp");
 			forward.setRedirect(false);		
 			
@@ -108,7 +108,7 @@ public class MemberController extends HttpServlet {
 			System.out.println(" C : /MemberLogin.me 호출 ");
 			System.out.println(" C : [패턴 1]");
 			
-			forward = new MemberForward();
+			forward = new ActionForward();
 			forward.setPath("./member/memberLogin.jsp");
 			forward.setRedirect(false);	
 			
@@ -131,7 +131,7 @@ public class MemberController extends HttpServlet {
 			System.out.println(" C : /MemberUpdatePw.me 호출 ");
 			System.out.println(" C : [패턴 1]");
 			
-			forward = new MemberForward();
+			forward = new ActionForward();
 			forward.setPath("./member/memberUpdatePw.jsp");
 			forward.setRedirect(false);		
 			
@@ -182,7 +182,7 @@ public class MemberController extends HttpServlet {
 			System.out.println(" C : /MemberRemove.me 호출 ");
 			System.out.println(" C : [패턴 1] ");
 			
-			forward = new MemberForward();
+			forward = new ActionForward();
 			forward.setPath("./member/memberRemove.jsp");
 			forward.setRedirect(false);
 			
@@ -232,7 +232,7 @@ public class MemberController extends HttpServlet {
 			System.out.println(" C : /MemberFindId.me 호출 ");
 			System.out.println(" C : [패턴 1]");
 			
-			forward = new MemberForward();
+			forward = new ActionForward();
 			forward.setPath("./member/memberFindId.jsp");
 			forward.setRedirect(false);
 			
@@ -255,7 +255,7 @@ public class MemberController extends HttpServlet {
 			System.out.println(" C : /MemberFindIdResult.me 호출 ");
 			System.out.println(" C : [패턴 1]");
 			
-			forward = new MemberForward();
+			forward = new ActionForward();
 			forward.setPath("./member/memberFindIdResult.jsp");
 			forward.setRedirect(false);
 			
@@ -264,7 +264,7 @@ public class MemberController extends HttpServlet {
 			System.out.println(" C : /MemberFindPw.me 호출 ");
 			System.out.println(" C : [패턴 1]");
 			
-			forward = new MemberForward();
+			forward = new ActionForward();
 			forward.setPath("./member/memberFindPw.jsp");
 			forward.setRedirect(false);
 			
@@ -287,7 +287,7 @@ public class MemberController extends HttpServlet {
 			System.out.println(" C : /MemberFindPwResult.me 호출 ");
 			System.out.println(" C : [패턴 1]");
 			
-			forward = new MemberForward();
+			forward = new ActionForward();
 			forward.setPath("./member/memberFindPwResult.jsp");
 			forward.setRedirect(false);
 			

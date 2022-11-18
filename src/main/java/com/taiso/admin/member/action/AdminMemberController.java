@@ -36,8 +36,8 @@ public class AdminMemberController extends HttpServlet{
 		// 2.가상주소매핑
 		System.out.println(" C : (2단계 시작) 가상주소 매핑 시작 ------------- ");
 		
-		Member action = null;
-		MemberForward forward = null;
+		Action action = null;
+		ActionForward forward = null;
 		
 		if(command.equals("/AdminMemberList.mb")) {
 			System.out.println(" C : /AdminMemberList.mb 호출");

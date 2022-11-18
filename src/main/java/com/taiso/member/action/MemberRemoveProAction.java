@@ -8,10 +8,10 @@ import javax.servlet.http.HttpSession;
 
 import com.taiso.member.db.MemberDAO;
 
-public class MemberRemoveProAction implements Member {
+public class MemberRemoveProAction implements Action {
 
 	@Override
-	public MemberForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		System.out.println(" M : MemberRemoveProAction_execute 호출");
 		

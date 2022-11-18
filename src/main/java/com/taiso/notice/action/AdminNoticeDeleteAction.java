@@ -9,10 +9,10 @@ import javax.servlet.http.HttpSession;
 
 import com.taiso.notice.db.noticeDAO;
 
-public class AdminNoticeDeleteAction implements Notice {
+public class AdminNoticeDeleteAction implements Action {
 
 	@Override
-	public NoticeForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		System.out.println(" M : AdminNoticeDeleteAction_execute 호출 ");
 		
@@ -20,7 +20,7 @@ public class AdminNoticeDeleteAction implements Notice {
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
 		
-		NoticeForward forward = new NoticeForward();
+		ActionForward forward = new ActionForward();
 		if(id == null || !id.equals("admin")) {
 			forward.setPath("./MemberLogin.me");
 			forward.setRedirect(true);

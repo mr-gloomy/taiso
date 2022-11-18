@@ -6,10 +6,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.taiso.board.db.BoardDAO;
 import com.taiso.board.db.BoardDTO;
 
-public class QuestionDetailAction implements Board {
+public class QuestionDetailAction implements Action {
 
 	@Override
-	public BoardForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println(" M : BoardContentAction_execute 호출 ");
 				
 		// 전달정보(파라미터) 저장 
@@ -31,7 +31,7 @@ public class QuestionDetailAction implements Board {
 		request.setAttribute("pageNum", pageNum);
 		
 		// 페이지 이동(준비)
-		BoardForward forward = new BoardForward();
+		ActionForward forward = new ActionForward();
 		forward.setPath("./board/questionDetail.jsp");
 		forward.setRedirect(false); //request 가져가니까 false 
 		

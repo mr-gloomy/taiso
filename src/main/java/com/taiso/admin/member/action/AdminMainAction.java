@@ -3,14 +3,14 @@ package com.taiso.admin.member.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import com.taiso.admin.member.action.Member;
-import com.taiso.admin.member.action.MemberForward;
+import com.taiso.admin.member.action.Action;
+import com.taiso.admin.member.action.ActionForward;
 import com.taiso.admin.member.db.MemberDTO;
 
-public class AdminMainAction implements Member {
+public class AdminMainAction implements Action {
 
 	@Override
-	public MemberForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		System.out.println(" M : AdminMain_execute 호출 ");
 
@@ -18,7 +18,7 @@ public class AdminMainAction implements Member {
 		HttpSession session = request.getSession();
 		String mem_id = (String) session.getAttribute("mem_id");
 		
-		MemberForward forward = new MemberForward();
+		ActionForward forward = new ActionForward();
 		if(mem_id==null || !mem_id.equals("admin")) {
 			forward.setPath("./ReservationMain.rez");
 			forward.setRedirect(true);

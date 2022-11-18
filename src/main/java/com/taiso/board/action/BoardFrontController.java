@@ -38,8 +38,8 @@ public class BoardFrontController extends HttpServlet{
 		/////////////////////////2.가상주소매핑////////////////////////////
 		System.out.println(" C : (2단계 시작) 가상주소 매핑 시작 ----------------------- ");
 		
-		Board action = null;
-		BoardForward forward = null;
+		Action action = null;
+		ActionForward forward = null;
 		
 		if(command.equals("/Mypage.bo")) {
 			System.out.println(" C : /Mypage.bo 호출 ");
@@ -59,7 +59,7 @@ public class BoardFrontController extends HttpServlet{
 			System.out.println(" C : /FaqList.bo 호출 ");
 			System.out.println(" C : [패턴1] ");
 			
-		forward = new BoardForward();
+		forward = new ActionForward();
 		forward.setPath("./board/faqList.jsp");
 		forward.setRedirect(false);
 		System.out.println("mypage.jsp 호출");
@@ -69,7 +69,7 @@ public class BoardFrontController extends HttpServlet{
 			System.out.println(" C : /questionWrite.bo 호출 ");
 			System.out.println(" C : [패턴1] ");
 			
-		forward = new BoardForward();
+		forward = new ActionForward();
 		forward.setPath("./board/questionWrite.jsp");
 		forward.setRedirect(false);
 		}
@@ -143,7 +143,7 @@ public class BoardFrontController extends HttpServlet{
 			System.out.println(" C : /BoardDelete.bo 호출 ");
 			System.out.println(" C : [패턴1] DB사용 X, view페이지 이동");
 			
-			forward = new BoardForward();
+			forward = new ActionForward();
 			forward.setPath("./board/questionDelete.jsp");
 			forward.setRedirect(false);		
 		}
@@ -166,7 +166,7 @@ public class BoardFrontController extends HttpServlet{
 			System.out.println(" C : /AdminQuest ionReWrite.bo 호출 ");
 			System.out.println(" C : [패턴1] DB사용 X, view페이지 이동");
 			
-			forward = new BoardForward();
+			forward = new ActionForward();
 			forward.setPath("./board/adminQuestionReWrite.jsp");
 			forward.setRedirect(false);
 		}

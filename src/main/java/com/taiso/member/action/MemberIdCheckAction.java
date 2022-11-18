@@ -5,10 +5,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.taiso.member.db.MemberDAO;
 
-public class MemberIdCheckAction implements Member {
+public class MemberIdCheckAction implements Action {
 
 	@Override
-	public MemberForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		System.out.println(" M : MemberIdCheckAction_execute() 호출");
 		
@@ -30,7 +30,7 @@ public class MemberIdCheckAction implements Member {
 		request.setAttribute("result", result);		
 		
 		// 페이지 이동
-		MemberForward forward = new MemberForward();
+		ActionForward forward = new ActionForward();
 		forward.setPath("./member/memberIdCheck.jsp?inputID="+mem_userId);	
 		forward.setRedirect(false);		
 		
