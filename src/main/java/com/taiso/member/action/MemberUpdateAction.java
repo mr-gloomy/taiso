@@ -50,6 +50,7 @@ public class MemberUpdateAction implements Member {
 //		MemberForward forward = new MemberForward();
 //		forward.setPath("./reservation.jsp");
 //		forward.setRedirect(true);
+		// test
 		
 		return null;
 
