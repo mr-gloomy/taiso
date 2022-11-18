@@ -25,8 +25,8 @@ response.sendRedirect("./ReservationMain.rez");
  //	response.sendRedirect("./MemberFindPw.me");
 	 // response.sendRedirect("./MemberFindIdResult.me");
 // response.sendRedirect("./AdminMain.mb");
+// response.sendRedirect("./AdminMemberList.mb");
 		
-
 
 
  //리뷰 페이지는 이어질 수 있는 구조가 아직 아니어서 리뷰 보고 싶으면 아래 주소로 오래요 *^^*
