@@ -17,7 +17,7 @@ response.sendRedirect("./ReservationMain.rez");
 //회원팀 페이지---------------------------------------------------------------
 
 
-		
+		// test
 // response.sendRedirect("./MemberJoin.me");
 	 //	response.sendRedirect("./MemberLogin.me");
 //	  response.sendRedirect("./MemberUpdate.me");
