@@ -8,10 +8,10 @@ import javax.servlet.http.HttpSession;
 
 import com.taiso.member.db.MemberDAO;
 
-public class MemberUpdatePwAction implements Member {
+public class MemberUpdatePwAction implements Action {
 
 	@Override
-	public MemberForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		System.out.println(" M : MemberUpdatePwAction_execute() 호출 ");
 		
@@ -42,7 +42,7 @@ public class MemberUpdatePwAction implements Member {
 		session.setAttribute("mem_pw", mem_pw);
 		
 		// 수정페이지로 이동
-		MemberForward forward = new MemberForward();
+		ActionForward forward = new ActionForward();
 		forward.setPath("/MemberUpdate.me");
 		forward.setRedirect(true);
 		

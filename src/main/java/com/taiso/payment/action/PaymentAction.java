@@ -1,15 +1,10 @@
 package com.taiso.payment.action;
 
-import java.io.FileReader;
-import java.io.Reader;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.taiso.payment.db.PaymentDAO;
 import com.taiso.payment.db.PaymentDTO;
-import com.taiso.reservation.db.ReservationDAO;
-import com.taiso.reservation.db.ReservationDTO;
 
 public class PaymentAction implements Action {
 

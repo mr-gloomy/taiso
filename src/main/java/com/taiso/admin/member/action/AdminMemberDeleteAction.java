@@ -8,10 +8,10 @@ import javax.servlet.http.HttpSession;
 import com.taiso.admin.member.db.AdminMemberDAO;
 import com.taiso.admin.member.db.MemberDTO;
 
-public class AdminMemberDeleteAction implements Member {
+public class AdminMemberDeleteAction implements Action {
 
 	@Override
-	public MemberForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		System.out.println(" M : AdminMemberRemoveAction.mb");
 		
@@ -19,7 +19,7 @@ public class AdminMemberDeleteAction implements Member {
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
 		
-		MemberForward forward = new MemberForward();
+		ActionForward forward = new ActionForward();
 		if(id == null || !id.equals("admin")) {
 			forward.setPath("./MemberLogin.me");
 			forward.setRedirect(true);

@@ -7,10 +7,10 @@ import javax.servlet.http.HttpSession;
 import com.taiso.member.db.MemberDAO;
 import com.taiso.member.db.MemberDTO;
 
-public class MemberUpdate implements Member {
+public class MemberUpdate implements Action {
 
 	@Override
-	public MemberForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		System.out.println(" M : MemberUpdate_execute 호출 ");
 		
@@ -18,7 +18,7 @@ public class MemberUpdate implements Member {
 		HttpSession session = request.getSession();
 		String mem_id = (String) session.getAttribute("mem_id");
 		
-		MemberForward forward = new MemberForward();
+		ActionForward forward = new ActionForward();
 		if(mem_id == null) {
 			forward.setPath("./MemberLogin.me");
 			forward.setRedirect(true);

@@ -6,10 +6,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.taiso.board.db.BoardDAO;
 import com.taiso.board.db.BoardDTO;
 
-public class QuestionUpdateAction implements Board {
+public class QuestionUpdateAction implements Action {
 
 	@Override
-	public BoardForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println(" M : QuestioinUpdateAction_execute 호출! ");
 		
 		// 페이지 전달정보 저장 
@@ -28,7 +28,7 @@ public class QuestionUpdateAction implements Board {
 		
 		// view 출력 (./board/UpdateForm.jsp) 
 		// 페이지 이동(티켓)
-		BoardForward forward = new BoardForward();
+		ActionForward forward = new ActionForward();
 		forward.setPath("./board/questionUpdate.jsp");
 		forward.setRedirect(false);
 		

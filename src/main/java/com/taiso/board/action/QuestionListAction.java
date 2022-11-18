@@ -7,10 +7,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.taiso.board.db.BoardDAO;
 
-public class QuestionListAction implements Board {
+public class QuestionListAction implements Action {
 
 	@Override
-	public BoardForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println(" M : QuestionListAction_execute 호출 ! ");
 		
 		// BoardDAO 객체 생성 
@@ -80,7 +80,7 @@ public class QuestionListAction implements Board {
 		request.setAttribute("endPage", endPage);
 		
 		// 페이지 이동준비(티켓 생성) 
-		BoardForward forward = new BoardForward();
+		ActionForward forward = new ActionForward();
 		forward.setPath("./board/questionList.jsp");
 		forward.setRedirect(false);
 		

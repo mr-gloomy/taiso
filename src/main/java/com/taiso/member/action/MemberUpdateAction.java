@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.taiso.member.db.MemberDAO;
 import com.taiso.member.db.MemberDTO;
 
-public class MemberUpdateAction implements Member {
+public class MemberUpdateAction implements Action {
 
 	@Override
-	public MemberForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		System.out.println(" M : MemberUpdateAction_execute() ");	
 		
