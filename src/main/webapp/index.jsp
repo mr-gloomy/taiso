@@ -25,6 +25,7 @@ response.sendRedirect("./ReservationMain.rez");
  //	response.sendRedirect("./MemberFindPw.me");
 	 // response.sendRedirect("./MemberFindIdResult.me");
 // response.sendRedirect("./AdminMain.mb");
+// response.sendRedirect("./AdminMemberList.mb");
 		
 
 
