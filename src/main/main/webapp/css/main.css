@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+/* 프로필 */
+.card {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height:250px;
+}
+
+.card .text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card .text img{
+	padding: 10px;
+    width:  90px;
+    height: 90px;
+    border-radius: 50%;
+    margin-bottom:10px;
+}
+
+.minibtn {
+	
+}
+
+
+/* 프로필 */
+
+/* 좌측메뉴 */
+
+.middle {
+    position: sticky;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.menu {
+    width: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 30px 0px;
+}
+
+.buttonitem {
+    border-top: 1px solid #F8F9FA;
+    overflow: hidden;
+}
+
+.menubtn {
+    display: block;
+    padding: 15px 20px;
+    background: #F8F9FA;
+    border: 8px;
+    color: #808080;
+    position: relative;
+}
+
+.menubtn::before {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: #F8F9FA;
+    left: 20px;
+    bottom: -7px;
+    transform: rotate(45deg);
+}
+
+.menubtn i {
+    margin-right: 10px;
+}
+
+.smenu {
+    background: #1089FF;
+    overflow: hidden;
+    color: #F8F9FA;
+    transition: max-height 0.3s;
+    max-height: 0;
+}
+
+.smenu a {
+    display: block;
+    padding: 8px 26px;
+    color:  #FFFFFF;
+    margin: 4px 0;
+    position: relative;
+}
+
+.smenu a::before {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background: #FFFFFF;
+    left: 0;
+    top: 0;
+    transition: .3s;
+    opacity: 0;
+}
+
+.smenu a:hover::before {
+    opacity: 1;
+}
+
+.buttonitem:target .smenu {
+    max-height: 10em;
+}
+
+/* 좌측메뉴  */
+
+
