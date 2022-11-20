@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/macos,windows,eclipse,java
-# Edit at https://www.toptal.com/developers/gitignore?templates=macos,windows,eclipse,java
+# Created by https://www.toptal.com/developers/gitignore/api/java,windows,macos,eclipse
+# Edit at https://www.toptal.com/developers/gitignore?templates=java,windows,macos,eclipse
 
 ### Eclipse ###
 .metadata
@@ -13,6 +13,12 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+
+# Eclipse Core      
+.project
+
+# JDT-specific (Eclipse Java Development Tools)     
+.classpath
 
 # External tool builders
 .externalToolBuilders/
@@ -133,12 +139,6 @@ Thumbs.db:encryptable
 ehthumbs.db
 ehthumbs_vista.db
 
-# Eclipse Core      
-.project
-
-# JDT-specific (Eclipse Java Development Tools)     
-.classpath
-
 # Dump file
 *.stackdump
 
@@ -158,4 +158,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/macos,windows,eclipse,java
+# End of https://www.toptal.com/developers/gitignore/api/java,windows,macos,eclipse
