@@ -57,7 +57,7 @@ public class noticeDAO {
 	
 	
 	// 글쓰기 메서드-insertBoard(DTO)
-	public void insertBoard(BoardDTO bodto) {
+	public void insertBoard(BoardDTO boDTO) {
 		int bo_num = 0;
 		
 		try {
@@ -86,12 +86,12 @@ public class noticeDAO {
 			
 			// ???
 			pstmt.setInt(1, bo_num);
-			pstmt.setString(2, bodto.getMem_id());
-			pstmt.setString(3, bodto.getBo_cate());
-			pstmt.setString(4, bodto.getBo_title());
-			pstmt.setString(5, bodto.getBo_pass());
-			pstmt.setString(6, bodto.getBo_content());
-			pstmt.setString(7, bodto.getBo_file());
+			pstmt.setString(2, boDTO.getMem_id());
+			pstmt.setString(3, boDTO.getBo_cate());
+			pstmt.setString(4, boDTO.getBo_title());
+			pstmt.setString(5, boDTO.getBo_pass());
+			pstmt.setString(6, boDTO.getBo_content());
+			pstmt.setString(7, boDTO.getBo_file());
 			pstmt.setInt(8, bo_num); // ref == bo_num
 			pstmt.setInt(9, 0);  // lev 0
 			pstmt.setInt(10, 0);  // seq 0
@@ -335,31 +335,48 @@ public class noticeDAO {
 				
 		
 		// 게시판 글 삭제 - deleteNotice
-		public void deleteNotice(int bo_num) {
+		public int deleteNotice(int bo_num,String bo_pass) {
+			int result = -1;
 			
 			try {
-				//1.2. 디비연결
+				// 1.2. 디비 연결
 				con = getConnection();
-				
-				// 3. sql실행 & pstmt 객체생성
-				sql = "delete from member_board where bo_num=?";
+				// 3. sql 작성(select) & pstmt 객체
+				sql = "select bo_pass from member_board where bo_num=?";
 				pstmt = con.prepareStatement(sql);
-				
-				//??/
+				// ???
 				pstmt.setInt(1, bo_num);
-				pstmt.executeUpdate();
+				// 4. sql 실행
+				rs = pstmt.executeQuery();
+				// 5. 데이터 처리
+				if(rs.next()) {
+					if(bo_pass.equals(rs.getString("bo_pass"))) {
+						// 3. sql 작성(delete) & pstmt 객체
+						sql = "delete from member_board where bo_num=?";
+						pstmt = con.prepareStatement(sql);
+						
+						pstmt.setInt(1, bo_num);
+						// 4. sql 실행
+						result = pstmt.executeUpdate();					
+					}else {
+						// 비밀번호 오류
+						result = 0;
+					}				
+				}else {
+					// 게시판글 없음
+					result = -1;
+				}
 				
-				System.out.println(" DAO : 관리자 게시글 삭제 완료 ");
+				System.out.println(" DAO : 게시판 정보 삭제완료 ("+result+")");
 				
 			} catch (Exception e) {
 				e.printStackTrace();
-			}finally {
+			} finally {
 				closeDB();
 			}
 			
+			return result;
 		}
-		
-		
 		
 		// 게시판 글 삭제 - noticeDelete
 		

@@ -6,6 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Vector;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -87,6 +90,10 @@ public class AdminMemberDAO {
 		return cnt;
 	}
 	// 글 전체 개수 확인 - getMemberCount()
+
+	
+	// 게시물 목록 반환 - selectMemberList
+	
 	
 	// 글정보 가져오기 - getMemberList(int startRow,int pageSize)
 	public ArrayList getMemberList(int startRow,int pageSize) {
@@ -185,7 +192,7 @@ public class AdminMemberDAO {
 		
 		
 		// 관리자 회원탈퇴 - adminMemberDelete(mem_num)
-		public void adminMemberDelete(String mem_num) {
+		public void adminMemberDelete(int mem_num) {
 			
 			try {
 				
@@ -197,7 +204,7 @@ public class AdminMemberDAO {
 				pstmt = con.prepareStatement(sql);
 				
 				// ???
-				pstmt.setString(1, mem_num);
+				pstmt.setInt(1, mem_num);
 				
 				// sql 실행
 				pstmt.executeUpdate();

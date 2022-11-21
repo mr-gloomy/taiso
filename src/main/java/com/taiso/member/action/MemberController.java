@@ -185,27 +185,23 @@ public class MemberController extends HttpServlet {
 			forward = new MemberForward();
 			forward.setPath("./member/memberRemove.jsp");
 			forward.setRedirect(false);
+
+			
+		}else if(command.equals("/MemberRemovePw.me")) {
+			System.out.println(" C : /MemberRemove.me 호출 ");
+			System.out.println(" C : [패턴 1] ");
+			
+			forward = new MemberForward();
+			forward.setPath("./member/memberRemovePw.jsp");
+			forward.setRedirect(false);
 			
 			
 		}else if(command.equals("/MemberRemoveAction.me")) {
 			System.out.println(" C : /MemberRemoveAction.me 호출 ");
-			System.out.println(" C : [패턴 3] ");
-			
-			// MemberRemoveAction() 객체
-			action = new MemberUpdate();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-			
-		}else if(command.equals("/MemberRemoveProAction.me")) {
-			System.out.println(" C : /MemberRemoveProAction.me 호출 ");
 			System.out.println(" C : [패턴 2] ");
 			
-			// MemberDeleteAction()
-			action = new MemberRemoveProAction();
+			// MemberRemoveAction() 객체
+			action = new MemberRemoveAction();
 			
 			try {
 				forward = action.execute(request, response);
@@ -218,7 +214,7 @@ public class MemberController extends HttpServlet {
 			System.out.println(" C : /MemberLogout.me 호출 ");
 			System.out.println(" C : [패턴 2] ");
 			
-			// MemberLogoutAction()
+			// MemberLogoutAction() 객체
 			action = new MemberLogoutAction();
 			
 			try {
@@ -241,7 +237,7 @@ public class MemberController extends HttpServlet {
 			System.out.println(" C : /MemberFindIdAction.me 호출");
 			System.out.println(" C : [패턴 2]");
 			
-			// MemberFindIdAction.me()
+			// MemberFindIdAction.me() 객체
 			action = new MemberFindIdAction();
 			
 			try {
@@ -273,7 +269,7 @@ public class MemberController extends HttpServlet {
 			System.out.println(" C : /MemberFindPwAction.me 호출");
 			System.out.println(" C : [패턴 2]");
 			
-			// MemberFindPwAction.me()
+			// MemberFindPwAction.me() 객체
 			action = new MemberFindPwAction();
 			
 			try {

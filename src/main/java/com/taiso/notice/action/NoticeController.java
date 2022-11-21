@@ -104,8 +104,16 @@ public class NoticeController extends HttpServlet{
 			}
 			
 		}
+		
 		else if(command.equals("/AdminNoticeDelete.nb")) {
 			System.out.println(" C : /AdminNoticeDelete.nb 호출 ");
+			
+			forward = new NoticeForward();
+			forward.setPath("./notice/adminNoticeDelete.jsp");
+			forward.setRedirect(false);		
+		}
+		else if(command.equals("/AdminNoticeDeleteAction.nb")) {
+			System.out.println(" C : /AdminNoticeDeleteAction.nb 호출 ");
 			
 			action = new AdminNoticeDeleteAction();
 			
@@ -114,8 +122,8 @@ public class NoticeController extends HttpServlet{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
 		}
-	
 		else if(command.equals("/NoticeList.nb")) {
 			System.out.println(" C : /NoticeList.nb 호출");
 			

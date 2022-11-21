@@ -34,16 +34,15 @@
 
 <script type="text/javascript">
 
-// function chk() {
-//     var f = document.thisForm;
+function chk(){
+	
+    var f = document.thisForm;
     
-//     if(f.mem_accept_sns.checked !== true) {
-//         alert('필수항목에 체크 해주세요.');
-//     } else {
-//         alert('비밀번호를 재입력 해주세요.');
-//         location href='';
-//     }
-// }
+    if(f.mem_accept_sns.checked !== true) {
+        alert('약관동의에 체크해주세요.');
+        
+    }
+}
 
 </script>
 </head>
@@ -84,7 +83,7 @@
 						<h3>회원탈퇴</h3>
 					</div>
 
-				<form action="./MemberRemoveAction.me"  method="post">
+				<form>
 				
 					<div class="formbold-event-details">
 					<h5> <i class='fas fa-exclamation-triangle' style='font-size: 20px; color: red'></i> 
@@ -144,31 +143,28 @@
 							</div>
 						</ol>
 					</div>
-					
-					<form name="thisForm">
+					</form>
+
+					<form action="./MemberRemovePw.me"  method="post" name="thisForm">
 					
 					<div class="formbold-checkbox-wrapper">
 						<label for="supportCheckbox" class="formbold-checkbox-label">
 							<div class="formbold-relative">
-								<input type="checkbox" name="mem_accept_sns" value='1' id="supportCheckbox" class="formbold-input-checkbox"/>
-								<input type="hidden" value='0' id="supportCheckbox_hidden" />
-						
-						
-					<div class="formbold-checkbox-inner">
-						<span class="formbold-opacity-0"> 
-						<svg width="11" height="8" viewBox="0 0 11 8" class="formbold-stroke-current" fill="none" xmlns="http://www.w3.org/2000/svg">
-                 		<path d="M8.81868 0.688604L4.16688 5.4878L2.05598 3.29507C1.70417 2.92271 1.1569 2.96409 0.805082 3.29507C0.453266 3.66742 0.492357 4.24663 0.805082 4.61898L3.30689 7.18407C3.54143 7.43231 3.85416 7.55642 4.16688 7.55642C4.47961 7.55642 4.79233 7.43231 5.02688 7.18407L10.0696 2.05389C10.4214 1.68154 10.4214 1.10233 10.0696 0.729976C9.71776 0.357624 9.17049 0.357625 8.81868 0.688604Z" fill="white" />
-               			</svg></span>
-					</div>
-					
-							</div> 회원탈퇴에 동의합니다.
+								<input type="checkbox" name="mem_accept_sns" id="supportCheckbox" class="formbold-input-checkbox" />
+							
+							<div class="formbold-checkbox-inner">
+								<span class="formbold-opacity-0"> 
+								<svg width="11" height="8" viewBox="0 0 11 8" class="formbold-stroke-current" fill="none" xmlns="http://www.w3.org/2000/svg">
+                				<path d="M8.81868 0.688604L4.16688 5.4878L2.05598 3.29507C1.70417 2.92271 1.1569 2.96409 0.805082 3.29507C0.453266 3.66742 0.492357 4.24663 0.805082 4.61898L3.30689 7.18407C3.54143 7.43231 3.85416 7.55642 4.16688 7.55642C4.47961 7.55642 4.79233 7.43231 5.02688 7.18407L10.0696 2.05389C10.4214 1.68154 10.4214 1.10233 10.0696 0.729976C9.71776 0.357624 9.17049 0.357625 8.81868 0.688604Z" fill="white" />
+                				</svg>
+								</span>
+							</div>
+							</div> 회원탈퇴 약관을 모두 확인했습니다.
+
 						</label>
-					</div>
-						<button class="formbold-btn" onClick="chk();">탈퇴하기</button>
-					</form>
-					
+						<button type="submit" class="formbold-btn" onclick="chk();">탈퇴하기</button>
 						<input type="hidden" name="mem_id" id="mem_id" value="${sessionScope.mem_id}" />
-					
+					</div>
 					</form>
 				</div>
 			</div>

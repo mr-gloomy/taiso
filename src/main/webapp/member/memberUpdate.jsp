@@ -86,7 +86,7 @@ function winopen2(){ // 닉네임 중복 체크
 				<h3>회원정보 수정</h3>
 			</div>
 				
-				<form action="./MemberUpdatePw.me" method="post" name="fr" >
+				<form action="./MemberUpdateAction.me" method="post" name="fr">
 				
 					<div class="formbold-mb-3">
 						<label for="mem_name" class="formbold-form-label"> 아이디 </label> 
@@ -102,7 +102,7 @@ function winopen2(){ // 닉네임 중복 체크
 						<label for="mem_nickName" class="formbold-form-label"> 닉네임 </label>
 						<div>
 							<input type="text" name="mem_newNickName" id="mem_newNickName"  value="${mDTO.mem_nickName }" class="formbold-form-input-small"/>
-						    <button class="formbold-btn" onclick="winopen2();"> 중복확인 </button>
+						    <button type="button" class="formbold-btn" onclick="winopen2();"> 중복확인 </button>
 						</div>
 					</div>
 					
@@ -139,8 +139,8 @@ function winopen2(){ // 닉네임 중복 체크
 					<div class="aforgot">
 						<a href="./MemberRemove.me" id="forgot" class="font-weight-bold">회원탈퇴</a>  
 					</div>
-						<button class="submit">수정하기</button>
 						<input type="hidden" name="mem_pw" id="mem_pw" value="${mDTO.mem_pw }" />
+						<button type="submit" class="submit">수정하기</button>
 				</form>
 			</div>		
 		</div>

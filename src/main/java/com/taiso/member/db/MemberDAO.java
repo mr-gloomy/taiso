@@ -284,47 +284,6 @@ public class MemberDAO {
 	
 	
 	
-	// 로그인 재확인 메서드 - memberReLogin(mem_id, mem_pw)
-	public int memberReLogin(String mem_id, String mem_pw) {
-		int result = 0;
-		
-		try {
-			// 1.2. 
-			con = getConnection();
-			
-			// 3. 
-			sql = "select * from member where mem_pw=?";
-			pstmt = con.prepareStatement(sql);
-			
-			// ??
-			pstmt.setString(1, mem_pw);
-			
-			// 4. 
-			rs = pstmt.executeQuery();
-			
-			// 5. 
-			if(rs.next()) {
-				// 로그인 성공
-				mem_pw.equals(rs.getString("mem_pw")); 
-				result = 1;
-				
-				}else { // 로그인 실패
-				result = 0;
-			}
-			System.out.println(" DAO : 로그인 체크 ("+result+")");
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			closeDB();
-		}
-		
-		return result;
-	}
-	// 로그인 재확인 메서드 - memberReLogin(mem_id, mem_pw) - 끝
-	
-	
-	
 	// 회원정보 조회 메서드 - getMember(mem_id)
 	public MemberDTO getMember(String mem_id){
 		MemberDTO mDTO = null;

@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="./css/icomoon.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/main2.css">
+    
   </head>
   <body>
   <div id="wrap">
@@ -33,7 +34,7 @@
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
           <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">admin<i class="ion-ios-arrow-forward"></i></a></span> 
+          	<p class="breadcrumbs"><span class="mr-2"><a href="./AdminMain.mb">admin<i class="ion-ios-arrow-forward"></i></a></span> 
           	<span>notice <i class="ion-ios-arrow-forward"></i></span></p>
           </div>
         </div>
@@ -45,14 +46,14 @@
   	<div class="board_wrap">
         <div class="board_title">
             <strong>공지사항 글 삭제하기</strong>
-            <p>비밀번호 입력 후 '삭제하기' 버튼을 눌러주세요.</p>
+            <p>비밀번호 입력 후 [삭제하기] 버튼 클릭 시 해당 게시물이 삭제됩니다.</p>
         </div>
         <div class="board_view_wrap">
             <div class="board_view"><br>
 	           	<div class="notice_delete">
-	           	 	<form action="./AdminNoticeDeleteAction.nb?bo_num=${bo_num }&pageNum=${pageNum}" method="post"  >
+	           	 	<form action="./AdminNoticeDeleteAction.nb?pageNum=${param.pageNum }" method="post">
 					    <input type="hidden" name="bo_num" value="${param.bo_num }">
-						비밀번호 : <input type="password" name="pass">
+						비밀번호 : <input type="password" name="bo_pass">
 						<input type="submit" value="삭제하기" class="btn btn-primary">
 					</form>
 	            </div>

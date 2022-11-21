@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,25 +21,31 @@
     <link rel="stylesheet" href="./css/icomoon.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/board.css">
-<style>
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  border: 1px solid #ddd;
+<style type="text/css">
+.table tbody tr td {
+	vertical-align: middle;
+	padding: 2px;
+	
+}
+.title1 {
+	width: 1.5cm;
+	align-items: center;
+}
+.title2 {
+	width: 1cm;
+}
+.title3 {
+	width: 2cm;
+}
+.table table-sm {
+	overflow: hidden
+
 }
 
-th, td {
-  text-align: left;
-  padding: 16px;
-}
-
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
 </style>
   </head>
-  <body>
+  
+ <body>
   <div id="wrap">
 	<!-- 헤더들어가는 곳 -->
 	<jsp:include page="../inc/top.jsp"/>
@@ -59,7 +65,7 @@ tr:nth-child(even) {
 	<!-- 메인페이지  -->
     <section class="ftco-section contact-section">
       <div class="container">
-        <div class="row d-flex mb-5 contact-info">
+        <div class="row d-flex mb-3 contact-info">
     	<div class="col-md-4">
         <div class="board_title">
             <strong>회원정보 상세조회</strong></div>
@@ -79,66 +85,91 @@ tr:nth-child(even) {
   		</div> 
    	 </div> 
    	 <!-- 우측 -->
-          <div class="col-md-8 block-9 mb-md-5">
-            <form action="#" class="bg-light p-18 contact-form">
-              <div class="form-group">
-              	<table>
+   	   <div class="col-md-3 block-4 mb-md-5">
+            <form action="#" class="list" >
+              	<table class="table table-sm" >
+              	<tbody class="tbody">
 				  <tr>
-				    <th>회원번호</th>
-				    <th>회원명</th>
-				    <th>닉네임</th>
-				    <th>생년월일</th>
+				    <td class="title1">회원번호</td>
+				    <td class="title2"> : </td>
+				    <td class="title3">${mDTO.mem_num }</td>
+				  </tr>
+				    <td>회원명</td>
+				    <td> : </td>
+				    <td>${mDTO.mem_name }</td>
+				  <tr>
+				    <td>닉네임</td>
+				    <td> : </td>
+				    <td>${mDTO.mem_nickName }</td>
 				  </tr>
 				  <tr>
-				    <td>${mDTO.mem_num }</td>
-				    <td>${mDTO.mem_name }</td>
-				    <td>${mDTO.mem_nickName }</td>
+				    <td>생년월일</td>
+				    <td> : </td>
 				    <td>${mDTO.mem_birthday }</td>
 				  </tr>
 				  <tr>
-				    <th>아이디</th>
-				    <th>비밀번호</th>
-				    <th>전화번호</th>
-				    <th>이메일</th>
+				    <td>아이디</td>
+				    <td> : </td>
+				    <td>${mDTO.mem_id }</td>
 				  </tr>
 				  <tr>
-				    <td>${mDTO.mem_id }</td>
+				    <td>비밀번호</td>
+				    <td> : </td>
 				    <td>${mDTO.mem_pw }</td>
+				  </tr>
+				    <td>전화번호</td>
+				    <td> : </td>
 				    <td>${mDTO.mem_phone }</td>
+				  <tr>
+				    <td>이메일</td>
+				    <td> : </td>
 				    <td>${mDTO.mem_email }</td>
 				  </tr>
 				  <tr>
-				    <th>SNS 수신 여부</th>
-				    <th>회원등록일</th>
-				    <th>프로필 이미지</th>
-				    <th>면허증번호</th>
+				    <td>SNS 수신 여부</td>
+				    <td> : </td>
+				    <td>${mDTO.mem_accept_sns }</td>
 				  </tr>
 				  <tr>
-				    <td>${mDTO.mem_accept_sns }</td>
+				    <td>회원등록일</td>
+				    <td> : </td>
 				    <td>${mDTO.mem_registDate }</td>
+				  <tr>
+				    <td>프로필 이미지</td>
+				    <td> : </td>
 				    <td>${mDTO.mem_image }</td>
+				  </tr>
+				  <tr>
+				    <td>면허증번호</td>
+				    <td> : </td>
 				    <td>${mDTO.license_num }</td>
 				  </tr>
 				  <tr>
-				    <th>블랙리스트</th>
-				    <th>블랙리스트 사유</th>
+				    <td>블랙리스트</td>
+				    <td> : </td>
+				    <td>${mDTO.mem_blacklist }<a href="#">[수정하기]</a></td>
 				  </tr>
 				  <tr>
-				    <td>${mDTO.mem_blacklist }</td>
+				    <td>블랙리스트 사유</td>
+				    <td> : </td>
+				    <td><input type="text">
 				  </tr>
+				  </tbody>
 				</table>
-              
-              
               </div>
             </form>
           
-          </div>
-        </div>
-        <div class="row justify-content-center">
-        	
         </div>
       </div>
-    </section>
+    </section>		
+					
+						
+						
+						
+						
+						
+						
+						
 	 <!-- 우측 -->
 	
 

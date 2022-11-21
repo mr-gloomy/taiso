@@ -1,18 +1,19 @@
 package com.taiso.member.action;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.taiso.member.db.MemberDAO;
-import com.taiso.member.db.MemberDTO;
 
 public class MemberRemoveAction implements Member {
 
 	@Override
 	public MemberForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		System.out.println(" M : MemberRemoveAction_execute 호출 ");
+		System.out.println(" M : MemberRemoveProAction_execute 호출");
 		
 		// 세션제어
 		HttpSession session = request.getSession();
@@ -26,18 +27,47 @@ public class MemberRemoveAction implements Member {
 			return forward;
 		}
 		
-		// DAO - 기존의 회원정보 가져오기 - getMember(mem_id)
-		MemberDAO mDAO = new MemberDAO();
-		MemberDTO mDTO = mDAO.getMember(mem_id);
+		// 전달정보 저장
+		session = request.getSession();
+		session.getAttribute("mem_id");
+		String mem_pw = request.getParameter("mem_repw");
 		
-		// 정보 request 영역 저장
-		request.setAttribute("mDTO", mDTO);
+		System.out.println(" M : 아이디 저장 :" +mem_id);
+		System.out.println(" M : 비밀번호 저장 :" +mem_pw);
+		
+		// DAO - 회원정보 삭제(deleteMember())
+		MemberDAO mDAO = new MemberDAO();
+		int result = mDAO.memberRemove(mem_id, mem_pw);
+		
+		System.out.println(" M : result : "+result);
+		
 		
 		// 페이지 이동
-		forward.setPath("./member/memberRemove.jsp");
-		forward.setRedirect(false);
-		
-		return forward;
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+			
+		if(result == 0) {
+			out.print("<script>");
+			out.print(" alert('비밀번호가 틀렸습니다.'); ");
+			out.print(" history.back(); ");
+			out.print("</script>");
+			out.close();
+			
+			return null;
+			
+			
+		}else { // result == 1
+			// 세션 초기화
+			session.invalidate();
+			
+			// 메인으로 이동
+			out.print("<script>");
+			out.print(" alert('회원탈퇴가 완료되었습니다.'); ");
+			out.print(" location.href='./ReservationMain.rez'; ");
+			out.print("</script>");
+			out.close();
+			
+			return null;
+		}
 	}
-
 }
