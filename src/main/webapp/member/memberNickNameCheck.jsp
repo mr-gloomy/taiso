@@ -9,15 +9,15 @@
 <title>Insert title here</title>
 
 <script type="text/javascript">
-	function mem_userNName(){
-		alert('닉네임 사용가능');
+function mem_userNName(){
+	alert('닉네임 사용가능');
 		
-		// 확인된 닉네임을 회원가입창으로 전달
-		opener.document.fr.mem_newNickName.value = document.ckfr2.mem_userNName.value;
+	// 확인된 닉네임을 회원가입창으로 전달
+	opener.document.fr.mem_newNickName.value = document.ckfr2.mem_userNName.value;
 
-		// 해당창 종료
-		window.close();		
-	}
+	// 해당창 종료
+	window.close();		
+}
 </script>
 
 </head>

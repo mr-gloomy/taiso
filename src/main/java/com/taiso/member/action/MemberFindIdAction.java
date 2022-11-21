@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.taiso.member.db.MemberDAO;
 import com.taiso.member.db.MemberDTO;
@@ -13,7 +14,7 @@ public class MemberFindIdAction implements Member {
 	@Override
 	public MemberForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		System.out.println(" M : MemberFindIdAction_execute() 호출 ");
+		System.out.println(" M : MemberFindIdAction_execute() 호출 ");		
 		
 		// 전달정보 저장(mem_name, mem_email)
 		String mem_name = request.getParameter("mem_name");

@@ -12,17 +12,17 @@
 //	response.sendRedirect("./AdminCarAdd.ad");
 // response.sendRedirect("./AdminCarList.ad");
 // response.sendRedirect("./AdminCarList.ad");
-response.sendRedirect("./ReservationMain.rez");
+// response.sendRedirect("./ReservationMain.rez");
 
 //회원팀 페이지---------------------------------------------------------------
 
 
 		// test
 // response.sendRedirect("./MemberJoin.me");
-	 //	response.sendRedirect("./MemberLogin.me");
-//	  response.sendRedirect("./MemberUpdate.me");
-	 // response.sendRedirect("./MemberRemove.me");
- //	response.sendRedirect("./MemberFindPw.me");
+// 	 	response.sendRedirect("./MemberLogin.me");
+// 	  response.sendRedirect("./MemberUpdatePw.me");
+	response.sendRedirect("./MemberRemove.me");
+//  	response.sendRedirect("./MemberFindPw.me");
 	 // response.sendRedirect("./MemberFindIdResult.me");
 // response.sendRedirect("./AdminMain.mb");
 		

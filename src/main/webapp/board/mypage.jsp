@@ -62,7 +62,7 @@
      	<div class="row mb-5">
 			<div class="membercard">
 			  <div align="right">			
-				<button type="button" class="btn btn-secondary btn-sm" id="minibtn" onclick="location.href='./MemberUpdate.me' ">내 정보</button>
+				<button type="button" class="btn btn-secondary btn-sm" id="minibtn" onclick="location.href='./MemberUpdatePw.me' ">내 정보</button>
 			  </div>
 				<div class="text">
 					<img src="./images/user.png">

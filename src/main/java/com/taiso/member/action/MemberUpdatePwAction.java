@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.taiso.member.db.MemberDAO;
+import com.taiso.member.db.MemberDTO;
 
 public class MemberUpdatePwAction implements Member {
 
@@ -17,12 +18,12 @@ public class MemberUpdatePwAction implements Member {
 		
 		// 전달 정보 저장(mem_id, mem_pw)
 		HttpSession session = request.getSession();
-		String mem_id = (String)session.getAttribute("mem_id");
-		String mem_pw = request.getParameter("mem_pw");
-
+		String mem_id = (String) session.getAttribute("mem_id");
+		String mem_pw = request.getParameter("mem_repw");
+		
 		// DAO 객체 생성 - 비밀번호 일치 체크
 		MemberDAO mDAO = new MemberDAO();
-		int result = mDAO.memberReLogin(mem_id, mem_pw);
+		int result = mDAO.memberLogin(mem_id, mem_pw);
 		
 		
 		// 체크 결과에 따른 페이지 이동
@@ -40,11 +41,12 @@ public class MemberUpdatePwAction implements Member {
 			
 		}else {// 로그인 성공 -> 비밀번호 세션영역에 저장
 		session.setAttribute("mem_pw", mem_pw);
+
 		
 		// 수정페이지로 이동
 		MemberForward forward = new MemberForward();
 		forward.setPath("/MemberUpdate.me");
-		forward.setRedirect(true);
+		forward.setRedirect(false);
 		
 		return forward;
 		
