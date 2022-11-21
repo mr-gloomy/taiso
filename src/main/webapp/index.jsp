@@ -3,7 +3,7 @@
     pageEncoding="EUC-KR"%>
 
 <%
-//¿¹¾àÆÀ ÆäÀÌÁö---------------------------------------------------------------
+//ì˜ˆì•½íŒ€ íŽ˜ì´ì§€---------------------------------------------------------------
 //	response.sendRedirect\("./ReviewWrite.re");
 // response.sendRedirect("./ReviewUpdate.re");
 //response.sendRedirect("./CarList.ca");
@@ -13,10 +13,11 @@
 // response.sendRedirect("./AdminCarList.ad");
 // response.sendRedirect("./AdminCarList.ad");
 // response.sendRedirect("./ReservationMain.rez");
+
 response.sendRedirect("./AdminReviewList.adr");
 
 
-//È¸¿øÆÀ ÆäÀÌÁö---------------------------------------------------------------
+//íšŒì›íŒ€ íŽ˜ì´ì§€---------------------------------------------------------------
 
 
 		// test
@@ -31,6 +32,6 @@ response.sendRedirect("./AdminReviewList.adr");
 
 
 
- //¸®ºä ÆäÀÌÁö´Â ÀÌ¾îÁú ¼ö ÀÖ´Â ±¸Á¶°¡ ¾ÆÁ÷ ¾Æ´Ï¾î¼­ ¸®ºä º¸°í ½ÍÀ¸¸é ¾Æ·¡ ÁÖ¼Ò·Î ¿À·¡¿ä *^^*
+ //ë¦¬ë·° íŽ˜ì´ì§€ëŠ” ì´ì–´ì§ˆ ìˆ˜ ìžˆëŠ” êµ¬ì¡°ê°€ ì•„ì§ ì•„ë‹ˆì–´ì„œ ë¦¬ë·° ë³´ê³  ì‹¶ìœ¼ë©´ ì•„ëž˜ ì£¼ì†Œë¡œ ì˜¤ëž˜ìš” *^^*
  // response.sendRedirect("./ReviewList.rev"); 
 %>
