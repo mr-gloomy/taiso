@@ -81,6 +81,12 @@
                 </div>
               </c:forEach>
 			</div><br>
+	      <!-- 버튼 -->
+	      <div align="right">
+	      	<input type="button" value="새글작성" class="btn btn-primary" onclick="location.href='./AdminNoticeWrite.nb';">
+	      </div>
+	           
+	        </div>
               
             <!-- 페이지처리 -->
             <div align="center"> 
@@ -93,14 +99,8 @@
 		   </div>	
   
       </div><br>
+	 </div>
       
-      <!-- 버튼 -->
-      <div>
-      	<input type="button" value="새글작성" class="btn btn-primary" onclick="location.href='./AdminNoticeWrite.nb';">
-      </div>
-           
-        </div>
-    </div>
   
 	<!-- 메인 -->
      

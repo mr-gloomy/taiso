@@ -12,7 +12,7 @@
 //	response.sendRedirect("./AdminCarAdd.ad");
 // response.sendRedirect("./AdminCarList.ad");
 // response.sendRedirect("./AdminCarList.ad");
-response.sendRedirect("./ReservationMain.rez");
+// response.sendRedirect("./ReservationMain.rez");
 
 //회원팀 페이지---------------------------------------------------------------
 
@@ -24,7 +24,7 @@ response.sendRedirect("./ReservationMain.rez");
 	 // response.sendRedirect("./MemberRemove.me");
  //	response.sendRedirect("./MemberFindPw.me");
 	 // response.sendRedirect("./MemberFindIdResult.me");
-// response.sendRedirect("./AdminMain.mb");
+response.sendRedirect("./AdminMain.mb");
 		
 
 
