@@ -12,7 +12,8 @@
 //	response.sendRedirect("./AdminCarAdd.ad");
 // response.sendRedirect("./AdminCarList.ad");
 // response.sendRedirect("./AdminCarList.ad");
-response.sendRedirect("./ReservationMain.rez");
+// response.sendRedirect("./ReservationMain.rez");
+	response.sendRedirect("./AdminReviewList.adr");
 
 //회원팀 페이지---------------------------------------------------------------
 
