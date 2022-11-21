@@ -7,10 +7,10 @@ import javax.servlet.http.HttpSession;
 import com.taiso.admin.member.action.MemberForward;
 import com.taiso.admin.member.db.MemberDTO;
 
-public class MypageAction implements Board {
+public class MypageAction implements Action {
 
 	@Override
-	public BoardForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		System.out.println(" M : MypageAction_execute 호출 ");
 
@@ -19,7 +19,7 @@ public class MypageAction implements Board {
 		String mem_id = (String) session.getAttribute("mem_id");
 		System.out.println(mem_id);
 		
-		BoardForward forward = new BoardForward();
+		ActionForward forward = new ActionForward();
 //		if(mem_id==null || !mem_id.equals("admin")) {
 //			forward.setPath("./ReservationMain.rez");
 //			forward.setRedirect(true);

@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.taiso.board.db.BoardDAO;
 import com.taiso.board.db.BoardDTO;
 
-public class QuestionUpdateProAction implements Board {
+public class QuestionUpdateProAction implements Action {
 
 	@Override
-	public BoardForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("QuestionUpdateProAction_execute 호출!");
 		
 		BoardDTO bodto = new BoardDTO();

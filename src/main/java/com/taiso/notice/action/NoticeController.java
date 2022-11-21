@@ -34,13 +34,13 @@ public class NoticeController extends HttpServlet{
 		// 2.가상주소매핑
 		System.out.println(" C : (2단계 시작) 가상주소 매핑 시작 ------------- ");
 		
-		Notice action = null;
-		NoticeForward forward = null;
+		Action action = null;
+		ActionForward forward = null;
 		
 		if(command.equals("/AdminNoticeWrite.nb")) {
 			System.out.println(" C : /AdminNoticeWrite.nb 호출");
 			
-			forward = new NoticeForward();
+			forward = new ActionForward();
 			forward.setPath("./notice/adminNoticeWrite.jsp");
 			forward.setRedirect(false);
 		}
@@ -108,7 +108,7 @@ public class NoticeController extends HttpServlet{
 		else if(command.equals("/AdminNoticeDelete.nb")) {
 			System.out.println(" C : /AdminNoticeDelete.nb 호출 ");
 			
-			forward = new NoticeForward();
+			forward = new ActionForward();
 			forward.setPath("./notice/adminNoticeDelete.jsp");
 			forward.setRedirect(false);		
 		}

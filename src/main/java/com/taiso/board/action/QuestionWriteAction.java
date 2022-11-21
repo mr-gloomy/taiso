@@ -9,10 +9,10 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.taiso.board.db.BoardDAO;
 import com.taiso.board.db.BoardDTO;
 
-public class QuestionWriteAction implements Board {
+public class QuestionWriteAction implements Action {
 
 	@Override
-	public BoardForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println( " M : QuestionWriteAction_execute 호출! ");
 	
 		// 1) 파일 업로드
@@ -58,7 +58,7 @@ public class QuestionWriteAction implements Board {
 		bodao.insertQuestion(bodto);
 		
 		// 페이지 이동정보 생성(티켓 생성) 
-		BoardForward forward = new BoardForward();
+		ActionForward forward = new ActionForward();
 		forward.setPath("./QuestionList.bo");
 		forward.setRedirect(true);
 		

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.taiso.notice.action.NoticeForward;
+import com.taiso.notice.action.ActionForward;
 
 
 @WebServlet("*.mb")

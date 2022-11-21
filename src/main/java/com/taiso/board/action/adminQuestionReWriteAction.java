@@ -9,10 +9,10 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.taiso.board.db.BoardDAO;
 import com.taiso.board.db.BoardDTO;
 
-public class adminQuestionReWriteAction implements Board {
+public class adminQuestionReWriteAction implements Action {
 
 	@Override
-	public BoardForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println(" M : QuestionReWriteAction_execute 호출");
 	
 		// 1) 파일 업로드 
@@ -57,7 +57,7 @@ public class adminQuestionReWriteAction implements Board {
 		System.out.println(pageNum+"@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 		
 		// 페이지 이동(정보 저장)
-		BoardForward forward = new BoardForward();
+		ActionForward forward = new ActionForward();
 		forward.setPath("./QuestionList.bo?pageNum="+pageNum);
 		forward.setRedirect(true);
 			return forward;
