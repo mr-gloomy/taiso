@@ -3,7 +3,7 @@
     pageEncoding="EUC-KR"%>
 
 <%
-//예약팀 페이지---------------------------------------------------------------
+//���쏀�� ���댁�---------------------------------------------------------------
 //	response.sendRedirect\("./ReviewWrite.re");
 // response.sendRedirect("./ReviewUpdate.re");
 //response.sendRedirect("./CarList.ca");
@@ -17,7 +17,7 @@
 response.sendRedirect("./AdminReviewList.adr");
 
 
-//회원팀 페이지---------------------------------------------------------------
+//������ ���댁�---------------------------------------------------------------
 
 
 		// test
@@ -30,8 +30,7 @@ response.sendRedirect("./AdminReviewList.adr");
 // response.sendRedirect("./AdminMain.mb");
 		
 
+// 라이브러리 
 
-
- //리뷰 페이지는 이어질 수 있는 구조가 아직 아니어서 리뷰 보고 싶으면 아래 주소로 오래요 *^^*
  // response.sendRedirect("./ReviewList.rev"); 
 %>
