@@ -43,7 +43,7 @@ public class ReservationController extends HttpServlet{
 					System.out.println(" C : [패턴1] : ReservationMain.rez 호출");
 					
 					forward = new ActionForward();
-					forward.setPath("./reservation.jsp");
+					forward.setPath("./views/reservation.jsp");
 					forward.setRedirect(false);
 					
 				}

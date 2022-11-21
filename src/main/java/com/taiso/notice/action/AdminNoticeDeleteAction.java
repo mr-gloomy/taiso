@@ -29,17 +29,42 @@ public class AdminNoticeDeleteAction implements Notice {
 		// 전달된 파라미터
 		int bo_num = Integer.parseInt(request.getParameter("bo_num"));
 		String pageNum = request.getParameter("pageNum");
+		String bo_pass = request.getParameter("bo_pass");
 		
 		// DAO 객체 
 		noticeDAO dao = new noticeDAO();
-		dao.deleteNotice(bo_num);
+		int result = dao.deleteNotice(bo_num, bo_pass);
 		
-		// 페이지 이동
-		forward.setPath("./notice/adminNoticeList.jsp");
-		forward.setRedirect(false);
-		 
-		return forward;
+		// 결과에 따른 페이지 이동(JS)
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		
+		if(result == 1) {
+			out.print("<script>");
+			out.print(" alert('게시판 글 삭제 완료!'); ");
+			out.print(" location.href='./AdminNoticeList.nb?pageNum="+pageNum+"';");
+			out.print("</script>");
+			out.close();
+			
+			return null;		
+		}else if(result == 0) {
+			out.print("<script>");
+			out.print(" alert(' 비밀번호 오류! '); ");
+			out.print(" history.back(); ");
+			out.print("</script>");
+			out.close();
+			
+			return null;			
+		}else {
+			out.print("<script>");
+			out.print(" alert(' 글 없음! '); ");
+			out.print(" history.back(); ");
+			out.print("</script>");
+			out.close();
+			
+			return null;
+		}		
+
 		
 	}
 

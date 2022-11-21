@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -72,7 +74,10 @@
                     <div class="title3">
                     	<a href="./AdminReivewContent.adr?rev_num=${dto.rev_num }&pageNum=${pageNum}">${dto.rev_subject }</a>
                     </div>
-                    <div class="date3">${dto.rev_date }</div>
+                    <div class="date3">
+                    <fmt:formatDate value="${dto.rev_date }" pattern="yyyy년 MM월 dd일 " />
+<%--                     ${dto.rev_date } --%>
+                    </div>
                     <div class="count">${dto.rev_star } / 5 </div>
                     <div class="count">
                     	<a href="./AdminReviewDelete.adr?rev_num=${boDTO.bo_num }&pageNum=${pageNum }">삭제</a>

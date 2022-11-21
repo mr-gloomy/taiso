@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,7 +22,24 @@
     <link rel="stylesheet" href="./css/icomoon.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/board.css">
+
+<style type="text/css">
+ .main {
+ 	margin: 2em;
+ }
+ .table tbody tr td {
+    vertical-align: middle;
+    padding: 2px 0;
+
+</style>
+
+<script type="text/javascript">
  
+ 
+ 
+ 
+</script>
+
   </head>
   <body>
   <div id="wrap">
@@ -44,77 +61,86 @@
 	<!-- 헤더들어가는 곳 -->
 	
 	<!-- 메인 -->
-	
-  	<div class="board_wrap3">
-        <div class="board_title">
-            <strong>회원조회</strong>
-            <p> 회원수 : ${requestScope.totalCnt } 명 </p>
-			<div border="1" width="90%">
-				<div align="right">
-            <!-- 회원 분류 -->
-				<div class="form-check form-check-inline" align="right">
-					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-					<label class="form-check-label" for="inlineRadio1">전체회원</label>
-				</div>
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-					<label class="form-check-label" for="inlineRadio2">블랙리스트 회원</label>
-				</div>
+
+		<div class="board_wrap3">
+			<div class="board_title">
+				<strong>회원조회</strong>
+				<p>회원수 : ${requestScope.totalCnt } 명</p>
+				<div border="1" width="90%">
+					<div align="right">
+						<!-- 회원 분류 -->
+						<div class="form-check form-check-inline" align="right">
+							<input class="form-check-input" type="radio"
+								name="inlineRadioOptions" id="inlineRadio1" value="option1"
+								checked> <label class="form-check-label"
+								for="inlineRadio1">전체회원</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio"
+								name="inlineRadioOptions" id="inlineRadio2" value="option2">
+							<label class="form-check-label" for="inlineRadio2">블랙리스트
+								회원</label>
+						</div>
 
 
-			<!--  검색 폼 -->
-					<input type="text" name="search" >
-					<input type="submit" value="Search" class="btn btn-outline-secondary">
+						<!--  검색 폼 -->
+						<input type="text" name="search">
+						<input type="submit" value="Search" class="btn btn-outline-secondary">
+					</div>
 				</div>
 			</div>
-        </div>
-        <div class="board_list_wrap">
-            <div class="board_list">
-            
-                <div class="top1" >
-                    <div class="num1">회원번호</div>
-                    <div class="num1">아이디</div>
-                    <div class="num1">이름</div>
-                    <div class="num1">회원등록일</div>
-                    <div class="num1">블랙리스트</div>
-                    <div class="num1">관리</div>
-                </div>
-                
-              <c:forEach var="mDTO" items="${memberListAll }">
-              	<div>
-              		<div class="num1">${mDTO.mem_num }</div>
-                    <div class="num1">${mDTO.mem_id }</div>
-                    <div class="num1">${mDTO.mem_name }</div>
-                    <div class="num1">${mDTO.mem_registDate }</div>
-                    <div class="num1">${mDTO.mem_blacklist }</div>
-                    <div class="num1">
-              			<a href="./AdminMemberInfo.mb?mem_num=${mDTO.mem_num }&pageNum=${pageNum }">상세조회 | </a>
-                    	<a href="./AdminMemberDeletAction.mb?mem_num=${mDTO.mem_num }&pageNum=${pageNum }" id="ad">회원삭제</a>
-                    </div>
-      			</div>        
-              </c:forEach>
-			</div><br>
-            
-              
-            <!-- 페이지처리 -->
-            <div class="n_page" align="center"> 
-	  		 <c:if test="${totalCnt != 0}">
-                <!-- 페이지번호 -->
-                <c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
-		         	 <a href="./AdminNoticeList.nb?pageNum=${i }" class="btn btn-outline-primary" >${i }</a> 
-		    	</c:forEach>  
-			 </c:if>
-		   </div>	
-  
-      </div><br>
-      
-      <!-- 버튼 -->
-      <div>
-      	<input type="button" value="#" class="btn btn-primary" onclick="">
-      </div>
-           
-        </div>
-    </div>
+			<div class="table table-hove">
+				<div class="board_list">
+
+					<table class="table table-hover" align="center">
+						<thead>
+							<tr align="center">
+								<th>회원번호</th>
+								<th>아이디</th>
+								<th>이름</th>
+								<th>회원등록일</th>
+								<th>블랙리스트</th>
+								<th>관리</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="mDTO" items="${memberListAll }">
+								<tr colspan="1" align="center">
+									<td>${mDTO.mem_num }</td>
+									<td>${mDTO.mem_id }</td>
+									<td>${mDTO.mem_name }</td>
+									<td>${mDTO.mem_registDate }</td>
+									<td>${mDTO.mem_blacklist }</td>
+									<td>
+										<a href="./AdminMemberInfo.mb?mem_num=${mDTO.mem_num }&pageNum=${pageNum }">상세조회  | </a> 
+										<a href="./AdminMemberDelete.mb?mem_num=${mDTO.mem_num }"onclick="retrun MemberDelete()">회원삭제</a>
+									</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+				<br>
+ 
+
+				<!-- 페이지처리 -->
+				<div class="n_page" align="center">
+					<c:if test="${totalCnt != 0}">
+						<!-- 페이지번호 -->
+						<c:forEach var="i" begin="${startPage }" end="${endPage }"
+							step="1">
+							<a href="./AdminMemberList.mb?pageNum=${i }"
+								class="btn btn-outline-primary">${i }</a>
+						</c:forEach>
+					</c:if>
+				</div>
+
+			</div>
+			<br>
+
+
+		</div>
+	</div>
   	
   
 	<!-- 메인 -->
@@ -143,9 +169,8 @@
   <script src="./js/bootstrap-datepicker.js"></script>
   <script src="./js/jquery.timepicker.min.js"></script>
   <script src="./js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="./js/google-map.js"></script>
   <script src="./js/main.js"></script>
-    
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </body>
 </html>

@@ -1,20 +1,23 @@
 
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
 
 <%
-//¿¹¾àÆÀ ÆäÀÌÁö---------------------------------------------------------------
-//	response.sendRedirect\("./ReviewWrite.re");
+// ì˜ˆì•½&ìƒí’ˆ ---------------------------------------------------------------
+// response.sendRedirect\("./ReviewWrite.re");
 // response.sendRedirect("./ReviewUpdate.re");
-//response.sendRedirect("./CarList.ca");
-//response.sendRedirect("./Reserve.ca");
-//response.sendRedirect("./ReviewList.rev");
-//	response.sendRedirect("./AdminCarAdd.ad");
+// response.sendRedirect("./CarList.ca");
+// response.sendRedirect("./Reserve.ca");
+// response.sendRedirect("./ReviewList.rev");
+// response.sendRedirect("./AdminCarAdd.ad");
 // response.sendRedirect("./AdminCarList.ad");
 // response.sendRedirect("./AdminCarList.ad");
 // response.sendRedirect("./ReservationMain.rez");
 
-//È¸¿øÆÀ ÆäÀÌÁö---------------------------------------------------------------
+// response.sendRedirect("./AdminReviewList.adr");
+
+
+// íšŒì›---------------------------------------------------------------
 
 
 		// test
@@ -24,11 +27,8 @@
 	response.sendRedirect("./MemberRemove.me");
 //  	response.sendRedirect("./MemberFindPw.me");
 	 // response.sendRedirect("./MemberFindIdResult.me");
-// response.sendRedirect("./AdminMain.mb");
+response.sendRedirect("./AdminMain.mb");
+
 		
 
-
-
- //¸®ºä ÆäÀÌÁö´Â ÀÌ¾îÁú ¼ö ÀÖ´Â ±¸Á¶°¡ ¾ÆÁ÷ ¾Æ´Ï¾î¼­ ¸®ºä º¸°í ½ÍÀ¸¸é ¾Æ·¡ ÁÖ¼Ò·Î ¿À·¡¿ä *^^*
- // response.sendRedirect("./ReviewList.rev"); 
 %>
