@@ -9,10 +9,10 @@ import javax.servlet.http.HttpSession;
 import com.taiso.member.db.MemberDAO;
 import com.taiso.member.db.MemberDTO;
 
-public class MemberFindIdAction implements Member {
+public class MemberFindIdAction implements Action {
 
 	@Override
-	public MemberForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		System.out.println(" M : MemberFindIdAction_execute() 호출 ");		
 		
@@ -33,7 +33,7 @@ public class MemberFindIdAction implements Member {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
-		MemberForward forward = new MemberForward();
+		ActionForward forward = new ActionForward();
 		
 		if(mDTO != null) {	
 			forward.setPath("member/memberFindIdResult.jsp");

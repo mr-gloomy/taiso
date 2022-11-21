@@ -4,10 +4,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class MemberLogoutAction implements Member {
+public class MemberLogoutAction implements Action {
 
 	@Override
-	public MemberForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		System.out.println(" M : MemberLogoutAction_execute() 호출 ");
 		
@@ -17,7 +17,7 @@ public class MemberLogoutAction implements Member {
 		
 		
 		// 메인으로 이동
-		MemberForward forward = new MemberForward();
+		ActionForward forward = new ActionForward();
 		forward.setPath("./ReservationMain.rez");
 		forward.setRedirect(true);
 		

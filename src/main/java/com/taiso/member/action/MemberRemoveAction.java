@@ -8,10 +8,10 @@ import javax.servlet.http.HttpSession;
 
 import com.taiso.member.db.MemberDAO;
 
-public class MemberRemoveAction implements Member {
+public class MemberRemoveAction implements Action {
 
 	@Override
-	public MemberForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		System.out.println(" M : MemberRemoveProAction_execute 호출");
 		
@@ -19,7 +19,7 @@ public class MemberRemoveAction implements Member {
 		HttpSession session = request.getSession();
 		String mem_id = (String) session.getAttribute("mem_id");
 		
-		MemberForward forward = new MemberForward();
+		ActionForward forward = new ActionForward();
 		if(mem_id == null) {
 			forward.setPath("./MemberLogin.me");
 			forward.setRedirect(true);
