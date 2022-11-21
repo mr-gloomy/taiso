@@ -22,10 +22,10 @@
 
 		// test
 // response.sendRedirect("./MemberJoin.me");
-	 //	response.sendRedirect("./MemberLogin.me");
-//	  response.sendRedirect("./MemberUpdate.me");
-	 // response.sendRedirect("./MemberRemove.me");
- //	response.sendRedirect("./MemberFindPw.me");
+// 	 	response.sendRedirect("./MemberLogin.me");
+// 	  response.sendRedirect("./MemberUpdatePw.me");
+	response.sendRedirect("./MemberRemove.me");
+//  	response.sendRedirect("./MemberFindPw.me");
 	 // response.sendRedirect("./MemberFindIdResult.me");
 response.sendRedirect("./AdminMain.mb");
 

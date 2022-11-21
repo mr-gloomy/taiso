@@ -17,12 +17,12 @@
   		
     		<form action="./MemberUpdatePwAction.me" method="POST" >
       			<div class="formbold-email-subscription-form">
-        			<input type="password" name="mem_pw" id="mem_pw" placeholder="비밀번호를 재입력해주세요." class="formbold-form-input"/>
+        			<input type="password" name="mem_repw" id="mem_repw" placeholder="비밀번호를 재입력해주세요." class="formbold-form-input"/>
        				<button class="submit"> 수정하기 </button>
        			</div>
+    			<input type="hidden" name="mem_id" id="mem_id" value="${sessionScope.mem_id}" />
     		</form>
     		
-    			<input type="hidden" name="mem_id" id="mem_id" value="${sessionScope.mem_id}" />
     		
   		</div>
 	</div>

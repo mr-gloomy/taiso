@@ -1,65 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
-<script type="text/javascript">
-function mem_userNName(){
-	alert('닉네임 사용가능');
-		
-	// 확인된 닉네임을 회원가입창으로 전달
-	opener.document.fr.mem_newNickName.value = document.ckfr2.mem_userNName.value;
-
-	// 해당창 종료
-	window.close();		
-}
-</script>
-
 </head>
 
 <body>
-	<!-- 본문 -->
 	<div class="formbold-main-wrapper">
- 	<!-- Author: FormBold Team -->
+  	<!-- Author: FormBold Team -->
   	<!-- Learn More: https://formbold.com -->
- 	<div class="formbold-form-wrapper">
- 	
-    	<form action="./MemberNickNameCheckAction.me" method="POST" name="ckfr2" >
-    	
-      	<div class="formbold-email-subscription-form">
-     	   <input type="text" name="mem_userNName" id="mem_userNName" value="${param.inputNName }" class="formbold-form-input"/>
-       	   <button class="submit"> 중복확인 </button>
-      	</div>
-
-    	</form>
- 	</div>
-</div>
-
-
-	<c:if test="${requestScope.result != null}">
-		<c:if test="${result == 0 }">
-			<div class=textstyle>
-				사용 가능한 닉네임 입니다.
-			<input type="button" value="사용하기" onclick="mem_userNName();">
-			</div>
-		</c:if>
-
-		<c:if test="${requestScope.result == 1 }">
-			<div class=textstyle>
-				이미 사용중인 닉네임 입니다.
-			</div>
-		</c:if>
-	</c:if>
+  		<div class="formbold-form-wrapper">
+  		
+    		<form action="./MemberRemoveAction.me" method="POST" >
+      			<div class="formbold-email-subscription-form">
+        			<input type="password" name="mem_repw" id="mem_repw" placeholder="비밀번호를 재입력해주세요." class="formbold-form-input"/>
+       				<button class="submit"> 탈퇴하기 </button>
+       			</div>
+    			<input type="hidden" name="mem_id" id="mem_id" value="${sessionScope.mem_id}" />
+    		</form>
+    		
+    		
+  		</div>
+	</div>
 
 
 <style>
-@import
-	url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 * {
 	margin: 0;
