@@ -22,8 +22,8 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/board.css">
     
-<!-- input에 오늘날짜 기본값으로 넣기 -->
 <script type="text/javascript">
+	<!-- input에 오늘날짜 기본값으로 넣기 -->
 	window.onload = function() {
 		today = new Date();
 		console.log("today.toISOString() >>>" + today.toISOString());
@@ -32,6 +32,28 @@
 		bir = document.getElementById("todaybirthday");
 		bir.value = today;
 	}
+	
+	<!-- alert -->
+	function noticeUpdate() {
+		if(document.fr.bo_title.value==""){
+			alert("제목을 입력하세요");
+			document.fr. bo_title.focus();
+			return;
+		}
+		if(document.fr.bo_pass.value==""){
+			alert("비밀번호를 입력하세요");
+			document.fr.bo_pass.focus();
+			return;
+		}
+		if(document.fr.bo_content.value==""){
+			alert("내용을 입력하세요");
+			document.fr.name.focus();
+			return;
+		}
+		
+		document.fr.submit();
+	}
+
 </script>    
  
   </head>
@@ -56,7 +78,7 @@
 	 
 	<!-- 메인 -->
     <section class="notice_main">
-    <form action="./AdminNoticeUpdateProAction.nb?bo_num=${boDTO.bo_num }&pageNum=${pageNum}" method="post">
+    <form action="./AdminNoticeUpdateProAction.nb?bo_num=${boDTO.bo_num }&pageNum=${pageNum}" method="post" name="fr">
 	<div class="board_wrap3">
 		<div class="board_title">
 			<strong>공지사항 글 수정하기</strong>
@@ -76,6 +98,10 @@
 							<dd>
 								<input type="text" name="bo_title" value="${boDTO.bo_title }">
 							</dd>
+							<dt>작성자</dt>
+							<dd>
+								<input type="text" value="${sessionScope.mem_id }"name="mem_id">
+							</dd>
 							<dt>비밀번호</dt> <!-- 기존 비밀번호랑 일치 -->
 							<dd>
 								<input type="password" name="bo_pass" placeholder="비밀번호를 입력해주세요">
@@ -92,7 +118,7 @@
 					
 				<!-- 버튼 -->
 				<div class="d-grid gap-8 col-3 mx-auto">
-					<input type="submit" value="수정완료" class="btn btn-primary"/>
+					<input type="button" value="수정완료" class="btn btn-primary" onclick="noticeUpdate()"/>
 					<input type="button" value="목록이동" class="btn btn-primary" onclick="location.href='./AdminNoticeList.nb?bo_num=${boDTO.bo_num }&pageNum=${pageNum }';">
 				</div>
 			</div>

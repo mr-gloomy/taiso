@@ -13,27 +13,17 @@ public class AdminMemberDeleteAction implements Member {
 	@Override
 	public MemberForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		System.out.println(" M : AdminMemberRemoveAction.mb");
-		
-		// 세션제어(admin)
-		HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("id");
-		
-		MemberForward forward = new MemberForward();
-		if(id == null || !id.equals("admin")) {
-			forward.setPath("./MemberLogin.me");
-			forward.setRedirect(true);
-			return forward;
-		}
+		System.out.println(" M : AdminMemberDeleteAction_execute 호출 ");
 		
 		// 전달정보 저장(삭제할 사용자)
-		String delNum = request.getParameter("mem_num");
+		int mem_num = Integer.parseInt(request.getParameter("mem_num"));
 		
-		// DAO - adminMemberDelete(ID)
+		// DAO - adminMemberDelete
 		AdminMemberDAO dao = new AdminMemberDAO();
-		dao.adminMemberDelete(delNum);
+		dao.adminMemberDelete(mem_num);
 		
 		// 페이지 이동		
+		MemberForward forward = new MemberForward();
 		forward.setPath("./AdminMemberList.mb");
 		forward.setRedirect(true);
 		return forward;

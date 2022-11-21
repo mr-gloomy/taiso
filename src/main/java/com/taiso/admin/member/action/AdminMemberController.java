@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.taiso.notice.action.NoticeForward;
+
 
 @WebServlet("*.mb")
 public class AdminMemberController extends HttpServlet{
@@ -75,6 +77,7 @@ public class AdminMemberController extends HttpServlet{
 			}
 		}
 		else if(command.equals("/AdminMemberDelete.mb")) {
+			System.out.println(" C : /AdminMemberDelete.mb 호출 ");
 			
 			action = new AdminMemberDeleteAction();
 			

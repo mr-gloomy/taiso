@@ -22,8 +22,8 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/board.css">
  
- <!-- input에 오늘날짜 기본값으로 넣기 -->
 <script type="text/javascript">
+    <!-- input에 오늘날짜 기본값으로 넣기 -->
 	window.onload = function() {
 		today = new Date();
 		console.log("today.toISOString() >>>" + today.toISOString());
@@ -32,7 +32,31 @@
 		bir = document.getElementById("todaybirthday");
 		bir.value = today;
 	}
-</script>   
+	<!-- alert -->
+	function noticeWrite() {
+		if(document.fr.bo_title.value==""){
+			alert("제목을 입력하세요");
+			document.fr.bo_title.focus();
+			return;
+		}
+		if(document.fr.bo_pass.value==""){
+			alert("비밀번호를 입력하세요");
+			document.fr.bo_pass.focus();
+			return;
+		}
+		if(document.fr.bo_content.value==""){
+			alert("내용을 입력하세요");
+			document.fr.bo_content.focus();
+			return;
+		}
+		
+		document.fr.submit();
+	}
+	
+	
+</script>  
+
+
     
     
   </head>
@@ -57,7 +81,7 @@
 	 
 	<!-- 메인 -->
     <section class="notice_main">
-    <form action="./AdminNoticeWriteAction.nb" method="post" enctype="multipart/form-data">
+    <form action="./AdminNoticeWriteAction.nb" method="post" enctype="multipart/form-data" name="fr">
 	<div class="board_wrap3">
 		<div class="board_title">
 			<strong>공지사항 글쓰기</strong>
@@ -78,7 +102,7 @@
 							</dd>
 							<dt>작성자</dt>
 							<dd>
-								<input type="text" value="${mDTO.mem_id }"name="mem_id" placeholder="아이디를 입력해주세요">
+								<input type="text" value="${sessionScope.mem_id }"name="mem_id"">
 							</dd>
 							<dt>비밀번호</dt>
 							<dd>
@@ -98,7 +122,7 @@
 						<br>
 					<!-- 버튼 -->
 					<div class="d-grid gap-8 col-3 mx-auto">
-						<input type="submit" value="작성완료" class="btn btn-primary"/>
+						<input type="button" value="작성완료" class="btn btn-primary" onclick="noticeWrite()"/>
 						<input type="button" value="작성취소" class="btn btn-primary" onclick="location.href='./AdminNoticeList.nb';">
 					</div>
 					
