@@ -21,30 +21,29 @@
     <link rel="stylesheet" href="./css/icomoon.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/board.css">
+    
 <style type="text/css">
+.table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 50%;
+  border: 1px solid #f2f2f2;
+  min-width: 700px !important;
+  width: 100%;
+}
+
 .table tbody tr td {
-	vertical-align: middle;
-	padding: 2px;
-	
-}
-.title1 {
-	width: 1.5cm;
-	align-items: center;
-}
-.title2 {
-	width: 1cm;
-}
-.title3 {
-	width: 2cm;
-}
-.table table-sm {
-	overflow: hidden
+    vertical-align: middle;
+    padding: 2px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+	width: 9em;
 
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
-
 </style>
+
   </head>
-  
  <body>
   <div id="wrap">
 	<!-- 헤더들어가는 곳 -->
@@ -54,7 +53,7 @@
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
           <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">admin <i class="ion-ios-arrow-forward"></i></a></span> <span>Member Detail <i class="ion-ios-arrow-forward"></i></span></p>
+          	<p class="breadcrumbs"><span class="mr-2"><a href="./AdminMain.mb">admin<i class="ion-ios-arrow-forward"></i></a></span> <span>Member Detail <i class="ion-ios-arrow-forward"></i></span></p>
             <h1 class="mb-3 bread">관리자페이지</h1>
           </div>
         </div>
@@ -72,8 +71,8 @@
 
      	<!-- 프로필 -->
      	<div class="row mb-6">
-			<div class="card">
-				<div class="text">
+			<div class="profile">
+				<div class="txt">
 					<img src="./images/user.png">
 					<p>${mDTO.mem_name } 님</p>
 					<p>문의사항　　 　 리뷰</p>
@@ -85,80 +84,67 @@
   		</div> 
    	 </div> 
    	 <!-- 우측 -->
-   	   <div class="col-md-3 block-4 mb-md-5">
-            <form action="#" class="list" >
-              	<table class="table table-sm" >
+   	   <div class="col-md-3 block-1 mb-md-1" align="center">
+            <table class="table" >
               	<tbody class="tbody">
-				  <tr>
-				    <td class="title1">회원번호</td>
-				    <td class="title2"> : </td>
-				    <td class="title3">${mDTO.mem_num }</td>
+				  <tr align="center">
+				    <td><p>회원번호</p></td>
+				    <td>${mDTO.mem_num }</td>
 				  </tr>
-				    <td>회원명</td>
-				    <td> : </td>
+				  <tr align="center">
+				    <td><p>회원명</p></td>
 				    <td>${mDTO.mem_name }</td>
-				  <tr>
-				    <td>닉네임</td>
-				    <td> : </td>
+				  <tr align="center">
+				    <td><p>닉네임</p></td>
 				    <td>${mDTO.mem_nickName }</td>
 				  </tr>
-				  <tr>
-				    <td>생년월일</td>
-				    <td> : </td>
+				  <tr align="center">
+				    <td><p>생년월일</p></td>
 				    <td>${mDTO.mem_birthday }</td>
 				  </tr>
-				  <tr>
-				    <td>아이디</td>
-				    <td> : </td>
+				  <tr align="center">
+				    <td><p>아이디</p></td>
 				    <td>${mDTO.mem_id }</td>
 				  </tr>
-				  <tr>
-				    <td>비밀번호</td>
-				    <td> : </td>
+				  <tr align="center">
+				    <td><p>비밀번호</p></td>
 				    <td>${mDTO.mem_pw }</td>
 				  </tr>
-				    <td>전화번호</td>
-				    <td> : </td>
+				  <tr align="center">
+				    <td><p>전화번호</p></td>
 				    <td>${mDTO.mem_phone }</td>
-				  <tr>
-				    <td>이메일</td>
-				    <td> : </td>
+				  <tr align="center">
+				    <td><p>이메일</p></td>
 				    <td>${mDTO.mem_email }</td>
 				  </tr>
-				  <tr>
-				    <td>SNS 수신 여부</td>
-				    <td> : </td>
+				  <tr align="center">
+				    <td><p>SNS 수신 여부</p></td>
 				    <td>${mDTO.mem_accept_sns }</td>
 				  </tr>
-				  <tr>
-				    <td>회원등록일</td>
-				    <td> : </td>
+				  <tr align="center">
+				    <td><p>회원등록일</p></td>
 				    <td>${mDTO.mem_registDate }</td>
-				  <tr>
-				    <td>프로필 이미지</td>
-				    <td> : </td>
+				  <tr align="center">
+				    <td><p>프로필 이미지</p></td>
 				    <td>${mDTO.mem_image }</td>
 				  </tr>
-				  <tr>
-				    <td>면허증번호</td>
-				    <td> : </td>
+				  <tr align="center">
+				    <td><p>면허증번호</p></td>
 				    <td>${mDTO.license_num }</td>
 				  </tr>
-				  <tr>
-				    <td>블랙리스트</td>
-				    <td> : </td>
-				    <td>${mDTO.mem_blacklist }<a href="#">[수정하기]</a></td>
+				  <tr align="center">
+				    <td><p>블랙리스트</p></td>
+				    <td>${mDTO.mem_blacklist }</td>
 				  </tr>
-				  <tr>
-				    <td>블랙리스트 사유</td>
-				    <td> : </td>
-				    <td><input type="text">
+				  <tr align="center">
+				    <td><p>블랙리스트 사유</p></td>
+				    <td><textarea cols="50" rows="2"></textarea>
 				  </tr>
 				  </tbody>
-				</table>
-              </div>
-            </form>
-          
+				  
+				  
+			</table>
+            </div>
         </div>
       </div>
     </section>		

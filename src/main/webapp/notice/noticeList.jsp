@@ -77,92 +77,76 @@
 							<!-- 프로필 -->
 
 							<!-- 메뉴바 -->
-    <div class="middle-md-12">
-        <div class="menu">
-            <ul id="noul">
-                <li class="buttonitem" id="profile" >
-                    <a href="./NoticeList.nb" class="menubtn" ><i class="fa fa-cog"></i>공지사항</a>
-<!--                     <div class="smenu" > -->
-<!--                         <a href="">1</a> -->
-<!--                         <a href="">2</a> -->
-<!--                     </div> -->
-                </li>
+							<div class="middle-md-12">
+								<div class="menu">
+									<ul id="noul">
+										<li class="buttonitem" id="profile"><a
+											href="./NoticeList.nb" class="menubtn"><i
+												class="fa fa-cog"></i>공지사항</a></li>
 
-                <li class="buttonitem" id="messages">
-                    <a href="./FaqList.bo" class="menubtn"><i class="fa fa-user"></i>FAQ</a>
-<!--                     <div class="smenu" style="display:block;" > -->
-<!--                         <a href="./QuestionList.bo">1:1 문의 내역</a> -->
-<!--                         <a href="">수정제안</a> -->
-<!--                     </div> -->
-                </li>
+										<li class="buttonitem" id="messages"><a
+											href="./FaqList.bo" class="menubtn"><i class="fa fa-user"></i>FAQ</a>
+										</li>
 
-                <li class="buttonitem" id="settings">
-                    <a href="./QuestionWrite.bo" class="menubtn"><i class="fa fa-cog"></i>1:1 문의하기</a>
-<!--                     <div class="smenu"> -->
-<!--                         <a href="./MemberUpdate.me">회원정보 변경(탈퇴)</a> -->
-<!-- <!--                         <a href="">비밀번호 변경</a> --> 
-<!--                     </div> -->
-                </li>
-                <li class="buttonitem" id="profile" >
-                    <a href="./ProposalWrite.bo" class="menubtn" ><i class="fa fa-cog"></i>수정제안</a>
-<!--                     <div class="smenu" > -->
-<!--                         <a href="">1</a> -->
-<!--                         <a href="">2</a> -->
-<!--                     </div> -->
-                </li>
-                
-               </ul>
-             </div>
-            </div>
-							<!-- 메뉴바 -->
+										<li class="buttonitem" id="settings"><a
+											href="./QuestionWrite.bo" class="menubtn"><i
+												class="fa fa-cog"></i>1:1 문의하기</a></li>
+										<li class="buttonitem" id="profile"><a
+											href="./ProposalWrite.bo" class="menubtn"><i
+												class="fa fa-cog"></i>수정제안</a></li>
+
+									</ul>
+								</div>
+							</div>
 						</div>
 					</div>
+					<!-- 메뉴바 -->
 
-		<!-- @@@@@@@@@@@@@@@@@우측@@@@@@@@@@@@@@@@ -->
+					<!-- 우측 -->
 					<div class="col-md-8 block-9 mb-md-5">
-							<div class="board_wrap">
-								<div class="board_title">
-								   <strong>공지사항</strong>
-									<!--  검색 폼 -->
-									<p>전체 글 개수 : ${requestScope.totalCnt } 개</p>
-									<div class="n_search" border="1" width="90%">
-										<div align="right">
-											<input type="text" name="search"> 
-											<input type="submit" value="Search" class="btn btn-outline-secondary" >
-										</div>
-									</div>
-								</div>
-								
-								<div class="board_list_wrap">
-									<div class="board_list">
-										<div class="top">
-											<div class="num">번호</div>
-											<div class="title">제목</div>
-											<div class="date">작성일</div>
-											<div class="count">조회수</div>
-										</div>
-
-										<c:forEach var="boDTO" items="${noticeListAll }">
-											<div>
-												<div class="num">${boDTO.bo_num }</div>
-												<div class="title">
-													<a
-														href="./NoticeDetail.nb?bo_num=${boDTO.bo_num }&pageNum=${pageNum}">${boDTO.bo_title }</a>
-												</div>
-												<div class="date">${boDTO.bo_sysdate }</div>
-												<div class="count">${boDTO.bo_readcount }</div>
-											</div>
-										</c:forEach>
-
+						<div class="board_wrap">
+							<div class="board_title">
+								<strong>공지사항</strong>
+								<!--  검색 폼 -->
+								<p>전체 글 개수 : ${requestScope.totalCnt } 개</p>
+								<div class="n_search" border="1" width="90%">
+									<div align="right">
+										<input type="text" name="search"> <input type="submit"
+											value="Search" class="btn btn-outline-secondary">
 									</div>
 								</div>
 							</div>
+
+							<div class="board_list_wrap">
+								<div class="board_list">
+									<div class="top">
+										<div class="num">번호</div>
+										<div class="title">제목</div>
+										<div class="date">작성일</div>
+										<div class="count">조회수</div>
+									</div>
+
+									<c:forEach var="boDTO" items="${noticeListAll }">
+										<div>
+											<div class="num">${boDTO.bo_num }</div>
+											<div class="title">
+												<a
+													href="./NoticeDetail.nb?bo_num=${boDTO.bo_num }&pageNum=${pageNum}">${boDTO.bo_title }</a>
+											</div>
+											<div class="date">${boDTO.bo_sysdate }</div>
+											<div class="count">${boDTO.bo_readcount }</div>
+										</div>
+									</c:forEach>
+
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="row justify-content-center"></div>
 			</div>
 		</section>
-		<!-- @@@@@@@@@@@@@@@@@우측@@@@@@@@@@@@@@@@ -->
+		<!-- 우측 -->
 
 
 
@@ -195,8 +179,7 @@
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/jquery.timepicker.min.js"></script>
 	<script src="js/scrollax.min.js"></script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="js/google-map.js"></script>
 	<script src="js/main.js"></script>
 
