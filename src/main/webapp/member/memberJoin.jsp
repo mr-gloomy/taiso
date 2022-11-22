@@ -39,7 +39,7 @@ function winopen(){ // 아이디 중복 체크
 	 if(document.fr.mem_id.value == ""){
 		 alert('아이디를 입력하세요.');
 		 document.fr.mem_id.focus();
-		 return;
+		 return false;
 	 }
 	 
 	 // 입력된 아이디정보
@@ -54,7 +54,7 @@ function winopen2(){ // 닉네임 중복 체크
 	 if(document.fr.mem_nickName.value == ""){
 		 alert('닉네임을 입력하세요.');
 		 document.fr.mem_nickName.focus();
-		 return;
+		 return false;
 	 }
 	 
 	 // 입력된 닉네임정보
@@ -105,13 +105,13 @@ if (document.getElementById("supportCheckbox").checked) { // 체크박스
 				<h3>회원가입</h3>
 			</div>
 				
-				<form action="./MemberJoinAction.me"  method="post" name="fr"  onsubmit="alert('데이터 유효성체크 완료');">
+				<form action="./MemberJoinAction.me"  method="post" name="fr" >
 				
 					<div class="formbold-mb-3 formbold-input-wrapp">
 						<label for="mem_id" class="formbold-form-label"> 아이디 </label>
 						<div>
 							<input type="text" name="mem_id" id="mem_id" placeholder="영어/숫자 5~20자로 입력해주세요." class="formbold-form-input-small" required />
-							<button class="formbold-btn" onclick="winopen();"> 중복확인 </button>
+							<button class="formbold-btn" onclick="return winopen();"> 중복확인 </button>
 						</div>
 					</div>
 
@@ -134,7 +134,7 @@ if (document.getElementById("supportCheckbox").checked) { // 체크박스
 						<label for="mem_nickName" class="formbold-form-label"> 닉네임 </label>
 						<div>
 							<input type="text" name="mem_nickName" id="mem_nickName" placeholder="한글/영어 2~10자로 입력해주세요." class="formbold-form-input-small" required/>
-						    <button class="formbold-btn" onclick="winopen2();"> 중복확인 </button>
+						    <button class="formbold-btn" onclick="return winopen2();"> 중복확인 </button>
 						</div>
 					</div>
 					

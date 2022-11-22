@@ -35,13 +35,22 @@ public class MemberController extends HttpServlet {
 		
 		System.out.println(" C : [2단계 시작] 가상주소 매핑 시작 ----------------------------------------");
 		
-		if(command.equals("/MemberJoin.me")) {
+		if(command.equals("/MemberJoinClause.me")) {
+			System.out.println(" C : /MemberJoinClause.me 호출 ");
+			System.out.println(" C : [패턴 1] ");
+			
+			forward = new ActionForward();
+			forward.setPath("./member/memberJoinClause.jsp");
+			forward.setRedirect(false);
+			
+			
+		}else if(command.equals("/MemberJoin.me")) {
 			System.out.println(" C : /MemberJoin.me 호출 ");
 			System.out.println(" C : [패턴 1] ");
 			
 			forward = new ActionForward();
 			forward.setPath("./member/memberJoin.jsp");
-			forward.setRedirect(false);
+			forward.setRedirect(false);	
 			
 			
 		}else if(command.equals("/MemberJoinAction.me")) {
@@ -125,6 +134,15 @@ public class MemberController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
+			
+		}else if(command.equals("/MemberNaverLogin.me")) {
+			System.out.println(" C : /MemberNaverLogin.me 호출 ");
+			System.out.println(" C : [패턴 1]");
+			
+			forward = new ActionForward();
+			forward.setPath("./member/memberNaverLogin.jsp");
+			forward.setRedirect(false);	
 			
 			
 		}else if(command.equals("/MemberUpdatePw.me")) {

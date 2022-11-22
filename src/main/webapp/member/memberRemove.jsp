@@ -40,7 +40,7 @@ function chk(){
     
     if(f.mem_accept_sns.checked !== true) {
         alert('약관동의에 체크해주세요.');
-        
+        return false;
     }
 }
 
@@ -145,7 +145,7 @@ function chk(){
 					</div>
 					</form>
 
-					<form action="./MemberRemovePw.me"  method="post" name="thisForm">
+					<form action="./MemberRemovePw.me"  method="post" name="thisForm" onsubmit="return chk();">
 					
 					<div class="formbold-checkbox-wrapper">
 						<label for="supportCheckbox" class="formbold-checkbox-label">
@@ -162,7 +162,7 @@ function chk(){
 							</div> 회원탈퇴 약관을 모두 확인했습니다.
 
 						</label>
-						<button type="submit" class="formbold-btn" onclick="chk();">탈퇴하기</button>
+						<button type="submit" class="formbold-btn">탈퇴하기</button>
 						<input type="hidden" name="mem_id" id="mem_id" value="${sessionScope.mem_id}" />
 					</div>
 					</form>
