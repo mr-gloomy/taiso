@@ -10,6 +10,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.taiso.review.db.ReviewDTO;
+
 public class AdminReviewDAO {
 	private Connection con = null;
 	private PreparedStatement pstmt = null;

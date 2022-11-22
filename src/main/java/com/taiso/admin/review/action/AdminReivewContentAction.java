@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.taiso.admin.review.db.AdminReviewDAO;
-import com.taiso.admin.review.db.ReviewDTO;
+import com.taiso.review.db.ReviewDTO;
 
 public class AdminReivewContentAction implements AdminReview {
 
