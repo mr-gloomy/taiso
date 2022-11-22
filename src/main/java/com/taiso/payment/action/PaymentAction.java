@@ -2,6 +2,10 @@ package com.taiso.payment.action;
 
 import java.io.FileReader;
 import java.io.Reader;
+import java.sql.Timestamp;
+import java.time.Clock;
+import java.time.Instant;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,73 +20,65 @@ public class PaymentAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println(" m : PaymentAction_execute() 호출");
-		
 
-		// imp_uid로 아임포트 서버에서 결제정보 받아와야하나...만약 한다면
-			// 1. 엑세스 토큰 발급받기
-			// 2. 결제정보 조회
+		// 1. carDTO - 차량 상태 업데이트 (관련 컬럼이 없어서 보류)
 		
-//        try {
-//            
-//            JSONParser jsonParse = new JSONParser();
-//            
-//            //JSONParse에 json데이터를 넣어 파싱한 다음 JSONObject로 변환한다.
-//            JSONObject jsonObj = (JSONObject) jsonParse.parse("imp_uid");
-//            
-//            //JSONObject에서 PersonsArray를 get하여 JSONArray에 저장한다.
-//            JSONArray personArray = (JSONArray) jsonObj.get("Persons");
-//            
-//            for(int i=0; i < personArray.size(); i++) {
-//                System.out.println("======== person : " + i + " ========");
-//                JSONObject personObject = (JSONObject) personArray.get(i);
-//                
-//                System.out.println(personObject.get("name"));
-//                System.out.println(personObject.get("age"));
-//            }
-//            
-//            JSONArray booksArray = (JSONArray) jsonObj.get("Books");
-//            for(int i=0; i < booksArray.size(); i++) {
-//                System.out.println("======== person : " + i + " ========");
-//                JSONObject bookObject = (JSONObject) booksArray.get(i);
-//                
-//                System.out.println(bookObject.get("name"));
-//                System.out.println(bookObject.get("price"));
-//            }
-//            
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
+		/* 2-1. rezDTO - 예약 정보 업데이트
+		 * [] rez_uqNum			=> pk
+		 * [] rez_rentalDate		
+		 * [] rez_returnDate		
+		 * [] rez_totalDate			
+		 * [] rez_site				
+		 * [] rez_status			
+		 * [] car_code				
+		 * [] car_insurance			
+		 * [] mem_id			=> fk
+		 * [] license_num		=> fk
+		 * 
+		 * 2-2. rezDTO - 면허 정보 업데이트
+		 * [] license_num		=> pk
+		 * [] mem_id			=> fk
+		 * [] license_issueDate		
+		 * [] license_type			
+		 */
 		
-		// ajax response... 이게머꼬
-		String merchant_uid = request.getParameter("merchant_uid");
-		System.out.println("@@@@@@@@ merchant_uid : "+merchant_uid);
-		System.out.println("@@@@@@@@ pay_uqNum : "+request.getParameter("pay_uqNum"));
-		System.out.println("@@@@@@@@ pay_total : "+Integer.parseInt(request.getParameter("pay_total")));
-		System.out.println("@@@@@@@@ pay_method : "+request.getParameter("pay_method"));
-		System.out.println("@@@@@@@@ pay_status : "+request.getParameter("pay_status"));
+		ReservationDTO rezDTO = new ReservationDTO();
+		rezDTO.setRez_rentalDate(request.getParameter("rez_rentalDate"));
+		rezDTO.setRez_returnDate(request.getParameter("rez_returnDate"));
+		rezDTO.setRez_totalDate(request.getParameter("rez_totalDate"));
+		rezDTO.setRez_site(request.getParameter("rez_site"));
+		rezDTO.setCar_code(Integer.parseInt(request.getParameter("car_code")));
+		rezDTO.setCar_name(request.getParameter("car_name"));
+		rezDTO.setCar_insurance(request.getParameter("car_insurance"));
+		rezDTO.setMem_id(request.getParameter("mem_id"));
 		
+		// 2-2. driverliscenseDTO에서 면허 정보 업데이트
+		rezDTO.setLicense_num(request.getParameter("license_num"));
+		rezDTO.setLicense_issueDate(request.getParameter("license_issueDate"));
+		rezDTO.setLicense_type(request.getParameter("license_type"));
 		
+        /* 3. payDTO - 결제 정보 업데이트
+         * [] pay_uqNum			=> pk
+         * [] rez_uqNum			=> fk
+         * [] pay_method
+         * [] pay_date
+         * [] pay_status
+         * [] pay_total
+         */
+		  
 		PaymentDTO payDTO = new PaymentDTO();
-//		payDTO.setPay_uqNum(Integer.parseInt(request.getParameter("pay_uqNum")));			// 결제번호(카드승인번호)
-		payDTO.setPay_total(Integer.parseInt(request.getParameter("pay_total")));			// 총 결제금액
-		payDTO.setPay_method(request.getParameter("pay_method"));	// 결제방식
-		payDTO.setPay_status(request.getParameter("pay_status"));	// 결제상태
-		payDTO.setRez_uqNum(Integer.parseInt(request.getParameter("rez_uqNum")));	
-		// 주문번호(예약번호)
-		System.out.println("payDTO : "+payDTO);
-		// 결제 정보 db에 저장
-//		ReservationDAO rezDAO = new ReservationDAO();
-		PaymentDAO payDAO = new PaymentDAO();
-		payDAO.addOrder(payDTO);
-		System.out.println(" [M] 결제정보 DB 저장 완료");
+		payDTO.setPay_uqNum(request.getParameter("pay_uqNum"));
+		payDTO.setPay_total(Integer.parseInt(request.getParameter("pay_total")));
+		payDTO.setPay_method(request.getParameter("pay_method"));
+		payDTO.setPay_status(request.getParameter("pay_status"));
 		
-		// 다시 결제 페이지로 돌아가기 or
+		ReservationDAO rezDAO = new ReservationDAO();
+		rezDAO.resevationSave(rezDTO, payDTO); 
 		
-		// 결제 확인 페이지로 이동... 하고싶은데 안되고 똑같이 requestPay()의 alert만 출력됨ㅜㅜ
-//        ActionForward forward = new ActionForward();
-//        forward.setPath("./PaymentTest.pay");
-//        forward.setRedirect(false);
-//		return forward;
+		String merchant_uid = request.getParameter("merchant_uid");
+		System.out.println("merchant_uid : "+merchant_uid);
+		System.out.println("@@@@@결제정보 저장완료@@@@");
+		
 		return null;
 	}
 

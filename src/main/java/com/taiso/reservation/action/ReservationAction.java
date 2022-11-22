@@ -8,6 +8,7 @@ import com.taiso.car.db.CarDAO;
 import com.taiso.car.db.CarDTO;
 import com.taiso.member.db.MemberDTO;
 import com.taiso.reservation.db.ReservationDAO;
+import com.taiso.reservation.db.ReservationDTO;
 
 public class ReservationAction implements Action {
 
@@ -28,17 +29,26 @@ public class ReservationAction implements Action {
 			forward.setRedirect(true);
 			return forward;
 		}
+		
+		
 
 		int car_code = Integer.parseInt(request.getParameter("car_code"));
-
+		
 		// 차량 정보 저장
 		CarDAO dao = new CarDAO();
 		CarDTO carDTO = dao.getOneCarList(car_code); // 나중에 예약테이블 car_code랑 조인하기
 
+		
+		// 카 이름 DTO에 저장
+//		rezDTO.setCar_name((String)session.getAttribute("car_name"));
+		
 		System.out.println("carDTO : " + carDTO); // 차량 정보 가져오는지 확인용
 
-		// request 영역에 저장
-		request.setAttribute("carDTO", carDTO);
+		
+		// session 영역에 저장
+		session.setAttribute("carDTO", carDTO);
+		
+		
 
 		// ******************************* 회원정보 없어서 주석처리한 것. 로직 확인할 때 주석풀어주세요
 

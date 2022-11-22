@@ -92,7 +92,7 @@ public class AdminReservationDAO {
 						
 						rezDTO.setCar_code(rs.getInt("car_code"));
 						rezDTO.setCar_insurance(rs.getString("car_insurance"));
-						rezDTO.setRez_status(rs.getString("rez_status"));	// 예약현황 (예약완료 0 / 예약취소 -1)
+						rezDTO.setRez_status(rs.getInt("rez_status"));	// 예약현황 (예약완료 0 / 예약취소 -1)
 						
 						
 						// 면허정보 dto에 담기
@@ -203,7 +203,7 @@ public class AdminReservationDAO {
 						
 						rezDTO.setCar_code(rs.getInt("car_code"));
 						rezDTO.setCar_insurance(rs.getString("car_insurance"));
-						rezDTO.setRez_status(rs.getString("rez_status"));	// 예약현황	(예약완료 0 / 예약취소 1)	
+						rezDTO.setRez_status(rs.getInt("rez_status"));	// 예약현황	(예약완료 0 / 예약취소 1)	
 						
 						
 						// 면허정보 dto에 담기

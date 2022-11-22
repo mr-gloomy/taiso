@@ -42,7 +42,7 @@ public class ReservationDate implements Action {
         session.setAttribute("rez_off_date",request.getParameter("rez_off_date"));
         session.setAttribute("rez_pick_time",request.getParameter("rez_pick_time"));
         session.setAttribute("rez_off_time",request.getParameter("rez_off_time"));
-        session.setAttribute("rez_site",request.getParameter("car_site"));
+        session.setAttribute("rez_site",request.getParameter("rez_site"));
         session.setAttribute("rez_totalDate",request.getParameter("totalDate"));
       
         

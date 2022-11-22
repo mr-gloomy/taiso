@@ -239,7 +239,7 @@
 						    	<div class="row">
 								<c:set var = "num" value="1"/>
 								<c:set var = "name" value = ""/>
-									<c:forEach var="option" items="${cDTO.car_op.split(',') }">
+									<c:forEach var="option" items="${carDTO.car_op.split(',') }">
 										<div class="col-md-4">
 											<ul class="features">
 												<c:if test="${not empty option }">
