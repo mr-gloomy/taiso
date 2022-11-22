@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.taiso.admin.car.db.AdminCarDAO;
-import com.taiso.admin.car.db.CarDTO;
+import com.taiso.car.db.CarDTO;
 
 public class AdminCarUpdateProAction implements AdminCar {
 

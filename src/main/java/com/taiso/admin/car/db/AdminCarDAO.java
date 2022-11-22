@@ -11,6 +11,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.taiso.car.db.CarDTO;
+
 
 public class AdminCarDAO {
 	private Connection con = null;

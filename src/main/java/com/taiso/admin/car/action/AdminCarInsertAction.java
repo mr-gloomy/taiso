@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.taiso.admin.car.db.AdminCarDAO;
-import com.taiso.admin.car.db.CarDTO;
+import com.taiso.car.db.CarDTO;
 
 public class AdminCarInsertAction implements AdminCar {
 
