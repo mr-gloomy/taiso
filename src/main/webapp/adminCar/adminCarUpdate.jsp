@@ -126,7 +126,7 @@ a {
 								class="ion-ios-arrow-forward"></i></a></span> <span>Cars <i
 							class="ion-ios-arrow-forward"></i></span>
 					</p>
-					<h1 class="mb-3 bread">당신의 차를 선택하라.</h1>
+					<h1 class="mb-3 bread">관리자 상품 수정페이지</h1>
 				</div>
 			</div>
 		</div>
@@ -150,13 +150,12 @@ a {
 
 <!-- 게시판 -->
 <article>
-<h1> 관리자 상품 수정페이지 </h1>
  <form action="./AdminCarUpdatePro.ad" method="post" >
  	<input type="hidden" name="car_code" value="${dto.car_code }">
   <table id="notice">
-	<tr>
-	    <th class="" colspan="2">ITWILL 상품수정</th>
-	</tr>
+<!-- 	<tr> -->
+<!-- 	    <th class="" colspan="2">ITWILL 상품수정</th> -->
+<!-- 	</tr> -->
 	<tr>
 		<td>카테고리</td>
 		<td>
@@ -193,6 +192,24 @@ a {
 					>수입차</option>
 			</select>
 		</td>
+		</tr>
+		<tr>
+			<td>이용지점 : </td>
+			<td>
+			<select id="sido_select">
+		          <option value="" selected disabled hidden>==지역을 선택하세요==</option>	
+		          <option value="서울" >서울</option>
+		          <option value="인천/경기" >인천/경기</option>
+		          <option value="제주" >제주</option>
+		          <option value="강원도" >강원도</option>
+		          <option value="충청/대전" >충청/대전</option>
+		          <option value="전라/광주" >전라/광주</option>
+		          <option value="경상/부산/대구/울산" >경상/부산/대구/울산</option>
+			</select>
+			<select id="site_select" name="car_site">
+		          <option value="" selected disabled hidden>==지점을 선택하세요==</option>	
+			</select>
+			</td>
    </tr>
    	<tr>
 		<td>상품명</td>
@@ -296,5 +313,33 @@ a {
 	<script src="./js/google-map.js"></script>
 	<script src="./js/main.js"></script>
 
+   <script type="text/javascript">
+   $(function() {
+		$("#sido_select").change(function(){
+			var sido=$(this).val();
+//	 		alert("sido : "+sido);
+			$("#site_select option").remove();
+			$.ajax({
+				url : "site.json",
+				type : "get",
+				datatype : "json",
+				success : function(data) {
+//	 				alert('success');
+//	 				let str = JSON.stringify(data);	// 데이터 확인
+//	 				alert(str);
+					$(data).each(function(i){
+						if(sido==data[i].sido){
+//	 						alert('일치');
+							$('#site_select').append("<option>"+data[i].name+"</option>");
+						}
+					});
+				},
+				error : function() {
+					alert('error');			
+				}
+			});	// ajax 끝
+		});	// selectBox_test 끝
+   });
+   </script> 
 </body>
 </html>

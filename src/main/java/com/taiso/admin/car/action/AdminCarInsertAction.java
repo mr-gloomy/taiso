@@ -9,10 +9,10 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.taiso.admin.car.db.AdminCarDAO;
 import com.taiso.car.db.CarDTO;
 
-public class AdminCarInsertAction implements AdminCar {
+public class AdminCarInsertAction implements Action {
 
 	@Override
-	public AdminCarForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println(" M : AdminCarAddAction_execute() 호출 ");
 		
 	// 한글처리(생략)
@@ -63,7 +63,7 @@ public class AdminCarInsertAction implements AdminCar {
 			acDAO.insertCar(carDTO);
 			
 			// 페이지 이동
-			AdminCarForward forward = new AdminCarForward();
+			ActionForward forward = new ActionForward();
 			forward.setPath("./AdminCarList.ad");
 			forward.setRedirect(true);
 			

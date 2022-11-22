@@ -27,15 +27,15 @@ public class AdminCarController extends HttpServlet{
 				
 				System.out.println(" C : 1. 가상주소 계산 끝 \n");
 				
-				AdminCar action = null;
-				AdminCarForward forward = null;
+				Action action = null;
+				ActionForward forward = null;
 				
 				// 2. 가상주소 매핑(패턴1,2,3)
 				if(command.equals("/AdminCarAdd.ad")) {
 					System.out.println(" C : /AdminCarAdd.ad 호출");
 					System.out.println(" C : 패턴1");
 					
-					forward = new AdminCarForward();
+					forward = new ActionForward();
 					forward.setPath("./adminCar/insertCar.jsp");
 					forward.setRedirect(false);
 				}
