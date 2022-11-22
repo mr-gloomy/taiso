@@ -183,4 +183,38 @@ public class CarDAO {
 		return cDTO;
 	}
 	// 차량 한 대의 정보 담아오는 메서드 getOneCarList(car_code) - 끝
+	
+	
+	// 차량 정보 랜덤 4개 조회 - selectRandCar()
+	public List<CarDTO> selectRandCar() {
+		
+		List<CarDTO> carList = new ArrayList<CarDTO>();
+		
+		try {
+			con = getConnection();
+			sql = "select car_brand, car_name, car_price, car_file FROM car ORDER BY RAND() LIMIT 5";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				CarDTO carDTO = new CarDTO();
+				carDTO.setCar_brand(rs.getString("car_brand"));
+				carDTO.setCar_name(rs.getString("car_name"));
+				carDTO.setCar_price(rs.getInt("car_price"));
+				carDTO.setCar_file(rs.getString("car_file"));
+				carList.add(carDTO);
+			}
+			
+			System.out.println(" 차량 정보 : "+carList.size());
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		
+		return carList;
+		
+	}
+	// 차량 정보 랜덤 4개 조회 - selectRandCar()
 }

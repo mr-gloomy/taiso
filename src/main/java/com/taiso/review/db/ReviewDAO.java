@@ -357,4 +357,38 @@ public class ReviewDAO {
 	// 답글 정보 저장하는 메서드 - insertReviewReply(dto) - 끝
 	
 	
+	// 리뷰 정보 랜덤 4개 조회 - selectRandReview()
+	public List<ReviewDTO> selectRandReview() {
+		
+		List<ReviewDTO> rList = new ArrayList<ReviewDTO>();
+		
+		try {
+			con = getConnection();
+//			sql = "select rev_num, rev_subject, rev_content, rev_image, mem_nickName FROM car_review ORDER BY RAND() LIMIT 4";
+			sql = "select rev_subject, substring(rev_content,1,21) as rev_content_cut, rev_image, mem_nickName FROM car_review ORDER BY RAND() LIMIT 4";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ReviewDTO rDTO = new ReviewDTO();
+//				rDTO.setRev_num(rs.getInt("rev_num"));
+				rDTO.setRev_subject(rs.getString("rev_subject"));
+				rDTO.setRev_content(rs.getString("rev_content_cut"));
+				rDTO.setRev_image(rs.getString("rev_image"));
+				rDTO.setMem_nickName(rs.getString("mem_nickName"));
+				rList.add(rDTO);
+			}
+			
+			System.out.println(" 리뷰 정보 : "+rList.size());
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		
+		return rList;
+		
+	}
+	// 리뷰 정보 랜덤 5개 조회 - selectRandReview()
 }
