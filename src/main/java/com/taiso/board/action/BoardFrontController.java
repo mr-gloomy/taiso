@@ -177,7 +177,67 @@ public class BoardFrontController extends HttpServlet{
 		
 			//adminQuestionReWriteAction() 객체 - execute()
 		try {
-			action = new adminQuestionReWriteAction();
+			action = new AdminQuestionReWriteAction();
+			forward = action.execute(request, response);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		
+	}
+		else if(command.equals("/ProposalWrite.bo")) {
+			System.out.println(" C : /ProposalWrite.bo 호출 ");
+			System.out.println(" C : [패턴1] ");
+			
+		forward = new ActionForward();
+		forward.setPath("./board/proposalWrite.jsp");
+		forward.setRedirect(false);
+		}
+		else if(command.equals("/ProposalWriteAction.bo")) {
+			System.out.println(" C : QuestionWriteAction.bo 호출 ");
+			System.out.println(" C : [패턴2] ");
+			
+			// QuestionWriteAction() 객체
+			action = new ProposalWriteAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/ProposalList.bo")) {
+			System.out.println(" C : /ProposalList.bo 호출 ");
+			System.out.println(" C : [패턴3]");
+		
+			action = new ProposalListAction();
+		
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+	}
+		else if(command.equals("/ProposalDetail.bo")) {
+			System.out.println(" C : /ProposalDetail.bo 호출 ");
+			System.out.println(" C : [패턴3]");
+			
+			// QuestionContentAction 객체 생성
+			action = new ProposalDetailAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+	} 
+		else if(command.equals("/AdminProposalReWriteAction.bo")) {
+			System.out.println(" C : /AdminProposalReWriteAction.bo 호출");
+			System.out.println(" C : [패턴2] DB사용 O, 페이지 이동(화면전환)");
+		
+			//adminQuestionReWriteAction() 객체 - execute()
+		try {
+			action = new AdminProposalReWriteAction();
 			forward = action.execute(request, response);
 			
 		} catch (Exception e) {
@@ -186,7 +246,6 @@ public class BoardFrontController extends HttpServlet{
 		
 	}
 		
-	
 		System.out.println(" C : (2단계 끝) 가상주소 매핑 완료 ----------------------- ");
 		/////////////////////////2.가상주소매핑////////////////////////////
 		

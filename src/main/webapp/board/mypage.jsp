@@ -20,15 +20,13 @@
     <link rel="stylesheet" href="./css/aos.css">
 
     <link rel="stylesheet" href="./css/ionicons.min.css">
-
     <link rel="stylesheet" href="./css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="./css/jquery.timepicker.css">
-
-    
     <link rel="stylesheet" href="./css/flaticon.css">
     <link rel="stylesheet" href="./css/icomoon.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/admin_my.css">
+    
   </head>
   <body>
   
@@ -67,7 +65,7 @@
 				<div class="text">
 					<img src="./images/user.png">
 					
-					<h5>부전동포크레인</h5>
+					<h5>${sessionScope.mem_id }</h5>
 					<p>문의사항　　|　　나의 리뷰</p>
 				</div>
 			</div>
@@ -78,9 +76,9 @@
     <div class="middle-md-12">
         <div class="menu">
             <ul id="noul">
-                <li class="buttonitem" id="profile">
-                    <a href="#profile" class="menubtn"><i class="fa fa-cog"></i> 렌트 내역</a>
-                    <div class="smenu">
+                <li class="buttonitem" id="profile" >
+                    <a href="#profile" class="menubtn" ><i class="fa fa-cog"></i> 렌트 내역</a>
+                    <div class="smenu" >
                         <a href="">1</a>
                         <a href="">2</a>
                     </div>
@@ -88,9 +86,9 @@
 
                 <li class="buttonitem" id="messages">
                     <a href="#messages" class="menubtn"><i class="fa fa-user"></i> 나의 게시글 모음 </a>
-                    <div class="smenu">
-                        <a href="./QuestionList.bo">1:1 문의 내역</a>
-                        <a href="">수정제안</a>
+                    <div class="smenu" style="display:block;">
+                        <a href="./QuestionList.bo" id="smenu">1:1 문의 내역</a>
+                        <a href="./ProposalList.bo">수정제안</a>
                     </div>
                 </li>
 
@@ -98,7 +96,7 @@
                     <a href="#settings" class="menubtn"><i class="fa fa-cog"></i> 회원정보 관리</a>
                     <div class="smenu">
                         <a href="./MemberUpdate.me">회원정보 변경(탈퇴)</a>
-                        <a href="">비밀번호 변경</a>
+<!--                         <a href="">비밀번호 변경</a> -->
                     </div>
                 </li>
                 
@@ -166,6 +164,6 @@
 	<script src="./js/google-map.js"></script>
 	<script src="./js/main.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
-    
+   
   </body>
 </html>

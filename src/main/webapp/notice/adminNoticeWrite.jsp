@@ -110,7 +110,7 @@
 							</dd>
 							</dl>
 							<hr>
-							</div>
+					</div>
 							<div class="cont">
 								<textarea name="bo_content" placeholder="내용을 입력해주세요"></textarea>
 							</div><br>

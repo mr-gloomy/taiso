@@ -24,7 +24,7 @@ public class QuestionDetailAction implements Action {
 //		System.out.println(" M : 조회수 1 증가 완료! ");
 		
 		// 글번호에 해당 글 정보를 가져오기 
-		BoardDTO bodto = bodao.getQuestionContent(bo_num);
+		BoardDTO bodto = bodao.getQuestionDetail(bo_num);
 		
 		// request 영역에 글정보를 저장 
 		request.setAttribute("bodto", bodto);

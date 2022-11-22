@@ -22,6 +22,8 @@
 <link rel="stylesheet" href="./css/icomoon.css">
 <link rel="stylesheet" href="./css/style.css">
 <link rel="stylesheet" href="./css/board.css">
+<link rel="stylesheet" href="./css/admin_my.css">
+
 </head>
 <body>
 	<div id="wrap">
