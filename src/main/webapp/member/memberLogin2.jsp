@@ -31,13 +31,6 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-
-<!-- SNS로그인 관련 -->
-<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
-<meta name ="google-signin-client_id" content="231575130286-milrnaqgc87g434srftir69s67pmo0tc.apps.googleusercontent.com">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- SNS로그인 관련 -->
-
 </head>
 
   <body>
@@ -74,7 +67,7 @@
 						</div>
 						
 						<div class="panel-body p-3">
-							<form action="./MemberLoginAction.me" method="POST" name="f">
+							<form action="./MemberLoginAction.me" method="POST">
 								<div class="form-group py-2">
 									<div class="input-field">
 										<span class="far fa-user p-2"></span> 
@@ -104,81 +97,20 @@
 							</form>
 						</div>
 						
-						
 						<div class="mx-3 my-2 py-2 bordert">
 							<div class="text-center py-3">
-							
-							<!-- 네이버 로그인 관련 -->
-								<a id="naverIdLogin_loginButton" href="javascript:void(0)">
-								<img src="./member/logo/naverlogo.jpg"></a> 
-							<!-- 네이버 로그인 관련 -->
-							
-							<!-- 구글 로그인 관련 -->
-								<a id="GgCustomLogin" href="javascript:void(0)">
-								<img src="./member/logo/googlelogo.png"></a> 
-							<!-- 구글 로그인 관련 -->
-							
+								<a href="https://wwww.facebook.com" target="_blank" class="px-2">
+								<img src="https://www.dpreview.com/files/p/articles/4698742202/facebook.jpeg" alt=""></a> 
+								<a href="https://www.google.com" target="_blank" class="px-2">
+								<img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png" alt=""></a> 
 							</div>
 						</div>
-						
 						
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- 본문 끝 -->
-
-<!-- 네이버 로그인 관련 -->
-<script>
-var naverLogin = new naver.LoginWithNaverId(
-		{
-			clientId: "wmfagQjB6wykoV0oZUGH", //내 애플리케이션 cliendId
-			callbackUrl: "http://localhost:8088/project_taiso/ReservationMain.rez", // 내 애플리케이션 API설정의 Callback URL
-			isPopup: false,
-			callbackHandle: true
-		}
-	);	
-
-naverLogin.init();
-
-var testPopUp;
-function openPopUp() {
-    testPopUp= window.open("https://nid.naver.com/nidlogin.logout", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,width=1,height=1");
-}
-function closePopUp(){
-    testPopUp.close();
-}
-
-function naverLogout() {
-	openPopUp();
-	setTimeout(function() {
-		closePopUp();
-		}, 1000);
-	
-	
-}
-</script>
-<!-- 네이버 로그인 관련 -->		
-		
-<!-- 구글 로그인 관련 -->		
-<script>
-function init() {
-	gapi.load('auth2', function() {
-		gapi.auth2.init();
-        // GgCustomLogin은 li태그안에 있는 ID, 위에 설정한 options와 아래 성공,실패시 실행하는 함수들
-		gapi.auth2.getAuthInstance().attachClickHandler('GgCustomLogin', onSignInFailure);
-
-	})
-}
-
-function onSignInFailure(t){		
-	console.log(t);
-}
-</script>
-<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
-<!-- 구글 로그인 관련 -->		
-		
-		
 
 <!-- 본문 css -->
 <style>

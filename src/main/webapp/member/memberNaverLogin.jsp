@@ -32,11 +32,7 @@
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
-<!-- SNS로그인 관련 -->
 <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
-<meta name ="google-signin-client_id" content="231575130286-milrnaqgc87g434srftir69s67pmo0tc.apps.googleusercontent.com">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- SNS로그인 관련 -->
 
 </head>
 
@@ -65,81 +61,59 @@
 	<!-- 본문 시작 -->
 	<section class="ftco-section contact-section">
 		<div class="container">
-			<div class="row">
-				<div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
-					<div class="panel border bg-white">
-					
-						<div class="panel-heading">
-							<h3 class="pt-3 font-weight-bold">로그인</h3>
-						</div>
-						
-						<div class="panel-body p-3">
-							<form action="./MemberLoginAction.me" method="POST" name="f">
-								<div class="form-group py-2">
-									<div class="input-field">
-										<span class="far fa-user p-2"></span> 
-										<input type="text" name="mem_id" placeholder="아이디를 입력하세요." required>
-									</div>
-								</div>
-								
-								<div class="form-group py-1 pb-2">
-									<div class="input-field">
-									<span class="fas fa-lock px-2"></span> 
-										<input type="password" name="mem_pw" placeholder="비밀번호를 입력하세요." required>
-										<button class="btn bg-white text-muted"><span class="far fa-eye-slash"></span></button>
-									</div>
-								</div>
-								
-								<div class="form-inline">
-									<input type="checkbox" name="remember" id="remember"> 
-									<label for="remember" class="text-muted">아이디 저장</label> 
-								</div>
-								
-								<button class="btn btn-primary btn-block mt-3">로그인</button>
-									<div class="aforgot">
-										<a href="./MemberFindId.me" id="forgot" class="font-weight-bold">아이디 찾기</a>
-										<a href="./MemberFindPw.me" id="forgot" class="font-weight-bold">비밀번호 찾기</a>
-									</div>
-								<div class=textstyle> 회원이 아니신가요? <a href="./MemberJoin.me">가입하기</a></div>
-							</form>
-						</div>
-						
-						
-						<div class="mx-3 my-2 py-2 bordert">
-							<div class="text-center py-3">
-							
-							<!-- 네이버 로그인 관련 -->
-								<a id="naverIdLogin_loginButton" href="javascript:void(0)">
-								<img src="./member/logo/naverlogo.jpg"></a> 
-							<!-- 네이버 로그인 관련 -->
-							
-							<!-- 구글 로그인 관련 -->
-								<a id="GgCustomLogin" href="javascript:void(0)">
-								<img src="./member/logo/googlelogo.png"></a> 
-							<!-- 구글 로그인 관련 -->
-							
-							</div>
-						</div>
-						
-						
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- 본문 끝 -->
+		
+		
+		
+		
+		
+			<ul>
+	<li>
+      <!-- 아래와같이 아이디를 꼭 써준다. -->
+      <a id="naverIdLogin_loginButton" href="javascript:void(0)">
+          <span>네이버 로그인</span>
+      </a>
+	</li>
+	<li onclick="naverLogout(); return false;">
+      <a href="javascript:void(0)">
+          <span>네이버 로그아웃</span>
+      </a>
+	</li>
+</ul>
 
-<!-- 네이버 로그인 관련 -->
+<!-- 네이버 스크립트 -->
+<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+
 <script>
+
 var naverLogin = new naver.LoginWithNaverId(
 		{
-			clientId: "wmfagQjB6wykoV0oZUGH", //내 애플리케이션 cliendId
-			callbackUrl: "http://localhost:8088/project_taiso/ReservationMain.rez", // 내 애플리케이션 API설정의 Callback URL
+			clientId: "wmfagQjB6wykoV0oZUGH", //내 애플리케이션 정보에 cliendId를 입력해줍니다.
+			callbackUrl: "http://localhost:8088/project_taiso/MemberNaverLogin.me", // 내 애플리케이션 API설정의 Callback URL 을 입력해줍니다.
 			isPopup: false,
 			callbackHandle: true
 		}
 	);	
 
 naverLogin.init();
+
+window.addEventListener('load', function () {
+	naverLogin.getLoginStatus(function (status) {
+		if (status) {
+			var email = naverLogin.user.getEmail(); // 필수로 설정할것을 받아와 아래처럼 조건문을 줍니다.
+    		
+			console.log(naverLogin.user); 
+    		
+            if( email == undefined || email == null) {
+				alert("이메일은 필수정보입니다. 정보제공을 동의해주세요.");
+				naverLogin.reprompt();
+				return;
+			}
+		} else {
+			console.log("callback 처리에 실패하였습니다.");
+		}
+	});
+});
+
 
 var testPopUp;
 function openPopUp() {
@@ -158,27 +132,9 @@ function naverLogout() {
 	
 }
 </script>
-<!-- 네이버 로그인 관련 -->		
-		
-<!-- 구글 로그인 관련 -->		
-<script>
-function init() {
-	gapi.load('auth2', function() {
-		gapi.auth2.init();
-        // GgCustomLogin은 li태그안에 있는 ID, 위에 설정한 options와 아래 성공,실패시 실행하는 함수들
-		gapi.auth2.getAuthInstance().attachClickHandler('GgCustomLogin', onSignInFailure);
-
-	})
-}
-
-function onSignInFailure(t){		
-	console.log(t);
-}
-</script>
-<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
-<!-- 구글 로그인 관련 -->		
-		
-		
+			</div>
+		</div>
+		<!-- 본문 끝 -->
 
 <!-- 본문 css -->
 <style>
