@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.taiso.reservation.action.ReservationDate;
 
+
 @WebServlet("*.ca")
 public class CarController extends HttpServlet {
 	
@@ -33,6 +34,7 @@ public class CarController extends HttpServlet {
 		
 		
 		// 2 가상주소 매핑(패턴 1,2,3)
+
 		if(command.equals("/CarList.ca")) {
 			System.out.println(" C : /CarList.ca 호출 ");
 			System.out.println(" C : [패턴3]");

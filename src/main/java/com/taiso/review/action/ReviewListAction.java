@@ -44,7 +44,7 @@ public class ReviewListAction implements Action {
 		// 세션에 저장
 		request.setAttribute("cnt", cnt);
 		request.setAttribute("reviewList", reviewList);
-		request.setAttribute("cDTO", dao.getOneCarList(car_code));
+		request.setAttribute("carDTO", dao.getOneCarList(car_code));
 		
 		// 페이지 이동
 		forward.setPath("./review/carDetailList.jsp");

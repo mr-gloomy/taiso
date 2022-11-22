@@ -45,8 +45,9 @@ public class PaymentController extends HttpServlet {
 			forward.setPath("./views/payment.jsp");
 			forward.setRedirect(false);
 		}
-		else if (command.equals("/PaymentAction.pay")) {
-			System.out.println(" c : [패턴3] : PaymentAction.pay 호출");
+		
+		else if(command.equals("/PaymentAction.pay")) {
+			System.out.println("PaymentAction.pay 호출");
 			
 			action = new PaymentAction();
 			
@@ -55,16 +56,17 @@ public class PaymentController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
 		}
 		
 		else if(command.equals("/PaymentTest.pay")){
+			
 			System.out.println("PaymentTest.pay 호출");
+			
 			forward = new ActionForward();
 			forward.setPath("./views/paymentTest.jsp");
-			forward.setRedirect(true);
+			forward.setRedirect(false);
 		}
-		
-	    
 	    
 	    
 	    System.out.println(" C : 2. 가상주소 매핑 끝");

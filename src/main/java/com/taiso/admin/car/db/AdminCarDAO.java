@@ -53,7 +53,7 @@ public class AdminCarDAO {
 		   // 자원해제 메서드 - closeDB()
 	
 		// 상품등록메서드 - insertCar(DTO)
-		  public void insertCar(CarDTO cDTO) {
+		  public void insertCar(CarDTO carDTO) {
 			  int car_code = 0;
 			  try {
 				con = getConnection();
@@ -72,16 +72,16 @@ public class AdminCarDAO {
 				
 				// ???
 				pstmt.setInt(1, car_code);
-				pstmt.setString(2, cDTO.getCar_brand());
-				pstmt.setString(3, cDTO.getCar_name());
-				pstmt.setInt(4, cDTO.getCar_location());
-				pstmt.setString(5, cDTO.getCar_site());
-				pstmt.setInt(6, cDTO.getCar_price());
-				pstmt.setString(7, cDTO.getCar_op());
-				pstmt.setString(8, cDTO.getCar_category());
-				pstmt.setString(9, cDTO.getCar_file());
-				pstmt.setInt(10, cDTO.getCar_year());
-				pstmt.setString(11, cDTO.getCar_fuel());
+				pstmt.setString(2, carDTO.getCar_brand());
+				pstmt.setString(3, carDTO.getCar_name());
+				pstmt.setInt(4, carDTO.getCar_location());
+				pstmt.setString(5, carDTO.getCar_site());
+				pstmt.setInt(6, carDTO.getCar_price());
+				pstmt.setString(7, carDTO.getCar_op());
+				pstmt.setString(8, carDTO.getCar_category());
+				pstmt.setString(9, carDTO.getCar_file());
+				pstmt.setInt(10, carDTO.getCar_year());
+				pstmt.setString(11, carDTO.getCar_fuel());
 				
 				pstmt.executeUpdate();
 				
@@ -123,7 +123,7 @@ public class AdminCarDAO {
 			  List adminCarList = new ArrayList();
 			  StringBuffer SQL = new StringBuffer();
 				
-				CarDTO cDTO = null;
+				CarDTO carDTO = null;
 			  try {
 				con = getConnection();
 				SQL.append("select * from car");
@@ -153,21 +153,21 @@ public class AdminCarDAO {
 				
 				while(rs.next()) {
 					// DB(테이블) -> DTO -> List
-					cDTO = new CarDTO();
+					carDTO = new CarDTO();
 					
-					cDTO.setCar_brand(rs.getString("car_brand"));
-					cDTO.setCar_category(rs.getString("car_category"));
-					cDTO.setCar_code(rs.getInt("car_code"));
-					cDTO.setCar_file(rs.getString("car_file"));
-					cDTO.setCar_fuel(rs.getString("car_fuel"));
-					cDTO.setCar_location(rs.getInt("car_location"));
-					cDTO.setCar_name(rs.getString("car_name"));
-					cDTO.setCar_op(rs.getString("car_op"));
-					cDTO.setCar_price(rs.getInt("car_price"));
-					cDTO.setCar_year(rs.getInt("car_year"));
-					cDTO.setCar_site(rs.getString("car_site"));
+					carDTO.setCar_brand(rs.getString("car_brand"));
+					carDTO.setCar_category(rs.getString("car_category"));
+					carDTO.setCar_code(rs.getInt("car_code"));
+					carDTO.setCar_file(rs.getString("car_file"));
+					carDTO.setCar_fuel(rs.getString("car_fuel"));
+					carDTO.setCar_location(rs.getInt("car_location"));
+					carDTO.setCar_name(rs.getString("car_name"));
+					carDTO.setCar_op(rs.getString("car_op"));
+					carDTO.setCar_price(rs.getInt("car_price"));
+					carDTO.setCar_year(rs.getInt("car_year"));
+					carDTO.setCar_site(rs.getString("car_site"));
 
-					adminCarList.add(cDTO);
+					adminCarList.add(carDTO);
 				} // while
 					System.out.println(" DAO : 관리자 상품리스트 저장완료! ");
 					System.out.println(" DAO : " + adminCarList.size());
@@ -183,7 +183,7 @@ public class AdminCarDAO {
    
 		// 상품 1개의 정보를 가져오기 - getAdminCar(car_code)
 		  public CarDTO getAdminCar(int car_code) {
-			  CarDTO cDTO = null;
+			  CarDTO carDTO = null;
 			  try {
 				con = getConnection();
 				sql = "select * from car where car_code=?";
@@ -193,17 +193,17 @@ public class AdminCarDAO {
 				rs = pstmt.executeQuery();
 				
 				if(rs.next()) {
-					cDTO = new CarDTO();
-					cDTO.setCar_brand(rs.getString("car_brand"));
-					cDTO.setCar_category(rs.getString("car_category"));
-					cDTO.setCar_code(rs.getInt("car_code"));
-					cDTO.setCar_file(rs.getString("car_file"));
-					cDTO.setCar_fuel(rs.getString("car_fuel"));
-					cDTO.setCar_location(rs.getInt("car_location"));
-					cDTO.setCar_name(rs.getString("car_name"));
-					cDTO.setCar_op(rs.getString("car_op"));
-					cDTO.setCar_price(rs.getInt("car_price"));
-					cDTO.setCar_year(rs.getInt("car_year"));
+					carDTO = new CarDTO();
+					carDTO.setCar_brand(rs.getString("car_brand"));
+					carDTO.setCar_category(rs.getString("car_category"));
+					carDTO.setCar_code(rs.getInt("car_code"));
+					carDTO.setCar_file(rs.getString("car_file"));
+					carDTO.setCar_fuel(rs.getString("car_fuel"));
+					carDTO.setCar_location(rs.getInt("car_location"));
+					carDTO.setCar_name(rs.getString("car_name"));
+					carDTO.setCar_op(rs.getString("car_op"));
+					carDTO.setCar_price(rs.getInt("car_price"));
+					carDTO.setCar_year(rs.getInt("car_year"));
 				} // if
 				
 				System.out.println(" DAO : 상품정보 가져오기 완료! ");
@@ -213,27 +213,27 @@ public class AdminCarDAO {
 				closeDB();
 			}
 			  
-			  return cDTO;
+			  return carDTO;
 		  }
 		// 상품 1개의 정보를 가져오기 - getAdminCar(car_code)
 		  
 		 // DAO - 상품정보 수정메서드 adminUpdateCar(DTO)
-		  public void adminUpdateCar(CarDTO cDTO) {
+		  public void adminUpdateCar(CarDTO carDTO) {
 			  try {
 				con = getConnection();
 				sql ="update car set car_category=?, car_name=?, car_brand=?, car_price=?, car_year=?, car_fuel=?, car_op=?, car_location=? "
 						+ "where car_code=?";
 				pstmt = con.prepareStatement(sql);
 				
-				pstmt.setString(1, cDTO.getCar_category());
-				pstmt.setString(2, cDTO.getCar_name());
-				pstmt.setString(3, cDTO.getCar_brand());
-				pstmt.setInt(4, cDTO.getCar_price());
-				pstmt.setInt(5, cDTO.getCar_year());
-				pstmt.setString(6, cDTO.getCar_fuel());
-				pstmt.setString(7, cDTO.getCar_op());
-				pstmt.setInt(8, cDTO.getCar_location());
-				pstmt.setInt(9, cDTO.getCar_code());
+				pstmt.setString(1, carDTO.getCar_category());
+				pstmt.setString(2, carDTO.getCar_name());
+				pstmt.setString(3, carDTO.getCar_brand());
+				pstmt.setInt(4, carDTO.getCar_price());
+				pstmt.setInt(5, carDTO.getCar_year());
+				pstmt.setString(6, carDTO.getCar_fuel());
+				pstmt.setString(7, carDTO.getCar_op());
+				pstmt.setInt(8, carDTO.getCar_location());
+				pstmt.setInt(9, carDTO.getCar_code());
 				
 				pstmt.executeUpdate();
 				

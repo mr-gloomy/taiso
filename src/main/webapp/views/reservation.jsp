@@ -97,7 +97,7 @@
 						          <option value="전라/광주">전라/광주</option>
 						          <option value="경상/부산/대구/울산">경상/부산/대구/울산</option>
 							</select>
-							<select id="site_select" name="car_site">
+							<select id="site_select" name="rez_site">
 						          <option value="" selected disabled hidden>==지점을 선택하세요==</option>	
 							</select>
 						</div>           
