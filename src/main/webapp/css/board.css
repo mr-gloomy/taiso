@@ -1,5 +1,18 @@
 @charset "UTF-8";
 
+/* 폼 버튼 가운데 정렬 */
+.formbtncenter {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 10px;
+}
+
+  .btn.btn-primary2 {
+    background: #1089ff !important;
+    border: 1px solid #1089ff !important;
+      margin-right: 10px;
+    color: #fff !important; }
+
 /* 프로필 */
 .card {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
@@ -207,6 +220,10 @@ a {
     width: 10%;
 }
 
+.board_list .mem_id { /*notice list*/
+    width: 15%;
+}
+
 .board_list .date { /*notice list*/
     width: 15%;
 }
@@ -230,20 +247,23 @@ a {
 }
 
 .board_view .title {/*notice detail*/
+	margin-left: 5px;
     border-bottom: 1px dashed #ddd;
-    font-size: 2rem;
+    font-size: 1.35rem;
+    
 }
 
 .board_view .info {/*notice detail*/
-    padding: 5px;
+    padding: 3px;
     border-bottom: 1px solid #999;
     font-size: 0;
+    vertical-align: middle;
 }
 
 .board_view .info dl {/*notice detail*/
     position: relative;
     display: inline-block;
-    padding: 0  10px;
+    padding: 0  20px;
 }
 
 .board_view .info dl:first-child {
@@ -256,8 +276,8 @@ a {
     top: 1px;
     left: 0;
     display: block;
-    width: 1px;
-    height: 10px;
+    width: 1.5px;
+    height: 20px;
     background: #ddd;
 }
 
@@ -281,11 +301,71 @@ a {
 }
 
 .board_view .cont { /*notice detail*/
-    padding: 15px;
+    padding: 10px;
     border-bottom: 1px solid #000;
     line-height: 160%;
     font-size: 1.1rem;
 }
+/** 파일 넣는 부분 일렬로 */
+
+/* .board_view .info dl:first-child::before { */
+/* /*     display: none; */ */
+/*         display: inline-block; */
+/* } */
+
+/* .board_view .file dl dt, */
+/* .board_view .file dl dd { */
+/*     display: inline-block; */
+/*     font-size: 1rem; */
+/* } */
+
+.board_view .info2 {/*notice detail*/
+    padding: 2px;
+    border-bottom: 1px solid #999;
+    font-size: 0;
+}
+
+.board_view .info2 dl {/*notice detail*/
+    position: relative;
+    display: inline-block;
+    padding: 0  20px;
+}
+
+.board_view .info2 dl:first-child {
+    padding-left: 0;
+}
+
+.board_view .info2 dl::before {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 0;
+    display: block;
+    width: 1.5px;
+    height: 20px;
+    background: #ddd;
+}
+
+.board_view .info2 dl:first-child::before {
+    display: none;
+}
+
+.board_view .info2 dl dt,
+.board_view .info2 dl dd {
+    display: inline-block;
+    font-size: 1rem;
+}
+
+.board_view .info2 dl dt {
+
+}
+
+.board_view .info2 dl dd {
+    margin-left: 10px;
+    color: #777;
+}
+
+
 
 .board_write {
     border-top: 2px solid #000;
@@ -369,6 +449,10 @@ a {
     .board_list .writer,
     .board_list .count {
         display: none;
+    }
+
+    .board_list .mem_id {
+        width: 40%;
     }
 
     .board_list .date {

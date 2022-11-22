@@ -63,38 +63,40 @@
      	<!-- 프로필 -->
 		
 		<!-- 메뉴바 -->
-
     <div class="middle-md-12">
         <div class="menu">
             <ul id="noul">
-                <li class="buttonitem" id="profile">
-                    <a href="#profile" class="menubtn"><i class="fa fa-cog"></i> 공지사항 </a>
-                    <div class="smenu">
-                        <a href="">Post</a>
-                        <a href="">Picture</a>
-                    </div>
+                <li class="buttonitem" id="profile" >
+                    <a href="./NoticeList.nb" class="menubtn" ><i class="fa fa-cog"></i>공지사항</a>
+<!--                     <div class="smenu" > -->
+<!--                         <a href="">1</a> -->
+<!--                         <a href="">2</a> -->
+<!--                     </div> -->
                 </li>
 
                 <li class="buttonitem" id="messages">
-                    <a href="#messages" class="menubtn"><i class="fa fa-user"></i> Messages</a>
-                    <div class="smenu">
-                        <a href="">New</a>
-                        <a href="">Sent</a>
-                        <a href="">Spam</a>
-                    </div>
+                    <a href="./FaqList.bo" class="menubtn"><i class="fa fa-user"></i>FAQ</a>
+<!--                     <div class="smenu" style="display:block;" > -->
+<!--                         <a href="./QuestionList.bo">1:1 문의 내역</a> -->
+<!--                         <a href="">수정제안</a> -->
+<!--                     </div> -->
                 </li>
 
                 <li class="buttonitem" id="settings">
-                    <a href="#settings" class="menubtn"><i class="fa fa-cog"></i> Settings</a>
-                    <div class="smenu">
-                        <a href="">Password</a>
-                        <a href="">Language</a>
-                    </div>
+                    <a href="./QuestionWrite.bo" class="menubtn"><i class="fa fa-cog"></i>1:1 문의하기</a>
+<!--                     <div class="smenu"> -->
+<!--                         <a href="./MemberUpdate.me">회원정보 변경(탈퇴)</a> -->
+<!-- <!--                         <a href="">비밀번호 변경</a> --> 
+<!--                     </div> -->
                 </li>
-
-                <li class="buttonitem">
-                    <a href="#" class="menubtn"><i class="fa fa-sign-out-alt"></i> Logout</a>
+                <li class="buttonitem" id="profile" >
+                    <a href="./ProposalWrite.bo" class="menubtn" ><i class="fa fa-cog"></i>수정제안</a>
+<!--                     <div class="smenu" > -->
+<!--                         <a href="">1</a> -->
+<!--                         <a href="">2</a> -->
+<!--                     </div> -->
                 </li>
+                
                </ul>
              </div>
             </div>

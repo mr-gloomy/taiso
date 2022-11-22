@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="./css/icomoon.css">
 <link rel="stylesheet" href="./css/style.css">
 <link rel="stylesheet" href="./css/board.css">
+<link rel="stylesheet" href="./css/admin_my.css">
 
 <!-- input에 오늘날짜 기본값으로 넣기 -->
 <script type="text/javascript">
@@ -76,22 +77,43 @@
 							<!-- 프로필 -->
 
 							<!-- 메뉴바 -->
+    <div class="middle-md-12">
+        <div class="menu">
+            <ul id="noul">
+                <li class="buttonitem" id="profile" >
+                    <a href="./NoticeList.nb" class="menubtn" ><i class="fa fa-cog"></i>공지사항</a>
+<!--                     <div class="smenu" > -->
+<!--                         <a href="">1</a> -->
+<!--                         <a href="">2</a> -->
+<!--                     </div> -->
+                </li>
 
-							<div class="middle-md-12">
-								<div class="menu">
-									<ul id="noul">
-										<li class="buttonitem" id="profile"><a
-											href="./NoticeList.nb" class="menubtn"><i
-												class="fa fa-cog"></i> 공지사항 </a></li>
-										<li class="buttonitem" id="messages"><a href="#messages"
-											class="menubtn"><i class="fa fa-user"></i> FAQ </a></li>
-										<li class="buttonitem" id="settings"><a href="#settings"
-											class="menubtn"><i class="fa fa-cog"></i> 1:1 문의사항 </a></li>
-										<li class="buttonitem"><a href="#" class="menubtn"><i
-												class="fa fa-sign-out-alt"></i> 채팅상담 </a></li>
-									</ul>
-								</div>
-							</div>
+                <li class="buttonitem" id="messages">
+                    <a href="./FaqList.bo" class="menubtn"><i class="fa fa-user"></i>FAQ</a>
+<!--                     <div class="smenu" style="display:block;" > -->
+<!--                         <a href="./QuestionList.bo">1:1 문의 내역</a> -->
+<!--                         <a href="">수정제안</a> -->
+<!--                     </div> -->
+                </li>
+
+                <li class="buttonitem" id="settings">
+                    <a href="./QuestionWrite.bo" class="menubtn"><i class="fa fa-cog"></i>1:1 문의하기</a>
+<!--                     <div class="smenu"> -->
+<!--                         <a href="./MemberUpdate.me">회원정보 변경(탈퇴)</a> -->
+<!-- <!--                         <a href="">비밀번호 변경</a> --> 
+<!--                     </div> -->
+                </li>
+                <li class="buttonitem" id="profile" >
+                    <a href="./ProposalWrite.bo" class="menubtn" ><i class="fa fa-cog"></i>수정제안</a>
+<!--                     <div class="smenu" > -->
+<!--                         <a href="">1</a> -->
+<!--                         <a href="">2</a> -->
+<!--                     </div> -->
+                </li>
+                
+               </ul>
+             </div>
+            </div>
 							<!-- 메뉴바 -->
 						</div>
 					</div>

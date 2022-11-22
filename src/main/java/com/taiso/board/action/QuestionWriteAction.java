@@ -49,7 +49,6 @@ public class QuestionWriteAction implements Action {
 		bodto.setBo_content(multi.getParameter("bo_content"));
 		bodto.setBo_file(multi.getFilesystemName("bo_file"));
 //		bodto.setSysdate(null)
-
 		
 		// BoardDAO 객체
 		BoardDAO bodao = new BoardDAO();
