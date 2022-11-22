@@ -9,10 +9,10 @@ import javax.servlet.http.HttpSession;
 import com.taiso.admin.car.db.AdminCarDAO;
 import com.taiso.car.db.CarDAO;
 
-public class AdminCarListAction implements AdminCar {
+public class AdminCarListAction implements Action {
 
 	@Override
-	public AdminCarForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println(" M : AdminCarListAction_execute() 호출");
 		
 		// 세션제어(관리저여부)
@@ -85,7 +85,7 @@ public class AdminCarListAction implements AdminCar {
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		
-		AdminCarForward forward = new AdminCarForward();
+		ActionForward forward = new ActionForward();
 		// 페이지 이동(./center/adminCarList.jsp.jsp)
 		forward.setPath("./adminCar/adminCarList.jsp");
 		forward.setRedirect(false);

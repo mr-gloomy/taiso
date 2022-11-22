@@ -168,11 +168,21 @@ a {
 						<!-- 게시판 -->
 <article>
 <h1> [관리자] 차량 리스트 </h1>
+<div>
+	<a href="./AdminCarList.ad">전체</a>
+	<a href="./AdminCarList.ad?item=small">소형</a>
+	<a href="./AdminCarList.ad?item=compact">준중형</a>
+	<a href="./AdminCarList.ad?item=middle">중형</a> 
+	<a href="./AdminCarList.ad?item=large">대형</a> 
+	<a href="./AdminCarList.ad?item=suv">suv</a>
+	<a href="./AdminCarList.ad?item=foreign">수입차</a>
+</div>
 <table id="notice">
 <tr><th>상품번호</th>
 	<th>브랜드명</th>
 	<th>차량명</th>
     <th>카테고리</th>
+    <th>지점</th>
     <th>이미지</th>
     <th>가격</th>
     <th>옵션</th>
@@ -185,6 +195,7 @@ a {
 		<td>${dto.car_brand }</td>
 		<td>${dto.car_name }</td>
 		<td class="left">${dto.car_category }</td>
+		<td>${dto.car_site }</td>
 	    <td>
 	    	<img src="./upload/${dto.car_file.split(',')[0] }" width="50" height="50">
 	    </td>
@@ -192,8 +203,9 @@ a {
 	    <td>${dto.car_op }</td>
 	    <td>${dto.car_year }</td>
 	    <td>
-	    <a href="./AdminCarUpdate.ad?car_code=${dto.car_code }">수정</a>
 <%-- 	    <button onclick="./AdminCarUpdate.ad?car_code=${dto.car_code }">수정</button> --%>
+	    <a href="./AdminCarUpdate.ad?car_code=${dto.car_code }">수정</a>
+<%-- 	    <input type ="button" value="수정" onclick="./AdminCarUpdate.ad?car_code=${dto.car_code }"> --%>
 	    /
 <%-- 	    	<c:set var= "code" value="${dto.car_code }"/> --%>
 	    
@@ -223,35 +235,41 @@ a {
 					
 
 			<!-- 페이징처리 -->
-          	<c:if test="${totalCnt != 0 }">
-	
-		<!-- 이전 -->
-		<c:if test="${startPage > pageBlock }">
-			<a href="./CarList.ca?pageNum=${startPage-pageBlock }">[이전]</a>
+    			<c:if test="${totalCnt != 0 }">
+
+			<!-- 이전 -->
+			<c:if test="${startPage > pageBlock }">
+				<a href="./AdminCarList.ad?pageNum=${startPage-pageBlock }">[이전]</a>
+			</c:if>
+			<!--     	<div class="row mt-5"> -->
+			<div class="col text-center">
+				<div class="block-27">
+					<ul>
+						<!-- 페이지 번호(1,2,3...) -->
+					<c:forEach var="i" begin="${startPage }" end="${endPage }"
+						step="1">
+					
+
+							<li <c:if test="${pageNum == i }">class="active" </c:if>
+								
+							>
+						<span>
+						<a href="./AdminCarList.ad?pageNum=${i }">${i }</a>
+						</span>
+						</li>
+						
+
+						</c:forEach>
+					</ul>
+				</div>
+			</div>
+
+			<!-- 다음 -->
+			<c:if test="${endPage < pageCount }">
+				<a href="./AdminCarList.ad?pageNum=${startPage+pageBlock }">[다음]</a>
+			</c:if>
+
 		</c:if>
-		<!--     	<div class="row mt-5"> -->
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-		<!-- 페이지 번호(1,2,3...) -->
-		<c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
-<%-- 			<c:if test="${startPage }"> --%>
-			<li class="active"><span><a href="./AdminCarList.ad?pageNum=${i }">${i }</a></span></li>
-<%-- 			</c:if> --%>
-		</c:forEach>
-		        </ul>
-            </div>
-          </div>
-        </div>
-		
-		<!-- 다음 -->
-		<c:if test="${endPage < pageCount }">
-			<a href="./AdminCarList.ad?pageNum=${startPage+pageBlock }">[다음]</a>
-		</c:if>
-	
-	</c:if>
-		</div>
-	</section>
 
 
 	<jsp:include page="../inc/bottom.jsp"></jsp:include>

@@ -6,10 +6,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.taiso.admin.car.db.AdminCarDAO;
 import com.taiso.car.db.CarDTO;
 
-public class AdminCarUpdateProAction implements AdminCar {
+public class AdminCarUpdateProAction implements Action {
 
 	@Override
-	public AdminCarForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println(" M : AdminCarUpdateProAction_execute() 호출");
 		
 		// 로그인 세션(생략)
@@ -26,13 +26,14 @@ public class AdminCarUpdateProAction implements AdminCar {
 		carDTO.setCar_op(request.getParameter("car_op"));
 		carDTO.setCar_price(Integer.parseInt(request.getParameter("car_price")));
 		carDTO.setCar_year(Integer.parseInt(request.getParameter("car_year")));
+		carDTO.setCar_site(request.getParameter("car_site"));
 		
 		// DAO - 상품정보 수정메서드 (AdminUpdateCar(DTO))
 		AdminCarDAO acDAO = new AdminCarDAO();
 		acDAO.adminUpdateCar(carDTO);
 		
 		// 페이지 이동
-		AdminCarForward forward = new AdminCarForward();
+		ActionForward forward = new ActionForward();
 		forward.setPath("./AdminCarList.ad");
 		forward.setRedirect(true);
 		

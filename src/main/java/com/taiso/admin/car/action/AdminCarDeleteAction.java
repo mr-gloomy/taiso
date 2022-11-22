@@ -5,10 +5,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.taiso.admin.car.db.AdminCarDAO;
 
-public class AdminCarDeleteAction implements AdminCar {
+public class AdminCarDeleteAction implements Action {
 
 	@Override
-	public AdminCarForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println(" M : AdminCarDeleteAction_execute() 호출");
 		
 		// 정보 가져오기
@@ -19,7 +19,7 @@ public class AdminCarDeleteAction implements AdminCar {
 		
 		acDAO.adminDeleteCar(car_code);
 				
-		AdminCarForward forward = new AdminCarForward();
+		ActionForward forward = new ActionForward();
 		forward.setPath("./AdminCarList.ad");
 		forward.setRedirect(true);
 		

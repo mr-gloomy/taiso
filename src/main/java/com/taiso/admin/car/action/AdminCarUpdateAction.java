@@ -5,10 +5,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.taiso.admin.car.db.AdminCarDAO;
 
-public class AdminCarUpdateAction implements AdminCar {
+public class AdminCarUpdateAction implements Action {
 
 	@Override
-	public AdminCarForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		System.out.println(" M : AdminCarUpdateAction_execute() 호출");
 
@@ -24,7 +24,7 @@ public class AdminCarUpdateAction implements AdminCar {
 		request.setAttribute("dto", acDAO.getAdminCar(car_code));
 		
 		// 페이지 이동(./center/adminCarUpadte.jsp)
-		AdminCarForward forward = new AdminCarForward();
+		ActionForward forward = new ActionForward();
 		forward.setPath("./center/adminCarUpdate.jsp");
 		forward.setRedirect(false);
 		return forward;
