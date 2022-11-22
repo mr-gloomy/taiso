@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,26 +11,27 @@
     
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="./css/animate.css">
-                                 
-    <link rel="stylesheet" href="./css/owl.carousel.min.css">
-    <link rel="stylesheet" href="./css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="./css/magnific-popup.css">
-                                 
-    <link rel="stylesheet" href="./css/aos.css">
-                                 
-    <link rel="stylesheet" href="./css/ionicons.min.css">
-                                 
-    <link rel="stylesheet" href="./css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="./css/jquery.timepicker.css">
-                                 
-                                 
-    <link rel="stylesheet" href="./css/flaticon.css">
-    <link rel="stylesheet" href="./css/icomoon.css">
-    <link rel="stylesheet" href="./css/style.css">
-    
-  </head>
+	<link rel="stylesheet" href="./css/open-iconic-bootstrap.min.css">
+	<link rel="stylesheet" href="./css/animate.css">
+	                             
+	<link rel="stylesheet" href="./css/owl.carousel.min.css">
+	<link rel="stylesheet" href="./css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="./css/magnific-popup.css">
+	                             
+	<link rel="stylesheet" href="./css/aos.css">
+	                             
+	<link rel="stylesheet" href="./css/ionicons.min.css">
+	                             
+	<link rel="stylesheet" href="./css/bootstrap-datepicker.css">
+	<link rel="stylesheet" href="./css/jquery.timepicker.css">
+	                             
+	                             
+	<link rel="stylesheet" href="./css/flaticon.css">
+	<link rel="stylesheet" href="./css/icomoon.css">
+	<link rel="stylesheet" href="./css/style.css">
+	
+	
+</head>
   <body>
     
 	<!-- header -->
@@ -97,7 +99,7 @@
 						          <option value="전라/광주">전라/광주</option>
 						          <option value="경상/부산/대구/울산">경상/부산/대구/울산</option>
 							</select>
-							<select id="site_select" name="rez_site">
+							<select id="site_select" name="car_site">
 						          <option value="" selected disabled hidden>==지점을 선택하세요==</option>	
 							</select>
 						</div>           
@@ -109,11 +111,123 @@
 				</div>
 				</div>
     </section>
+
+    <section class="ftco-section ftco-no-pt bg-light">
+    	<div class="container">
+    		<div class="row justify-content-center">
+          <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+          	<span class="subheading">최고의 차</span>
+            <h2 class="mb-2">추천합니다</h2>
+          </div>
+        </div>
+    		<div class="row">
+    			<div class="col-md-12">
+    				<div class="carousel-car owl-carousel">
+  					<c:forEach var="i" begin="0" end="${carList.size()-1 }" step="1">
+					<c:set var="dto" value="${carList[i]}"/>
+    					<div class="item">
+    						<div class="car-wrap rounded ftco-animate">
+		    					<div class="img rounded d-flex align-items-end" style="background-image: url(images/car-1.jpg);">
+		    					</div>
+		    					<div class="text">
+		    						<h2 class="mb-0"><a href="#">${dto.car_brand }</a></h2>
+		    						<div class="d-flex mb-3">
+			    						<span class="cat">${dto.car_name }</span>
+			    						<p class="price ml-auto">${dto.car_price }원 <span>/day</span></p>
+		    						</div>
+		    						<p class="d-flex mb-0 d-block">
+			    						<a href="#" class="btn btn-primary py-2 mr-1">Book now</a>
+			    						<a href="./ReviewListAction.rev?car_code=${dto.car_code }"
+											class="btn btn-secondary py-2 ml-1">Details</a>
+									</p>
+		    					</div>
+		    				</div>
+    					</div>
+   					</c:forEach>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+    
+    
+    <section class="ftco-section testimony-section bg-light">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+          	<span class="subheading">최고의 후기</span>
+            <h2 class="mb-3">추천합니다</h2>
+          </div>
+        </div>
+        <div class="row ftco-animate">
+          <div class="col-md-12">
+            <div class="carousel-testimony owl-carousel ftco-owl">
+            
+	<c:forEach var="i" begin="0" end="${rList.size()-1 }" step="1">
+	<c:set var="dto" value="${rList[i]}"/>
+              <div class="item">
+                <div class="testimony-wrap rounded text-center py-4 pb-5">
+                  <div class="user-img mb-2" style="background-image: url(images/person_1.jpg)">
+                  </div>
+                  <div class="text pt-4">
+                    <p class="mb-4">${dto.rev_content }</p>
+                    <p class="name">${dto.rev_subject }</p>
+                    <span class="position">${dto.mem_nickName }</span>
+                  </div>
+                </div>
+              </div>
+     </c:forEach>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+   
+    <section class="ftco-counter ftco-section img bg-light" id="section-counter">
+			<div class="overlay"></div>
+    	<div class="container">
+    		<div class="row">
+          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text text-border d-flex align-items-center">
+                <strong class="number" data-number="60">0</strong>
+                <span>Year <br>Experienced</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text text-border d-flex align-items-center">
+                <strong class="number" data-number="1090">0</strong>
+                <span>Total <br>Cars</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text text-border d-flex align-items-center">
+                <strong class="number" data-number="2590">0</strong>
+                <span>Happy <br>Customers</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text d-flex align-items-center">
+                <strong class="number" data-number="67">0</strong>
+                <span>Total <br>Branches</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    	</div>
+    </section>	    
     
     <!-- footer -->
-
     <jsp:include page="../inc/bottom.jsp"/>
-    
     <!-- footer -->
   
 

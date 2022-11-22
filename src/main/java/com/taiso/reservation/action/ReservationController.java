@@ -56,15 +56,7 @@ public class ReservationController extends HttpServlet{
 					}
 				}
 				
-				else if(command.equals("/ReservationMain.rez")) {
-					System.out.println(" C : [패턴1] : ReservationMain.rez 호출");
-					
-					forward = new ActionForward();
-					forward.setPath("./views/reservation.jsp");
-					forward.setRedirect(false);
-					
-				}
-				
+
 				/**
 				 * ReservationAction
 				 * 
@@ -205,22 +197,6 @@ public class ReservationController extends HttpServlet{
 				}
 				
 				
-				/**
-	             * ReservationMain
-	             * 
-	             */
-	            else if(command.equals("/ReservationMain.rez")) {
-	               System.out.println(" C : [패턴1] : /ReservationMain.rez 호출");
-	               
-	               forward = new ActionForward();
-	               forward.setPath("./reservation.jsp");
-	               forward.setRedirect(false);
-	            }
-				
-				
-				
-	
-				
 			    /**
 			     * AdminReservationListAction
 			     * - 관리자 예약 조회
@@ -255,17 +231,32 @@ public class ReservationController extends HttpServlet{
 				}
 				
 				
-//				
-//				   else if(command.equals("/minzi.rez")) {
-//		               System.out.println(" C : [패턴1] : /ReservationMain.rez 호출");
-//		               
-//		               forward = new ActionForward();
-//		               forward.setPath("./views/reservationList.jsp");
-//		               forward.setRedirect(false);
-//		            }
+				/**
+				 * Siteinfo
+				 * 
+				 */
+				else if(command.equals("/Siteinfo.rez")) {
+					forward = new ActionForward();
+					forward.setPath("./views/siteinfo.jsp");
+					forward.setRedirect(false);
+				}
 					
 				
-				
+				/**
+	             * ReservationMain
+	             * 
+	             */
+				else if(command.equals("/ReservationMain.rez")) {
+					System.out.println(" C : /ReservationMain.rez 호출 ");
+					System.out.println(" C : [패턴 1] ");
+					
+					action = new ReservationMainAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
 				
 			    
 			    System.out.println(" C : 2. 가상주소 매핑 끝");
