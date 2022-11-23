@@ -21,7 +21,8 @@ public class ReviewListAction implements Action {
 		HttpSession session = request.getSession();
 //		String id = (String) session.getAttribute("id");
 //		
-		int car_code = 1;
+		int car_code = Integer.parseInt(request.getParameter("car_code"));
+		String car_name = request.getParameter("car_name");
 		ActionForward forward = new ActionForward();
 //		if(id == null) {
 //			forward.setPath("로그인 안 했을 때 이동할 주소");
@@ -33,10 +34,10 @@ public class ReviewListAction implements Action {
 		CarDAO dao = new CarDAO();
 		
 		// 디비에 등록된 글 개수 불러오기
-		int cnt = rDAO.getReviewCount();
+		int cnt = rDAO.getReviewCount(car_name);
 		
 		// 디비에 등록된 모든 글 들고오기
-		List reviewList = rDAO.getReviewList(car_code);
+		List reviewList = rDAO.getReviewList(car_name);
 		
 		// 전달정보 저장
 		// int rev_num = Integer.parseInt(request.getParameter("rev_num"));

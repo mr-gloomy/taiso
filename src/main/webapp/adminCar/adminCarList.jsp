@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<!-- Çì´õ ½ÃÀÛ -->
+<!-- í—¤ë” ì‹œìž‘ -->
 <title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
 <meta charset="utf-8">
 <meta name="viewport"
@@ -112,27 +112,27 @@ a {
 <script type="text/javascript">
 	function deleteCar(seq){
 		Swal.fire({
-		  title: '±ÛÀ» »èÁ¦ ÇÏ½Ã°Ú½À´Ï±î?',
-		  text: "»èÁ¦ÇÏ½Ã¸é ´Ù½Ã º¹±¸½ÃÅ³ ¼ö ¾ø½À´Ï´Ù.",
+		  title: 'ê¸€ì„ ì‚­ì œ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?',
+		  text: "ì‚­ì œí•˜ì‹œë©´ ë‹¤ì‹œ ë³µêµ¬ì‹œí‚¬ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.",
 		  icon: 'info',
 		  showCancelButton: true,
 		  confirmButtonColor: '#3085d6',
 		  cancelButtonColor: 'grey',
-		  confirmButtonText: '»èÁ¦',
-		  cancelButtonText: 'Ãë¼Ò'
+		  confirmButtonText: 'ì‚­ì œ',
+		  cancelButtonText: 'ì·¨ì†Œ'
 		}).then((result) => {
 		  if (result.value) {
-	          //"µî·Ï" ¹öÆ°À» ´­·¶À» ¶§ ÀÛ¾÷ÇÒ ³»¿ëÀ» ÀÌ°÷¿¡ ³Ö¾îÁÖ¸é µÈ´Ù. 
+	          //"ë“±ë¡" ë²„íŠ¼ì„ ëˆŒë €ì„ ë•Œ ìž‘ì—…í•  ë‚´ìš©ì„ ì´ê³³ì— ë„£ì–´ì£¼ë©´ ëœë‹¤. 
 			  location.href='./AdminCarDelete.ad?car_code='+seq;
 		  }
 		})
 	}
 	
 // 	function test(car_code) {
-//         if (!confirm("È®ÀÎ(¿¹) ¶Ç´Â Ãë¼Ò(¾Æ´Ï¿À)¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä.")) {
-//             alert("Ãë¼Ò(¾Æ´Ï¿À)¸¦ ´©¸£¼Ì½À´Ï´Ù.");
+//         if (!confirm("í™•ì¸(ì˜ˆ) ë˜ëŠ” ì·¨ì†Œ(ì•„ë‹ˆì˜¤)ë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”.")) {
+//             alert("ì·¨ì†Œ(ì•„ë‹ˆì˜¤)ë¥¼ ëˆ„ë¥´ì…¨ìŠµë‹ˆë‹¤.");
 //         } else {
-//             alert("È®ÀÎ(¿¹)À» ´©¸£¼Ì½À´Ï´Ù.");
+//             alert("í™•ì¸(ì˜ˆ)ì„ ëˆ„ë¥´ì…¨ìŠµë‹ˆë‹¤.");
 //             location.href='./AdminCarDelete.ad?car_code='+car_code;
 //         }
 //     }
@@ -155,39 +155,39 @@ a {
 								class="ion-ios-arrow-forward"></i></a></span> <span>Cars <i
 							class="ion-ios-arrow-forward"></i></span>
 					</p>
-					<h1 class="mb-3 bread">´ç½ÅÀÇ Â÷¸¦ ¼±ÅÃÇÏ¶ó.</h1>
+					<h1 class="mb-3 bread">ë‹¹ì‹ ì˜ ì°¨ë¥¼ ì„ íƒí•˜ë¼.</h1>
 				</div>
 			</div>
 		</div>
 	</section>
 
 
-	<!-- ¹Ýº¹¹®À¸·Î DB¿¡ ÀÖ´Â ¸ðµç Â÷·® ºÒ·¯¿À±â -->
+	<!-- ë°˜ë³µë¬¸ìœ¼ë¡œ DBì— ìžˆëŠ” ëª¨ë“  ì°¨ëŸ‰ ë¶ˆëŸ¬ì˜¤ê¸° -->
 	
-						<!-- ÇÏ´Ü¿¡ ¸µÅ© °É¾î¼­ Â÷·® »çÁø ºÒ·¯¿À±â -->
-						<!-- °Ô½ÃÆÇ -->
+						<!-- í•˜ë‹¨ì— ë§í¬ ê±¸ì–´ì„œ ì°¨ëŸ‰ ì‚¬ì§„ ë¶ˆëŸ¬ì˜¤ê¸° -->
+						<!-- ê²Œì‹œíŒ -->
 <article>
-<h1> [°ü¸®ÀÚ] Â÷·® ¸®½ºÆ® </h1>
+<h1> [ê´€ë¦¬ìž] ì°¨ëŸ‰ ë¦¬ìŠ¤íŠ¸ </h1>
 <div>
-	<a href="./AdminCarList.ad">ÀüÃ¼</a>
-	<a href="./AdminCarList.ad?item=small">¼ÒÇü</a>
-	<a href="./AdminCarList.ad?item=compact">ÁØÁßÇü</a>
-	<a href="./AdminCarList.ad?item=middle">ÁßÇü</a> 
-	<a href="./AdminCarList.ad?item=large">´ëÇü</a> 
+	<a href="./AdminCarList.ad">ì „ì²´</a>
+	<a href="./AdminCarList.ad?item=small">ì†Œí˜•</a>
+	<a href="./AdminCarList.ad?item=compact">ì¤€ì¤‘í˜•</a>
+	<a href="./AdminCarList.ad?item=middle">ì¤‘í˜•</a> 
+	<a href="./AdminCarList.ad?item=large">ëŒ€í˜•</a> 
 	<a href="./AdminCarList.ad?item=suv">suv</a>
-	<a href="./AdminCarList.ad?item=foreign">¼öÀÔÂ÷</a>
+	<a href="./AdminCarList.ad?item=foreign">ìˆ˜ìž…ì°¨</a>
 </div>
 <table id="notice">
-<tr><th>»óÇ°¹øÈ£</th>
-	<th>ºê·£µå¸í</th>
-	<th>Â÷·®¸í</th>
-    <th>Ä«Å×°í¸®</th>
-    <th>ÁöÁ¡</th>
-    <th>ÀÌ¹ÌÁö</th>
-    <th>°¡°Ý</th>
-    <th>¿É¼Ç</th>
-    <th>¿¬½Ä</th>
-    <th>°ü¸®</th>
+<tr><th>ìƒí’ˆë²ˆí˜¸</th>
+	<th>ë¸Œëžœë“œëª…</th>
+	<th>ì°¨ëŸ‰ëª…</th>
+    <th>ì¹´í…Œê³ ë¦¬</th>
+    <th>ì§€ì </th>
+    <th>ì´ë¯¸ì§€</th>
+    <th>ê°€ê²©</th>
+    <th>ì˜µì…˜</th>
+    <th>ì—°ì‹</th>
+    <th>ê´€ë¦¬</th>
     </tr>
     <c:forEach var="dto" items="${adminCarList }">
 	<tr>
@@ -203,26 +203,26 @@ a {
 	    <td>${dto.car_op }</td>
 	    <td>${dto.car_year }</td>
 	    <td>
-<%-- 	    <button onclick="./AdminCarUpdate.ad?car_code=${dto.car_code }">¼öÁ¤</button> --%>
-	    <a href="./AdminCarUpdate.ad?car_code=${dto.car_code }">¼öÁ¤</a>
-<%-- 	    <input type ="button" value="¼öÁ¤" onclick="./AdminCarUpdate.ad?car_code=${dto.car_code }"> --%>
+<%-- 	    <button onclick="./AdminCarUpdate.ad?car_code=${dto.car_code }">ìˆ˜ì •</button> --%>
+	    <a href="./AdminCarUpdate.ad?car_code=${dto.car_code }">ìˆ˜ì •</a>
+<%-- 	    <input type ="button" value="ìˆ˜ì •" onclick="./AdminCarUpdate.ad?car_code=${dto.car_code }"> --%>
 	    /
 <%-- 	    	<c:set var= "code" value="${dto.car_code }"/> --%>
 	    
-<!-- 	    <input type = "button" value = "»èÁ¦" onclick="deleteCar();"> -->
-		<button onclick="deleteCar(${dto.car_code });">»èÁ¦</button>
-<%-- 	    <a href="deleteCar(${dto.car_code });">»èÁ¦</a> --%>
+<!-- 	    <input type = "button" value = "ì‚­ì œ" onclick="deleteCar();"> -->
+		<button onclick="deleteCar(${dto.car_code });">ì‚­ì œ</button>
+<%-- 	    <a href="deleteCar(${dto.car_code });">ì‚­ì œ</a> --%>
 		
 		
 
 	    
-<%-- 	    <a href="./AdminCarDelete.ad?car_code=${dto.car_code }">»èÁ¦</a> --%>
+<%-- 	    <a href="./AdminCarDelete.ad?car_code=${dto.car_code }">ì‚­ì œ</a> --%>
 	    </td>
     </tr>
 	</c:forEach>
 </table>
 <div id="table_search">
-	<input type="button" value="»óÇ°µî·Ï" class="btn"
+	<input type="button" value="ìƒí’ˆë“±ë¡" class="btn"
 		onclick="location.href='./AdminCarAdd.ad';">
 		
 </div>
@@ -231,21 +231,21 @@ a {
 
 </div>
 </article>
-<!-- °Ô½ÃÆÇ -->
+<!-- ê²Œì‹œíŒ -->
 					
 
-			<!-- ÆäÀÌÂ¡Ã³¸® -->
+			<!-- íŽ˜ì´ì§•ì²˜ë¦¬ -->
     			<c:if test="${totalCnt != 0 }">
 
-			<!-- ÀÌÀü -->
+			<!-- ì´ì „ -->
 			<c:if test="${startPage > pageBlock }">
-				<a href="./AdminCarList.ad?pageNum=${startPage-pageBlock }">[ÀÌÀü]</a>
+				<a href="./AdminCarList.ad?pageNum=${startPage-pageBlock }">[ì´ì „]</a>
 			</c:if>
 			<!--     	<div class="row mt-5"> -->
 			<div class="col text-center">
 				<div class="block-27">
 					<ul>
-						<!-- ÆäÀÌÁö ¹øÈ£(1,2,3...) -->
+						<!-- íŽ˜ì´ì§€ ë²ˆí˜¸(1,2,3...) -->
 					<c:forEach var="i" begin="${startPage }" end="${endPage }"
 						step="1">
 					
@@ -264,9 +264,9 @@ a {
 				</div>
 			</div>
 
-			<!-- ´ÙÀ½ -->
+			<!-- ë‹¤ìŒ -->
 			<c:if test="${endPage < pageCount }">
-				<a href="./AdminCarList.ad?pageNum=${startPage+pageBlock }">[´ÙÀ½]</a>
+				<a href="./AdminCarList.ad?pageNum=${startPage+pageBlock }">[ë‹¤ìŒ]</a>
 			</c:if>
 
 		</c:if>
@@ -276,7 +276,7 @@ a {
 
 
 
-	<!-- ÀÚ¹Ù½ºÅ©¸³Æ®, È­¸é ¼³Á¤ °ü·Ã -->
+	<!-- ìžë°”ìŠ¤í¬ë¦½íŠ¸, í™”ë©´ ì„¤ì • ê´€ë ¨ -->
 	<div id="ftco-loader" class="show fullscreen">
 		<svg class="circular" width="48px" height="48px">
 			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
