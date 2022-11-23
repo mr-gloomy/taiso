@@ -182,6 +182,16 @@ public class ReservationDAO {
 			pstmt4.setString(4, payDTO.getPay_method());
 			pstmt4.setString(5, payDTO.getPay_status());
 			pstmt4.executeUpdate();
+			
+			// 차량 테이블에 렌트 시작날짜, 반납일자 추가
+			sql = "update car set rez_rentalDate=?, rez_returnDate=? where car_code=?";
+			PreparedStatement pstmt5 = con.prepareStatement(sql);
+			pstmt5.setString(1, rezDTO.getRez_rentalDate());
+			pstmt5.setString(2, rezDTO.getRez_returnDate());
+			pstmt5.setInt(3, rezDTO.getCar_code());
+			pstmt5.executeUpdate();
+			
+			System.out.println("carDB - 렌트 날짜 정보 저장 완료");
 
 			System.out.println(" 결제정보 저장 완료"); // *** 제대로 값이 들어갔는지 확인용. 나중에 삭제할 것
 

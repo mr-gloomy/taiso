@@ -1,0 +1,2200 @@
+@charset "UTF-8";
+
+/* r-실시간 에약 */
+.r-wrap {
+    position: relative;
+    width: 100%;
+    background-color: #FFF;
+    overflow: hidden;
+}
+
+/* 가로 틀 */
+.r-section {
+    position: relative;
+    max-width: 1000px;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px 50px 100px 50px;
+    margin: 0 auto;
+    background-color: #FFF;
+}
+
+/* 내부 헤더 */
+.r-header {
+    position: relative;
+    width: 100%;
+}
+
+.r-back {
+    float: left;
+    display: inline-block;
+    padding-left: 22px;
+    font: 400 14px 'Noto Sans KR';
+    color: #818286;
+    background: transparent url('../img/icons/ico-r-back.png') 0% 50%/12px auto no-repeat;
+}
+
+.r-back:hover {
+    color: #333;
+    background: transparent url('../img/icons/ico-r-back-hover.png') 0% 50%/12px auto no-repeat;
+}
+
+.r-cancel {
+    float: right;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    font-size: 20px;
+    background: url(../img/icons/ico-r-cancel.png) 50% 50%/22px auto no-repeat;
+}
+
+.r-cancel:hover {
+    background: url(../img/icons/ico-r-cancel-hover.png) 50% 50%/22px auto no-repeat;
+}
+
+.r-header-title {
+    font: 300 40px 'Noto Sans KR';
+    color: #333;
+    text-align: center;
+}
+
+/* ul - 네비게이션 */
+.r-header-nav {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.r-header-nav li {
+    position: relative;
+    display: inline-block;
+    padding: 20px 25px 0 25px;
+    font: 400 16px 'Noto Sans KR';
+    color: #B9B9B9;
+    text-align: center;
+    cursor: pointer;
+}
+
+.r-header-nav li span {
+    color: #B9B9B9;
+}
+
+.r-header-nav li.active span {
+    color: #007bff;
+}
+
+.r-header-nav li.active .nav-ico {
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 38px;
+    height: 26px;
+    border: 0;
+    border-radius: 0;
+    background: url('../img/icons/ico-r-car-navi.png') 50% 50%/38px auto no-repeat;
+}
+
+.nav-ico {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 16px;
+    height: 16px;
+    margin: 0 auto;
+    background-color: #EDEDED;
+    border-radius: 50%;
+    border: 1px solid #EDEDED;
+}
+
+.r-header-nav-bar {
+    position: relative;
+    width: 100%;
+    margin: 20px auto 0 auto;
+    text-align: center;
+}
+
+.r-header-nav-line {
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 1px;
+    background-color: #EDEDED;
+    margin: 0 auto;
+}
+
+/* 내부 컨테이너 */
+.r-container {
+    position: relative;
+    width: 100%;
+}
+
+.r-title {
+    position: relative;
+    font: 300 32px 'Noto Sans KR';
+    color: #58585A;
+    line-height: 1.5;
+    border-bottom: 1px solid #333;
+}
+
+.r-title-txt-sub {
+    padding: 4px 0 14px 0;
+    font: 300 15px 'Noto Sans KR';
+    color: #666;
+    line-height: 1.5;
+}
+
+.r-rent-store {
+    padding: 24px 0rem 16px 8px;
+    font: 400 18px 'Noto Sans KR';
+    color: #58585A;
+    line-height: 1.5;
+}
+
+.r-rent-store-sub {
+    position: absolute;
+    right: 27%;
+    display: inline-block;
+}
+
+/* 캘린더 */
+#calendar {
+    width: 100%;
+    height: 400px;
+}
+
+/* 캘린더 구분 삼각형 */
+.calender-devied {
+    float: left;
+    height: 25.625rem;
+    text-align: center;
+}
+
+.calender-devied:before {
+    content: '';
+    position: absolute;
+    top: 46%;
+    left: 57%;
+    transform: translate(-57%, -46%);
+    width: 28px;
+    height: 53px;
+    background: url(../img/icons/icon_arrow.png) 50% 50%/ 28px auto no-repeat;
+}
+
+/* 대여 시간, 분 프레임 */
+.calender-sub {
+    float: left;
+    border-top: 3px solid #007bff !important;
+    border: 1px solid #CBCBCB;
+    height: 26rem;
+}
+
+/* 대여 */
+.calender-sub-start-time {
+    position: relative;
+    padding-top: 1rem;
+    padding-bottom: 4.5rem;
+    border-bottom: 1px dashed #CBCBCB;
+}
+
+.r-info-text {
+    padding: 5px 0 11px 0;
+    font: 400 18px 'Noto Sans KR';
+    text-align: center;
+}
+
+.r-selete-text {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #007bff;
+    padding-bottom: 1rem;
+}
+
+.calender-sub-start-time .r-row .r-col-40 {
+    float: left;
+}
+
+.calender-sub-start-time .r-row .r-col-40 {
+    width: 38.5%;
+}
+
+.calender-sub-start-time .r-col-40:first-child {
+    margin-left: 10%;
+    margin-right: .625rem
+}
+
+/* 반납 */
+.calender-sub-end-time {
+    padding: 20px 0 44px 0;
+    position: relative;
+}
+
+.calender-sub-end-time .r-row .r-col-40 {
+    float: left;
+}
+
+.calender-sub-end-time .r-row .r-col-40 {
+    width: 38.5%;
+}
+
+.calender-sub-end-time .r-col-40:first-child {
+    margin-left: 10%;
+    margin-right: .625rem;
+}
+
+.calender-sub-end-time .r-col-80 {
+    left: 10%;
+    bottom: -1.25rem;
+    display: inline-block;
+}
+
+/* 수평 바 */
+.r-horizon {
+    position: fixed;
+    bottom: 0rem;
+    width: 100%;
+    height: 7rem;
+    background-color: #FFF;
+    z-index: 2000;
+    transition: all .5s;
+}
+
+.r-horizon-bar {
+    position: relative;
+    border-top: 4px solid #007bff;
+    text-align: center;
+}
+
+.r-horizon-button {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -18px);
+    width: 4.5rem;
+    height: 1rem;
+    background: url('../images/ico-r-horizon-down.png') 50%/100% no-repeat;
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+    z-index: 2001;
+}
+
+.r-horizon-button.active {
+    background: url('../images/ico-r-horizon-up.png') 50%/100% no-repeat;
+}
+
+.r-table {
+    position: relative;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: #FFF;
+    font-weight: 400;
+    font-family: inherit;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.r-table th {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #58585A;
+    padding-top: 1.25rem;
+}
+
+.r-table th,
+.r-table td {
+    border-right: 1px solid #F6F6F6;
+}
+
+.r-table th:last-child,
+.r-table td:last-child {
+    border-right: 0px;
+}
+
+.r-table td .r-horizon-text {
+    font-size: 1.25rem;
+    font-weight: 400;
+    text-align: center;
+    padding-top: .375rem;
+}
+
+#h-car_name {
+    max-width: 270px;
+}
+
+.r-table tr th:first-child,
+.r-table tr th:last-child,
+.r-table tr td:first-child,
+.r-table tr td:last-child {
+    width: 27%;
+}
+
+.r-horizon-content {
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/* 차량 라벨 - r02-car */
+.r-car-label {
+    position: relative;
+    display: inline-block;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.r-car-label li {
+    float: left;
+    position: relative;
+    padding: 6px 16px;
+    margin: 4px;
+    text-align: center;
+    line-height: 0;
+    background-color: #F9F9F9;
+    border: 1px solid #EBEBEB;
+    border-radius: 3%;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.r-car-label li:hover {
+    border: 1px solid #ddd;
+}
+
+.r-car-label li>span {
+    font: 400 16px 'Noto Sans KR';
+    color: #58585A;
+    line-height: 1.4;
+    vertical-align: middle;
+}
+
+.r-car-label li.active {
+    background-color: #007bff;
+}
+
+.r-car-label li.active:hover {
+    background-color: #D21203;
+}
+
+.r-car-label li.active>span {
+    color: #FFF;
+}
+
+/* 차량 리스트 */
+.r-car-list {
+    position: relative;
+    width: 100%;
+}
+
+.r-car-list li {
+    position: relative;
+    height: 7.5rem;
+    border-bottom: 1px dashed #ddd;
+}
+
+.r-car-img {
+    position: absolute;
+    width: 10.625rem;
+    height: 120px;
+}
+
+.r-car-img img {
+    width: 100%;
+    height: inherit;
+    padding: 12px 0;
+}
+
+.r-car-content {
+    float: left;
+    width: 550px;
+    height: 120px;
+    padding-left: 200px;
+    /*padding-top: 1.25rem;*/
+    font-weight: 400;
+    line-height: 1.25rem;
+    text-align: left;
+}
+
+.r-car-title-box {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.r-car-title {
+    margin-right: 14px;
+    width: 21rem;
+    font: 400 20px 'Noto Sans KR';
+    line-height: 1.5;
+    color: #58585A;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.r-car-sub {
+    margin-right: 14px;
+    width: 21rem;
+    font: 300 15px 'Noto Sans KR';
+    color: #666;
+    line-height: 1.2em;
+}
+
+.r-car-price {
+    float: left;
+    position: relative;
+    display: inline-block;
+    /*width: 10px;*/
+    width: 28%;
+    height: 120px;
+    text-align: center;
+}
+
+.r-car-price-box {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.r-car-price-ori {
+    font: 300 16px 'Noto Sans KR';
+    color: #ABABAB;
+    line-height: 1.5;
+    text-decoration: line-through;
+}
+
+.r-car-price-sale {
+    font: 400 24px 'Noto Sans KR';
+    color: #007bff;
+    line-height: 1.5;
+}
+
+.r-car-select {
+    float: right;
+}
+
+/* 차량 리스트 더보기 */
+.btn-more {
+    position: relative;
+    display: inline-block;
+    margin: 30px auto;
+    padding: 12px 56px;
+    font: 400 16px 'Noto Sans KR';
+    color: #666;
+    background-color: #F4F4F4;
+    border: 1px solid #EBEBEB;
+    border-radius: 3px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.btn-more.active {
+    display: none;
+}
+
+.btn-more:hover {
+    border: 1px solid #ddd;
+}
+
+/* 차량리스트없을떄 */
+.r-car-no-list {
+    padding: 20px 0;
+    font-size: 400 16px 'Noto Sans KR';
+    color: #666;
+    line-height: 1.4;
+    text-align: center;
+    background-color: #F9F9F9;
+    border-top: 1px solid #EBEBEB;
+    border-bottom: 1px solid #EBEBEB;
+}
+
+/* 동의서 */
+.r-rent-agree {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    padding: .375rem .625rem;
+    background-color: #F8F8F8;
+    border: 1px solid #CBCBCB;
+    border-radius: 1%;
+    overflow: auto;
+    margin-bottom: .625rem;
+}
+
+.r-rent-agree>* {
+    font-size: .875rem;
+    font-weight: 400;
+    color: #9D9DA7;
+}
+
+/* 대여요금 */
+.r-total-price {
+    position: relative;
+    width: 100%;
+    height: 5.625rem;
+    padding: .75rem 0px .75rem 3.125rem;
+    border: 2px solid #007bff;
+    border-radius: 1%;
+    display: inline-block;
+}
+
+.r-total-price.normal-estimate-panel.active {
+    display: none;
+}
+
+/* 별도 가격 문의 */
+.r-total-price.estimate-panel {
+    display: none;
+    padding: 0;
+}
+
+.r-total-price.estimate-panel.active {
+    display: block;
+    padding: 0;
+}
+
+#contact_estimate {
+    padding: 30px 0;
+    font: 500 20px 'Noto Sans KR';
+    color: #007bff;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.r-price-box {
+    position: relative;
+    float: left;
+    width: 20%;
+    margin-right: 6.5%;
+    line-height: 1.875rem;
+    text-align: left;
+}
+
+.r-price-box:nth-of-type(1):after,
+.r-price-box:nth-of-type(1):before {
+    position: absolute;
+    content: '';
+    background-color: #ABABAB;
+    width: .875rem;
+    height: .125rem;
+    top: 50%;
+    right: 0;
+}
+
+.r-price-box:nth-of-type(2):after,
+.r-price-box:nth-of-type(2):before {
+    position: absolute;
+    content: '';
+    background-color: #ABABAB;
+    width: .875rem;
+    height: .125rem;
+    top: 50%;
+    right: 0;
+}
+
+.r-price-box:nth-of-type(1):before,
+.r-price-box:nth-of-type(2):before {
+    transform: rotate(90deg);
+}
+
+.r-price-box:nth-of-type(4):after,
+.r-price-box:nth-of-type(4):before {
+    position: absolute;
+    content: '';
+    background-color: #ABABAB;
+    width: .875rem;
+    height: .125rem;
+    top: 54%;
+    left: -34%;
+}
+
+.r-price-box:nth-of-type(4):before {
+    top: 46%;
+}
+
+.r-price-box:last-child {
+    margin-right: 0%;
+}
+
+.r-price-box p:first-child {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #58585A;
+}
+
+.r-price-box p:last-child {
+    font-size: 1.625rem;
+    font-weight: 400;
+    color: #007bff;
+}
+
+.r-user-info-a {
+    width: 30%;
+    margin-right: 1.25rem;
+}
+
+.r-user-info-b {
+    width: 67%;
+    margin-bottom: 1rem;
+}
+
+/* 달력 새로 작업 */
+.contents {
+    position: relative;
+    border-top: 3px solid #007bff !important;
+    border: 1px solid #CBCBCB;
+    height: 26rem;
+}
+
+/* finisih */
+.r-finish-img {
+    width: 12.5rem;
+    display: inline-block;
+    margin-top: 40px;
+}
+
+.r-finish-img img,
+.r-finish-title img {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.r-finish-title {
+    padding-top: 10px;
+    margin: 0 auto;
+    font: 300 38px 'Noto Sans KR';
+    color: #007bff;
+    line-height: 1.5;
+}
+
+/* finish result */
+.r-finish-result {
+    position: relative;
+    padding: 1.25rem 2.5rem;
+    margin: 30px auto auto auto;
+    border-top: 3px solid #007bff !important;
+    border: 1px solid #CBCBCB;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #58585A;
+    line-height: 1.875rem;
+
+}
+
+.r-finish-result>div {
+    margin: .25rem 0rem;
+}
+
+.r-finish-sub {
+    font: 300 18px 'Noto Sans KR';
+    color: #58585A;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.pc-off {
+    display: none;
+}
+
+
+/* 반응형 미디어쿼리 모바일 */
+@media(max-width: 767px) {
+
+    html {
+        font-size: 14px !important;
+    }
+
+    .r-wrap {
+        background-color: #FFF;
+    }
+
+    /* 가로 틀 */
+    .r-section {
+        min-width: 320px;
+        max-width: 500px;
+        min-height: 100vh;
+        width: 100%;
+        padding: 20px 20px 50px 20px;
+    }
+
+    .r-header-title {
+        padding-top: 10px;
+        font: 300 30px 'Noto Sans KR';
+    }
+
+    .r-back {
+        padding-left: 16px;
+        font: 400 12px 'Noto Sans KR';
+        background: transparent url('../img/icons/ico-r-back.png') 0% 50%/10px auto no-repeat;
+    }
+
+    .r-cancel {
+        width: 16px;
+        height: 16px;
+        background: url(../img/icons/ico-r-cancel.png) 50% 50%/16px auto no-repeat;
+    }
+
+    /* ul - 네비게이션 */
+    .r-header-nav li {
+        position: relative;
+        display: inline-block;
+        padding: 12px 10px 0 10px;
+        font: 400 14px 'Noto Sans KR';
+    }
+
+    .r-header-nav li.active .nav-ico {
+        position: absolute;
+        top: -6px;
+        width: 28px;
+        height: 20px;
+        background: url('../img/icons/ico-r-car-navi.png') 50% 50%/28px auto no-repeat;
+    }
+
+    .nav-ico {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 12px;
+        height: 12px;
+    }
+
+    .r-header-nav-bar {
+        margin: 14px auto 0 auto;
+        text-align: center;
+    }
+
+    .r-header-nav-line {
+        position: absolute;
+        top: 6px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* 내부 컨테이너 */
+    .r-title {
+        padding-top: 18px;
+        font: 300 22px 'Noto Sans KR';
+        line-height: 1.5;
+    }
+
+    .r-title-txt-sub {
+        padding: 4px 0 8px 0;
+        font: 300 13px 'Noto Sans KR';
+        line-height: 1.5;
+    }
+
+    .r-rent-store {
+        padding: 18px 0 10px 6px;
+        font: 400 16px 'Noto Sans KR';
+        line-height: 1.5;
+    }
+
+    .p-b-500 .r-col-40,
+    .p-b-500 .r-col-20 {
+        width: 100%;
+    }
+
+    .p-b-500 .fl-l {
+        float: none;
+    }
+
+
+    /* 캘린더 */
+
+    .r-container {
+        padding-bottom: 100px;
+    }
+
+    #calendar {
+        width: 100%;
+        height: 400px;
+    }
+
+    .contents {
+        height: 411px;
+    }
+
+    #Datepickk .d-header p>* {
+        font-size: 16px;
+    }
+
+    #d-previous {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    #d-next {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    #Datepickk .d-week {
+        font-size: 11px;
+    }
+
+    #Datepickk .d-table input+label.d-hidden {
+        height: 48px;
+        background: url(../img/icons/ico-r-car-gray.png) 50% 86%/26px auto no-repeat;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    #Datepickk .d-table input+label text {
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 10px !important;
+    }
+
+    #Datepickk .d-table input+label {
+        height: 48px;
+        background: url(../img/icons/ico-r-car-black.png) 50% 86%/26px auto no-repeat;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #Datepickk .d-table input+label:before {
+        color: #FFF;
+        background: url('../img/icons/ico-r-car-white.png') 50% 32%/26px auto no-repeat;
+        background-color: #007bff;
+    }
+
+
+    /* 캘린더 구분 삼각형 */
+    .calender-devied {
+        float: none;
+        height: 80px;
+    }
+
+    .calender-devied:before {
+        content: '';
+        position: absolute;
+        top: 30%;
+        left: 42%;
+        transform: rotate(90deg) translate(-30%, -42%);
+        width: 22px;
+        height: 44px;
+        background: url(../img/icons/icon_arrow.png) 50% 50%/ 22px auto no-repeat;
+    }
+
+    /* 대여 시간, 분 프레임 */
+    .calender-sub {
+        float: left;
+        border-top: 3px solid #007bff !important;
+        border: 1px solid #CBCBCB;
+        height: auto;
+    }
+
+    /* 대여 */
+    .calender-sub-start-time {
+        position: relative;
+        padding: 14px 0 60px 0;
+    }
+
+    .r-info-text {
+        padding: 5px 0 11px 0;
+        font: 400 16px 'Noto Sans KR';
+        text-align: center;
+    }
+
+    .r-selete-text {
+        text-align: center;
+        font: 400 16px 'Noto Sans KR';
+        color: #007bff;
+        padding-bottom: 1rem;
+    }
+
+    .calender-sub-start-time .r-row .r-col-40 {
+        float: left;
+    }
+
+    .calender-sub-start-time .r-row .r-col-40 {
+        width: 38.5%;
+    }
+
+    .calender-sub-start-time .r-col-40:first-child {
+        margin-left: 10%;
+        margin-right: .625rem
+    }
+
+    /* 반납 */
+    .calender-sub-end-time {
+        padding: 14px 0 44px 0;
+        position: relative;
+    }
+
+    .calender-sub-end-time .r-row .r-col-40 {
+        float: left;
+    }
+
+    .calender-sub-end-time .r-row .r-col-40 {
+        width: 38.5%;
+    }
+
+    .calender-sub-end-time .r-col-40:first-child {
+        margin-left: 10%;
+        margin-right: .625rem;
+    }
+
+    .calender-sub-end-time .r-col-80 {
+        left: 10%;
+        bottom: -1.25rem;
+        display: inline-block;
+    }
+
+    .form {
+        height: auto;
+        font-size: 14px;
+        font-weight: 400;
+        padding: 12px 18px;
+    }
+
+    /* 차량 라벨 - r02-car */
+    .r-car-label {
+        width: auto;
+        margin: 20px auto;
+    }
+
+    .r-car-label li {
+        display: inline-block;
+        float: left;
+        position: relative;
+        padding: 7px 18px;
+        margin: 4px;
+        text-align: center;
+    }
+
+    .r-car-label li>span {
+        font: 400 14px 'Noto Sans KR';
+        line-height: 1.4;
+    }
+
+    /* 차량 리스트 */
+    .r-car-list {
+        position: relative;
+        width: 100%;
+    }
+
+    .r-car-list li {
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        min-height: 110px;
+        cursor: pointer;
+    }
+
+    .r-car-list li:first-child {
+        border-top: 1px dashed #ddd;
+    }
+
+    .r-car-img {
+        position: relative;
+        float: left;
+        width: 40%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        transform: translateY(0%);
+    }
+
+    .r-car-img img {
+        width: 100%;
+        min-width: 120px;
+        margin: 0 auto;
+        padding: 10px 10px 10px 0;
+    }
+
+    .r-row.m-float-l {
+        float: left;
+        width: 60%;
+    }
+
+    .r-car-content {
+        position: relative;
+        float: left;
+        width: 60%;
+        max-width: 60%;
+        height: auto;
+        padding-left: 0;
+        text-align: left;
+    }
+
+    .r-car-title-box {
+        position: relative;
+        top: 0;
+        transform: translateY(0);
+        padding-top: 12px;
+        max-width: 100%;
+    }
+
+    .r-car-title {
+        margin-right: 0;
+        width: auto;
+        min-height: 18px;
+        font: 400 14px 'Noto Sans KR';
+        line-height: 1.5;
+    }
+
+    .r-car-sub {
+        margin-right: 0;
+        font: 300 12px 'Noto Sans KR';
+        line-height: 1.2em;
+    }
+
+    .r-car-price {
+        float: left;
+        position: relative;
+        display: inline-block;
+        width: auto;
+        height: auto;
+        padding:0;
+        text-align: center;
+    }
+
+    .r-car-price-box {
+        position: relative;
+        top: 0;
+        transform: translateY(0);
+        width: auto;
+        vertical-align: middle;
+    }
+
+    .r-car-price-ori {
+        float: left;
+        padding: 4px 2px 0 0;
+        font: 300 12px 'Noto Sans KR';
+        line-height: 1.5;
+    }
+
+    .r-car-price-sale {
+        float: left;
+        font: 400 16px 'Noto Sans KR';
+        line-height: 1.5;
+    }
+
+    .r-car-select {
+        float: right;
+        display: none;
+    }
+
+    .r-btn.selected-car {
+        display: none;
+        float: none;
+        padding: 6px 28px;
+        height: auto;
+        margin: 24px 0 0 0;
+    }
+
+    /* 차량 리스트 더보기 */
+    .btn-more {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        margin: 30px auto 0 auto;
+        padding: 12px 33px;
+        font: 400 14px 'Noto Sans KR';
+    }
+
+    .btn-more.active {
+        display: none;
+    }
+
+    /* 차량리스트없을떄 */
+    .r-car-no-list {
+        padding: 16px 0;
+        font-size: 400 14px 'Noto Sans KR';
+        line-height: 1.4;
+    }
+
+
+    /* r03 정보입력 */
+    /* 체크박스, 라디오 공통 */
+    .checkbox-label,
+    .radio-label {
+        margin-right: 10px;
+        font-size: 12px !important;
+        /* 일반 체크박스 폰트 크기 강제 지정 - 달력이랑 혼합 x */
+    }
+
+    /* 체크박스 */
+    /* 폰트크기가 달력이랑 체크박스가  같이 적용됨 */
+    input[name="checkbox"]+label {
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    input[name="checkbox"]+label i {
+        font-size: 14px;
+    }
+
+    input[name="checkbox"]+label span {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin: 0px 10px 4px 2px;
+        vertical-align: middle;
+        background: url(../img/icons/ico-r-checkbox.png) 50%/100% no-repeat;
+        background-position-y: 0px;
+    }
+
+    input[name="checkbox"]:checked + label span {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin: 0px 10px 4px 2px;
+        vertical-align: middle;
+        background: url(../img/icons/ico-r-checkbox.png) 50%/100% no-repeat;
+        background-position-y: -20px;
+    }
+
+    input[name="checkbox"]+label i {
+        padding-left: 0;
+    }
+
+    /* 동의서 */
+    .r-rent-agree>* {
+        font-size: 10px;
+    }
+
+    .font-16 {
+        font-size: 10px !important;
+    }
+
+    .m-m-0 {
+        margin: 0px !important;
+    }
+
+    /* 대여요금 */
+    .r-total-price {
+        padding: 10px;
+        height: 9.625rem;
+    }
+
+    .r-total-price .r-price-box:last-child p:last-child {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .r-total-price.estimate-panel.active {
+        height: auto;
+    }
+
+    #contact_estimate {
+        font: 500 16px 'Noto Sans KR';
+        padding: 20px 0;
+    }
+
+    .r-price-box {
+        position: relative;
+        float: left;
+        width: 30%;
+        margin-right: 5%;
+        line-height: 1.875rem;
+        text-align: center;
+    }
+
+    .r-total-price .r-price-box:last-child {
+        float: none;
+        width: 100%;
+    }
+
+    .r-price-box:before,
+    .r-price-box:after {
+        position: absolute;
+        content: '';
+        background-color: #ABABAB;
+        width: 13px !important;
+        height: 2px !important;
+        top: 50% !important;
+        right: -9% !important;
+        transform: translate(10%, -50%) !important;
+    }
+
+    .r-price-box:before {
+        top: 47% !important;
+        right: -9% !important;
+        transform: rotate(90deg) translate(10%, -48%) !important;
+    }
+
+    .r-price-box:nth-of-type(3):before,
+    .r-price-box:nth-of-type(3):after,
+    .r-price-box:nth-of-type(4):before,
+    .r-price-box:nth-of-type(4):after {
+        content: '';
+        width: 0 !important;
+    }
+
+    .r-price-box:nth-of-type(3),
+    .r-price-box:last-child {
+        margin-right: 0%;
+    }
+
+    .r-price-box p:first-child {
+        font-size: 12px;
+    }
+
+    .r-price-box p:last-child {
+        font-size: 13px;
+    }
+
+    .r-user-info-a {
+        width: 33%;
+        float: left;
+        height: 42px;
+        margin-right: 1%;
+    }
+
+    .r-user-info-b {
+        float: right;
+        width: 66%;
+        height: 42px;
+        margin-bottom: 0;
+    }
+
+    .mb-bt {
+        margin-bottom: 6px;
+    }
+
+    /* placeholder 벤더 프리픽스 */
+    input:-ms-input-placeholder {
+        font-size: 14px;
+    }
+
+    input::-webkit-input-placeholder {
+        font-size: 14px;
+    }
+
+    input::-moz-placeholder {
+        font-size: 14px;
+    }
+
+    .r-btn.r-btn-data {
+        width: 100%;
+        margin: 20px auto 0 auto;
+        padding: 13px 28px;
+        font: 400 14px 'Noto Sans KR';
+    }
+
+    .change_fee {
+        width: 60%;
+    }
+
+    /* 모바일 완료페이지용 */
+    .p-l-60 {
+        padding-left: 60px;
+    }
+
+    /* 모바일 on */
+    .m-d-on {
+        display: block !important;
+    }
+
+    /* 모바일 off */
+    .m-d-off {
+        display: none !important;
+    }
+
+    /* 모바일 가로 100% */
+    .m-w-100 {
+        width: 100% !important;
+    }
+
+    /* 수평 바 */
+    .r-horizon {
+        height: 5.25rem;
+    }
+
+    .r-horizon-button {
+        top: -2rem;
+        transform: translate(-30px, 0);
+        width: 4.5rem;
+        height: 1rem;
+        padding: 20px;
+    }
+
+    .r-h-info {
+        display: none;
+        position: absolute;
+    }
+
+    .r-h-infoA {
+        left: 20px;
+        bottom: 0px;
+    }
+
+    .r-h-infoB {
+        left: -180px;
+        top: 21px;
+    }
+
+    .r-h-infoC {
+        left: 55%;
+        bottom: 0px;
+    }
+
+    #clone-r-rent-office.active1,
+    #clone-r-rent-car.active3 {
+        color: #007bff;
+        padding-left: 30px;
+    }
+
+    #clone-r-rent-date.active2 {
+        color: #007bff;
+        padding-left: 0px;
+    }
+
+    .r-table th {
+        font-size: 13px;
+        padding-top: 1.25rem;
+    }
+
+    .r-table tr td:first-child {
+        position: relative;
+    }
+
+    .r-table tr td:first-child:after {
+        position: absolute;
+        top: 25px;
+        right: 0;
+        content: '';
+        width: 1px;
+        height: .875rem;
+        opacity: .5;
+        background-color: #666;
+    }
+
+    .r-table th,
+    .r-table td {
+        border: 0px;
+    }
+
+    .r-table td .r-horizon-text {
+        font-size: 13px;
+        padding-top: 1.5rem;
+    }
+
+    /* 테이블 레이아웃 수정할 부분은 여기 */
+    .r-table tr:nth-of-type(1) th:nth-of-type(2),
+    .r-table tr:nth-of-type(2) td:nth-of-type(2) {
+        position: absolute;
+        top: -7px;
+        /*left: 37%;*/
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+    }
+
+    .r-table tr th:first-child,
+    .r-table tr th:last-child,
+    .r-table tr td:first-child,
+    .r-table tr td:last-child {
+        width: 50%;
+    }
+
+    .r-horizon-content {
+        width: 100%;
+    }
+
+    /* finisih */
+    .r-finish-img {
+        width: 120px;
+        display: inline-block;
+        margin-top: 40px;
+    }
+
+    .r-finish-title {
+        width: auto;
+        padding-top: 1rem;
+        font: 300 20px 'Noto Sans KR';
+    }
+
+    /* finish result */
+    .r-finish-result {
+        padding: 1rem 20px;
+        font-size: 12px;
+        line-height: 1.5rem;
+        margin: 1.125rem 0rem 1.25rem 0rem;
+    }
+
+    .r-finish-result>div {
+        margin: .25rem 0rem;
+    }
+
+    .r-finish-sub {
+        margin-top: 4px;
+        font: 300 12px 'Noto Sans KR';
+        line-height: 1.5rem;
+    }
+
+    .pc-off {
+        display: block;
+    }
+
+    #h-car_name {
+        max-width: 166px;
+    }
+
+
+}
+
+/* 반응형 태블릿 */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    html {
+        font-size: 14px !important;
+    }
+
+    .r-wrap {
+        background-color: #EDEDED;
+    }
+
+    /* 가로 틀 */
+    .r-section {
+        max-width: 500px;
+        width: 100%;
+        min-height: 100vh;
+        padding: 20px 20px 50px 20px;
+    }
+
+    .r-header-title {
+        padding-top: 10px;
+        font: 300 30px 'Noto Sans KR';
+    }
+
+    .r-back {
+        padding-left: 16px;
+        font: 400 12px 'Noto Sans KR';
+        background: transparent url('../img/icons/ico-r-back.png') 0% 50%/10px auto no-repeat;
+    }
+
+    .r-cancel {
+        width: 16px;
+        height: 16px;
+        background: url(../img/icons/ico-r-cancel.png) 50% 50%/16px auto no-repeat;
+    }
+
+    /* ul - 네비게이션 */
+    .r-header-nav li {
+        position: relative;
+        display: inline-block;
+        padding: 12px 10px 0 10px;
+        font: 400 14px 'Noto Sans KR';
+    }
+
+    .r-header-nav li.active .nav-ico {
+        position: absolute;
+        top: -6px;
+        width: 28px;
+        height: 20px;
+        background: url('../img/icons/ico-r-car-navi.png') 50% 50%/28px auto no-repeat;
+    }
+
+    .nav-ico {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 12px;
+        height: 12px;
+    }
+
+    .r-header-nav-bar {
+        margin: 14px auto 0 auto;
+        text-align: center;
+    }
+
+    .r-header-nav-line {
+        position: absolute;
+        top: 6px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* 내부 컨테이너 */
+    .r-title {
+        padding-top: 18px;
+        font: 300 22px 'Noto Sans KR';
+        line-height: 1.5;
+    }
+
+    .r-title-txt-sub {
+        padding: 4px 0 8px 0;
+        font: 300 13px 'Noto Sans KR';
+        line-height: 1.5;
+    }
+
+    .r-rent-store {
+        padding: 18px 0 10px 6px;
+        font: 400 16px 'Noto Sans KR';
+        line-height: 1.5;
+    }
+
+    .form {
+        height: auto;
+        font-size: 14px;
+        font-weight: 400;
+        padding: 12px 18px;
+    }
+
+    .p-b-500 .r-col-40,
+    .p-b-500 .r-col-20 {
+        width: 100%;
+    }
+
+    .p-b-500 .fl-l {
+        float: none;
+    }
+
+    /* 캘린더 */
+    .r-container {
+        padding-bottom: 100px;
+    }
+
+    #calendar {
+        width: 100%;
+        height: 400px;
+    }
+
+    .contents {
+        height: 411px;
+    }
+
+    #Datepickk .d-header p>* {
+        font-size: 16px;
+    }
+
+    #d-previous {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    #d-next {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    #Datepickk .d-week {
+        font-size: 11px;
+    }
+
+    #Datepickk .d-table input+label.d-hidden {
+        height: 48px;
+        background: url(../img/icons/ico-r-car-gray.png) 50% 86%/26px auto no-repeat;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    #Datepickk .d-table input+label text {
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 10px !important;
+    }
+
+    #Datepickk .d-table input+label {
+        height: 48px;
+        background: url(../img/icons/ico-r-car-black.png) 50% 86%/26px auto no-repeat;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #Datepickk .d-table input+label:before {
+        color: #FFF;
+        background: url('../img/icons/ico-r-car-white.png') 50% 32%/26px auto no-repeat;
+        background-color: #007bff;
+    }
+
+
+    
+    /* 캘린더 구분 삼각형 */
+    .calender-devied {
+        float: none;
+        height: 80px;
+    }
+
+    .calender-devied:before {
+        content: '';
+        position: absolute;
+        top: 30%;
+        left: 42%;
+        transform: rotate(90deg) translate(-30%, -42%);
+        width: 22px;
+        height: 44px;
+        background: url(../img/icons/icon_arrow.png) 50% 50%/ 22px auto no-repeat;
+    }
+
+    /* 대여 시간, 분 프레임 */
+    .calender-sub {
+        float: left;
+        border-top: 3px solid #007bff !important;
+        border: 1px solid #CBCBCB;
+        height: auto;
+    }
+
+    /* 대여 */
+    .calender-sub-start-time {
+        position: relative;
+        padding: 14px 0 60px 0;
+    }
+
+    .r-info-text {
+        padding: 5px 0 11px 0;
+        font: 400 16px 'Noto Sans KR';
+        text-align: center;
+    }
+
+    .r-selete-text {
+        text-align: center;
+        font: 400 16px 'Noto Sans KR';
+        color: #007bff;
+        padding-bottom: 1rem;
+    }
+
+    .calender-sub-start-time .r-row .r-col-40 {
+        float: left;
+    }
+
+    .calender-sub-start-time .r-row .r-col-40 {
+        width: 38.5%;
+    }
+
+    .calender-sub-start-time .r-col-40:first-child {
+        margin-left: 10%;
+        margin-right: .625rem
+    }
+
+    /* 반납 */
+    .calender-sub-end-time {
+        padding: 14px 0 44px 0;
+        position: relative;
+    }
+
+    .calender-sub-end-time .r-row .r-col-40 {
+        float: left;
+    }
+
+    .calender-sub-end-time .r-row .r-col-40 {
+        width: 38.5%;
+    }
+
+    .calender-sub-end-time .r-col-40:first-child {
+        margin-left: 10%;
+        margin-right: .625rem;
+    }
+
+    .calender-sub-end-time .r-col-80 {
+        left: 10%;
+        bottom: -1.25rem;
+        display: inline-block;
+    }
+
+    /* 차량 라벨 - r02-car */
+    .r-car-label {
+        width: auto;
+        margin: 20px auto;
+    }
+
+    .r-car-label li {
+        display: inline-block;
+        float: left;
+        position: relative;
+        padding: 7px 18px;
+        margin: 4px;
+        text-align: center;
+    }
+
+    .r-car-label li>span {
+        font: 400 14px 'Noto Sans KR';
+        line-height: 1.4;
+    }
+
+    /* 차량 리스트 */
+    .r-car-list {
+        position: relative;
+        width: 100%;
+    }
+
+    .r-car-list li {
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        height: 116px;
+    }
+    
+    .r-car-list li:first-child {
+        border-top: 1px dashed #ddd;
+    }
+
+    .r-car-img {
+        position: absolute;
+        width: 120px;
+        height: 80px;
+        left:0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .r-car-img img {
+        width: 100%;
+        margin: 0;
+    }
+
+    .r-car-content {
+        float: left;
+        width: 100%;
+        max-width: 460px;
+        height: auto;
+        padding-left: 130px;
+        text-align: left;
+    }
+
+    .r-car-title-box {
+        position: relative;
+        top: 0;
+        transform: translateY(0);
+        padding-top: 12px;
+    }
+
+    .r-car-title {
+        margin-right: 0;
+        width: auto;
+        font: 400 14px 'Noto Sans KR';
+        line-height: 1.5;
+    }
+
+    .r-car-sub {
+        margin-right:0;
+        font: 300 12px 'Noto Sans KR';
+        line-height: 1.2em;
+    }
+
+    .r-car-price {
+        float: left;
+        position: relative;
+        display: inline-block;
+        width: auto;
+        height: auto;
+        padding: 0 0 0 130px;
+        text-align: center;
+    }
+
+    .r-car-price-box {
+        position: relative;
+        top:0;
+        transform: translateY(0);
+        width: auto;
+        vertical-align: middle;
+    }
+
+    .r-car-price-ori {
+        float: left;
+        padding: 4px 2px 0 0;
+        font: 300 12px 'Noto Sans KR';
+        line-height: 1.5;
+    }
+
+    .r-car-price-sale {
+        float: left;
+        font: 400 16px 'Noto Sans KR';
+        line-height: 1.5;
+    }
+
+    .r-car-select {
+        float: right;
+        display: none;
+    }
+
+    .r-btn.selected-car {
+        display: none;
+        float: none;
+        padding: 6px 28px;
+        height: auto;
+        margin: 24px 0 0 0;
+    }
+
+    /* 차량 리스트 더보기 */
+    .btn-more {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        margin: 30px auto 0 auto;
+        padding: 12px 33px;
+        font: 400 14px 'Noto Sans KR';
+    }
+
+    .btn-more.active {
+        display: none;
+    }
+
+    /* 차량리스트없을떄 */
+    .r-car-no-list {
+        padding: 16px 0;
+        font-size: 400 14px 'Noto Sans KR';
+        line-height: 1.4;
+    }
+
+    /* r03 정보입력 */
+    /* 체크박스, 라디오 공통 */
+    .checkbox-label,
+    .radio-label {
+        margin-right: 10px;
+        font-size: 12px !important;
+        /* 일반 체크박스 폰트 크기 강제 지정 - 달력이랑 혼합 x */
+    }
+
+    /* 체크박스 */
+    /* 폰트크기가 달력이랑 체크박스가  같이 적용됨 */
+    input[name="checkbox"]+label {
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    input[name="checkbox"]+label i {
+        font-size: 14px;
+    }
+
+    input[name="checkbox"]+label span {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin: 0px 10px 4px 2px;
+        vertical-align: middle;
+        background: url(../img/icons/ico-r-checkbox.png) 50%/100% no-repeat;
+        background-position-y: 0px;
+    }
+
+    input[name="checkbox"]:checked + label span {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin: 0px 10px 4px 2px;
+        vertical-align: middle;
+        background: url(../img/icons/ico-r-checkbox.png) 50%/100% no-repeat;
+        background-position-y: -20px;
+    }
+
+    input[name="checkbox"]+label i {
+        padding-left: 0;
+    }
+
+    /* 동의서 */
+    .r-rent-agree>* {
+        font-size: 10px;
+    }
+
+    .font-16 {
+        font-size: 10px !important;
+    }
+
+    .m-m-0 {
+        margin: 0px !important;
+    }
+
+    /* 대여요금 */
+    .r-total-price {
+        padding: 10px;
+        height: 9.625rem;
+    }
+
+    .r-total-price .r-price-box:last-child p:last-child {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .r-total-price.estimate-panel.active {
+        height: auto;
+    }
+
+    #contact_estimate {
+        font: 500 16px 'Noto Sans KR';
+        padding: 20px 0;
+    }
+
+    .r-price-box {
+        position: relative;
+        float: left;
+        width: 30%;
+        margin-right: 5%;
+        line-height: 1.875rem;
+        text-align: center;
+    }
+
+    .r-total-price .r-price-box:last-child {
+        float: none;
+        width: 100%;
+    }
+    
+    .r-price-box:before,
+    .r-price-box:after {
+        position: absolute;
+        content: '';
+        background-color: #ABABAB;
+        width: 13px !important;
+        height: 2px !important;
+        top: 50% !important;
+        right: -9% !important;
+        transform: translate(10%,-50%) !important;
+    }
+
+    .r-price-box:before {
+        top: 47% !important;
+        right: -9% !important;
+        transform: rotate(90deg) translate(10%,-48%) !important;
+    }
+
+    .r-price-box:nth-of-type(3):before, 
+    .r-price-box:nth-of-type(3):after,  
+    .r-price-box:nth-of-type(4):before, 
+    .r-price-box:nth-of-type(4):after{
+        content: '';
+        width:0 !important;
+    }
+
+    .r-price-box:nth-of-type(3),
+    .r-price-box:last-child {
+        margin-right: 0%;
+    }
+
+    .r-price-box p:first-child {
+        font-size: 12px;
+    }
+
+    .r-price-box p:last-child {
+        font-size: 13px;
+    }
+
+    .r-user-info-a {
+        width: 33%;
+        float:left;
+        height: 42px;
+        margin-right: 1%;
+    }
+
+    .r-user-info-b {
+        float: right;
+        width: 66%;
+        height: 42px;
+        margin-bottom: 0;
+    }
+
+    .mb-bt {
+        margin-bottom: 6px;
+    }
+
+
+    /* placeholder 벤더 프리픽스 */
+    input:-ms-input-placeholder {
+        font-size: 14px;
+    }
+
+    input::-webkit-input-placeholder {
+        font-size: 14px;
+    }
+
+    input::-moz-placeholder {
+        font-size: 14px;
+    }
+
+    .r-btn.r-btn-data {
+        width: 100%;
+        margin: 20px auto 0 auto;
+        padding: 13px 28px;  
+        font: 400 14px 'Noto Sans KR';
+    }
+
+    .change_fee {
+        width: 60%;
+    }
+
+    /* 모바일 완료페이지용 */
+    .p-l-60 {
+        padding-left: 60px;
+    }
+
+    /* 모바일 on */
+    .m-d-on {
+        display: block !important;
+    }
+
+    /* 모바일 off */
+    .m-d-off {
+        display: none !important;
+    }
+
+    /* 모바일 가로 100% */
+    .m-w-100 {
+        width: 100% !important;
+    }
+
+    /* 수평 바 */
+    .r-horizon {
+        height: 5.25rem;
+    }
+
+    .r-horizon-button {
+        top: -2rem;
+        transform: translate(-30px, 0);
+        width: 4.5rem;
+        height: 1rem;
+        padding: 20px;
+    }
+
+    .r-h-info {
+        display: none;
+        position: absolute;
+        font-size: 14px;
+    }
+
+    .r-h-infoA {
+        left: 15%;
+        bottom: 0px;
+    }
+
+    .r-h-infoB {
+        left: -90px;
+        top: 21px;
+    }
+
+    .r-h-infoC {
+        left: 65%;
+        bottom: 0px;
+    }
+
+    #clone-r-rent-office.active1,
+    #clone-r-rent-car.active3 {
+        color: #007bff;
+        padding-left: 30px;
+    }
+
+    #clone-r-rent-date.active2 {
+        color: #007bff;
+        padding-left: 0px;
+    }
+
+    .r-table th {
+        font-size: 13px;
+        padding-top: 1.25rem;
+    }
+
+    .r-table tr td:first-child {
+        position: relative;
+    }
+
+    .r-table tr td:first-child:after {
+        position: absolute;
+        top: 27px;
+        right: 0;
+        content: '';
+        width: 1px;
+        height: 1rem;
+        opacity: .5;
+        background-color: #666;
+    }
+
+    .r-table th,
+    .r-table td {
+        border: 0px;
+    }
+
+    .r-table td .r-horizon-text {
+        font-size: 14px;
+        padding-top: 1.5rem;
+    }
+
+    /* 테이블 레이아웃 수정할 부분은 여기 */
+    .r-table tr:nth-of-type(1) th:nth-of-type(2),
+    .r-table tr:nth-of-type(2) td:nth-of-type(2) {
+        position: absolute;
+        top: -7px;
+        /*left: 38%;*/
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+    }
+
+    .r-table tr th:first-child,
+    .r-table tr th:last-child,
+    .r-table tr td:first-child,
+    .r-table tr td:last-child {
+        width: 50%;
+    }
+
+    .r-horizon-content {
+        width: 100%;
+    }
+
+    /* finisih */
+    .r-finish-img {
+        width: 160px;
+        display: inline-block;
+        margin-top: 50px;
+    }
+
+    .r-finish-title {
+        width: 300px;
+        padding-top: 1.5rem;
+    }
+
+    /* finish result */
+    .r-finish-result {
+        padding: 1rem 20px;
+        font-size: 14px;
+        line-height: 1.5rem;
+        margin: 1.125rem 0rem 1.25rem 0rem;
+    }
+
+    .r-finish-result>div {
+        margin: .25rem 0rem;
+    }
+
+    .r-finish-sub {
+        font-size: 14px;
+        line-height: 1.5rem;
+        margin-top: 4px;
+    }
+
+    .pc-off {
+        display: block;
+    }
+
+    .btn-more {
+        padding: 7px 33px;
+        margin: 40px auto 80px auto;
+        font: 400 14px 'Noto Sans KR';
+    }
+
+    #h-car_name {
+        max-width: 350px;
+    }
+
+}
+
+
+
+
+
+/* PC */
+@media(min-width: 1023px) {
+    .contents {
+        border: 0 !important;
+    }
+
+    #calendar {
+        height: 416px;
+        border: 1px solid #CBCBCB;
+        border-top: 3px solid #007bff;
+    }
+}

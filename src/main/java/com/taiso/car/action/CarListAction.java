@@ -18,6 +18,8 @@ public class CarListAction implements Action {
 		String item = request.getParameter("item");
 		HttpSession session = request.getSession();
 		String rez_site = (String) session.getAttribute("rez_site");
+		String rez_pick_date = (String) session.getAttribute("rez_pick_date");
+		String rez_off_date = (String) session.getAttribute("rez_off_date");
 		
 		if (item == null) {
 			item = "all";
@@ -80,7 +82,7 @@ public class CarListAction implements Action {
 //
 
 		// DB에 저장된 상품정보를 가져오기
-		List carsList = cDAO.getCarList(startRow, pageSize, item, rez_site);
+		List carsList = cDAO.getCarList(startRow, pageSize, item, rez_site, rez_pick_date, rez_off_date);
 		// DB에 저장된 상품정보를 가져오기
 
 		System.out.println(" M : item, car_site : " + item + "," + rez_site);
