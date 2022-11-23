@@ -166,21 +166,6 @@ public class ReservationController extends HttpServlet{
 				
 				
 				/**
-				 * ReservationCancel
-				 * 
-				 */
-				// 예약 취소 (ReservationCancel.java)
-				else if(command.equals("/ReservationCancel.rez")) {
-					System.out.println(" C : [패턴1] : ReservationCancel.rez 호출");
-					
-					forward = new ActionForward();
-					forward.setPath("./views/reservationCancel.jsp");
-					forward.setRedirect(false);
-				}
-				
-				
-				
-				/**
 				 * ReservationCancelAction
 				 * - 비밀번호 체크 후 예약상태 변경
 				 */
@@ -188,7 +173,7 @@ public class ReservationController extends HttpServlet{
 					System.out.println(" C : [패턴2] : ReservationCancelAction.rez 호출");
 					
 					// ReservationCancelAction 객체 생성
-					action = new ReservationInfoAction();
+					action = new ReservationCancelAction();
 					try {
 						forward = action.execute(request, response);
 					} catch (Exception e) {

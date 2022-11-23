@@ -142,36 +142,55 @@
 <!-- 예약결제확인하기 -->
     <script type="text/javascript">
     
-       function checkRez(){ 
+    function checkRez(){ 
+    	
+    if(document.fr.license_issueDate.value == ""){
+        Swal.fire({         
+              title : '면허증 발급일자를 입력하세요!',
+              icon: 'warning',
+             confirmButtonText: '확인'
+          })
+        document.fr.license_issueDate.focus();
+        return;
+     }   
+        
+     if(document.fr.license_type.selectedIndex==0){
+        Swal.fire({         
+              title : '면허종류를 입력하세요!',
+              icon: 'warning',
+             confirmButtonText: '확인'
+          })
+       document.fr.license_type.focus();
+       return;
+     }
+     
+     if(document.fr.license_num.value == ""){
+        Swal.fire({         
+              title : '자격증번호를 입력하세요!',
+              icon: 'warning',
+             confirmButtonText: '확인'
+          })
+        document.fr.license_num.focus();
+        return;
+     }   
        
-          
-       if(document.fr.license_issueDate.value == ""){
-          alert("면허증 발급일자를 입력하세요!");
-          document.fr.license_issueDate.focus();
-          return;
-       }   
-          
-       if(document.fr.license_type.selectedIndex==0){
-         alert("면허 종류를 입력하세요!");
-         document.fr.license_type.focus();
-         return;
-       }
-       
-       if(document.fr.license_num.value == ""){
-          alert("자격증 번호를 입력하세요!");
-          document.fr.license_num.focus();
-          return;
-       }   
-         
-       if(document.fr.car_insurance[0].checked==false && document.fr.car_insurance[1].checked==false){
-         alert("자동차 보험을 선택해주세요!");
-         return;
-      }
-       
-       if(document.fr.agreement.checked==false){
-         alert("약관 동의하세요");
-         return;
-      }
+     if(document.fr.car_insurance[0].checked==false && document.fr.car_insurance[1].checked==false){
+        Swal.fire({         
+              title : '자동차보험을 선택해주세요!',
+              icon: 'warning',
+             confirmButtonText: '확인'
+          })
+       return;
+    }
+     
+     if(document.fr.agreement.checked==false){
+        Swal.fire({         
+              title : '약관에 동의해주세요!',
+              icon: 'warning',
+             confirmButtonText: '확인'
+          })
+       return;
+    }
        
         var totalCharge = parseInt(document.fr.pay_total.value); // 최종결제금액 
         var cName = document.fr.car_name.value; // 차량이름 

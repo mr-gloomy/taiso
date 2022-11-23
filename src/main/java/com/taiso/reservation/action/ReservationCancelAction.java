@@ -48,7 +48,7 @@ public class ReservationCancelAction implements Action {
       
       System.out.println("rezDTO 나오나 : " + rezDTO + ", mDTO 나오나 : " + mDTO);
 
-      //      String mem_id = request.getParameter("mem_id");
+      //String mem_id = request.getParameter("mem_id");
 //      String mem_pw = request.getParameter("mem_pw");
 //      int rez_uqNum = Integer.parseInt(request.getParameter("rez_uqNum")); //ReservationCancel.jsp에서 주소줄로 보낸 후 파람으로 가져오기
                   
@@ -58,34 +58,22 @@ public class ReservationCancelAction implements Action {
       ReservationDAO rezDAO = new ReservationDAO();
 //      ReservationDTO rezDTO = new ReservationDTO();
       
-      int result = rezDAO.reservationCancelChange(rezDTO, mDTO);
-      
-      System.out.println(" M 결과 : " + result);
-      
-      
-      // DAO - 취소DTO에 저장(이유, 일시,수수료)
+      // DAO - 예약취소 정보저장 메서드 호출 (이유, 일시,수수료) 
 //      rezDTO.setRez_uqNum(Integer.parseInt(request.getParameter("rez_uqNum")));
       rezDTO.setPay_uqNum(request.getParameter("pay_uqNum"));
       
 
-
-      //*************************** 타임스탬프 도저히 모르겠음 이거 예약해볼때 알아서 해보자 
-   
-//      SimpleDateFormat form = new SimpleDateFormat("yyyy-MM-dd");
-//      Timestamp Cancel_date = form.format(request.getParameter("cancel_date"));
-//      rezDTO.setCancel_date("cancel_date");
+//    SimpleDateFormat form = new SimpleDateFormat("yyyy-MM-dd");
+//    rezDTO.setCancel_date("cancel_date");
       Timestamp timestamp = Timestamp.valueOf(request.getParameter("cancel_date"));
-      
-//      rezDTO.setCancel_date(request.getParameter("cancel_date")); //*************************타임스탬프 어떻게 쓰는지 제대로 알아내자...
       rezDTO.setCancel_reason(request.getParameter("cancel_reason"));
       rezDTO.setCancel_commission(Integer.parseInt(request.getParameter("cancel_commission")));
       
       
+      int result = rezDAO.reservationCancelChange(rezDTO, mDTO);
       
-      
-      // DAO 객체 생성 - 예약취소 정보저장 메서드 호출 // 다음에 넘길게 있습니까!?
-      rezDAO.reservationCancelChange(rezDTO, mDTO);
-      
+      System.out.println(" M 결과 : " + result);
+     
       
       // 페이지 이동(js)
       response.setContentType("text/html; charset=UTF-8");
