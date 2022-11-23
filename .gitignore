@@ -161,8 +161,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-<<<<<<< HEAD
 # End of https://www.toptal.com/developers/gitignore/api/java,eclipse,windows,macos
-=======
-# End of https://www.toptal.com/developers/gitignore/api/java,eclipse,windows,macos
->>>>>>> branch 'master' of https://github.com/mr-gloomy/taiso.git
