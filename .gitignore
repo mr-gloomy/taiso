@@ -17,6 +17,9 @@ local.properties
 .loadpath
 .recommenders
 
+# ignore index.jsp
+index.jsp
+
 # Eclipse Core      
 .project
 
