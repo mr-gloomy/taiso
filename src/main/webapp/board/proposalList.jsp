@@ -169,7 +169,7 @@
 	            
 	 		<!-- 페이지처리 -->
             <div class="n_page"> 
-	  		 <c:if test="${totalCnt != 0}">
+	  		 <c:if test="${cnt != 0}">
                 <!-- 페이지번호 -->
                 <c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
 		         	 <a href="./QuestionList.bo?pageNum=${i }" class="btn btn-outline-primary" >${i }</a> 

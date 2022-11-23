@@ -26,10 +26,66 @@
     <link rel="stylesheet" href="./css/icomoon.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/admin_my.css">
+    <script src="sweetalert2.all.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>	
+
+	<script type="text/javascript">
+	
+	function QuestionWrite() {
+		var bo_cate = $('.form-select').val();
+		if(bo_cate==""){
+			Swal.fire({
+                icon: 'warning',
+                /* title: '내용을 입력하세요!', */
+                text: '카테고리를 선택하세요!',
+            });
+			document.fr.bo_cate.focus();
+			return;
+		}
+		
+	function Login() {
+		var mem_id = sessionStorage.getItem('mem_id'); // -> tang 반환
+		
+		if(mem_id==null) {
+			Swal.fire({
+				text : "텍스트",
+				closeOnClickOutside : false // 백그라운드 클릭해도 안꺼짐
+			})
+			.then(function(result){ //  창 꺼질때 실행할 함수
+				console.log(result);
+				// background 클릭 => null
+				// 확인버튼 클릭 => true
+			    
+			    if(result) {
+			    	location.href = "./MemberLogin.me";
+			    }
+			})
+			}
+	};
+	
+	Login();
+// 		swal({
+// 			text : "텍스트",
+// 			closeOnClickOutside : false // 백그라운드 클릭해도 안꺼짐
+// 		})
+// 		.then(function(result){ //  창 꺼질때 실행할 함수
+// 			console.log(result);
+// 			// background 클릭 => null
+// 			// 확인버튼 클릭 => true
+		    
+// 		    if(result) {
+// 		    	location.href = "/";
+// 		    }
+		    
+// 		})
+    </script>
     
   </head>
   <body>
-  
+ ${sessionScope.mem_id}
   <div id="wrap">
 	<!-- 헤더들어가는 곳 -->
 		<jsp:include page="../inc/top.jsp"/>
@@ -164,6 +220,8 @@
 	<script src="./js/google-map.js"></script>
 	<script src="./js/main.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+       <script src="sweetalert2.all.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
    
   </body>
 </html>

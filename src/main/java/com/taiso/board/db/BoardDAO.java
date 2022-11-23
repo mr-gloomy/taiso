@@ -132,7 +132,7 @@ public class BoardDAO {
 			//1.2. 디비연결
 			con = getConnection();
 			// 3. sql
-			sql = "select count(*) from member_board where bo_cate > 0";
+			sql = "select count(*) from member_board where bo_cate between 1 and 5";
 			pstmt = con.prepareStatement(sql);
 			
 			// 4. sql 실행

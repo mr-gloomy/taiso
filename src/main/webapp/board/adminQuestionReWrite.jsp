@@ -1,34 +1,111 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>TAISO</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+<head>
+<title>TAISO</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
+	rel="stylesheet">
 
-    <link rel="stylesheet" href="css/aos.css">
+<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="css/animate.css">
 
-    <link rel="stylesheet" href="css/ionicons.min.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/owl.theme.default.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
 
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
+<link rel="stylesheet" href="css/aos.css">
 
-    
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/admin_my.css">
+<link rel="stylesheet" href="css/ionicons.min.css">
+
+<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+<link rel="stylesheet" href="css/flaticon.css">
+<link rel="stylesheet" href="css/icomoon.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/admin_my.css">
+<link rel="stylesheet" href="./css/board.css">
+<script src="sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<script type="text/javascript">
+    <!-- input에 오늘날짜 기본값으로 넣기 -->
+	window.onload = function() {
+		today = new Date();
+		console.log("today.toISOString() >>>" + today.toISOString());
+		today = today.toISOString().slice(0, 10);
+		console.log("today >>>> " + today);
+		bir = document.getElementById("todaybirthday");
+		bir.value = today;
+	}
+	<!-- alert -->
+// 	function deleteBoard(seq){
+// 		Swal.fire({
+// 		  title: '글을 삭제하시겠습니까???',
+// 		  text: "삭제하시면 다시 복구시킬 수 없습니다.",
+// 		  icon: 'warning',
+// 		  showCancelButton: true,
+// 		  confirmButtonColor: '#3085d6',
+// 		  cancelButtonColor: '#d33',
+// 		  confirmButtonText: '삭제',
+// 		  cancelButtonText: '취소'
+// 		}).then((result) => {
+// 		  if (result.value) {
+//               //"삭제" 버튼을 눌렀을 때 작업할 내용을 이곳에 넣어주면 된다. 
+// 		  }
+// 		})
+// 	}
+	
+	function QuestionWrite() {
+		var bo_cate = $('.form-select').val();
+		if(bo_cate==""){
+			Swal.fire({
+                icon: 'warning',
+                /* title: '내용을 입력하세요!', */
+                text: '카테고리를 선택하세요!',
+            });
+			document.fr.bo_cate.focus();
+			return;
+		}
+		if(document.fr.bo_title.value==""){
+			Swal.fire({
+                icon: 'warning',
+                /* title: '내용을 입력하세요!', */
+                text: '제목을 입력하세요!',
+            });
+			document.fr.bo_title.focus();
+			return;
+		}
+		if(document.fr.bo_pass.value==""){
+			Swal.fire({
+                icon: 'warning',
+                /* title: '내용을 입력하세요!', */
+                text: '내용을 입력하세요!',
+            });
+			document.fr.bo_pass.focus();
+			return;
+		}
+		if(document.fr.bo_content.value==""){
+			Swal.fire({
+                icon: 'warning',
+                /* title: '내용을 입력하세요!', */
+                text: '비밀번호를 입력하세요!',
+            });
+			document.fr.bo_content.focus();
+			return;
+		}
+		
+		document.fr.submit();
+	}
+	</script>
+	
   </head>
   <body>
   <div id="wrap">
@@ -105,19 +182,27 @@
    	 </div> 
 
    	 <!-- 우측 -->
-          <div class="col-md-8 block-9 mb-md-5">
-          	<h4>1:1 문의하기</h4>
-            <form action="./AdminQuestionReWriteAction.bo?pageNum=${param.pageNum }" method="post" enctype="multipart/form-data" 
-            	class="bg-light p-5 contact-form">
-            
-              <div class="form-group">
+		<div class="col-md-8 block-9 mb-md-5">
+			<section class="notice_main">
+				<form action="./QuestionWriteAction.bo" method="post" enctype="multipart/form-data" name="fr">
+					<div class="board_wrap">
+						<div class="board_title">
+							<strong>1:1 문의하기</strong>
+							<p>타이소에게 다 물어보세요!</p>
+						</div>
+						<div class="board_write_wrap">
+							<div class="board_write">
+								<div class="title">
+								
               <input type="hidden" name="bo_num" value="${param.bo_num }">
 	           <input type="hidden" name="mem_id" value="${param.mem_id }">
 	           <input type="hidden" name="bo_re_ref" value="${param.bo_re_ref }">
 	           <input type="hidden" name="bo_re_seq" value="${param.bo_re_seq }">
 	           <input type="hidden" name="bo_re_lev" value="${param.bo_re_lev }">
                
-              카테고리 : <select class="form-select form-select-sm" id="bo_cate" name="bo_cate" aria-label=".form-select-sm example">
+				 <dl>
+	               <dt>카테고리</dt> 
+	               		<dd><select class="form-select" aria-label="Default select example" name="bo_cate">
 						  <option value="1" 
 						    <c:if test="${bodto.bo_cate eq '1'}">selected="selected"</c:if>
 				      	  >이용안내</option>
@@ -133,33 +218,57 @@
 						  <option value="5"
 						   <c:if test="${bodto.bo_cate eq '5'}">selected="selected"</c:if>
 						  >기타</option>
-						</select>
-              </div> 
-              <div class="form-group">
-               제목 : <input type="text" class="form-control" name="bo_title" value="[답변] ">
-              </div>
-              <div class="form-group">
-               답변사항 : <textarea name="bo_content" id="textarea" cols="30" rows="7" class="form-control" ></textarea>
-              </div>
-              <div>
-               첨부파일 : <input type="file" name="bo_file">
-              </div>
-              <div class="form-group">
-               비밀번호 : <input type="password" id="pass" name="bo_pass"> 
-              </div>
-              
-              <br>
- 	          <hr>
-              <div class="form-group">
-                <input type="submit" value="답변하기" class="btn btn-primary py-3 px-5">
-              </div>
-            </form>
-          
-          </div>
-        </div>
-        
-      </div>
-    </section>
+						</select></dd>
+ 										<dt>작성일</dt>
+										<dd>
+											<input type="text" id="todaybirthday" readonly="readonly">
+										</dd>
+										<dt>제목</dt>
+										<dd>
+											<input type="text" name="bo_title"
+												placeholder="제목을 입력해주세요" value="[답변]">
+										</dd>
+										<dt>작성자</dt>
+										<dd>
+											<input type="text" value="${sessionScope.mem_id }"
+												name="mem_id" readonly="readonly">
+										</dd>
+										<dt>비밀번호</dt>
+										<dd>
+											<input type="password" name="bo_pass"
+												placeholder="비밀번호를 입력해주세요">
+										</dd>
+									</dl>
+									<hr>
+								</div>
+								<div class="cont">
+									<textarea name="bo_content" placeholder="내용을 입력해주세요"></textarea>
+								</div>
+								<br>
+								<div class="input-group">
+									<input type="file" name="bo_file" id="inputGroupFile04"
+										value="첨부파일" aria-describedby="inputGroupFileAddon04"
+										aria-label="Upload">
+								</div>
+							</div>
+							<br>
+							<!-- 버튼 -->
+							<div class="d-grid gap-8 col-8 formbtncenter">
+								<input type="button" value="작성완료" class="btn btn-primary2"
+									onclick="QuestionWrite()" > 
+								<input type="button" value="작성취소" class="btn btn-primary2"
+									onclick="location.href='./QuestionList.bo';">
+									</div>
+									
+								</div>
+							</div>	
+						</form>
+					</section>
+				</div>
+
+		</div>
+	</div>
+</section>
 	 <!-- 우측 -->
      
 	

@@ -30,7 +30,7 @@ public class QuestionDeleteAction implements Action {
 		
 		if(result == 1) {
 			out.print("<script>");
-			out.print(" alert('게시판 글 삭제 완료'); ");
+			out.print(" alert('게시글 삭제 완료!'); ");
 			out.print(" location.href='./QuestionList.bo'; ");
 			out.print("</script>");
 			out.close();
