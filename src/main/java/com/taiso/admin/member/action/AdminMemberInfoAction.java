@@ -6,10 +6,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.taiso.admin.member.db.AdminMemberDAO;
 import com.taiso.admin.member.db.MemberDTO;
 
-public class AdminMemberInfoAction implements Member {
+public class AdminMemberInfoAction implements Action {
 
 	@Override
-	public MemberForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		System.out.println(" M : AdminMemberInfoAction_execute 호출");
 		
@@ -28,7 +28,7 @@ public class AdminMemberInfoAction implements Member {
 		request.setAttribute("pageNum", pageNum);
 		
 		// 페이지 이동
-		MemberForward forward = new MemberForward();
+		ActionForward forward = new ActionForward();
 		forward.setPath("./adminMember/adminMemberInfo.jsp");
 		forward.setRedirect(false);
 		

@@ -36,7 +36,7 @@ public class MemberLoginAction implements Action {
 			return null;			
 		}
 		
-		if(result == -1) {
+		else if(result == -1) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.print("<script>");
@@ -47,17 +47,28 @@ public class MemberLoginAction implements Action {
 			
 			return null;			
 		}
+		else {
 		// result == 1
 		// 로그인 성공 -> 아이디 세션영역에 저장
 		HttpSession session = request.getSession();
 		session.setAttribute("mem_id", mem_id);
 		
 		// 메인으로 이동
-		ActionForward forward = new ActionForward();
-		forward.setPath("./ReservationMain.rez");
-		forward.setRedirect(true);
+//		ActionForward forward = new ActionForward();
+//		forward.setPath("./ReservationMain.rez");
+//		forward.setRedirect(true);
 		
-		return forward;
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.print("<script>");
+		out.print("	alert('로그인 완료.'); ");
+		out.print(" history.go(-2); ");
+		out.print("</script>");
+		out.close();
+		
+		
+		return null;
+		}
 	}
 
 }
