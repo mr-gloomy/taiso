@@ -37,6 +37,23 @@ public class ReservationController extends HttpServlet{
 				ActionForward forward = null;
 				
 				
+				
+				/**
+				 * ReservationMain
+				 * 
+				 */
+				if(command.equals("/ReservationMain.rez")) {
+					System.out.println(" C : /ReservationMain.rez 호출 ");
+					System.out.println(" C : [패턴 1] ");
+					
+					action = new ReservationMainAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+				
 			
 				
 				/**
@@ -44,7 +61,7 @@ public class ReservationController extends HttpServlet{
 				 * 
 				 */
 				// 메인페이지 - 예약일시 정보 저장
-				if(command.equals("/ReservationDate.rez")) {
+				else if(command.equals("/ReservationDate.rez")) {
 					System.out.println(" c : [패턴3] : ReservationDate.rez 호출");
 					
 					//ReservationDate 객체 생성
@@ -226,24 +243,6 @@ public class ReservationController extends HttpServlet{
 					forward.setRedirect(false);
 				}
 					
-				
-				/**
-	             * ReservationMain
-	             * 
-	             */
-				else if(command.equals("/ReservationMain.rez")) {
-					System.out.println(" C : /ReservationMain.rez 호출 ");
-					System.out.println(" C : [패턴 1] ");
-					
-					action = new ReservationMainAction();
-					try {
-						forward = action.execute(request, response);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-				
-			    
 			    System.out.println(" C : 2. 가상주소 매핑 끝");
 			      
 			    

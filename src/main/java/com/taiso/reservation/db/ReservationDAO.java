@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -21,6 +22,10 @@ import com.taiso.payment.db.PaymentDTO;
 
 public class ReservationDAO {
 
+	public Timestamp getTimestamp(String str){
+		return Timestamp.valueOf(str);
+		}
+	
 	private Connection con = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
@@ -98,6 +103,8 @@ public class ReservationDAO {
 		return mDTO;
 	} // 회원1명의 정보 가져오기 - getMemberInfo(mem_id)
 
+	
+	
 	/**
 	 * 예약정보 저장 - resevationSave(ReservationDTO rezDTO, PaymentDTO payDTO)
 	 */
@@ -118,16 +125,16 @@ public class ReservationDAO {
 				rez_uqNum = rs.getInt(1) + 1;
 			}
 
-//      		 * [v] rez_uqNum
-//				 * [v] rez_rentalDate
-//				 * [v] rez_returnDate
-//				 * [v] rez_totalDate
-//				 * [v] rez_site
-//				 * [v] rez_status
-//				 * [v] car_code
-//				 * [v] car_insurance
-//				 * [v] mem_id
-//				 * [v] license_num
+//      	* [v] rez_uqNum
+//			* [v] rez_rentalDate
+//			* [v] rez_returnDate
+//			* [v] rez_totalDate
+//			* [v] rez_site
+//			* [v] rez_status
+//			* [v] car_code
+//			* [v] car_insurance
+//			* [v] mem_id
+//			* [v] license_num
 
 			// 주문정보 저장
 			sql = "insert into rez_reservation "
@@ -135,7 +142,7 @@ public class ReservationDAO {
 					+ "car_code,car_insurance,mem_id,license_num,car_name) " + "values(?,?,?,?,?,?,?,?,?,?,?)";
 
 			PreparedStatement pstmt2 = con.prepareStatement(sql);
-//				pstmt.setInt(1, Integer.parseInt(sdf.format(cal.getTime()))+rez_uqNum);
+//			pstmt.setInt(1, Integer.parseInt(sdf.format(cal.getTime()))+rez_uqNum);
 			pstmt2.setInt(1, rez_uqNum);
 			pstmt2.setString(2, rezDTO.getRez_rentalDate());
 			pstmt2.setString(3, rezDTO.getRez_returnDate());
@@ -151,10 +158,12 @@ public class ReservationDAO {
 
 			System.out.println(" dao - 예약정보 저장 완료");
 
-//      		 * [v] license_num
-//				 * [v] mem_id
-//				 * [v] license_issueDate
-//				 * [v] license_type
+			
+			// 면허정보 추가
+//      	* [v] license_num
+//			* [v] mem_id
+//			* [v] license_issueDate
+//		    * [v] license_type
 
 			sql = "insert into rez_driverlicense(license_num,mem_id,license_issueDate,license_type) "
 					+ "values(?,?,?,?)";
@@ -167,13 +176,14 @@ public class ReservationDAO {
 			pstmt3.executeUpdate();
 			System.out.println(" dao - 면허정보 저장 완료");
 
-//      		* [v] pay_uqNum
-//				* [v] rez_uqNum
-//				* [v] pay_method
-//				* [ ] pay_date		// 현재시간 기본값			
-//			    * [v] pay_status					
-//				* [v] pay_total					
-
+			
+			// 결제정보 추가
+//      	* [v] pay_uqNum
+//			* [v] rez_uqNum
+//			* [v] pay_method
+//			* [ ] pay_date		// 현재시간 기본값			
+//			* [v] pay_status					
+//			* [v] pay_total					
 			sql = "insert into rez_payment (pay_uqNum, rez_uqNum, pay_total, pay_method, pay_status) values(?, ?, ?, ?, ?)";
 			PreparedStatement pstmt4 = con.prepareStatement(sql);
 			pstmt4.setString(1, payDTO.getPay_uqNum());
@@ -183,6 +193,7 @@ public class ReservationDAO {
 			pstmt4.setString(5, payDTO.getPay_status());
 			pstmt4.executeUpdate();
 
+			
 			// 차량 테이블에 렌트 시작2날짜, 반납일자 추가
 			sql = "update car set rez_rentalDate=?, rez_returnDate=? where car_code=?";
 			PreparedStatement pstmt5 = con.prepareStatement(sql);
@@ -203,6 +214,8 @@ public class ReservationDAO {
 
 	} // 예약정보 저장 - resevationSave()
 
+	
+	
 	/**
 	 * 예약 1개 정보 조회 - getResevationInfo(String mem_id, int rez_uqNum)
 	 */
@@ -301,6 +314,8 @@ public class ReservationDAO {
 		return totalDTO;
 	} // 예약 1개 정보 조회 - getResevationInfo(int rez_uqNum)
 
+	
+	
 	/**
 	 * 예약+차 목록 조회 - getResevationList(String mem_id)
 	 */
@@ -347,86 +362,166 @@ public class ReservationDAO {
 		return reservationList;
 	} // 예약+ 차 목록 조회 - getResevationList(String mem_id)
 
-	/**
-	 * 예약 상태 변경 - reservationCancelChange(ReservationDTO rezDTO)
-	 */
+	
+	
+	   /**
+	    * 예약 상태 변경 - reservationCancelChange(ReservationDTO rezDTO)
+	    */
 
-	// select ---> update
+	   // select ---> update
 
-	public int reservationCancelChange(ReservationDTO rezDTO) { // rezDTO가 수정할 정보이므로
-		int result = -1;
+	   public int reservationCancelChange(ReservationDTO rezDTO) { // rezDTO가 수정할 정보이므로
+	      int result = -1;
 
-		MemberDTO mDTO = new MemberDTO();
-		rezDTO = new ReservationDTO();
+	      MemberDTO mDTO = new MemberDTO();
+	      rezDTO = new ReservationDTO();
 
-		try {
-			con = getConnection();
-			// 3. sql&pstmt // 셀렉트먼저 사용해서 해당 정보가 있는지 먼저 확인하기
-			sql = "select mem_pw from member where mem_id=?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, mDTO.getMem_id());
-			rs = pstmt.executeQuery();
+	      try {
+	         con = getConnection();
+	         // 3. sql&pstmt // 셀렉트먼저 사용해서 해당 정보가 있는지 먼저 확인하기
+	         sql = "select mem_pw from member where mem_id=?";
+	         pstmt = con.prepareStatement(sql);
+	         pstmt.setString(1, mDTO.getMem_id());
+	         rs = pstmt.executeQuery();
 
-			if (rs.next()) {
-				if (mDTO.getMem_pw().equals(rs.getString("mem_pw"))) { // dto(받은정보) rs(디비) 두개 동일하므로 비밀번호 확인이 끝났다.
-					sql = "select rez_status from rez_reservation where rez_uqNum=?";
-					pstmt = con.prepareStatement(sql);
-					pstmt.setInt(1, rezDTO.getRez_uqNum());
+	         if (rs.next()) {
+	            if (mDTO.getMem_pw().equals(rs.getString("mem_pw"))) { // dto(받은정보) rs(디비) 두개 동일하므로 비밀번호 확인이 끝났다.
+	               sql = "select rez_status from rez_reservation where rez_uqNum=?";
+	               PreparedStatement pstmt2 = con.prepareStatement(sql);
+	               pstmt2.setInt(1, rezDTO.getRez_uqNum());
 
-					rs = pstmt.executeQuery();
+	               ResultSet rs2 = pstmt.executeQuery();
 
-					// 5. 데이터 처리
-					if (rs.next()) {
-						sql = "update rez_reservation set rez_status=? where rez_uqNum=?";
-						pstmt = con.prepareStatement(sql);
-						pstmt.setInt(1, 1); // 0 : 예약완료 1: 예약취소
-						pstmt.setInt(2, rezDTO.getRez_uqNum());
+	               // 5. 데이터 처리
+	               if (rs2.next()) {
+	                  sql = "update rez_reservation set rez_status=? where rez_uqNum=?";
+	                  PreparedStatement pstmt3 = con.prepareStatement(sql);
+	                  pstmt3.setInt(1, 1); // 0 : 예약완료 1: 예약취소
+	                  pstmt3.setInt(2, rezDTO.getRez_uqNum());
 
-						result = pstmt.executeUpdate();
-					}
+	                  result = pstmt3.executeUpdate();
+	               }
 
-				} else {
-					result = 0;
-				}
+	            } else {
+	               result = 0;
+	            }
 
-			} else {
-				result = -1;
-			}
+	         } else {
+	            result = -1;
+	         }
 
-			System.out.println(" DAO : 예약 상태 변경 완료(" + result + ")");
+	         System.out.println(" DAO : 예약 상태 변경 완료(" + result + ")");
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			closeDB();
-		}
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      } finally {
+	         closeDB();
+	      }
 
-		return result;
-	} // 예약 상태 변경 - resrvationCancelChange(ReservationDTO rezDTO)
+	      return result;
+	   } // 예약 상태 변경 - resrvationCancelChange(ReservationDTO rezDTO)
+
+	   
+	   
+	      /**
+	       * 예약취소 정보 저장 - ResrvationCancelSave( )
+	       */
+
+	      public void resevationCancelSave(ReservationDTO rezDTO) {
+	         rezDTO = new ReservationDTO();
+
+	         try {
+
+	            con = getConnection();
+
+	            // 주문정보 저장
+	            sql = "insert into rez_cancellation(rez_uqNum,pay_uqNum,cancel_date,cancel_reason,cancel_commission) "
+	                  + "values(?,?,now(),?,?)";
+
+	            pstmt = con.prepareStatement(sql);
+
+	            pstmt.setInt(1, rezDTO.getRez_uqNum());
+	            pstmt.setString(2, rezDTO.getPay_uqNum());
+	            pstmt.setString(3, rezDTO.getCancel_reason());
+	            pstmt.setInt(4, rezDTO.getCancel_commission());
+
+	            pstmt.executeUpdate();
+
+	         } catch (Exception e) {
+	            e.printStackTrace();
+	         } finally {
+	            closeDB();
+	         }
+
+	      } // 예약취소 정보 저장 - ResrvationCancelSave(String mem_id)
+
+
+	
+
 
 //	/**
-//	 * 예약취소 정보 저장 - ResrvationCancelSave(String mem_id)
+//	 * 예약 상태 변경 - reservationCancelChange(ReservationDTO rezDTO)
 //	 */
 //
-//	public void resevationCancelSave(String mem_id) {
-//		ReservationDTO rezDTO = new ReservationDTO();
+//	// select ---> update
+//
+//	public int reservationCancelChange(ReservationDTO rezDTO, MemberDTO mDTO) { // rezDTO가 수정할 정보이므로
+//		int result = -1;
+//
+//		mDTO = new MemberDTO();
+//		rezDTO = new ReservationDTO();
 //
 //		try {
-//
+//			
+//			// 취소 정보 저장
 //			con = getConnection();
 //
-//			// 주문정보 저장
-//			sql = "insert into rez_cancellation(rez_uqNum,pay_uqNum,cancel_date,cancel_date,cancel_commission) "
+//			
+//			
+//			// sql&pstmt // 셀렉트먼저 사용해서 해당 정보가 있는지 먼저 확인하기
+//			sql = "select mem_pw from member where mem_id=?";
+//			PreparedStatement pstmt2 = con.prepareStatement(sql);
+//			pstmt2.setString(1, mDTO.getMem_id());
+//			ResultSet rs2 = pstmt2.executeQuery();
+//
+//			if (rs2.next()) {
+//				if (mDTO.getMem_pw().equals(rs2.getString("mem_pw"))) { // dto(받은정보) rs(디비) 두개 동일하므로 비밀번호 확인이 끝났다.
+//					sql = "select rez_status from rez_reservation where rez_uqNum=?";
+//					pstmt2 = con.prepareStatement(sql);
+//					pstmt2.setInt(1, rezDTO.getRez_uqNum());
+//					rs2 = pstmt2.executeQuery();
+//
+//					// 데이터 처리
+//					if (rs2.next()) {
+//						sql = "update rez_reservation set rez_status=? where rez_uqNum=?";
+//						pstmt2 = con.prepareStatement(sql);
+//						pstmt2.setInt(1, 0); // 1 : 예약완료 0: 예약취소
+//						pstmt2.setInt(2, rezDTO.getRez_uqNum());
+//
+//						result = pstmt2.executeUpdate(); // 1
+//					}
+//
+//				} else { // 비번오류
+//					result = 0;
+//				}
+//
+//			} else { // 비회원
+//				result = -1;
+//			}
+//
+//			sql = "insert into rez_cancellation(rez_uqNum,pay_uqNum,cancel_date,cancel_reason,cancel_commission) "
 //					+ "values(?,?,now(),?,?)";
-//
+//			
 //			pstmt = con.prepareStatement(sql);
-//
+//			
 //			pstmt.setInt(1, rezDTO.getRez_uqNum());
 //			pstmt.setString(2, rezDTO.getPay_uqNum());
 //			pstmt.setString(3, rezDTO.getCancel_reason());
 //			pstmt.setInt(4, rezDTO.getCancel_commission());
-//
+//			
 //			pstmt.executeUpdate();
+//			
+//			System.out.println(" DAO : 예약 상태 변경 완료(" + result + ")");
 //
 //		} catch (Exception e) {
 //			e.printStackTrace();
@@ -434,78 +529,7 @@ public class ReservationDAO {
 //			closeDB();
 //		}
 //
-//	} // 예약취소 정보 저장 - ResrvationCancelSave(String mem_id)
-
-	/**
-	 * 예약 상태 변경 - reservationCancelChange(ReservationDTO rezDTO)
-	 */
-
-	// select ---> update
-
-	public int reservationCancelChange(ReservationDTO rezDTO, MemberDTO mDTO) { // rezDTO가 수정할 정보이므로
-		int result = -1;
-
-		mDTO = new MemberDTO();
-		rezDTO = new ReservationDTO();
-
-		try {
-			
-			// 취소 정보 저장
-			con = getConnection();
-			sql = "insert into rez_cancellation(rez_uqNum,pay_uqNum,cancel_date,cancel_date,cancel_commission) "
-					+ "values(?,?,now(),?,?)";
-
-			pstmt = con.prepareStatement(sql);
-
-			pstmt.setInt(1, rezDTO.getRez_uqNum());
-			pstmt.setString(2, rezDTO.getPay_uqNum());
-			pstmt.setString(3, rezDTO.getCancel_reason());
-			pstmt.setInt(4, rezDTO.getCancel_commission());
-
-			pstmt.executeUpdate();
-
-			
-			
-			// sql&pstmt // 셀렉트먼저 사용해서 해당 정보가 있는지 먼저 확인하기
-			sql = "select mem_pw from member where mem_id=?";
-			PreparedStatement pstmt2 = con.prepareStatement(sql);
-			pstmt2.setString(1, mDTO.getMem_id());
-			ResultSet rs2 = pstmt2.executeQuery();
-
-			if (rs.next()) {
-				if (mDTO.getMem_pw().equals(rs.getString("mem_pw"))) { // dto(받은정보) rs(디비) 두개 동일하므로 비밀번호 확인이 끝났다.
-					sql = "select rez_status from rez_reservation where rez_uqNum=?";
-					pstmt2 = con.prepareStatement(sql);
-					pstmt2.setInt(1, rezDTO.getRez_uqNum());
-					rs2 = pstmt2.executeQuery();
-
-					// 5. 데이터 처리
-					if (rs2.next()) {
-						sql = "update rez_reservation set rez_status=? where rez_uqNum=?";
-						pstmt2 = con.prepareStatement(sql);
-						pstmt2.setInt(1, 0); // 1 : 예약완료 0: 예약취소
-						pstmt2.setInt(2, rezDTO.getRez_uqNum());
-
-						result = pstmt2.executeUpdate(); // 1
-					}
-
-				} else { // 비번오류
-					result = 0;
-				}
-
-			} else { // 비회원
-				result = -1;
-			}
-
-			System.out.println(" DAO : 예약 상태 변경 완료(" + result + ")");
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			closeDB();
-		}
-
-		return result;
-	} // 예약 상태 변경 - resrvationCancelChange(ReservationDTO rezDTO)
+//		return result;
+//	} // 예약 상태 변경 - resrvationCancelChange(ReservationDTO rezDTO)
 
 }

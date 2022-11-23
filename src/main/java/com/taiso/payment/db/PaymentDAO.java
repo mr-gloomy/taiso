@@ -67,10 +67,6 @@ public class PaymentDAO {
 			
 			/**
 			* 결제 1개 정보 조회 - getPayment(int rez_uqNum)
-			* 
-			* 회원이 선택한 예약의 결제 정보 조회
-			* @author 소연
-			* @param 결제DTO (PaymentDTO payDTO)
 			*/ 
 		
 			public PaymentDTO getPayment(int rez_uqNum) {
@@ -90,7 +86,7 @@ public class PaymentDAO {
 						payDTO.setPay_uqNum(rs.getString("pay_uqNum"));
 						payDTO.setPay_method(rs.getString("pay_method"));
 					
-		//				payDTO.setPay_date(rs.getString("pay_date"));
+//						payDTO.setPay_date(rs.getString("pay_date"));
 						payDTO.setPay_status(rs.getString("pay_status"));
 						payDTO.setPay_total(rs.getInt("pay_total"));
 						
@@ -110,69 +106,7 @@ public class PaymentDAO {
 			}
 			// 결제 1개 정보 조회 - getPayment(int rez_uqNum)
 			
-			
-			
-			
-			
-//			/**
-//			* 결제 목록 조회 - getPaymentList(String mem_id)
-//			* 
-//			* 회원의 이전,현재 예약 목록을 배열형태로 조회
-//			* @author 소연
-//			* @param 결제DTO (PaymentDTO payDTO)
-//			*/ 
-//		
-//			public Vector getPaymentList(int rez_uqNum) {
-//				Vector paymentList = new Vector();
-//				
-//				try {
-//					con = getConnection();
-//					// sql - 예약번호값에 해당하는 결제 정보 조회
-//					sql = "select * from rez_payment where rez_uqNum=?";
-//					pstmt = con.prepareStatement(sql);
-//					pstmt.setInt(1, rez_uqNum);
-//					rs = pstmt.executeQuery();
-//					
-//					while(rs.next()) {
-//						// 결제 정보 저장
-//						// DB -> DTO -> List
-//						PaymentDTO payDTO = new PaymentDTO();
-//						
-//						
-//						// 결제 정보
-//						payDTO.setRez_uqNum(rs.getInt("rez_uqNum"));
-//						payDTO.setPay_uqNum(rs.getInt("pay_uqNum"));
-//						payDTO.setPay_method(rs.getString("pay_method"));
-//					
-//		//				payDTO.setPay_date(rs.getString("pay_date"));
-//						payDTO.setPay_status(rs.getString("pay_status"));
-//						payDTO.setPay_total(rs.getInt("pay_total"));
-//						 
-//						
-//						
-//						//DTO -> List
-//						paymentList.add(payDTO);
-//						System.out.println(" DAO : "+ paymentList); //*** 제대로 값이 들어갔는지 확인용. 나중에 삭제할 것
-//							
-//		
-//					}//while
-//					// PaymentList 저장
-//					
-//				
-//					
-//					System.out.println(" DAO : 결제정보리스트 저장완료 ");			
-//					
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				} finally {
-//					closeDB();
-//				}
-//				
-//				return paymentList;
-//			} // 결제 목록 조회 - getPaymentList(String mem_id)
-//			
-			
-			
+
 			
 			/**
 			 * 결제정보 저장 - addOrder(paymentDTO)
