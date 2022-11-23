@@ -204,13 +204,13 @@ a {
 	    <td>${dto.car_year }</td>
 	    <td>
 <%-- 	    <button onclick="./AdminCarUpdate.ad?car_code=${dto.car_code }">수정</button> --%>
-	    <a href="./AdminCarUpdate.ad?car_code=${dto.car_code }">수정</a>
-<%-- 	    <input type ="button" value="수정" onclick="./AdminCarUpdate.ad?car_code=${dto.car_code }"> --%>
+<%-- 	    <a href="./AdminCarUpdate.ad?car_code=${dto.car_code }">수정</a> --%>
+	    <input type ="button" value="수정" onclick="location.href='./AdminCarUpdate.ad?car_code=${dto.car_code }';">
 	    /
 <%-- 	    	<c:set var= "code" value="${dto.car_code }"/> --%>
 	    
-<!-- 	    <input type = "button" value = "삭제" onclick="deleteCar();"> -->
-		<button onclick="deleteCar(${dto.car_code });">삭제</button>
+	    <input type = "button" value = "삭제" onclick="deleteCar();">
+<%-- 		<button onclick="deleteCar(${dto.car_code });">삭제</button> --%>
 <%-- 	    <a href="deleteCar(${dto.car_code });">삭제</a> --%>
 		
 		

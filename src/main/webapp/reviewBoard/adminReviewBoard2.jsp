@@ -51,34 +51,35 @@
             <strong>리뷰리스트</strong>
             <p> 전체 글 개수 : ${requestScope.totalCnt } 개 </p>
             <!--  검색 폼 -->
-			<div class="n_search" border="1" width="90%">
-				<div align="right">
-					<input type="text" name="search" >
-					<input type="submit" value="Search" class="btn btn-outline-secondary">
-				</div>
-			</div>
+<!-- 			<div class="n_search" border="1" width="90%"> -->
+<!-- 				<div align="right"> -->
+<!-- 					<input type="text" name="search" > -->
+<!-- 					<input type="submit" value="Search" class="btn btn-outline-secondary"> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
         </div>
         <div class="board_list_wrap">
             <div class="board_list">
                 <div class="top">
                     <div class="num">번호</div>
+                    <div class="count">닉네임</div>
                     <div class="title3">제목</div>
                     <div class="date3">작성일</div>
-                    <div class="count">평점</div>
+<!--                     <div class="count">평점</div> -->
                     <div class="count">관리</div>
                 </div>
                 
               <c:forEach var="dto" items="${reviewListAll }">
                 <div>
                     <div class="num">${dto.rev_num }</div>
+                    <div class="count">${dto.mem_nickName } </div>
                     <div class="title3">
                     	<a href="./AdminReivewContent.adr?rev_num=${dto.rev_num }&pageNum=${pageNum}">${dto.rev_subject }</a>
                     </div>
                     <div class="date3">
-                    <fmt:formatDate value="${dto.rev_date }" pattern="yyyy년 MM월 dd일 " />
-<%--                     ${dto.rev_date } --%>
+                     <fmt:formatDate value="${dto.rev_date }" pattern="yyyy년 MM월 dd일 " />
                     </div>
-                    <div class="count">${dto.rev_star } / 5 </div>
+<%--                     <div class="count">${dto.rev_star } </div> --%>
                     <div class="count">
                     	<a href="./AdminReviewDelete.adr?rev_num=${boDTO.bo_num }&pageNum=${pageNum }">삭제</a>
                     </div>
@@ -109,10 +110,10 @@
   
       </div><br>
       
-      <!-- 버튼 -->
-      <div>
-      	<input type="button" value="새글작성" class="btn btn-primary" onclick="location.href='./AdminNoticeWrite.nb';">
-      </div>
+<!--       버튼 -->
+<!--       <div> -->
+<!--       	<input type="button" value="새글작성" class="btn btn-primary" onclick="location.href='./AdminNoticeWrite.nb';"> -->
+<!--       </div> -->
            
         </div>
     </div>
