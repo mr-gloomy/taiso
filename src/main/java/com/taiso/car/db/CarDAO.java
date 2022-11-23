@@ -78,7 +78,7 @@ public class CarDAO {
 	
 	
 	// 차정보 가져오는 메서드
-	public List getCarList(int startRow,int pageSize,String item,String car_site) {
+	public List getCarList(int startRow,int pageSize,String item,String car_site, String rez_pick_date, String rez_off_date) {
 		List carsList = new ArrayList();
 		StringBuffer SQL = new StringBuffer();
 		
@@ -91,27 +91,34 @@ public class CarDAO {
 			SQL.append("select * from car");
 			
 			if(item.equals("all")) {
-				SQL.append(" where car_site=?");
-				SQL.append(" limit ?,?");
+				SQL.append(" where car_site=? and rez_rentalDate not between ? and ? and rez_returnDate not between ? and ? limit ?,?");
 				System.out.println(" DAO : all : " + SQL);
 			}
 			else {
 				
-				SQL.append(" where car_category=? and car_site=? limit ?,?");
+				SQL.append(" where car_category=? and car_site=? and rez_rentalDate not between ? and ? and rez_returnDate not between ? and ? limit ?,?");
 				System.out.println(" DAO : car_categroy "+SQL);
 			}
 			pstmt = con.prepareStatement(SQL+"");
 			
 			if(item.equals("all")){
 				pstmt.setString(1, car_site);
-				pstmt.setInt(2, startRow-1); // 시작행 -1
-				pstmt.setInt(3, pageSize); // 갯수
+				pstmt.setString(2, rez_pick_date);
+				pstmt.setString(3, rez_off_date);
+				pstmt.setString(4, rez_pick_date);
+				pstmt.setString(5, rez_off_date);
+				pstmt.setInt(6, startRow-1); // 시작행 -1
+				pstmt.setInt(7, pageSize); // 갯수
 			}
 			else {
 				pstmt.setString(1, item);
 				pstmt.setString(2, car_site);
-				pstmt.setInt(3, startRow-1); // 시작행 -1
-				pstmt.setInt(4, pageSize); // 갯수
+				pstmt.setString(3, rez_pick_date);
+				pstmt.setString(4, rez_off_date);
+				pstmt.setString(5, rez_pick_date);
+				pstmt.setString(6, rez_off_date);
+				pstmt.setInt(7, startRow-1); // 시작행 -1
+				pstmt.setInt(8, pageSize); // 갯수
 			
 			}
 
@@ -192,12 +199,13 @@ public class CarDAO {
 		
 		try {
 			con = getConnection();
-			sql = "select car_brand, car_name, car_price, car_file FROM car ORDER BY RAND() LIMIT 5";
+			sql = "select car_code, car_brand, car_name, car_price, car_file FROM car ORDER BY RAND() LIMIT 5";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
 				CarDTO carDTO = new CarDTO();
+				carDTO.setCar_code(rs.getInt("car_code"));
 				carDTO.setCar_brand(rs.getString("car_brand"));
 				carDTO.setCar_name(rs.getString("car_name"));
 				carDTO.setCar_price(rs.getInt("car_price"));

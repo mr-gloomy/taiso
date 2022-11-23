@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<!-- Çì´õ ½ÃÀÛ -->
+<!-- í—¤ë” ì‹œìž‘ -->
 <title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
 <meta charset="utf-8">
 <meta name="viewport"
@@ -51,27 +51,27 @@
 								class="ion-ios-arrow-forward"></i></a></span> <span>Cars <i
 							class="ion-ios-arrow-forward"></i></span>
 					</p>
-					<h1 class="mb-3 bread">´ç½ÅÀÇ Â÷¸¦ ¼±ÅÃÇÏ¶ó.</h1>
+					<h1 class="mb-3 bread">ë‹¹ì‹ ì˜ ì°¨ë¥¼ ì„ íƒí•˜ë¼.</h1>
 				</div>
 			</div>
 		</div>
 	</section>
 
 
-	<!-- ¹Ýº¹¹®À¸·Î DB¿¡ ÀÖ´Â ¸ðµç Â÷·® ºÒ·¯¿À±â -->
+	<!-- ë°˜ë³µë¬¸ìœ¼ë¡œ DBì— ìžˆëŠ” ëª¨ë“  ì°¨ëŸ‰ ë¶ˆëŸ¬ì˜¤ê¸° -->
 	
-						<!-- ÇÏ´Ü¿¡ ¸µÅ© °É¾î¼­ Â÷·® »çÁø ºÒ·¯¿À±â -->
-<!-- °Ô½ÃÆÇ -->
+						<!-- í•˜ë‹¨ì— ë§í¬ ê±¸ì–´ì„œ ì°¨ëŸ‰ ì‚¬ì§„ ë¶ˆëŸ¬ì˜¤ê¸° -->
+<!-- ê²Œì‹œíŒ -->
 
-	<h3> ÀüÃ¼ ±Û °³¼ö : ${requestScope.totalCnt } °³ </h3>
+	<h3> ì „ì²´ ê¸€ ê°œìˆ˜ : ${requestScope.totalCnt } ê°œ </h3>
 	
 	<table border="1">
 		<tr>
-			<td>±Û¹øÈ£</td>
-			<td>Á¦¸ñ</td>
-			<td>³»¿ë</td>
-			<td>ÆòÁ¡</td>
-			<td>ÀÛ¼ºÀÏ</td>
+			<td>ê¸€ë²ˆí˜¸</td>
+			<td>ì œëª©</td>
+			<td>ë‚´ìš©</td>
+			<td>í‰ì </td>
+			<td>ìž‘ì„±ì¼</td>
 		</tr>
 		<c:forEach var="dto" items="${reviewListAll }">
 		<tr>
@@ -86,18 +86,18 @@
 	
 	<c:if test="${totalCnt != 0 }">
 	
-		<!-- ÀÌÀü -->
+		<!-- ì´ì „ -->
 		<c:if test="${startPage > pageBlock }">
-			<a href="./AdminReviewList.adr?pageNum=${startPage-pageBlock }">[ÀÌÀü]</a>
+			<a href="./AdminReviewList.adr?pageNum=${startPage-pageBlock }">[ì´ì „]</a>
 		</c:if>
-		<!-- ÆäÀÌÁö ¹øÈ£(1,2,3...) -->
+		<!-- íŽ˜ì´ì§€ ë²ˆí˜¸(1,2,3...) -->
 		<c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
 			<a href="./AdminReviewList.adr?pageNum=${i }">${i }</a>
 		</c:forEach>
 		
-		<!-- ´ÙÀ½ -->
+		<!-- ë‹¤ìŒ -->
 		<c:if test="${endPage < pageCount }">
-			<a href="./AdminReviewList.adr?pageNum=${startPage+pageBlock }">[´ÙÀ½]</a>
+			<a href="./AdminReviewList.adr?pageNum=${startPage+pageBlock }">[ë‹¤ìŒ]</a>
 		</c:if>
 	
 	</c:if>
@@ -106,10 +106,10 @@
 
 
 
-<!-- °Ô½ÃÆÇ -->
+<!-- ê²Œì‹œíŒ -->
 					
 
-			<!-- ÆäÀÌÂ¡Ã³¸® -->
+			<!-- íŽ˜ì´ì§•ì²˜ë¦¬ -->
 <!-- 			<div class="row mt-5"> -->
 <!-- 				<div class="col text-center"> -->
 <!-- 					<div class="block-27"> -->
@@ -133,7 +133,7 @@
 
 
 
-	<!-- ÀÚ¹Ù½ºÅ©¸³Æ®, È­¸é ¼³Á¤ °ü·Ã -->
+	<!-- ìžë°”ìŠ¤í¬ë¦½íŠ¸, í™”ë©´ ì„¤ì • ê´€ë ¨ -->
 	<div id="ftco-loader" class="show fullscreen">
 		<svg class="circular" width="48px" height="48px">
 			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"

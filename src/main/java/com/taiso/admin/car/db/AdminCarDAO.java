@@ -205,6 +205,7 @@ public class AdminCarDAO {
 					cDTO.setCar_fuel(rs.getString("car_fuel"));
 					cDTO.setCar_location(rs.getInt("car_location"));
 					cDTO.setCar_name(rs.getString("car_name"));
+					cDTO.setCar_site(rs.getString("car_site"));
 					cDTO.setCar_op(rs.getString("car_op"));
 					cDTO.setCar_price(rs.getInt("car_price"));
 					cDTO.setCar_year(rs.getInt("car_year"));
@@ -232,13 +233,13 @@ public class AdminCarDAO {
 				pstmt.setString(1, cDTO.getCar_category());
 				pstmt.setString(2, cDTO.getCar_name());
 				pstmt.setString(3, cDTO.getCar_site());
-				pstmt.setString(3, cDTO.getCar_brand());
-				pstmt.setInt(4, cDTO.getCar_price());
-				pstmt.setInt(5, cDTO.getCar_year());
-				pstmt.setString(6, cDTO.getCar_fuel());
-				pstmt.setString(7, cDTO.getCar_op());
-				pstmt.setInt(8, cDTO.getCar_location());
-				pstmt.setInt(9, cDTO.getCar_code());
+				pstmt.setString(4, cDTO.getCar_brand());
+				pstmt.setInt(5, cDTO.getCar_price());
+				pstmt.setInt(6, cDTO.getCar_year());
+				pstmt.setString(7, cDTO.getCar_fuel());
+				pstmt.setString(8, cDTO.getCar_op());
+				pstmt.setInt(9, cDTO.getCar_location());
+				pstmt.setInt(10, cDTO.getCar_code());
 				
 				pstmt.executeUpdate();
 				
