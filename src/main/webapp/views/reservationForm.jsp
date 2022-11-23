@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
-<!-- Çì´õµé¾î°¡´Â°÷ -->
+<!-- í—¤ë”ë“¤ì–´ê°€ëŠ”ê³³ -->
   <head>
   <link rel="shortcut icon" type="image/x-icon" href="./images/logo.png">
     <title>TAISO</title>
@@ -40,13 +40,13 @@
     
  <script type="text/javascript">
     
-   // º¸Çè »ó¼¼º¸±â 
+   // ë³´í—˜ ìƒì„¸ë³´ê¸° 
    function Detail1(){
       Swal.fire({
-         title : 'ÀÏ¹İÀÚÂ÷ ¼±ÅÃ ½Ã',
+         title : 'ì¼ë°˜ìì°¨ ì„ íƒ ì‹œ',
           icon: 'info',
-         html: '<p>Å¸ÀÌ¼Ò´Â »ç°í ¹ß»ı ½Ã Ã»±¸µÉ ¼ö¸®ºñ¸¦<br/>ÃÖ¼ÒÈ­ÇÏ°íÀÚ ÀÚÂ÷º¸Çè °¡ÀÔÀ» ±ÇÀåµå¸®°í ÀÖ½À´Ï´Ù.</p><p><b>Ã»±¸¿ä±İ :</b> 10,000 ¿ø <br/> <b>º¸»óÇÑµµ :</b> 200 ¸¸¿ø <br/> <b>ÀÚ±âºÎ´ã±İ :</b> 50 ¸¸¿ø <br/> <b>¸éÇãÃëµæÀÏ :</b> 1³â ÀÌ»ó</p>',
-         confirmButtonText: 'È®ÀÎ'
+         html: '<p>íƒ€ì´ì†ŒëŠ” ì‚¬ê³  ë°œìƒ ì‹œ ì²­êµ¬ë  ìˆ˜ë¦¬ë¹„ë¥¼<br/>ìµœì†Œí™”í•˜ê³ ì ìì°¨ë³´í—˜ ê°€ì…ì„ ê¶Œì¥ë“œë¦¬ê³  ìˆìŠµë‹ˆë‹¤.</p><p><b>ì²­êµ¬ìš”ê¸ˆ :</b> 10,000 ì› <br/> <b>ë³´ìƒí•œë„ :</b> 200 ë§Œì› <br/> <b>ìê¸°ë¶€ë‹´ê¸ˆ :</b> 50 ë§Œì› <br/> <b>ë©´í—ˆì·¨ë“ì¼ :</b> 1ë…„ ì´ìƒ</p>',
+         confirmButtonText: 'í™•ì¸'
          
       })
    }
@@ -54,16 +54,16 @@
     
    function Detail2(){   
       Swal.fire({         
-         title : '¿ÏÀüÀÚÂ÷ ¼±ÅÃ ½Ã',
+         title : 'ì™„ì „ìì°¨ ì„ íƒ ì‹œ',
           icon: 'info',
-         html: '<p>Å¸ÀÌ¼Ò´Â »ç°í ¹ß»ı ½Ã Ã»±¸µÉ ¼ö¸®ºñ¸¦<br/>ÃÖ¼ÒÈ­ÇÏ°íÀÚ ÀÚÂ÷º¸Çè °¡ÀÔÀ» ±ÇÀåµå¸®°í ÀÖ½À´Ï´Ù.</p><p><b>Ã»±¸¿ä±İ :</b> 20,000 ¿ø <br/> <b>º¸»óÇÑµµ :</b> 200 ¸¸¿ø <br/> <b>ÀÚ±âºÎ´ã±İ :</b> 0 ¿ø <br/> <b>¸éÇãÃëµæÀÏ :</b> 1³â ÀÌ»ó</p>',
-         confirmButtonText: 'È®ÀÎ'
+         html: '<p>íƒ€ì´ì†ŒëŠ” ì‚¬ê³  ë°œìƒ ì‹œ ì²­êµ¬ë  ìˆ˜ë¦¬ë¹„ë¥¼<br/>ìµœì†Œí™”í•˜ê³ ì ìì°¨ë³´í—˜ ê°€ì…ì„ ê¶Œì¥ë“œë¦¬ê³  ìˆìŠµë‹ˆë‹¤.</p><p><b>ì²­êµ¬ìš”ê¸ˆ :</b> 20,000 ì› <br/> <b>ë³´ìƒí•œë„ :</b> 200 ë§Œì› <br/> <b>ìê¸°ë¶€ë‹´ê¸ˆ :</b> 0 ì› <br/> <b>ë©´í—ˆì·¨ë“ì¼ :</b> 1ë…„ ì´ìƒ</p>',
+         confirmButtonText: 'í™•ì¸'
       })
    }         
    
    
-   // º¸Çè ¿ä±İ °è»ê
-   function insr1(){ // ÀÏ¹İÀÚÂ÷ onclick ½Ã 
+   // ë³´í—˜ ìš”ê¸ˆ ê³„ì‚°
+   function insr1(){ // ì¼ë°˜ìì°¨ onclick ì‹œ 
       var insr = document.fr.insuranceCharge.value="10000";
       var insfee = parseInt(insr);
       var rfee = parseInt(document.fr.car_price.value);
@@ -72,7 +72,7 @@
     
    }
    
-   function insr2(){ // ¿ÏÀüÀÚÂ÷ onclick ½Ã 
+   function insr2(){ // ì™„ì „ìì°¨ onclick ì‹œ 
       var insr = document.fr.insuranceCharge.value="20000";
       var insfee = parseInt(insr);
       var rfee = parseInt(document.fr.car_price.value);
@@ -90,18 +90,18 @@
    <script type="text/javascript">
    function requestPay() {
 
-       var IMP = window.IMP; // »ı·« °¡´É
+       var IMP = window.IMP; // ìƒëµ ê°€ëŠ¥
        IMP.init("imp46187616");
 //        alert(IMP);
        IMP.request_pay({ 
           pg: "html5_inicis",
 //           pay_method: "card",
-          merchant_uid: "${mDTO.mem_num}"+new Date().getTime(),   // ¿¹¾à¹øÈ£+½Ã°£³¯Â¥Á¤º¸
-         name: "${mDTO.mem_num}"+"_"+"${carDTO.car_name}"+" "+"${sessionScope.rez_totalDate }"+"ÀÏ",
+          merchant_uid: "${mDTO.mem_num}"+new Date().getTime(),   // ì˜ˆì•½ë²ˆí˜¸+ì‹œê°„ë‚ ì§œì •ë³´
+         name: "${mDTO.mem_num}"+"_"+"${carDTO.car_name}"+" "+"${sessionScope.rez_totalDate }"+"ì¼",
           buyer_email: "${mDTO.mem_email }",
           buyer_name: "${mDTO.mem_name }",
           buyer_tel: "${mDTO.mem_phone }",
-            amount: 100                  // ¼ıÀÚÅ¸ÀÔ
+            amount: 100                  // ìˆ«ìíƒ€ì…
        }, function(rsp) {
            if (rsp.success) {
 
@@ -120,77 +120,77 @@
                      license_num:document.fr.license_num.value,
                      license_issueDate:document.fr.license_issueDate.value,
                   license_type:document.fr.license_type.value,
-                    merchant_uid : rsp.merchant_uid,   // È¸¿ø¹øÈ£+½Ã°£³¯Â¥Á¤º¸
-                    pay_uqNum : rsp.imp_uid,         // °Å·¡°íÀ¯¹øÈ£(ÁÖ¹®¹øÈ£)
-                    pay_total : rsp.paid_amount,      // ÃÑ °áÁ¦±İ¾×
-                    pay_method : rsp.pay_method,      // °áÁ¦¹æ½Ä
-                    pay_status : rsp.status         // °áÁ¦»óÈ²
+                    merchant_uid : rsp.merchant_uid,   // íšŒì›ë²ˆí˜¸+ì‹œê°„ë‚ ì§œì •ë³´
+                    pay_uqNum : rsp.imp_uid,         // ê±°ë˜ê³ ìœ ë²ˆí˜¸(ì£¼ë¬¸ë²ˆí˜¸)
+                    pay_total : rsp.paid_amount,      // ì´ ê²°ì œê¸ˆì•¡
+                    pay_method : rsp.pay_method,      // ê²°ì œë°©ì‹
+                    pay_status : rsp.status         // ê²°ì œìƒí™©
                  }
               });
                    location.href="./PaymentTest.pay";
            } else {
-               var msg = '°áÁ¦¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.';
+               var msg = 'ê²°ì œì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.';
                msg += '\nerror : ' + rsp.error_msg;
                alert(msg);
-               location.href="./ReservationMain.rez";   // ¼¼¼ÇÃÊ±âÈ­µµ ÇÏ°í½Í¾û
+               location.href="./ReservationMain.rez";   // ì„¸ì…˜ì´ˆê¸°í™”ë„ í•˜ê³ ì‹¶ì—‰
           }
        });
     }
     </script>   
     
 
-<!-- ¿¹¾à°áÁ¦È®ÀÎÇÏ±â -->
+<!-- ì˜ˆì•½ê²°ì œí™•ì¸í•˜ê¸° -->
     <script type="text/javascript">
     
        function checkRez(){ 
        
           
        if(document.fr.license_issueDate.value == ""){
-          alert("¸éÇãÁõ ¹ß±ŞÀÏÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä!");
+          alert("ë©´í—ˆì¦ ë°œê¸‰ì¼ìë¥¼ ì…ë ¥í•˜ì„¸ìš”!");
           document.fr.license_issueDate.focus();
           return;
        }   
           
        if(document.fr.license_type.selectedIndex==0){
-         alert("¸éÇã Á¾·ù¸¦ ÀÔ·ÂÇÏ¼¼¿ä!");
+         alert("ë©´í—ˆ ì¢…ë¥˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”!");
          document.fr.license_type.focus();
          return;
        }
        
        if(document.fr.license_num.value == ""){
-          alert("ÀÚ°İÁõ ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä!");
+          alert("ìê²©ì¦ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”!");
           document.fr.license_num.focus();
           return;
        }   
          
        if(document.fr.car_insurance[0].checked==false && document.fr.car_insurance[1].checked==false){
-         alert("ÀÚµ¿Â÷ º¸ÇèÀ» ¼±ÅÃÇØÁÖ¼¼¿ä!");
+         alert("ìë™ì°¨ ë³´í—˜ì„ ì„ íƒí•´ì£¼ì„¸ìš”!");
          return;
       }
        
        if(document.fr.agreement.checked==false){
-         alert("¾à°ü µ¿ÀÇÇÏ¼¼¿ä");
+         alert("ì•½ê´€ ë™ì˜í•˜ì„¸ìš”");
          return;
       }
        
-        var totalCharge = parseInt(document.fr.pay_total.value); // ÃÖÁ¾°áÁ¦±İ¾× 
-        var cName = document.fr.car_name.value; // Â÷·®ÀÌ¸§ 
-        var rezDate = document.fr.rez_totalDate.value; // ÃÑ¿¹¾àÀÏ½Ã 
-        var mName = document.fr.mem_name.value; // È¸¿øÀÌ¸§ 
-        var rezSite = document.fr.rez_site.value; // ÀÌ¿ëÁöÁ¡
+        var totalCharge = parseInt(document.fr.pay_total.value); // ìµœì¢…ê²°ì œê¸ˆì•¡ 
+        var cName = document.fr.car_name.value; // ì°¨ëŸ‰ì´ë¦„ 
+        var rezDate = document.fr.rez_totalDate.value; // ì´ì˜ˆì•½ì¼ì‹œ 
+        var mName = document.fr.mem_name.value; // íšŒì›ì´ë¦„ 
+        var rezSite = document.fr.rez_site.value; // ì´ìš©ì§€ì 
        
        Swal.fire({ 
-         title: '°áÁ¦ È®ÀÎ Ã¢', 
+         title: 'ê²°ì œ í™•ì¸ ì°½', 
          icon: 'success', 
-         html: "<h4><b>"+mName+"</b>´ÔÀÇ ·»Æ® ±â°£Àº <b>"+rezDate+"</b>ÀÏÀÔ´Ï´Ù. </h4></br>"+'<p><b>Â÷·®ÀÌ¸§ : </b>'+cName+'</p><p><b>ÀÌ¿ëÁöÁ¡ : </b>'+rezSite+'</p><p><b>ÃÖÁ¾°áÁ¦±İ¾× : </b>'+totalCharge+'<b> ¿ø</b></p>',
+         html: "<h4><b>"+mName+"</b>ë‹˜ì˜ ë ŒíŠ¸ ê¸°ê°„ì€ <b>"+rezDate+"</b>ì¼ì…ë‹ˆë‹¤. </h4></br>"+'<p><b>ì°¨ëŸ‰ì´ë¦„ : </b>'+cName+'</p><p><b>ì´ìš©ì§€ì  : </b>'+rezSite+'</p><p><b>ìµœì¢…ê²°ì œê¸ˆì•¡ : </b>'+totalCharge+'<b> ì›</b></p>',
          showCancelButton: true,         
          confirmButtonColor: '#3085d6', 
          cancelButtonColor: 'grey', 
-         confirmButtonText: '¿¹¾à', 
-         cancelButtonText: 'Ãë¼Ò' 
+         confirmButtonText: 'ì˜ˆì•½', 
+         cancelButtonText: 'ì·¨ì†Œ' 
        }).then((result) => { 
          if (result.isConfirmed) {           
-              //"¿¹¾à" ¹öÆ°À» ´­·¶À» ¶§ È£ÃâÇÒ ÇÔ¼ö
+              //"ì˜ˆì•½" ë²„íŠ¼ì„ ëˆŒë €ì„ ë•Œ í˜¸ì¶œí•  í•¨ìˆ˜
             requestPay();
          } 
        }) 
@@ -214,17 +214,17 @@
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
           <div class="col-md-9 ftco-animate pb-5">
              <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>RESERVATION <i class="ion-ios-arrow-forward"></i></span></p>
-            <h1 class="mb-3 bread">¿¹¾àÇÏ±â</h1>
+            <h1 class="mb-3 bread">ì˜ˆì•½í•˜ê¸°</h1>
           </div>
         </div>
       </div>
     </section>
-<!-- Çì´õµé¾î°¡´Â°÷ -->
+<!-- í—¤ë”ë“¤ì–´ê°€ëŠ”ê³³ -->
 
 
 
 
- <!-- Left Side ºĞ¸®(section/div) -->
+ <!-- Left Side ë¶„ë¦¬(section/div) -->
     <section class="ftco-section contact-section">
       <div class="container">
         <div class="row d-flex mb-5 contact-info">
@@ -233,23 +233,23 @@
         
         
         
-<!-- contact ÀÛ¼ºForm -->
+<!-- contact ì‘ì„±Form -->
    <div class="col-md-8 block-9 mb-md-5">
          <form class="bg-light p-5 contact-form" method="post" id="rez" name="fr" >
                 
- <!-- Left Side ºĞ¸®(section/div)-->
+ <!-- Left Side ë¶„ë¦¬(section/div)-->
 <!--            <div class="col-md-4"> -->
               <div class="row mb-5">
                 <div class="col-md-12">
                   <!-- <div class="border w-100 p-4 rounded mb-2 d-flex"> -->
                     <div class="form-group">  
-                    <p style="text-align:center;">[¿¹¾àÁ¤º¸]</p> <br>
-                        <label>´ë¿©ÀÏ½Ã : <input type="text" name="rez_rentalDate" class="form-control2" value="${sessionScope.rez_pick_date }" readonly="readonly"></label><br> <!-- rezDTO -->
-                        <label>¹İ³³ÀÏ½Ã : <input type="text" name="rez_returnDate" value="${sessionScope.rez_off_date }" class="form-control2" readonly="readonly"></label><br>
-                        <label>´ë¿©½Ã°£ : <input type="text" name="rez_pick_time" value="${sessionScope.rez_pick_time }" class="form-control2" readonly="readonly"></label><br> <!-- rezDTO -->
-                        <label>¹İ³³½Ã°£ : <input type="text" name="rez_off_time" value="${sessionScope.rez_off_time }" class="form-control2" readonly="readonly"> </label><br>
-                        <label>ÃÑ¿¹¾àÀÏ : <input type="text" name="rez_totalDate" value="${sessionScope.rez_totalDate }" class="form-control2" readonly="readonly"></label><br>
-                        <label>´ë¿©/¹İ³³Àå¼Ò : <input type="text" name="rez_site" value="${sessionScope.rez_site }" class="form-control2" readonly="readonly"></label>         
+                    <p style="text-align:center;">[ì˜ˆì•½ì •ë³´]</p> <br>
+                        <label>ëŒ€ì—¬ì¼ì‹œ : <input type="text" name="rez_rentalDate" class="form-control2" value="${sessionScope.rez_pick_date }" readonly="readonly"></label><br> <!-- rezDTO -->
+                        <label>ë°˜ë‚©ì¼ì‹œ : <input type="text" name="rez_returnDate" value="${sessionScope.rez_off_date }" class="form-control2" readonly="readonly"></label><br>
+                        <label>ëŒ€ì—¬ì‹œê°„ : <input type="text" name="rez_pick_time" value="${sessionScope.rez_pick_time }" class="form-control2" readonly="readonly"></label><br> <!-- rezDTO -->
+                        <label>ë°˜ë‚©ì‹œê°„ : <input type="text" name="rez_off_time" value="${sessionScope.rez_off_time }" class="form-control2" readonly="readonly"> </label><br>
+                        <label>ì´ì˜ˆì•½ì¼ : <input type="text" name="rez_totalDate" value="${sessionScope.rez_totalDate }" class="form-control2" readonly="readonly"></label><br>
+                        <label>ëŒ€ì—¬/ë°˜ë‚©ì¥ì†Œ : <input type="text" name="rez_site" value="${sessionScope.rez_site }" class="form-control2" readonly="readonly"></label>         
                      </div>
                   <!-- </div> -->
 <hr>
@@ -258,14 +258,14 @@
                 <div class="col-md-12">
 <!--                    <div class="border w-100 p-4 rounded mb-2 d-flex"> -->
                <div class="form-group">  
-                     <p style="text-align:center;">[¼±ÅÃÂ÷·®Á¤º¸]</p> <br>
+                     <p style="text-align:center;">[ì„ íƒì°¨ëŸ‰ì •ë³´]</p> <br>
                      <input type="hidden" name="car_code" value="${carDTO.car_code}">
-                     <label>Â÷·® Ä«Å×°í¸® : <input type="text" name="car_category" value="${carDTO.car_category}" class="form-control2" readonly="readonly"></label> <br>
-                      <label>Â÷·® ºê·£µå : <input type="text" name="car_brand" value="${carDTO.car_brand}" class="form-control2" readonly="readonly"></label><br><!-- ÁÖ¼ÒÁÙ¿¡¼­¹Ş¾Æ¿À±â -->
-                     <label>Â÷·® ÀÌ¸§ : <input type="text" name="car_name" value="${carDTO.car_name}" class="form-control2" readonly="readonly"></label><br>
-                     <label>Â÷·® ¿É¼Ç : <input type="text" name="car_op" value="${carDTO.car_op}" class="form-control2" readonly="readonly"></label><br>
-                     <label>Â÷·® ¿¬½Ä : <input type="text" name="car_year" value="${carDTO.car_year}" class="form-control2" readonly="readonly"></label><br>
-                     <label>Â÷·® ¿¬·á : <input type="text" name="car_fuel" value="${carDTO.car_fuel}" class="form-control2" readonly="readonly"></label><br>
+                     <label>ì°¨ëŸ‰ ì¹´í…Œê³ ë¦¬ : <input type="text" name="car_category" value="${carDTO.car_category}" class="form-control2" readonly="readonly"></label> <br>
+                      <label>ì°¨ëŸ‰ ë¸Œëœë“œ : <input type="text" name="car_brand" value="${carDTO.car_brand}" class="form-control2" readonly="readonly"></label><br><!-- ì£¼ì†Œì¤„ì—ì„œë°›ì•„ì˜¤ê¸° -->
+                     <label>ì°¨ëŸ‰ ì´ë¦„ : <input type="text" name="car_name" value="${carDTO.car_name}" class="form-control2" readonly="readonly"></label><br>
+                     <label>ì°¨ëŸ‰ ì˜µì…˜ : <input type="text" name="car_op" value="${carDTO.car_op}" class="form-control2" readonly="readonly"></label><br>
+                     <label>ì°¨ëŸ‰ ì—°ì‹ : <input type="text" name="car_year" value="${carDTO.car_year}" class="form-control2" readonly="readonly"></label><br>
+                     <label>ì°¨ëŸ‰ ì—°ë£Œ : <input type="text" name="car_fuel" value="${carDTO.car_fuel}" class="form-control2" readonly="readonly"></label><br>
                      </div>
                    </div>
 <!--                 </div> -->
@@ -278,23 +278,23 @@
               <br>
 
           <div class="form-group">
-              <h3>¿îÀüÀÚÁ¤º¸ÀÔ·Â</h3>
+              <h3>ìš´ì „ìì •ë³´ì…ë ¥</h3>
               
               <input type="hidden" name="mem_id" value="${sessionScope.mem_id }">
         
-                ÀÌ¸§ : <input type="text" name="mem_name" class="form-control" class="form-control2" value="${mDTO.mem_name }" readonly="readonly">
+                ì´ë¦„ : <input type="text" name="mem_name" class="form-control" class="form-control2" value="${mDTO.mem_name }" readonly="readonly">
           </div> 
           
           <div class="form-group">           
-                ÀüÈ­¹øÈ£ : <input type="text" name="mem_phone" class="form-control" class="form-control2" value="${mDTO.mem_phone }" readonly="readonly">
+                ì „í™”ë²ˆí˜¸ : <input type="text" name="mem_phone" class="form-control" class="form-control2" value="${mDTO.mem_phone }" readonly="readonly">
           </div>  
              
         <div class="form-group">           
-                »ı³â¿ùÀÏ : <input type="text" name="mem_birthday" class="form-control" class="form-control2" value="${mDTO.mem_birthday }" readonly="readonly">
+                ìƒë…„ì›”ì¼ : <input type="text" name="mem_birthday" class="form-control" class="form-control2" value="${mDTO.mem_birthday }" readonly="readonly">
          </div>  
          
          <div class="form-group">      
-                ÀÌ¸ŞÀÏ : <input type="email" name="mem_email" class="form-control" class="form-control2" value="${mDTO.mem_email }" readonly="readonly">
+                ì´ë©”ì¼ : <input type="email" name="mem_email" class="form-control" class="form-control2" value="${mDTO.mem_email }" readonly="readonly">
           </div>
               
            <br>
@@ -302,33 +302,33 @@
               <br>
               
           <div class="form-group">
-              <h3>¸éÇãÁ¤º¸ÀÔ·Â</h3>    
-                ¸éÇã¹ß±ŞÀÏÀÚ : <input type="date" class="form-control" name="license_issueDate" class="form-control2" placeholder="¸éÇã¹ß±ŞÀÏÀÚ¸¦ Á¤È®ÇÏ°Ô ÀÔ·ÂÇØÁÖ¼¼¿ä.">
+              <h3>ë©´í—ˆì •ë³´ì…ë ¥</h3>    
+                ë©´í—ˆë°œê¸‰ì¼ì : <input type="date" class="form-control" name="license_issueDate" class="form-control2" placeholder="ë©´í—ˆë°œê¸‰ì¼ìë¥¼ ì •í™•í•˜ê²Œ ì…ë ¥í•´ì£¼ì„¸ìš”.">
           </div>
           
           <div class="form-group">
-                  ¸éÇãÁ¾·ù : 
+                  ë©´í—ˆì¢…ë¥˜ : 
                     <select class="form-control" name="license_type" class="form-control">
-                          <option value="0">¸éÇãÁ¾·ù¸¦ ¼±ÅÃÇÏ¼¼¿ä</option>
-                       <optgroup label="1Á¾">
-                           <option>1Á¾´ëÇü</option>
-                        <option>1Á¾º¸Åë</option>
-                        <option>1Á¾¼ÒÇü</option>
+                          <option value="0">ë©´í—ˆì¢…ë¥˜ë¥¼ ì„ íƒí•˜ì„¸ìš”</option>
+                       <optgroup label="1ì¢…">
+                           <option>1ì¢…ëŒ€í˜•</option>
+                        <option>1ì¢…ë³´í†µ</option>
+                        <option>1ì¢…ì†Œí˜•</option>
                      </optgroup>
-                     <optgroup label="2Á¾">   
-                        <option>2Á¾º¸Åë</option>
-                        <option>2Á¾¼ÒÇü</option>
+                     <optgroup label="2ì¢…">   
+                        <option>2ì¢…ë³´í†µ</option>
+                        <option>2ì¢…ì†Œí˜•</option>
                    </optgroup>
-                   <optgroup label="Æ¯¼ö">   
-                      <option>´ëÇü°ßÀÎ</option>
-                      <option>¼ÒÇü°ßÀÎ</option>
-                      <option>±¸³­</option>
+                   <optgroup label="íŠ¹ìˆ˜">   
+                      <option>ëŒ€í˜•ê²¬ì¸</option>
+                      <option>ì†Œí˜•ê²¬ì¸</option>
+                      <option>êµ¬ë‚œ</option>
                    </optgroup>
                     </select>   
           </div>
           
           <div class="form-group">
-                 ¸éÇãÁõ¹øÈ£ : <input type="text" name="license_num" class="form-control" value="" maxlength='12' placeholder="int°ª¸éÇãÁõ¹øÈ£¸¦ Á¤È®ÇÏ°Ô ÀÔ·ÂÇØÁÖ¼¼¿ä.">
+                 ë©´í—ˆì¦ë²ˆí˜¸ : <input type="text" name="license_num" class="form-control" value="" maxlength='12' placeholder="intê°’ë©´í—ˆì¦ë²ˆí˜¸ë¥¼ ì •í™•í•˜ê²Œ ì…ë ¥í•´ì£¼ì„¸ìš”.">
           </div>
           
    
@@ -338,64 +338,64 @@
            <br>
            
         <div class="form-group">
-         <h3>ÀÚµ¿Â÷º¸Çè</h3>   
-            <label><input type="radio" name="car_insurance" onclick="insr1()" value="ÀÏ¹İÀÚÂ÷"> ÀÏ¹İÀÚÂ÷
-               <a href="javascript:Detail1();">»ó¼¼º¸±â</a></label><br>
-            <label><input type="radio" name="car_insurance" onclick="insr2()" value="¿ÏÀüÀÚÂ÷"> ¿ÏÀüÀÚÂ÷   
-            <a href="javascript:Detail2();">»ó¼¼º¸±â</a></label><br>
+         <h3>ìë™ì°¨ë³´í—˜</h3>   
+            <label><input type="radio" name="car_insurance" onclick="insr1()" value="ì¼ë°˜ìì°¨"> ì¼ë°˜ìì°¨
+               <a href="javascript:Detail1();">ìƒì„¸ë³´ê¸°</a></label><br>
+            <label><input type="radio" name="car_insurance" onclick="insr2()" value="ì™„ì „ìì°¨"> ì™„ì „ìì°¨   
+            <a href="javascript:Detail2();">ìƒì„¸ë³´ê¸°</a></label><br>
         </div>
        
                
         <div class="form-group">   
-         <h3>°áÁ¦Á¤º¸</h3>      
+         <h3>ê²°ì œì •ë³´</h3>      
             <input type="hidden" name="car_code" value="${param.car_code}">    
-            <label>´ë¿©¿ä±İ : <input type="text" name="car_price" class="form-control2" value="${carDTO.car_price*sessionScope.rez_totalDate }" readonly="readonly"> ¿ø</label><br>
-            <label>º¸Çè¿ä±İ : <input type="text" name="insuranceCharge" class="form-control2" value="" readonly="readonly">¿ø</label><br>
+            <label>ëŒ€ì—¬ìš”ê¸ˆ : <input type="text" name="car_price" class="form-control2" value="${carDTO.car_price*sessionScope.rez_totalDate }" readonly="readonly"> ì›</label><br>
+            <label>ë³´í—˜ìš”ê¸ˆ : <input type="text" name="insuranceCharge" class="form-control2" value="" readonly="readonly">ì›</label><br>
 
-<%--             <label>º¸Çè¿ä±İ : <input type="text" name="insuranceCharge" class="form-control2" value="<fmt:formatNumber type="number" value="" />" readonly="readonly"> ¿ø</label><br> --%>
-            <label>°áÁ¦ ±İ¾× : <input type="text" name="pay_total" class="form-control2" value="" readonly="readonly"> ¿ø</label>
+<%--             <label>ë³´í—˜ìš”ê¸ˆ : <input type="text" name="insuranceCharge" class="form-control2" value="<fmt:formatNumber type="number" value="" />" readonly="readonly"> ì›</label><br> --%>
+            <label>ê²°ì œ ê¸ˆì•¡ : <input type="text" name="pay_total" class="form-control2" value="" readonly="readonly"> ì›</label>
         </div>         
 
    
         <div class="form-group">     
-         <h3>¾à°üµ¿ÀÇ</h3>   
+         <h3>ì•½ê´€ë™ì˜</h3>   
             <textarea name="" id="" cols="30" rows="7" class="form-control" readonly="readonly">
-¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤
-¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤
-¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤
-¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤
-¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤
-¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤¾à°üµ¿ÀÇ ±Ü¾î¿Ã ¿¹Á¤
+ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •
+ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •
+ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •
+ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •
+ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •
+ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •ì•½ê´€ë™ì˜ ê¸ì–´ì˜¬ ì˜ˆì •
             </textarea><br>
-            <label> <input type="checkbox" name="agreement"> À§ ¾à°ü¿¡ ÀüÃ¼ µ¿ÀÇÇÕ´Ï´Ù.</label>
+            <label> <input type="checkbox" name="agreement"> ìœ„ ì•½ê´€ì— ì „ì²´ ë™ì˜í•©ë‹ˆë‹¤.</label>
         </div>   
    <br>
    <br>   
           <div class="form-group" id="buttons">
-           <input type="button" value="°áÁ¦ÇÏ±â" onclick="checkRez();" class="btn btn-primary py-3 px-5">
-            <input type="button" value="¿¹¾àÃë¼Ò" class="btn btn-primary py-3 px-5" onclick="location.href='./views/reservationCancel.jsp';"> 
+           <input type="button" value="ê²°ì œí•˜ê¸°" onclick="checkRez();" class="btn btn-primary py-3 px-5">
+            <input type="button" value="ì˜ˆì•½ì·¨ì†Œ" class="btn btn-primary py-3 px-5" onclick="location.href='./views/reservationCancel.jsp';"> 
           </div>
            
         </form>  
       </div>
     </div>   
-<!-- contact ÀÛ¼ºForm -->
+<!-- contact ì‘ì„±Form -->
 
 
-<!-- Áöµµ -->
+<!-- ì§€ë„ -->
         <div class="row justify-content-center">
            <div class="col-md-12">
               <div id="map" class="bg-white"></div>
            </div>
         </div>
       </div>
-<!-- Áöµµ -->
+<!-- ì§€ë„ -->
     </section>
    
    
-<!-- ÇªÅÍµé¾î°¡´Â°÷ -->
+<!-- í‘¸í„°ë“¤ì–´ê°€ëŠ”ê³³ -->
     <jsp:include page="../inc/bottom.jsp"/>
-<!-- ÇªÅÍµé¾î°¡´Â°÷ -->    
+<!-- í‘¸í„°ë“¤ì–´ê°€ëŠ”ê³³ -->    
   
 
   <!-- loader -->

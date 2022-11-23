@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<!-- Çì´õ ½ÃÀÛ -->
+<!-- í—¤ë” ì‹œìž‘ -->
 <title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
 <meta charset="utf-8">
 <meta name="viewport"
@@ -126,60 +126,60 @@ a {
 								class="ion-ios-arrow-forward"></i></a></span> <span>Cars <i
 							class="ion-ios-arrow-forward"></i></span>
 					</p>
-					<h1 class="mb-3 bread">°ü¸®ÀÚ »óÇ° ¼öÁ¤ÆäÀÌÁö</h1>
+					<h1 class="mb-3 bread">ê´€ë¦¬ìž ìƒí’ˆ ìˆ˜ì •íŽ˜ì´ì§€</h1>
 				</div>
 			</div>
 		</div>
 	</section>
 
 
-	<!-- ¹Ýº¹¹®À¸·Î DB¿¡ ÀÖ´Â ¸ðµç Â÷·® ºÒ·¯¿À±â -->
+	<!-- ë°˜ë³µë¬¸ìœ¼ë¡œ DBì— ìžˆëŠ” ëª¨ë“  ì°¨ëŸ‰ ë¶ˆëŸ¬ì˜¤ê¸° -->
 	
-						<!-- ÇÏ´Ü¿¡ ¸µÅ© °É¾î¼­ Â÷·® »çÁø ºÒ·¯¿À±â -->
-						<!-- °Ô½ÃÆÇ -->
+						<!-- í•˜ë‹¨ì— ë§í¬ ê±¸ì–´ì„œ ì°¨ëŸ‰ ì‚¬ì§„ ë¶ˆëŸ¬ì˜¤ê¸° -->
+						<!-- ê²Œì‹œíŒ -->
 <%
-// 	/* ·Î±×ÀÎ Á¦¾î */
+// 	/* ë¡œê·¸ì¸ ì œì–´ */
 // 	String id = (String) session.getAttribute("id");
 // 	 if(id == null || !id.equals("admin")){
 // 		 response.sendRedirect("./Main.me");
-// 		 System.out.println("ºñÁ¤»óÀû Á¢±Ù ¹ß»ý ! IP :" + request.getRemoteAddr());
+// 		 System.out.println("ë¹„ì •ìƒì  ì ‘ê·¼ ë°œìƒ ! IP :" + request.getRemoteAddr());
 // 	 }
 
 
 %>
 
-<!-- °Ô½ÃÆÇ -->
+<!-- ê²Œì‹œíŒ -->
 <article>
  <form action="./AdminCarUpdatePro.ad" method="post" >
  	<input type="hidden" name="car_code" value="${dto.car_code }">
   <table id="notice">
 <!-- 	<tr> -->
-<!-- 	    <th class="" colspan="2">ITWILL »óÇ°¼öÁ¤</th> -->
+<!-- 	    <th class="" colspan="2">ITWILL ìƒí’ˆìˆ˜ì •</th> -->
 <!-- 	</tr> -->
 	<tr>
-		<td>Ä«Å×°í¸®</td>
+		<td>ì¹´í…Œê³ ë¦¬</td>
 		<td>
 			<select name="car_category">
 				<option value="small"
 					<c:if test="${dto.car_category.equals('small') }">
 					selected="selected"
 					</c:if>
-					>¼ÒÇü</option>
+					>ì†Œí˜•</option>
 				<option value="compact"
 				<c:if test="${dto.car_category.equals('compact') }">
 					selected="selected"
 					</c:if>
-					>ÁØÁßÇü</option>
+					>ì¤€ì¤‘í˜•</option>
 				<option value="middle"
 				<c:if test="${dto.car_category.equals('middle') }">
 					selected="selected"
 					</c:if>
-					>ÁßÇü</option>
+					>ì¤‘í˜•</option>
 				<option value="large"
 				<c:if test="${dto.car_category.equals('large') }">
 					selected="selected"
 					</c:if>
-					>´ëÇü</option>
+					>ëŒ€í˜•</option>
 				<option value="suv"
 				<c:if test="${dto.car_category.equals('suv') }">
 					selected="selected"
@@ -189,78 +189,78 @@ a {
 				<c:if test="${dto.car_category.equals('foreign') }">
 					selected="selected"
 					</c:if>
-					>¼öÀÔÂ÷</option>
+					>ìˆ˜ìž…ì°¨</option>
 			</select>
 		</td>
 		</tr>
 		<tr>
-			<td>ÀÌ¿ëÁöÁ¡ : </td>
+			<td>ì´ìš©ì§€ì  : </td>
 			<td>
 			<select id="sido_select">
-		          <option value="" selected disabled hidden>==Áö¿ªÀ» ¼±ÅÃÇÏ¼¼¿ä==</option>	
-		          <option value="¼­¿ï" >¼­¿ï</option>
-		          <option value="ÀÎÃµ/°æ±â" >ÀÎÃµ/°æ±â</option>
-		          <option value="Á¦ÁÖ" >Á¦ÁÖ</option>
-		          <option value="°­¿øµµ" >°­¿øµµ</option>
-		          <option value="ÃæÃ»/´ëÀü" >ÃæÃ»/´ëÀü</option>
-		          <option value="Àü¶ó/±¤ÁÖ" >Àü¶ó/±¤ÁÖ</option>
-		          <option value="°æ»ó/ºÎ»ê/´ë±¸/¿ï»ê" >°æ»ó/ºÎ»ê/´ë±¸/¿ï»ê</option>
+		          <option value="" selected disabled hidden>==ì§€ì—­ì„ ì„ íƒí•˜ì„¸ìš”==</option>	
+		          <option value="ì„œìš¸" >ì„œìš¸</option>
+		          <option value="ì¸ì²œ/ê²½ê¸°" >ì¸ì²œ/ê²½ê¸°</option>
+		          <option value="ì œì£¼" >ì œì£¼</option>
+		          <option value="ê°•ì›ë„" >ê°•ì›ë„</option>
+		          <option value="ì¶©ì²­/ëŒ€ì „" >ì¶©ì²­/ëŒ€ì „</option>
+		          <option value="ì „ë¼/ê´‘ì£¼" >ì „ë¼/ê´‘ì£¼</option>
+		          <option value="ê²½ìƒ/ë¶€ì‚°/ëŒ€êµ¬/ìš¸ì‚°" >ê²½ìƒ/ë¶€ì‚°/ëŒ€êµ¬/ìš¸ì‚°</option>
 			</select>
 			<select id="site_select" name="car_site">
-		          <option value="" selected disabled hidden>==ÁöÁ¡À» ¼±ÅÃÇÏ¼¼¿ä==</option>	
+		          <option value="" selected disabled hidden>==ì§€ì ì„ ì„ íƒí•˜ì„¸ìš”==</option>	
 			</select>
 			</td>
    </tr>
    	<tr>
-		<td>»óÇ°¸í</td>
+		<td>ìƒí’ˆëª…</td>
 		<td>
 			<input type="text" name="car_name" value="${dto.car_name }">
 		</td>
    </tr>
    <tr>
-		<td>ºê·£µå¸í</td>
+		<td>ë¸Œëžœë“œëª…</td>
 		<td>
 			<input type="text" name="car_brand" value="${dto.car_brand }">
 		</td>
    </tr>
    	<tr>
-		<td>·»Æ®°¡</td>
+		<td>ë ŒíŠ¸ê°€</td>
 		<td>
-			<input type="text" name="car_price" value="${dto.car_price }">¿ø
+			<input type="text" name="car_price" value="${dto.car_price }">ì›
 		</td>
    </tr>
    
    <tr>
-		<td>¿¬½Ä</td>
+		<td>ì—°ì‹</td>
 		<td>
-			<input type="text" name="car_year" value="${dto.car_year }">³â
+			<input type="text" name="car_year" value="${dto.car_year }">ë…„
 		</td>
    </tr>
    <tr>
-		<td>¿¬·á</td>
+		<td>ì—°ë£Œ</td>
 		<td>
 			<input type="text" name="fuel" value="${dto.car_fuel }">
 		</td>
    </tr>
    <tr>
-		<td>¿É¼Ç</td>
+		<td>ì˜µì…˜</td>
 		<td>
 			<input type="text" name="car_op" value="${dto.car_op }">
 		</td>
    </tr>
    <tr>
-		<td>»ç¿ëÁö¿ª</td>
+		<td>ì‚¬ìš©ì§€ì—­</td>
 		<td>
 			<input type="radio" name="car_location" value="1"
 				<c:if test="${dto.car_location == 1 }">
 					checked
 					</c:if>
-			> ³»·ú
+			> ë‚´ë¥™
 			<input type="radio" name="car_location" value="0"
 			<c:if test="${dto.car_location == 0 }">
 					checked
 					</c:if>
-			> Á¦ÁÖ
+			> ì œì£¼
 		</td>
    </tr>
   
@@ -268,11 +268,11 @@ a {
   </table>
 	
 	
-		<input type="submit" value="»óÇ°¼öÁ¤" >
+		<input type="submit" value="ìƒí’ˆìˆ˜ì •" >
 	
 </form>
 
-<!-- °Ô½ÃÆÇ -->
+<!-- ê²Œì‹œíŒ -->
 					
 
 			
@@ -284,7 +284,7 @@ a {
 
 
 
-	<!-- ÀÚ¹Ù½ºÅ©¸³Æ®, È­¸é ¼³Á¤ °ü·Ã -->
+	<!-- ìžë°”ìŠ¤í¬ë¦½íŠ¸, í™”ë©´ ì„¤ì • ê´€ë ¨ -->
 	<div id="ftco-loader" class="show fullscreen">
 		<svg class="circular" width="48px" height="48px">
 			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
@@ -325,11 +325,11 @@ a {
 				datatype : "json",
 				success : function(data) {
 //	 				alert('success');
-//	 				let str = JSON.stringify(data);	// µ¥ÀÌÅÍ È®ÀÎ
+//	 				let str = JSON.stringify(data);	// ë°ì´í„° í™•ì¸
 //	 				alert(str);
 					$(data).each(function(i){
 						if(sido==data[i].sido){
-//	 						alert('ÀÏÄ¡');
+//	 						alert('ì¼ì¹˜');
 							$('#site_select').append("<option>"+data[i].name+"</option>");
 						}
 					});
@@ -337,8 +337,8 @@ a {
 				error : function() {
 					alert('error');			
 				}
-			});	// ajax ³¡
-		});	// selectBox_test ³¡
+			});	// ajax ë
+		});	// selectBox_test ë
    });
    </script> 
 </body>
