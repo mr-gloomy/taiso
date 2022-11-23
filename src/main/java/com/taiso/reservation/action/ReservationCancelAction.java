@@ -37,40 +37,33 @@ public class ReservationCancelAction implements Action {
       // (1) 예약 상태변경 메서드(비밀번호 일치 시)
       //      ReservationCancel.jsp에서 보낸 mem_id, mem_pw
       // 한글처리(필터)
-      // 전달된 데이터 저장(수정정보)   '\
+      // 전달된 데이터 저장(수정정보)   
       ReservationDTO rezDTO= new ReservationDTO();
       MemberDTO mDTO = new MemberDTO();
       
       mDTO.setMem_id(request.getParameter("mem_id"));
       mDTO.setMem_pw(request.getParameter("mem_pw"));
       rezDTO.setRez_uqNum(Integer.parseInt(request.getParameter("rez_uqNum"))); //ReservationCancel.jsp에서 주소줄로 보낸 후 파람으로 가져오기
-
+      System.out.println("멤버아이디 :"+ mDTO.getMem_id());
       
       System.out.println("rezDTO 나오나 : " + rezDTO + ", mDTO 나오나 : " + mDTO);
 
-      //String mem_id = request.getParameter("mem_id");
-//      String mem_pw = request.getParameter("mem_pw");
-//      int rez_uqNum = Integer.parseInt(request.getParameter("rez_uqNum")); //ReservationCancel.jsp에서 주소줄로 보낸 후 파람으로 가져오기
-                  
-      
-      
-      // DAO - 예약상태 변경메서드
-      ReservationDAO rezDAO = new ReservationDAO();
-//      ReservationDTO rezDTO = new ReservationDTO();
-      
-      // DAO - 예약취소 정보저장 메서드 호출 (이유, 일시,수수료) 
-//      rezDTO.setRez_uqNum(Integer.parseInt(request.getParameter("rez_uqNum")));
-      rezDTO.setPay_uqNum(request.getParameter("pay_uqNum"));
-      
 
-//    SimpleDateFormat form = new SimpleDateFormat("yyyy-MM-dd");
-//    rezDTO.setCancel_date("cancel_date");
-      Timestamp timestamp = Timestamp.valueOf(request.getParameter("cancel_date"));
+      // DAO - 예약취소 정보저장 메서드 호출 (이유, 일시,수수료) 
+      rezDTO.setPay_uqNum(request.getParameter("pay_uqNum"));
       rezDTO.setCancel_reason(request.getParameter("cancel_reason"));
       rezDTO.setCancel_commission(Integer.parseInt(request.getParameter("cancel_commission")));
       
       
-      int result = rezDAO.reservationCancelChange(rezDTO, mDTO);
+      System.out.println("@@@@@@@rez_uqNum : " + rezDTO.getRez_uqNum());
+      System.out.println("@@@@@@@pay_uqNum : " + rezDTO.getPay_uqNum());
+      System.out.println("@@@@@@@cancel_reason : " + rezDTO.getCancel_reason());
+      
+      // DAO - 취소이유저장, 예약상태 변경메서드
+      ReservationDAO rezDAO = new ReservationDAO();
+      int result = rezDAO.reservationCancelChange(rezDTO);
+      rezDAO.resevationCancelSave(rezDTO);
+      
       
       System.out.println(" M 결과 : " + result);
      
