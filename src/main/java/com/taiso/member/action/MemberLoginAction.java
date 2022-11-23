@@ -47,6 +47,7 @@ public class MemberLoginAction implements Action {
 			
 			return null;			
 		}
+		
 		else {
 		// result == 1
 		// 로그인 성공 -> 아이디 세션영역에 저장
@@ -61,7 +62,7 @@ public class MemberLoginAction implements Action {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		out.print("<script>");
-		out.print("	alert('로그인 완료.'); ");
+		out.print("	alert('로그인 완료. '); ");
 		out.print(" history.go(-2); ");
 		out.print("</script>");
 		out.close();
