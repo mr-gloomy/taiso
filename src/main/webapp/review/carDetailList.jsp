@@ -132,8 +132,8 @@
       			<div class="car-details">
       				<div class="img rounded" style="background-image: url(images/bg_1.jpg);"></div>
       				<div class="text text-center">
-      					<span class="subheading">Cheverolet</span>
-      					<h2>Mercedes Grand Sedan</h2>
+      					<span class="subheading">${carDTO.car_brand }</span>
+      					<h2>${carDTO.car_name }</h2>
       				</div>
       			</div>
       		</div>
@@ -222,9 +222,6 @@
 							  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
 							    <li class="nav-item">
-							      <a class="nav-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-expanded="true">Features</a>
-							    </li>
-							    <li class="nav-item">
 							      <a class="nav-link" id="pills-manufacturer-tab" data-toggle="pill" href="#pills-manufacturer" role="tab" aria-controls="pills-manufacturer" aria-expanded="true">Description</a>
 							    </li>
 							    <li class="nav-item">
@@ -286,14 +283,7 @@
 						    	</div>
 						    </div>
 							<!-- 옵션정보 -->
-							
-							<!-- 쓸데없는 글 -->
-						    <div class="tab-pane fade" id="pills-manufacturer" role="tabpanel" aria-labelledby="pills-manufacturer-tab">
-						      <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-									<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
-						    </div>
-							<!-- 쓸데없는 글 -->
-							
+														
 							<!-- 리뷰 -->
 						    <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
 						      <div class="row">
