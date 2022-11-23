@@ -199,12 +199,13 @@ public class CarDAO {
 		
 		try {
 			con = getConnection();
-			sql = "select car_brand, car_name, car_price, car_file FROM car ORDER BY RAND() LIMIT 5";
+			sql = "select car_code, car_brand, car_name, car_price, car_file FROM car ORDER BY RAND() LIMIT 5";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
 				CarDTO carDTO = new CarDTO();
+				carDTO.setCar_code(rs.getInt("car_code"));
 				carDTO.setCar_brand(rs.getString("car_brand"));
 				carDTO.setCar_name(rs.getString("car_name"));
 				carDTO.setCar_price(rs.getInt("car_price"));
