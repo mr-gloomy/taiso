@@ -25,7 +25,7 @@ public class AdminCarUpdateAction implements Action {
 		
 		// 페이지 이동(./center/adminCarUpadte.jsp)
 		ActionForward forward = new ActionForward();
-		forward.setPath("./center/adminCarUpdate.jsp");
+		forward.setPath("./adminCar/adminCarUpdate.jsp");
 		forward.setRedirect(false);
 		return forward;
 	}

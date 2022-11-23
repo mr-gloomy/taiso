@@ -100,6 +100,7 @@ public class AdminReviewDAO {
 					rDTO.setRev_subject(rs.getString("rev_subject"));
 					rDTO.setRev_star(rs.getInt("rev_star"));
 					rDTO.setRev_date(rs.getTimestamp("rev_date"));
+					rDTO.setMem_nickName(rs.getString("mem_nickName"));
 					
 					// DTO -> List
 					ReviewList.add(rDTO);
@@ -139,6 +140,7 @@ public class AdminReviewDAO {
 					adrDTO.setRev_image(rs.getString("rev_image"));
 					adrDTO.setRev_star(rs.getInt("rev_star"));
 					adrDTO.setRev_subject(rs.getString("rev_subject"));
+					adrDTO.setMem_nickName(rs.getString("mem_nickName"));
 				}
 				
 			} catch (Exception e) {

@@ -28,6 +28,54 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    
+    <script type ="text/javascript">
+    	function carCheck(){
+    		
+    		if(document.fr.car_site.value == ""){
+    			alert('지점을 선택하세요!');
+    			document.fr.car_site.focus();
+    			return false;
+    		}
+    		
+    		if(document.fr.car_brand.value == ""){
+    			alert('차량 브랜드를 입력하세요 ! ');
+    			document.fr.car_brand.focus();
+    			return false;
+    		}
+    		if(document.fr.car_price.value == ""){
+    			alert('차량 렌트가격을 입력하세요 ! ');
+    			document.fr.car_price.focus();
+    			return false;
+    		}
+    		if(document.fr.car_op.value == ""){
+    			alert('차량 옵션을 입력하세요 ! ');
+    			document.fr.car_op.focus();
+    			return false;
+    		}
+    		if(document.fr.car_category.value == ""){
+    			alert('차량 카테고리를 입력하세요 ! ');
+    			document.fr.car_category.focus();
+    			return false;
+    		}
+    		if(document.fr.car_year.value == ""){
+    			alert('차량 연식을 입력하세요 ! ');
+    			document.fr.car_year.focus();
+    			return false;
+    		}
+    		if(document.fr.car_fuel.value == ""){
+    			alert('차량 연료타입을 입력하세요 ! ');
+    			document.fr.car_fuel.focus();
+    			return false;
+    		}
+    		if(document.fr.car_category.value == ""){
+    			alert('차량 카테고리를 입력하세요 ! ');
+    			document.fr.car_category.focus();
+    			return false;
+    		}
+    	}
+    
+    </script>
   </head>
   <body>
   
@@ -51,9 +99,10 @@
 	
 		<!-- <h1>예약하기</h1> 여기쓰면 화면 어그러짐-->
           <div class="col-md-8 block-9 mb-md-5">
-            <form action="./AdminCarAddAction.ad" class="bg-light p-5 contact-form" method="post" enctype="multipart/form-data">
+            <form action="./AdminCarAddAction.ad" class="bg-light p-5 contact-form" method="post" enctype="multipart/form-data"
+            		name="fr" onsubmit="return carCheck();">
            <div class="form-group">
-           	 <h3>[관리자]차량 정보 등록</h3>	 
+           	 <h3>[관리자]차량 정보 등록</h3>	 <br>
                 지역코드 : 
 	     				   <input type="radio" name="car_location" value="1" checked>내륙
                         	<input type="radio" name="car_location" value="0">제주<br>
@@ -103,15 +152,13 @@
 
               <hr>
             
-              
-              
-            
                 <input type="submit" value="등록하기" >
+<!--                 <button class="submit">등록하기</button> -->
+                <input type="reset" value="초기화하기" >
             
            
             </form>  
           </div>
-        </div>
 	
 <!-- contact 작성Form -->
 
