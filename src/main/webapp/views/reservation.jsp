@@ -136,7 +136,7 @@
 			    						<p class="price ml-auto">${dto.car_price }원 <span>/day</span></p>
 		    						</div>
 		    						<p class="d-flex mb-0 d-block">
-			    						<a href="#" class="btn btn-primary py-2 mr-1">Book now</a>
+<!-- 			    						<a href="#" class="btn btn-primary py-2 mr-1">Book now</a> -->
 			    						<a href="./ReviewListAction.rev?car_code=${dto.car_code }"
 											class="btn btn-secondary py-2 ml-1">Details</a>
 									</p>

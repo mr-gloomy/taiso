@@ -8797,7 +8797,7 @@ h1, h2, h3, h4, h5,
     .car-wrap .text p.d-block {
       width: 100%; }
       .car-wrap .text p.d-block a {
-        width: 50%; }
+        width: 100%; }
 
 .ftco-car-details .services .media-body .icon span {
   color: #1089ff; }
