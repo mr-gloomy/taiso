@@ -22,6 +22,8 @@
 <link rel="stylesheet" href="./css/icomoon.css">
 <link rel="stylesheet" href="./css/style.css">
 <link rel="stylesheet" href="./css/board.css">
+<link rel="stylesheet" href="./css/admin_my.css">
+
 </head>
 <body>
 	<div id="wrap">
@@ -55,33 +57,53 @@
 		<!-- 아래 컨테이너 틀 -->			
 		
 		<!-- 메뉴바 -->
-							<div class="middle-md-12">
-								<div class="menu">
-									<ul id="noul">
-										<li class="buttonitem" id="profile"><a
-											href="./NoticeList.nb" class="menubtn"><i
-												class="fa fa-cog"></i> 공지사항 </a></li>
-										<li class="buttonitem" id="messages"><a href="#messages"
-											class="menubtn"><i class="fa fa-user"></i> FAQ </a></li>
-										<li class="buttonitem" id="settings"><a href="#settings"
-											class="menubtn"><i class="fa fa-cog"></i> 1:1 문의사항 </a></li>
-										<li class="buttonitem"><a href="#" class="menubtn"><i
-												class="fa fa-sign-out-alt"></i> 채팅상담 </a></li>
-									</ul>
-								</div>
-							</div>
+
+ 
+    <div class="middle-md-12">
+        <div class="menu">
+            <ul id="noul">
+                <li class="buttonitem" id="profile" >
+                    <a href="#profile" class="menubtn" ><i class="fa fa-cog"></i> 렌트 내역</a>
+                    <div class="smenu" >
+                        <a href="">1</a>
+                        <a href="">2</a>
+                    </div>
+                </li>
+
+                <li class="buttonitem" id="messages">
+                    <a href="#messages" class="menubtn"><i class="fa fa-user"></i> 나의 게시글 모음 </a>
+                    <div class="smenu" style="display:block;">
+                        <a href="./QuestionList.bo" id="smenu">1:1 문의 내역</a>
+                        <a href="./ProposalList.bo">수정제안</a>
+                    </div>
+                </li>
+
+                <li class="buttonitem" id="settings">
+                    <a href="#settings" class="menubtn"><i class="fa fa-cog"></i> 회원정보 관리</a>
+                    <div class="smenu">
+                        <a href="./MemberUpdate.me">회원정보 변경(탈퇴)</a>
+<!--                         <a href="">비밀번호 변경</a> -->
+                    </div>
+                </li>
+                
+               </ul>
+             </div>
+            </div>
 		<!-- 메뉴바 -->
-						</div>
+					</div>
 		
 
 		<!-- @@@@@@@@@@@@@@@@@우측@@@@@@@@@@@@@@@@ -->
 		<div class="col-md-8 block-9 mb-md-5">
 		<div class="board_wrap">
 			<div class="board_title">
-			</div>
+            <strong>1:1 문의하기</strong>
+        	</div>
 			<div class="board_view_wrap">
 				<div class="board_view">
-					<div class="title">${boDTO.bo_title }</div>
+					<div class="title">
+					${bodto.bo_title }
+					</div>
 					<div class="info">
 						<dl>
 							<dt>번호</dt>
@@ -114,19 +136,23 @@
 							<dd>${bodto.bo_sysdate }</dd>
 						</dl>
 					</div>
-						<div class="cont">${bodto.bo_content }
-						</div>
-						<div class="bo_file">
-						<dl>
+					<div class="cont">
+							${bodto.bo_content }
+					</div>
+					<div class="info2" >
+							<dl> 
 							<dt>첨부파일</dt>
-							<dd>${bodto.bo_file }</dd>
-	
+							<dd><a href="../file/fileDown1.jsp?file_name=${bodto.bo_file }">${bodto.bo_file }</a></dd>
+							<dd><a href="../upload/${bodto.bo_file }">${bodto.bo_file }</a></dd>
+							</dl>
+							<dl>
 							<dt>비밀번호</dt>
-							<dd>${bodto.bo_pass } </dd>
-						</dl>
-						</div>
+							<dd>${bodto.bo_pass }</dd>
+							</dl>
+					</div>
 				</div>
 				<br>
+			 </div>
 				
 				<!-- 버튼 -->
 				<div align="center" >
@@ -146,13 +172,13 @@
 						<%-- onclick=" location.href='./QuestionUpdateAction.bo?bo_num=${bodto.bo_num}'; "> --%>
 					</div>
 				</div>
-			 </div>
 			</div>
 		</div>
 	</div>
 	
 		<!-- 메인 -->
 			</div>
+			
 <!-- 				<div class="row justify-content-center"></div> -->
 		</section>
 

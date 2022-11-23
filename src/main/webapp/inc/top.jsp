@@ -24,7 +24,7 @@
 							<button type="button" class="btn dropdown-toggle"
 								data-toggle="dropdown">사이트소개</button>
 							<div class="dropdown-menu">
-								<a class="dropdown-item" href="#">지점안내</a> 
+								<a class="dropdown-item" href="./Siteinfo.rez">지점안내</a> 
 								<a class="dropdown-item" href="#">이용안내</a>
 								<a class="dropdown-item" href="#">보험안내</a>
 							</div>
@@ -33,7 +33,7 @@
 							<button type="button" class="btn dropdown-toggle"
 								data-toggle="dropdown">렌트하기</button>
 							<div class="dropdown-menu">
-								<a class="dropdown-item" href="./Reserve.ca">단기렌트</a>
+								<a class="dropdown-item" href="./ReservationMain.rez">단기렌트</a>
 								<a class="dropdown-item" href="#">장기렌트</a>
 								<a class="dropdown-item" href="./CarList.ca">차량목록</a>
 							</div>

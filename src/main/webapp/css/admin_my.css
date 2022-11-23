@@ -45,23 +45,27 @@
 .menu {
     width: 300px;
     border-radius: 8px;
-    overflow: hidden;
+    overflow: visible;
     padding: 30px 0px;
 }
 
 .buttonitem {
-    border-top: 1px solid #F8F9FA;
+    border-bottom: 1px solid #ffffff;
     overflow: hidden;
 }
 
 .menubtn {
     display: block;
     padding: 15px 20px;
-    background: #F8F9FA;
-    border: 8px;
-    color: #808080;
+    background: #1089FF !important;
+    border:none;
+    color: #ffffff !important;
+    border-radius: 10px;
     position: relative;
+    display:relative;
+    
 }
+
 
 .menubtn::before {
     content: "";
@@ -79,9 +83,9 @@
 }
 
 .smenu {
-    background: #1089FF;
+    background: #F8F9FA;
     overflow: hidden;
-    color: #F8F9FA;
+    color: #ffffff;
     transition: max-height 0.3s;
     max-height: 0;
 }
@@ -89,7 +93,8 @@
 .smenu a {
     display: block;
     padding: 8px 26px;
-    color:  #FFFFFF;
+    color:  #808080;
+    transition: .3s;
     margin: 4px 0;
     position: relative;
 }
@@ -99,15 +104,16 @@
     position: absolute;
     width: 6px;
     height: 100%;
-    background: #FFFFFF;
+    background: #808080;
     left: 0;
     top: 0;
-    transition: .3s;
+    transition: .5s;
     opacity: 0;
 }
 
-.smenu a:hover::before {
+.smenu a:hover::before{
     opacity: 1;
+    color: #1089ff !important;
 }
 
 .buttonitem:target .smenu {
@@ -215,7 +221,7 @@ ul, li {
 
 a {
     text-decoration: none;
-    color: inherit;
+    
 }
 
 .board_wrap {

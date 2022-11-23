@@ -7,12 +7,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.taiso.admin.car.db.AdminCarDAO;
-import com.taiso.admin.car.db.CarDTO;
+import com.taiso.car.db.CarDTO;
 
-public class AdminCarInsertAction implements AdminCar {
+public class AdminCarInsertAction implements Action {
 
 	@Override
-	public AdminCarForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println(" M : AdminCarAddAction_execute() 호출 ");
 		
 	// 한글처리(생략)
@@ -42,28 +42,28 @@ public class AdminCarInsertAction implements AdminCar {
 		
 			// 전달정보 저장(DTO)
 			// 폼태그 -> DTO
-			CarDTO cDTO = new CarDTO();
+			CarDTO carDTO = new CarDTO();
 		
-			cDTO.setCar_category(multi.getParameter("car_category"));
-			cDTO.setCar_location(0); // 0 제주 , 1 내륙
-			cDTO.setCar_name(multi.getParameter("car_name"));
-			cDTO.setCar_op(multi.getParameter("car_op"));
-			cDTO.setCar_price(Integer.parseInt(multi.getParameter("car_price")));
-			cDTO.setCar_year(Integer.parseInt(multi.getParameter("car_year")));
-			cDTO.setCar_brand(multi.getParameter("car_brand"));
-			cDTO.setCar_fuel(multi.getParameter("car_fuel"));
+			carDTO.setCar_category(multi.getParameter("car_category"));
+			carDTO.setCar_location(0); // 0 제주 , 1 내륙
+			carDTO.setCar_name(multi.getParameter("car_name"));
+			carDTO.setCar_op(multi.getParameter("car_op"));
+			carDTO.setCar_price(Integer.parseInt(multi.getParameter("car_price")));
+			carDTO.setCar_year(Integer.parseInt(multi.getParameter("car_year")));
+			carDTO.setCar_brand(multi.getParameter("car_brand"));
+			carDTO.setCar_fuel(multi.getParameter("car_fuel"));
 			String img = multi.getFilesystemName("car_file");
 			
-			cDTO.setCar_file(img);
+			carDTO.setCar_file(img);
 			
 			// DAO - 상품등록메서드
 			AdminCarDAO acDAO = new AdminCarDAO();
 			
 			// 상품등록메서드 - insertCar(DTO)
-			acDAO.insertCar(cDTO);
+			acDAO.insertCar(carDTO);
 			
 			// 페이지 이동
-			AdminCarForward forward = new AdminCarForward();
+			ActionForward forward = new ActionForward();
 			forward.setPath("./AdminCarList.ad");
 			forward.setRedirect(true);
 			

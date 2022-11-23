@@ -16,7 +16,7 @@ function mem_userNName(){
 	opener.document.fr.mem_newNickName.value = document.ckfr2.mem_userNName.value;
 
 	// 해당창 종료
-	window.close();		
+	window.close();	
 }
 </script>
 

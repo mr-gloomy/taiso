@@ -20,7 +20,7 @@ public class QuestionUpdateAction implements Action {
 		BoardDAO bodao = new BoardDAO();
 		
 		// DB에 저장된 수정할 글번호를 가져와서 
-		BoardDTO bodto = bodao.getQuestionContent(bo_num);
+		BoardDTO bodto = bodao.getQuestionDetail(bo_num);
 		
 		// request 영역에 저장
 		request.setAttribute("bodto", bodto);

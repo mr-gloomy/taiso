@@ -255,8 +255,8 @@ public class BoardDAO {
 				return QuestionList;
 			}
 	
-		// 게시글 1개 내용 출력 - getQuestionContent(bo_num)
-		public BoardDTO getQuestionContent(int bo_num) {
+		// 게시글 1개 내용 출력 - getQuestionDetail(bo_num)
+		public BoardDTO getQuestionDetail(int bo_num) {
 			BoardDTO bodto = null;
 			
 			// 1.2. 
@@ -300,9 +300,7 @@ public class BoardDAO {
 			
 			return bodto;
 		}
-		
-		
-		// 게시글 1개 내용 출력 - getQuestionContent(bo_num)
+		// 게시글 1개 내용 출력 - getDetailContent(bo_num)
 		
 		// 게시글 수정 - UpdateQuestion(bodto)
 		public int UpdateQuestion(BoardDTO bodto) {
@@ -472,6 +470,134 @@ public class BoardDAO {
 			}
 		}
 		//게시판 답글 쓰기 - reInsertQuestion(bodto)
+		
+		
+		/** 여기부터 수정제안 */
+		
+		// 글 전체 개수 확인 - getProposalCount()
+		public int getProposalCount() {
+			int cnt = 0;
+			
+			try {
+				//1.2. 디비연결
+				con = getConnection();
+				// 3. sql
+				sql = "select count(*) from member_board where bo_cate = 6";
+				pstmt = con.prepareStatement(sql);
+				
+				// 4. sql 실행
+				rs = pstmt.executeQuery();
+				// 5. 데이터 처리
+				if(rs.next()) {
+					//cnt = rs.getInt(1);
+					cnt = rs.getInt("count(*)");
+				}
+				System.out.println(" DAO : 전체 글 개수 : "+cnt+"개");
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				closeDB();
+			}
+			return cnt;
+		}
+		// 글 전체 개수 확인 - getProposalCount()
+		
+		// 글정보 가져오기 - getProposalList(int startRow, int pageSize)
+		public ArrayList getProposalList(int startRow, int pageSize) {
+		
+			ArrayList ProposalList = new ArrayList();
+			
+			try {
+				con = getConnection();
+				
+				sql = "select * from member_board where bo_cate = '6' order by bo_re_ref desc, bo_re_seq asc;";
+				pstmt = con.prepareStatement(sql);
+				
+				// ???
+				pstmt.setInt(1, startRow-1);	// 시작행-1
+				pstmt.setInt(2, pageSize); 		// 개수 		
+				
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					// DB -> DTO
+					// DB -> DTO
+					BoardDTO bodto = new BoardDTO();
+					bodto.setBo_num(rs.getInt("bo_num"));
+					bodto.setMem_id(rs.getString("mem_id"));
+					bodto.setBo_cate(rs.getString("bo_cate"));
+					bodto.setBo_title(rs.getString("bo_title"));
+					bodto.setBo_pass(rs.getString("bo_pass"));
+					bodto.setBo_content(rs.getString("bo_content"));
+					bodto.setBo_file(rs.getString("bo_file"));
+					bodto.setBo_sysdate(rs.getDate("bo_sysdate"));
+					bodto.setBo_re_ref(rs.getInt("bo_re_ref"));
+					bodto.setBo_re_seq(rs.getInt("bo_re_seq"));
+					bodto.setBo_re_lev(rs.getInt("bo_re_lev"));
+//					bodto.setBo_readcount(rs.getInt("bo_readcount"));
+					
+					// DTO -> List
+					ProposalList.add(bodto);
+					
+				}
+				System.out.println(" DAO : 게시판 목록 저장완료! ");
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				closeDB();
+			}
+			
+			return ProposalList;
+		}
+		// 글정보 가져오기 - getProposalList(int startRow, int pageSize)
+		
+		// 게시글 1개 내용 출력 - getProposalDetail(bo_num)
+		public BoardDTO getProposalDetail(int bo_num) {
+			BoardDTO bodto = null;
+			
+			// 1.2. 
+			try {
+				con = getConnection();
+				//3. sql&pstmt 객체 
+				sql = "select * from member_board where bo_num=?";
+				pstmt = con.prepareStatement(sql);
+				
+				//4. ??? 
+				pstmt.setInt(1, bo_num);
+				
+				// 5. rs
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) { 
+					//데이터 있을 때만 bodto 객체 생성
+					bodto = new BoardDTO();
+					
+				 // DB->DAO 
+					bodto.setBo_num(rs.getInt("bo_num"));
+					bodto.setBo_cate(rs.getString("bo_cate"));
+					bodto.setMem_id(rs.getString("mem_id"));
+					bodto.setBo_title(rs.getString("bo_title"));
+					bodto.setBo_pass(rs.getString("bo_pass"));
+					bodto.setBo_content(rs.getString("bo_content"));
+					bodto.setBo_file(rs.getString("bo_file"));
+					bodto.setBo_re_ref(rs.getInt("bo_re_ref"));
+					bodto.setBo_re_lev(rs.getInt("bo_re_lev"));
+					bodto.setBo_re_seq(rs.getInt("bo_re_seq"));
+					bodto.setBo_sysdate(rs.getDate("bo_sysdate"));
+				}
+
+				System.out.println(" DAO : 글 정보 1개 저장완료! ");
+					
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				closeDB();
+			}
+			
+			return bodto;
+		}
+		// 게시글 1개 내용 출력 - getProposalDetail(bo_num)
 		
 }
 

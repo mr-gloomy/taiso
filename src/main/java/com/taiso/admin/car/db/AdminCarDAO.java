@@ -11,6 +11,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.taiso.car.db.CarDTO;
+
 
 public class AdminCarDAO {
 	private Connection con = null;
@@ -52,6 +54,8 @@ public class AdminCarDAO {
 		   }
 		   // 자원해제 메서드 - closeDB()
 	
+		   
+		   
 		// 상품등록메서드 - insertCar(DTO)
 		  public void insertCar(CarDTO cDTO) {
 			  int car_code = 0;
@@ -221,12 +225,13 @@ public class AdminCarDAO {
 		  public void adminUpdateCar(CarDTO cDTO) {
 			  try {
 				con = getConnection();
-				sql ="update car set car_category=?, car_name=?, car_brand=?, car_price=?, car_year=?, car_fuel=?, car_op=?, car_location=? "
+				sql ="update car set car_category=?, car_name=?, car_site=?, car_brand=?, car_price=?, car_year=?, car_fuel=?, car_op=?, car_location=? "
 						+ "where car_code=?";
 				pstmt = con.prepareStatement(sql);
 				
 				pstmt.setString(1, cDTO.getCar_category());
 				pstmt.setString(2, cDTO.getCar_name());
+				pstmt.setString(3, cDTO.getCar_site());
 				pstmt.setString(3, cDTO.getCar_brand());
 				pstmt.setInt(4, cDTO.getCar_price());
 				pstmt.setInt(5, cDTO.getCar_year());

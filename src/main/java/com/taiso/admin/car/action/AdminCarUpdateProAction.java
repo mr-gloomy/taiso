@@ -4,35 +4,36 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.taiso.admin.car.db.AdminCarDAO;
-import com.taiso.admin.car.db.CarDTO;
+import com.taiso.car.db.CarDTO;
 
-public class AdminCarUpdateProAction implements AdminCar {
+public class AdminCarUpdateProAction implements Action {
 
 	@Override
-	public AdminCarForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println(" M : AdminCarUpdateProAction_execute() 호출");
 		
 		// 로그인 세션(생략)
 		// 한글처리(생략)
 		// 전달정보(DTO)
-		CarDTO cDTO = new CarDTO();
+		CarDTO carDTO = new CarDTO();
 		
-		cDTO.setCar_brand(request.getParameter("car_brand"));
-		cDTO.setCar_category(request.getParameter("car_category"));
-		cDTO.setCar_code(Integer.parseInt(request.getParameter("car_code")));
-		cDTO.setCar_fuel(request.getParameter("car_fuel"));
-		cDTO.setCar_location(Integer.parseInt(request.getParameter("car_location")));
-		cDTO.setCar_name(request.getParameter("car_name"));
-		cDTO.setCar_op(request.getParameter("car_op"));
-		cDTO.setCar_price(Integer.parseInt(request.getParameter("car_price")));
-		cDTO.setCar_year(Integer.parseInt(request.getParameter("car_year")));
+		carDTO.setCar_brand(request.getParameter("car_brand"));
+		carDTO.setCar_category(request.getParameter("car_category"));
+		carDTO.setCar_code(Integer.parseInt(request.getParameter("car_code")));
+		carDTO.setCar_fuel(request.getParameter("car_fuel"));
+		carDTO.setCar_location(Integer.parseInt(request.getParameter("car_location")));
+		carDTO.setCar_name(request.getParameter("car_name"));
+		carDTO.setCar_op(request.getParameter("car_op"));
+		carDTO.setCar_price(Integer.parseInt(request.getParameter("car_price")));
+		carDTO.setCar_year(Integer.parseInt(request.getParameter("car_year")));
+		carDTO.setCar_site(request.getParameter("car_site"));
 		
 		// DAO - 상품정보 수정메서드 (AdminUpdateCar(DTO))
 		AdminCarDAO acDAO = new AdminCarDAO();
-		acDAO.adminUpdateCar(cDTO);
+		acDAO.adminUpdateCar(carDTO);
 		
 		// 페이지 이동
-		AdminCarForward forward = new AdminCarForward();
+		ActionForward forward = new ActionForward();
 		forward.setPath("./AdminCarList.ad");
 		forward.setRedirect(true);
 		

@@ -29,6 +29,33 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/admin_my.css">
+    <link rel="stylesheet" href="css/board.css">
+    
+    
+    <script type="text/javascript">
+
+	<!-- alert -->
+	function QuestionWrite() {
+		if(document.fr.bo_title.value==""){
+			alert("제목을 입력하세요");
+			document.fr.bo_title.focus();
+			return;
+		}
+		if(document.fr.bo_pass.value==""){
+			alert("비밀번호를 입력하세요");
+			document.fr.bo_pass.focus();
+			return;
+		}
+		if(document.fr.bo_content.value==""){
+			alert("내용을 입력하세요");
+			document.fr.bo_content.focus();
+			return;
+		}
+		
+		document.fr.submit();
+	}
+	</script>
+    
   </head>
   <body>
   <div id="wrap">
@@ -67,34 +94,30 @@
     <div class="middle-md-12">
         <div class="menu">
             <ul id="noul">
-                <li class="buttonitem" id="profile">
-                    <a href="#profile" class="menubtn"><i class="fa fa-cog"></i> 공지사항 </a>
-                    <div class="smenu">
-                        <a href="">Post</a>
-                        <a href="">Picture</a>
+                <li class="buttonitem" id="profile" >
+                    <a href="#profile" class="menubtn" ><i class="fa fa-cog"></i> 렌트 내역</a>
+                    <div class="smenu" >
+                        <a href="">1</a>
+                        <a href="">2</a>
                     </div>
                 </li>
 
                 <li class="buttonitem" id="messages">
-                    <a href="#messages" class="menubtn"><i class="fa fa-user"></i> Messages</a>
-                    <div class="smenu">
-                        <a href="">New</a>
-                        <a href="">Sent</a>
-                        <a href="">Spam</a>
+                    <a href="#messages" class="menubtn"><i class="fa fa-user"></i> 나의 게시글 모음 </a>
+                    <div class="smenu" style="display:block;">
+                        <a href="./QuestionList.bo" id="smenu">1:1 문의 내역</a>
+                        <a href="./ProposalList.bo">수정제안</a>
                     </div>
                 </li>
 
                 <li class="buttonitem" id="settings">
-                    <a href="#settings" class="menubtn"><i class="fa fa-cog"></i> Settings</a>
+                    <a href="#settings" class="menubtn"><i class="fa fa-cog"></i> 회원정보 관리</a>
                     <div class="smenu">
-                        <a href="">Password</a>
-                        <a href="">Language</a>
+                        <a href="./MemberUpdate.me">회원정보 변경(탈퇴)</a>
+<!--                         <a href="">비밀번호 변경</a> -->
                     </div>
                 </li>
-
-                <li class="buttonitem">
-                    <a href="#" class="menubtn"><i class="fa fa-sign-out-alt"></i> Logout</a>
-                </li>
+                
                </ul>
              </div>
             </div>
@@ -103,21 +126,29 @@
    	 </div> 
 
    	 <!-- 우측 -->
-          <div class="col-md-8 block-9 mb-md-5">
-          	<h4>1:1 문의하기</h4>
-<%--             <form action="./QuestionUpdateProAction.bo?bo_num=${bodto.bo_num }" method="post" enctype="multipart/form-data"  --%>
-<!--             	class="bg-light p-5 contact-form"> -->
-<!--             <form action="./QuestionUpdateProAction.bo" method="post" enctype="multipart/form-data" class="bg-light p-5 contact-form"> -->
-            <form action="./QuestionUpdateProAction.bo" method="post">
-              <div class="form-group">
-              
+	<div class="col-md-8 block-9 mb-md-5">
+		<section class="notice_main">
+			<form action="./QuestionWriteAction.bo" method="post" enctype="multipart/form-data" name="fr">
+				<div class="board_wrap">
+					<div class="board_title">
+						<strong>1:1 문의하기</strong>
+						<p>타이소에게 다 물어보세요!</p>
+					</div>
+					<div class="board_write_wrap">
+						<div class="board_write">
+							<div class="title">
+								<!-- 여기까지 위쪽 틀 아래는 변수 -->
+
+         
               <input type="hidden" name="bo_num" value="${bodto.bo_num }">
 	           <!-- 나중에 아이디 제어하면 코드 수정 필요 -->
 	           <input type="hidden" name="mem_id" value="${bodto.mem_id }"> 
 	           <input type="hidden" name="bo_re_ref" value="${bodto.bo_re_ref }">
 	           <input type="hidden" name="bo_re_seq" value="${bodto.bo_re_seq }">
 	           <input type="hidden" name="bo_re_lev" value="${bodto.bo_re_lev }">
-               카테고리 : <select class="form-select form-select-sm" id="bo_cate" name="bo_cate" aria-label=".form-select-sm example">
+                     <dl>
+		               <dt>카테고리</dt> 
+	               		<dd><select class="form-select" aria-label="Default select example" name="bo_cate">
 						  <option value="1" 
 						    <c:if test="${bodto.bo_cate eq '1'}">selected="selected"</c:if>
 				      	  >이용안내</option>
@@ -133,44 +164,53 @@
 						  <option value="5"
 						   <c:if test="${bodto.bo_cate eq '5'}">selected="selected"</c:if>
 						  >기타</option>
-						</select>
-              </div> 
-              <div class="form-group">
-               제목 : <input type="text" class="form-control" name="bo_title" value="${bodto.bo_title }">
-              </div>
-              <div class="form-group">
-               문의사항 : <textarea name="bo_content" id="textarea" cols="30" rows="7" class="form-control" >${bodto.bo_content }</textarea>
-              </div>
-              <div>
-               첨부파일 : <input type="file" name="bo_file" value="${bodto.bo_file }">
-              </div>
-              <div class="form-group">
-               비밀번호 : <input type="password" name="bo_pass" value="${bodto.bo_pass }"> 
-              </div>
-                <div class="form-check">
-				  <input class="form-check-input" type="checkbox" value="secretwrite" id="secretwrite" checked disabled>
-				  <label class="form-check-label" for="flexCheckCheckedDisabled">
-				    비밀글
-				  </label>
+						</select></dd>
+						<dt>작성일</dt>
+							<dd>
+								<input type="text" value="${bodto.bo_sysdate }" readonly="readonly">
+							</dd>
+							<dt>제목</dt>
+							<dd>
+								<input type="text" name="bo_title"
+									placeholder="제목을 입력해주세요" value="${bodto.bo_title }">
+							</dd>
+							<dt>작성자</dt>
+							<dd>
+								<input type="text" value="${sessionScope.mem_id }"
+									name="mem_id" readonly="readonly">
+							</dd>
+							<dt>비밀번호</dt>
+							<dd>
+								<input type="password" name="bo_pass"
+									placeholder="비밀번호를 입력해주세요"  value="${bodto.bo_pass }">
+							</dd>
+						</dl>
+						<hr>
+					</div>
+					<div class="cont">
+						<textarea name="bo_content" placeholder="내용을 입력해주세요"></textarea>
+					</div>
+					<br>
+					<div class="input-group">
+						<input type="file" name="bo_file" value="${bodto.bo_file }">
+					</div>
 				</div>
-              <br>
-              <hr>
+				<br>
 				<!-- 버튼 -->
-				<div class="d-grid gap-8 col-8 mx-auto" >
-					<input type="submit" value="수정완료" class="btn btn-primary">
-					<input type="button" value="목록이동" class="btn btn-primary" onclick=" location.href='./QuestionList.bo'; ">
-				</div>
-            </form>
-          
-          </div>
-        </div>
-        <div class="row justify-content-center">
-        	<div class="col-md-12">
-        		<div id="map" class="bg-white"></div>
-        	</div>
-        </div>
-      </div>
-    </section>
+				<div class="d-grid gap-8 col-8 formbtncenter">
+					<input type="button" value="수정완료" class="btn btn-primary2"
+						onclick="QuestionWrite()" > 
+					<input type="button" value="수정취소" class="btn btn-primary2"
+						onclick="location.href='./QuestionList.bo';">
+							</div>
+						</div>
+					</div>	
+				</form>
+			</section>
+			</div>
+		</div>
+	</div>
+</section>
 	 <!-- 우측 -->
      
 	

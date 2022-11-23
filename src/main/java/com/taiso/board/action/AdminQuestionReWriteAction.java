@@ -9,7 +9,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.taiso.board.db.BoardDAO;
 import com.taiso.board.db.BoardDTO;
 
-public class adminQuestionReWriteAction implements Action {
+public class AdminQuestionReWriteAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {

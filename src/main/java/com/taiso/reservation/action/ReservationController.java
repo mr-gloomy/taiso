@@ -37,25 +37,14 @@ public class ReservationController extends HttpServlet{
 				ActionForward forward = null;
 				
 				
-				
-				
-				if(command.equals("/ReservationMain.rez")) {
-					System.out.println(" C : [패턴1] : ReservationMain.rez 호출");
-					
-					forward = new ActionForward();
-					forward.setPath("./views/reservation.jsp");
-					forward.setRedirect(false);
-					
-				}
-				
-				
+			
 				
 				/**
 				 * ReservationDate
 				 * 
 				 */
 				// 메인페이지 - 예약일시 정보 저장
-				else if(command.equals("/ReservationDate.rez")) {
+				if(command.equals("/ReservationDate.rez")) {
 					System.out.println(" c : [패턴3] : ReservationDate.rez 호출");
 					
 					//ReservationDate 객체 생성
@@ -67,8 +56,7 @@ public class ReservationController extends HttpServlet{
 					}
 				}
 				
-				
-				
+
 				/**
 				 * ReservationAction
 				 * 
@@ -163,6 +151,20 @@ public class ReservationController extends HttpServlet{
 				
 				
 				
+	            /**
+	             * ReservationCancelCheck
+	             * - 결제취소 확인
+	             */
+	            else if(command.equals("/ReservationCancelCheck.rez")) {
+	               System.out.println(" C : [패턴1] : ReservationCancelCheck.rez 호출");
+	               
+	               forward = new ActionForward();
+	               forward.setPath("./views/reservationCancelPw.jsp");
+	               forward.setRedirect(false);
+	            }
+				
+				
+				
 				/**
 				 * ReservationCancel
 				 * 
@@ -183,7 +185,7 @@ public class ReservationController extends HttpServlet{
 				 * - 비밀번호 체크 후 예약상태 변경
 				 */
 				else if(command.equals("/ReservationCancelAction.rez")) {
-					System.out.println(" C : [패턴3] : ReservationCancelAction.rez 호출");
+					System.out.println(" C : [패턴2] : ReservationCancelAction.rez 호출");
 					
 					// ReservationCancelAction 객체 생성
 					action = new ReservationInfoAction();
@@ -194,8 +196,6 @@ public class ReservationController extends HttpServlet{
 					}
 				}
 				
-				
-	
 				
 			    /**
 			     * AdminReservationListAction
@@ -230,6 +230,33 @@ public class ReservationController extends HttpServlet{
 					}
 				}
 				
+				
+				/**
+				 * Siteinfo
+				 * 
+				 */
+				else if(command.equals("/Siteinfo.rez")) {
+					forward = new ActionForward();
+					forward.setPath("./views/siteinfo.jsp");
+					forward.setRedirect(false);
+				}
+					
+				
+				/**
+	             * ReservationMain
+	             * 
+	             */
+				else if(command.equals("/ReservationMain.rez")) {
+					System.out.println(" C : /ReservationMain.rez 호출 ");
+					System.out.println(" C : [패턴 1] ");
+					
+					action = new ReservationMainAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
 				
 			    
 			    System.out.println(" C : 2. 가상주소 매핑 끝");
