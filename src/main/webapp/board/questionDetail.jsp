@@ -142,8 +142,8 @@
 					<div class="info2" >
 							<dl> 
 							<dt>첨부파일</dt>
-							<dd><a href="../file/fileDown1.jsp?file_name=${bodto.bo_file }">${bodto.bo_file }</a></dd>
-							<dd><a href="../upload/${bodto.bo_file }">${bodto.bo_file }</a></dd>
+							<dd><a href="./file/fileDown1.jsp?file_name=${bodto.bo_file }">${bodto.bo_file }</a></dd>
+<%-- 							<dd><a href="./upload/${bodto.bo_file }">${bodto.bo_file }</a></dd> --%>
 							</dl>
 							<dl>
 							<dt>비밀번호</dt>
@@ -157,7 +157,8 @@
 				<!-- 버튼 -->
 				<div align="center" >
 					<div class=>
-						<a href="./QuestionList.bo" class="btn btn-primary">목록이동</a>
+						<a href="./QuestionList.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}" 
+							class="btn btn-primary">목록이동</a>
 						<a href="./QuestionUpdate.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}"
 							class="btn btn-primary">수정하기</a> 
 						<a href="./QuestionDelete.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}"

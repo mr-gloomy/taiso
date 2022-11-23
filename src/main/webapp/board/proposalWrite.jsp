@@ -32,7 +32,8 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/admin_my.css">
 <link rel="stylesheet" href="./css/board.css">
-
+<script src="sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 <script type="text/javascript">
     <!-- input에 오늘날짜 기본값으로 넣기 -->
@@ -47,17 +48,38 @@
 	<!-- alert -->
 	function QuestionWrite() {
 		if(document.fr.bo_title.value==""){
-			alert("제목을 입력하세요");
+			Swal.fire({
+                icon: 'warning',
+                /* title: '내용을 입력하세요!', */
+                text: '카테고리를 선택하세요!',
+            });
+			document.fr.bo_cate.focus();
+			return;
+		}
+		if(document.fr.bo_title.value==""){
+			Swal.fire({
+                icon: 'warning',
+                /* title: '내용을 입력하세요!', */
+                text: '제목을 입력하세요!',
+            });
 			document.fr.bo_title.focus();
 			return;
 		}
 		if(document.fr.bo_pass.value==""){
-			alert("비밀번호를 입력하세요");
+			Swal.fire({
+                icon: 'warning',
+                /* title: '내용을 입력하세요!', */
+                text: '내용을 입력하세요!',
+            });
 			document.fr.bo_pass.focus();
 			return;
 		}
 		if(document.fr.bo_content.value==""){
-			alert("내용을 입력하세요");
+			Swal.fire({
+                icon: 'warning',
+                /* title: '내용을 입력하세요!', */
+                text: '비밀번호를 입력하세요!',
+            });
 			document.fr.bo_content.focus();
 			return;
 		}

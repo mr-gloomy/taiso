@@ -140,8 +140,8 @@
 					<div class="info2" >
 							<dl> 
 							<dt>첨부파일</dt>
-							<dd><a href="../file/fileDown1.jsp?file_name=${bodto.bo_file }">${bodto.bo_file }</a></dd></dl>
-							<dd><a href="../upload/${bodto.bo_file }">${bodto.bo_file }</a></dd></dl>
+							<dd><a href="./file/fileDown1.jsp?file_name=${bodto.bo_file }">${bodto.bo_file }</a></dd></dl>
+<%-- 							<dd><a href="./upload/${bodto.bo_file }">${bodto.bo_file }</a></dd></dl> --%>
 							
 							<dl>
 							<dt>비밀번호</dt>

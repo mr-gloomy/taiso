@@ -55,7 +55,7 @@
 					class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
 					<div class="col-md-9 ftco-animate pb-5">
 						<p class="breadcrumbs">
-							<span class="mr-2"><a href="./ReservationMain.rez"">Home <i
+							<span class="mr-2"><a href="./ReservationMain.rez">Home <i
 									class="ion-ios-arrow-forward"></i></a></span> <span>고객센터 <i
 								class="ion-ios-arrow-forward"></i></span>
 						</p>
@@ -159,6 +159,16 @@
 									</div>
 								</div>
 							</div>
+	 		<!-- 페이지처리 -->
+            <div class="n_page"> 
+	  		 <c:if test="${requestScope.cnt != 0}">
+                <!-- 페이지번호 -->
+                <c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
+		         	 <a href="./QuestionList.bo?pageNum=${i }" class="btn btn-outline-primary" >${i }</a> 
+		    	</c:forEach>  
+			  </c:if>
+		  	 </div>	
+		   	<!-- 페이지처리 -->
 						</div>								
 		<!-- 이 안이 변동사항 아래는 외부 틀이라서 필수 -->			
 			</div>
@@ -168,16 +178,6 @@
 		
 		<!-- @@@@@@@@@@@@@@@@@우측@@@@@@@@@@@@@@@@ -->
 	            
-	 		<!-- 페이지처리 -->
-            <div class="n_page"> 
-	  		 <c:if test="${totalCnt != 0}">
-                <!-- 페이지번호 -->
-                <c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
-		         	 <a href="./QuestionList.bo?pageNum=${i }" class="btn btn-outline-primary" >${i }</a> 
-		    	</c:forEach>  
-			  </c:if>
-		  	 </div>	
-		   	<!-- 페이지처리 -->
 		   
 		<div class="clear"></div>
 		<!-- 푸터들어가는 곳 -->

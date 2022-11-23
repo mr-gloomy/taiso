@@ -25,7 +25,7 @@ public class QuestionListAction implements Action {
 		// 페이징 처리 (1)
 
 		// 한 페이지에 보여줄 글의 개수
-		int pageSize = 10;
+		int pageSize = 5;
 
 		// 현 페이지가 몇페이지 인지 확인
 		String pageNum = request.getParameter("pageNum");
@@ -56,6 +56,7 @@ public class QuestionListAction implements Action {
 
 		// 페이지블럭의 시작번호 1~10 => 1, 11~20 => 11 21~30 => 21
 		int startPage = ((currentPage - 1) / pageBlock) * pageBlock + 1;
+		
 		// 페이지블럭의 끝번호
 		int endPage = startPage + pageBlock - 1;
 

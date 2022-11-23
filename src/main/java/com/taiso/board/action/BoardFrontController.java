@@ -231,20 +231,10 @@ public class BoardFrontController extends HttpServlet{
 				e.printStackTrace();
 			}
 	} 
-		else if(command.equals("/AdminProposalReWriteAction.bo")) {
-			System.out.println(" C : /AdminProposalReWriteAction.bo 호출");
-			System.out.println(" C : [패턴2] DB사용 O, 페이지 이동(화면전환)");
+
 		
-			//adminQuestionReWriteAction() 객체 - execute()
-		try {
-			action = new AdminProposalReWriteAction();
-			forward = action.execute(request, response);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		} 
 		
-	}
+		
 		
 		System.out.println(" C : (2단계 끝) 가상주소 매핑 완료 ----------------------- ");
 		/////////////////////////2.가상주소매핑////////////////////////////
