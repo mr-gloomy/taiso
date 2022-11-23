@@ -36,7 +36,7 @@
 				<td>${dto.price }</td>
 				<td>${dto.amount }</td>
 				<td>
-					<fmt:formatDate value="${dto.date }" />
+<%-- 					<fmt:formatDate value="${dto.date }" /> --%>
 				</td>
 				<td>
 				 <a href="./AdminGoodsModify.ag?rez_Num=${rezDTO.rez_uqNum }">예약정보상세조회</a>
