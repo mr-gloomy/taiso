@@ -11,8 +11,10 @@
 // response.sendRedirect("./ReviewList.rev");
 // response.sendRedirect("./AdminCarAdd.ad");
 // response.sendRedirect("./AdminCarList.ad");
+
 // response.sendRedirect("./AdminCarList.ad");
 response.sendRedirect("./ReservationMain.rez");
+
 
 // response.sendRedirect("./AdminReviewList.adr");
 // response.sendRedirect("./AdminReviewList.adr");
