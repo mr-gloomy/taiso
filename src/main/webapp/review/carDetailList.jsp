@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/nav.css">
     <script type="text/javascript">
 	
 	    function commentOpen(rev_num){
@@ -564,6 +565,37 @@
       </div>
     </footer>
     
+                  <div class="r-horizon">
+         <div class="r-horizon-bar">
+            <div class="r-horizon-button"></div>
+         </div>
+          <div class="r-horizon-content">
+             <table class="r-table">
+                <tbody>
+                   <tr>
+                      <th><span class="r-h-info r-h-infoA">대여지점</span></th>
+                      <th><span class="r-h-info r-h-infoB">대여일시</span></th>
+                      <th><span class="r-h-info r-h-infoC">픽업시간</span></th>
+                      <th><span class="r-h-info r-h-infoC"></span></th>
+                   </tr>
+                   <tr>
+                      <td>
+                         <p class="r-horizon-text" id="h-rental_branch">${rez_site }</p>
+                      </td>
+                      <td>
+                         <p class="r-horizon-text" id="h-redDate">${rez_pick_date } ~ ${rez_off_date }</p>
+                      </td>
+                      <td>
+                         <p class="r-horizon-text" id="h-redDate">${rez_pick_time }</p>
+                      </td>
+                      <td>
+                         <p class="r-horizon-text ellipsis" id="h-car_name"><a href="./ReservationAction.rez?car_code=${param.car_code }" class="btn btn-primary py-2 mr-1">예약하기</a></p>
+                      </td>
+                   </tr>
+                </tbody>
+             </table>
+          </div>
+      </div>
   
 
   <!-- loader -->
@@ -587,6 +619,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/rt.js"></script>
     
   </body>
 </html>
