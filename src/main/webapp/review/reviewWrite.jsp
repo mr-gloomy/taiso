@@ -124,6 +124,8 @@
            <div class="form-group">
            	 <h3><b>리뷰 등록</b></h3>	 
               <div class="form-group">
+              	<input type = "hidden" name="car_code" value="${param.car_code }">
+              	<input type = "hidden" name="rez_uqNum" value="${param.rez_uqNum }">
                 <input type="text" class="form-control" placeholder="제목" name="rev_subject">
               </div>
               <div class="form-group">

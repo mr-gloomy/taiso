@@ -15,6 +15,7 @@ public class ReviewDTO {
 	private int rev_star;
 	private Timestamp rev_date;
 	private int car_code;
+	private String car_name;
 	private int rez_uqNum;
 	private String mem_id;
 	private int rev_ref;

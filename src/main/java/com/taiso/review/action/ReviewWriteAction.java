@@ -20,14 +20,13 @@ public class ReviewWriteAction implements Action {
 //		// 세션 제어 (id)
 		HttpSession session = request.getSession();
 		String mem_id = (String) session.getAttribute("mem_id");
-		int rez_uqNum = (int) session.getAttribute("rez_uqNum");
 		
 		ActionForward forward = new ActionForward();
-//		if(mem_id == null) {
-//			forward.setPath("로그인 안 했을 때 이동할 주소");
-//			forward.setRedirect(true);
-//			return forward;
-//		}
+		if(mem_id == null) {
+			forward.setPath("./MemberLogin.me");
+			forward.setRedirect(true);
+			return forward;
+		}
 		
 		// 1) upload 폴더 생성 (가상의 업로드 경로)
 		// 파일이 저장되는 실제 경로(tomcat - 서버)
@@ -50,29 +49,33 @@ public class ReviewWriteAction implements Action {
 		
 		System.out.println("M : 첨부파일 업로드 완료");
 		
+		int car_code = Integer.parseInt(multi.getParameter("car_code"));
+		System.out.println(car_code);
+		
 		// DTO 생성
 		ReviewDTO rDTO = new ReviewDTO();
 		
 		// 그러면 마이페이지에서 리뷰 작성으로 넘길 때 주소줄에 회원 정보 받아오기?
 
-		rDTO.setRez_uqNum(rez_uqNum);
 		rDTO.setMem_id(mem_id);
 		rDTO.setRev_subject(multi.getParameter("rev_subject"));
 		rDTO.setRev_content(multi.getParameter("rev_content"));
 		rDTO.setRev_image(multi.getParameter("rev_image"));
 		rDTO.setRev_star(Integer.parseInt(multi.getParameter("rev_star")));
+		rDTO.setCar_code(Integer.parseInt(multi.getParameter("car_code")));
+		rDTO.setRez_uqNum(Integer.parseInt(multi.getParameter("rez_uqNum")));
 		String img = multi.getFilesystemName("rev_image");
 		rDTO.setRev_image(img);
 		
 		System.out.println(rDTO);
 		
 		ReviewDAO rDAO = new ReviewDAO();
-		rDAO.insertReview(rDTO);
+		rDAO.insertReview(rDTO, mem_id);
 		
 		// 페이지 이동
 		
-		forward.setPath("./review/reviewList.jsp");
-		forward.setRedirect(false);
+		forward.setPath("./ReservationListAction.rez");
+		forward.setRedirect(true);
 		
 		return forward;
 	}

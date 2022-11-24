@@ -1,6 +1,7 @@
 package com.taiso.reservation.action;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,7 @@ import com.taiso.car.db.CarDTO;
 import com.taiso.payment.db.PaymentDAO;
 import com.taiso.reservation.db.ReservationDAO;
 import com.taiso.reservation.db.ReservationDTO;
+import com.taiso.review.db.ReviewDAO;
 
 public class ReservationListAction implements Action {
 
@@ -42,13 +44,19 @@ public class ReservationListAction implements Action {
 		ReservationDAO rezDAO = new ReservationDAO();
 		ArrayList reservationList = rezDAO.getResevationList(mem_id);
 		
+		// 회원 아이디로 리뷰 글 있는지 조회하기
+		ReviewDAO rDAO = new ReviewDAO();
+		List reviewList = rDAO.getCheckReview(mem_id);
+		
 	
 		System.out.println(" M :reservationList" + reservationList); // ***** 잘들어갔는지 확인하는 용도, 나중에 주석처리할 것! 
+		System.out.println(" M :reviewList" + reviewList); // ***** 잘들어갔는지 확인하는 용도, 나중에 주석처리할 것! 
 		
 		
 		
 		// request 영역에 저장
 		request.setAttribute("reservationList", reservationList);
+		request.setAttribute("reviewList", reviewList);
 		
 		// 페이지 이동(./views/reservationList.jsp)
 		forward.setPath("./views/reservationList.jsp");

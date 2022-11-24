@@ -32,6 +32,61 @@
     <link rel="stylesheet" href="./css/flaticon.css">
     <link rel="stylesheet" href="./css/icomoon.css">
     <link rel="stylesheet" href="./css/style2.css">
+    <script type="text/javascript">
+	function deleteBoard(seq){
+		Swal.fire({
+		  title: '글을 삭제 하시겠습니까?',
+		  text: "삭제하시면 다시 복구시킬 수 없습니다.",
+		  icon: 'info',
+		  showCancelButton: true,
+		  confirmButtonColor: '#3085d6',
+		  cancelButtonColor: 'grey',
+		  confirmButtonText: '삭제',
+		  cancelButtonText: '취소'
+		}).then((result) => {
+		  if (result.value) {
+	          //"등록" 버튼을 눌렀을 때 작업할 내용을 이곳에 넣어주면 된다. 
+			  location.href='./ReviewDeleteAction.rev?rez_uqNum='+seq;
+		  }
+		})
+	}
+	
+	// 글 작성하는 팝업
+	function writeOpen(value){
+		
+		var result = value.split(",");
+		
+		var car_code = result[0];
+		var rez_uqNum = result[1];
+		
+	    var _width = '500';
+	    var _height = '700';
+	 
+	    // 팝업을 가운데 위치시키기 위해 아래와 같이 값 구하기
+	    var _left = Math.ceil(( window.screen.width - _width )/2);
+	    var _top = Math.ceil(( window.screen.height - _height )/2); 
+
+ 		// 새 창 열기
+ 		document.domain = "localhost"; //document.domain 값이 팝업과 부모창 동일해야 합니다.
+ 		window.open("./ReviewWrite.rev?car_code="+car_code+"&rez_uqNum="+rez_uqNum,"",'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top);
+ 		 
+
+	}
+	
+	// 글 내용 수정하는 팝업
+	function updateOpen(rez_uqNum){
+	    var _width = '500';
+	    var _height = '700';
+	 
+	    // 팝업을 가운데 위치시키기 위해 아래와 같이 값 구하기
+	    var _left = Math.ceil(( window.screen.width - _width )/2);
+	    var _top = Math.ceil(( window.screen.height - _height )/2); 
+ 		// 새 창 열기
+ 		document.domain = "localhost"; //document.domain 값이 팝업과 부모창 동일해야 합니다.
+ 		window.open("./ReviewUpdateAction.rev?rez_uqNum="+rez_uqNum,"",'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top);
+	}
+	
+</script>
   </head>
   <body>
     
@@ -58,6 +113,7 @@
 			<div class="row">
 				<div class="col-md-4-2">
 					<div class="car-wrap rounded ftco-animate">
+					
 						<c:forEach var = "rez" items="${reservationList }" step="1">
 							<div class="text">
 								<div class="d-flex mb-3">
@@ -85,15 +141,29 @@
 								</div>
 								<div class="d-flex mb-3" style="display: flex; justify-content: center;">
 									<input type = "button" class="btn btn-primary2 py-2 mr-1" value = "예약 상세 조회" onclick="location.href='./ReservationInfoAction.rez?rez_uqNum=${rez.rez_uqNum }';" >ㅤ
-									<input type = "button" class="btn btn-primary py-2 mr-1" value = "리뷰작성">
+									<c:set var="loop_flag" value="false"/>
+									<c:set var="check" value ="0"/>
+									<c:forEach var="rev" items="${reviewList }" varStatus="status">
+										<c:if test="${not loop_flag }">
+											<c:if test="${check == 0}">
+												<c:if test="${rev.rez_uqNum == rez.rez_uqNum }">
+													<input type = "button" class="btn btn-primary py-2 mr-1" value = "리뷰수정" onclick="updateOpen(${rez.rez_uqNum});">
+													<input type = "button" class="btn btn-primary py-2 mr-1" value = "리뷰삭제" onclick="deleteBoard(${rez.rez_uqNum});">
+													<c:set var="loop_flag" value="true"/>
+													<c:set var="check" value ="1"/>
+												</c:if>
+											</c:if>
+										</c:if>
+									</c:forEach>
+										<c:if test="${check != 1}">
+											<input type = "button" class="btn btn-primary py-2 mr-1" value = "리뷰작성" onclick="writeOpen(${rez.car_code}+','+${rez.rez_uqNum});">
+											<c:set var="loop_flag" value="true"/>
+										</c:if>
 								</div>
 							</div>
 						</c:forEach>
-
-						
-						
-					</div>
 				</div>
+			</div>
 			</div>
 		</section>
 
