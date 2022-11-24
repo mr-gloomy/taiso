@@ -11,9 +11,8 @@
 <body>
 <article>
 <h1> 관리자 예약 조회 및 취소 상세 리스트 </h1>
-<h1></h1>
-<%-- ${adminGoodsList } --%>
-<table id="notice">
+
+<table border="1" >
 		<tr>
 			<th>고객아이디</th>
 			<th>예약번호</th>
@@ -23,26 +22,21 @@
 			<th>반납일시</th>
 			<th>관리</th>
 		</tr>
-
-		<c:forEach var="dto" items="${totalList }">
+	
+		<c:set var="dto" value="${rezDTO }" />
 			<tr>
-				<td>${dto.gno }</td>
-				<td class="left">${dto.category }</td>
-				<td>
-					<img src="./upload/${dto.image.split(',')[0] }" width="50" height="50"> 
-					<!-- 서버실제경로입력하면안됨(보안위험) 대신에 가상의 주소를 사용할 것이다. 
-						 "./가상주소"이면 ./ 은 webapp폴더이다.-->
-				</td>
-				<td>${dto.price }</td>
-				<td>${dto.amount }</td>
+				<td>${dto.mem_id }</td>
+				<td>${dto.rez_uqNum}</td>
+				<td>${dto.rez_status}</td>
+				<td>${dto.rez_rentalDate }</td>
+				<td>${dto.rez_returnDate }</td>
 				<td>
 <%-- 					<fmt:formatDate value="${dto.date }" /> --%>
 				</td>
 				<td>
-				 <a href="./AdminGoodsModify.ag?rez_Num=${rezDTO.rez_uqNum }">예약정보상세조회</a>
+				 <a href="./AdminGoodsModify.ag?rez_Num=${rezDTO.rez_uqNum }&pageNum=${pageNum}">예약정보상세조회</a>
 				</td>
 			</tr>
-		</c:forEach>
 	</table>
 	
 <div id="table_search">
