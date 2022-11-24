@@ -61,7 +61,7 @@ public class CarListAction implements Action {
 		// 페이징 처리 (2)
 
 		// 글이 있을 때
-
+		if(cnt != 0) {
 		// 총 페이지 = 글 개수(총량) / 페이지당 출력
 		// => 만약에 나머지가 있을때 페이지 1개 추가
 
@@ -69,7 +69,7 @@ public class CarListAction implements Action {
 		int pageCount = (cnt / pageSize) + (cnt % pageSize == 0 ? 0 : 1); // 0이면 0을, 아니면 1을 더한다
 
 		// 한 화면에 보여줄 페이지수
-		int pageBlock = 2;
+		int pageBlock = 3;
 
 		// 페이지블럭의 시작번호 1~10 => 1, 11~20 => 11 21~30 => 21
 		int startPage = ((currentPage - 1) / pageBlock) * pageBlock + 1;
@@ -83,6 +83,7 @@ public class CarListAction implements Action {
 
 		// DB에 저장된 상품정보를 가져오기
 		List carsList = cDAO.getCarList(startRow, pageSize, item, rez_site, rez_pick_date, rez_off_date);
+		
 		// DB에 저장된 상품정보를 가져오기
 
 		System.out.println(" M : item, car_site : " + item + "," + rez_site);
@@ -102,7 +103,7 @@ public class CarListAction implements Action {
 		System.out.println(" M : pageBlock : "+pageBlock);
 		System.out.println(" M : startPage : "+startPage);
 		System.out.println(" M : endPage : "+endPage);
-
+		}
 		ActionForward forward = new ActionForward();
 		forward.setPath("./car/carList.jsp");
 		forward.setRedirect(false);
