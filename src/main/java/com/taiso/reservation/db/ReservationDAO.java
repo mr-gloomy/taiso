@@ -479,7 +479,6 @@ public class ReservationDAO {
       public ReservationDTO getReservationMailInfo(String pay_uqNum) {
     	  
     	  ReservationDTO rezDTO = null;
-    	  System.out.println("@@@@@@@@@@@@@DAO확인@@@@@@@@@@@@@"+pay_uqNum);
     	  try {
 			con = getConnection();
 			sql = "select * from rez_reservation rez where rez_uqNum=(select pay.rez_uqNum from rez_payment pay where pay.pay_uqNum=?)";
@@ -499,7 +498,6 @@ public class ReservationDAO {
 		} finally {
 			closeDB();
 		}
-    	  System.out.println("@@@@@@@@@@@@@DAO확인@@@@@@@@@@@@@"+rezDTO);
     	  return rezDTO;
       }
       
