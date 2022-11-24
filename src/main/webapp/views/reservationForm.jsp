@@ -127,7 +127,7 @@
                     pay_status : rsp.status         // 결제상황
                  }
               });
-                   location.href="./PaymentTest.pay";
+                   location.href="./PaymentTest.pay?pay_uqNum="+rsp.imp_uid;
            } else {
                var msg = '결제에 실패하였습니다.';
                msg += '\nerror : ' + rsp.error_msg;

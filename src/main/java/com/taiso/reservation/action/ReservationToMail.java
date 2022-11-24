@@ -20,6 +20,7 @@ import javax.mail.internet.MimeMessage;
 
 import com.taiso.member.db.MemberDTO;
 import com.taiso.reservation.db.ReservationDAO;
+import com.taiso.reservation.db.ReservationDTO;
 
 public class ReservationToMail implements Action {
 
@@ -41,13 +42,19 @@ public class ReservationToMail implements Action {
 		
 		ReservationDAO rezDAO = new ReservationDAO();
 		
+		// 1. 회원정보 가져오기
 		MemberDTO mDTO = rezDAO.getMemberInfo(mem_id);
 		String mem_name = mDTO.getMem_name();
 		String mem_email = mDTO.getMem_email();
 		String mem_phone = mDTO.getMem_phone();
 		
-		System.out.println(mem_email);
-		
+		// 2. 예약정보 가져오기
+		String pay_uqNum = request.getParameter("pay_uqNum");
+		ReservationDTO rezDTO = rezDAO.getReservationMailInfo(pay_uqNum);
+		String rental_date = rezDTO.getRez_rentalDate();
+		String return_date = rezDTO.getRez_returnDate();
+		String rez_site = rezDTO.getRez_site();
+		String car_name = rezDTO.getCar_name();
 		
 		////////////////////// 메일전송 //////////////////////
 		
@@ -89,8 +96,13 @@ public class ReservationToMail implements Action {
             // Text
 //            message.setText("타이소를 이용해주셔서 감사합니다. ㅇㅇ님의 예약 내역을 알려드립니다.["+code+"]");
 //            message.setContent("<h1>타이소를 이용해주셔서 감사합니다.</h1><h2>ㅇㅇ님의 예약 내역을 알려드립니다.</h2><br>["+code+"]", "text/html;charset=euc-kr");
-//            message.setContent("<h2>타이소를 이용해주셔서 감사합니다. "+mem_id+"님의 예약 내역을 알려드립니다.</h2><table><tr><th colspan=\"8\" align=\"left\"><h3>주문 상세내역</h3></th></tr><tr><th>상품명</th><td>레이</td></tr><tr><th>대여일시</th><td>2022.05.30 10:30 PM</td></tr><tr><th>반납일시</th><td>2022.05.30 10:30 PM</td></tr><tr><th>결제금액</th><td>10,000원</td></tr></table>", "text/html;charset=euc-kr");
-            message.setContent("<h2>타이소를 이용해주셔서 감사합니다. "+mem_id+"님의 예약 내역을 알려드립니다.", "text/html;charset=euc-kr");
+            message.setContent("<h2>타이소를 이용해주셔서 감사합니다.</h2><h2>"+mem_id+"님의 예약 내역을 알려드립니다.</h2>"
+            		+ "<table><tr><th colspan=\"8\" align=\"left\">"
+            		+ "<h3>주문 상세내역</h3></th></tr>"
+            		+ "<tr><th>상품명</th><td>"+car_name+"</td></tr>"
+    				+ "<tr><th>대여일시</th><td>"+rental_date+"</td></tr>"
+					+ "<tr><th>반납일시</th><td>"+return_date+"</td></tr>", "text/html;charset=euc-kr");
+//            message.setContent("<h2>타이소를 이용해주셔서 감사합니다. "+mem_id+"님의 예약 내역을 알려드립니다.", "text/html;charset=euc-kr");
             
             // ======== javax.mail.Message ========
             // 작성한 메시지 전송
@@ -103,11 +115,10 @@ public class ReservationToMail implements Action {
             e.printStackTrace();
         }
 		
-		// 페이지 이동
-//		forward.setPath("./ReservationListAction.rez?mem_id="+mem_id);
-//		forward.setRedirect(true);
-//		return forward;
-        return null;
+//		페이지 이동
+		forward.setPath("./ReservationListAction.rez?mem_id="+mem_id);
+		forward.setRedirect(true);
+		return forward;
 	}
 
 }
