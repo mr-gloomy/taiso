@@ -43,10 +43,14 @@ public class ReservationToMail implements Action {
 		ReservationDAO rezDAO = new ReservationDAO();
 		
 		// 1. 회원정보 가져오기
-		MemberDTO mDTO = rezDAO.getMemberInfo(mem_id);
+//		MemberDTO mDTO = rezDAO.getMemberInfo(mem_id);
+		ArrayList totalDTO = rezDAO.getMemberInfo(mem_id);
+		MemberDTO mDTO = (MemberDTO)totalDTO.get(0);
 		String mem_name = mDTO.getMem_name();
 		String mem_email = mDTO.getMem_email();
 		String mem_phone = mDTO.getMem_phone();
+		System.out.println("@@@@@@@@@"+mDTO);
+		System.out.println("@@@@@@@@@"+mem_email);
 		
 		// 2. 예약정보 가져오기
 		String pay_uqNum = request.getParameter("pay_uqNum");

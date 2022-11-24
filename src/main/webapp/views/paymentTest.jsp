@@ -16,7 +16,6 @@
 	<input type="button" value="메인으로 가기" onclick="location.href='./Reservation.jsp';">
 	<input type="button" value="예약 확인하기" onclick="location.href='./ReservationListAction.rez?mem_id=${sessionScope.mem_id}';">
 	<input type="button" value="메일 전송" onclick="location.href='./ReservationToMail.rez?mem_id=${sessionScope.mem_id}&pay_uqNum=${param.pay_uqNum }';">
-<%-- 	<input type="button" value="카카오톡 공유" id="tokakao" onclick="location.href='./ReservationToKakao.rez?mem_id=${sessionScope.mem_id}&pay_uqNum?=${param.pay_uqNum }';"> --%>
 	<input type="button" value="카카오톡 공유" id="tokakao">
 </form>
 
@@ -25,13 +24,20 @@ $(document).ready(function(){
 	$("#tokakao").click(function(){
 		alert('확인');
 		$.ajax({
-			url:"./ReservationToKakao.rez?mem_id=${sessionScope.mem_id}&pay_uqNum?=${param.pay_uqNum }",
-			type:"post",
+			url: "./ReservationToKakao.rez?pay_uqNum=${param.pay_uqNum}",
+            type: 'POST',
+//          dataType: 'json',
+// 			data:obj,
 			success:function(data){
-				alert('ajax성공');	
+				alert('성공');
+// 				var json = JSON.parse(data);
+// // 				for(var i=0;i<json.length;i++){
+					
+// // 				}
+				console.log(data);
 			}
-		})
-	})
+		});
+	});
 });
 </script>
 
