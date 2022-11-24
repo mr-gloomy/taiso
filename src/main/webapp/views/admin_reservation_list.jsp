@@ -50,17 +50,17 @@
 	<c:if test="${totalCnt != 0 }">
 		<!-- 이전 -->
 		<c:if test="${startPage > pageBlock }">
-			<a href="./BoardList.bo?pageNum=${startPage - pageBlock  }">[이전]</a>
+			<a href="./AdminReservationListAction.rez?pageNum=${startPage - pageBlock  }">[이전]</a>
 		</c:if>	
 			
 		<!-- 페이지 번호(1,2,3) -->
 		<c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
-			<a href="./BoardList.bo?pageNum=${i }">${i }</a>
+			<a href="./AdminReservationListAction.rez?pageNum=${i }">${i }</a>
 		</c:forEach>	
 			
 		<!-- 다음 -->
 		<c:if test="${endPage < pageCount }">
-			<a href="./BoardList.bo?pageNum=${startPage+pageBlock }">[다음]</a>
+			<a href="./AdminReservationListAction.rez?pageNum=${startPage+pageBlock }">[다음]</a>
 		</c:if>
 	</c:if>
 
