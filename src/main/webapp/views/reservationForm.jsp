@@ -301,19 +301,19 @@
               
               <input type="hidden" name="mem_id" value="${sessionScope.mem_id }">
         
-                이름 : <input type="text" name="mem_name" class="form-control" class="form-control2" value="${mDTO.mem_name }" readonly="readonly">
+                이름 : <input type="text" name="mem_name" class="form-control" value="${mDTO.mem_name }" readonly="readonly">
           </div> 
           
           <div class="form-group">           
-                전화번호 : <input type="text" name="mem_phone" class="form-control" class="form-control2" value="${mDTO.mem_phone }" readonly="readonly">
+                전화번호 : <input type="text" name="mem_phone" class="form-control" value="${mDTO.mem_phone }" readonly="readonly">
           </div>  
              
         <div class="form-group">           
-                생년월일 : <input type="text" name="mem_birthday" class="form-control" class="form-control2" value="${mDTO.mem_birthday }" readonly="readonly">
+                생년월일 : <input type="text" name="mem_birthday" class="form-control" value="${mDTO.mem_birthday }" readonly="readonly">
          </div>  
          
          <div class="form-group">      
-                이메일 : <input type="email" name="mem_email" class="form-control" class="form-control2" value="${mDTO.mem_email }" readonly="readonly">
+                이메일 : <input type="email" name="mem_email" class="form-control" value="${mDTO.mem_email }" readonly="readonly">
           </div>
               
            <br>
@@ -321,6 +321,7 @@
               <br>
               
           <div class="form-group">
+          <c:if test=""></c:if>
               <h3>면허정보입력</h3>    
                 면허발급일자 : <input type="date" class="form-control" name="license_issueDate" class="form-control2" placeholder="면허발급일자를 정확하게 입력해주세요.">
           </div>

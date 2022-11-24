@@ -69,19 +69,26 @@ public class ReservationDAO {
    /**
     * 회원1명의 정보 가져오기 - getMemberInfo(mem_id)
     */
-   public MemberDTO getMemberInfo(String mem_id) {
+   public ArrayList getMemberInfo(String mem_id) {
+	  
+	  ArrayList totalDTO = new ArrayList();
       MemberDTO mDTO = null;
+      ReservationDTO rezDTO = null;
 
       try {
          con = getConnection();
-         sql = "select * from member where mem_id=?";
+         sql = "select * from member mem " 
+         		+ "join rez_driverlicense rezd " 
+         		+ "on mem.mem_id = rezd.mem_id " 
+         		+ "where mem.mem_id=?";
          pstmt = con.prepareStatement(sql);
          pstmt.setString(1, mem_id);
          rs = pstmt.executeQuery();
 
          if (rs.next()) {
             mDTO = new MemberDTO();
-
+            rezDTO = new ReservationDTO(); 
+            
             // 특정 아이디에 해당하는 회원 정보 저장
             // DB -> DTO
             mDTO.setMem_id(mem_id);
@@ -89,8 +96,14 @@ public class ReservationDAO {
             mDTO.setMem_phone(rs.getString("mem_phone"));
             mDTO.setMem_birthday(rs.getString("mem_birthday"));
             mDTO.setMem_email(rs.getString("mem_email"));
-
+            
+            rezDTO.setLicense_num(rs.getString("license_num"));
+            rezDTO.setLicense_issueDate(rs.getString("license_issueDate"));
+            rezDTO.setLicense_type(rs.getString("license_type"));
+            
          } // if
+         
+         
 
          System.out.println(" DAO : 회원정보 가져오기 완료 ");
 
@@ -99,8 +112,11 @@ public class ReservationDAO {
       } finally {
          closeDB();
       }
-
-      return mDTO;
+      
+      totalDTO.add(mDTO);
+      totalDTO.add(rezDTO);
+      
+      return totalDTO;
    } // 회원1명의 정보 가져오기 - getMemberInfo(mem_id)
 
    
