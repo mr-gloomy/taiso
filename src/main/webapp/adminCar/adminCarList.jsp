@@ -6,10 +6,11 @@
 <html lang="ko">
 <head>
 <!-- 헤더 시작 -->
-<title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
+<title>TAISO</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="./images/logo.png">
 
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
@@ -36,7 +37,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
 <style type="text/css">
 body {
-	padding: 1.5em;
+	padding: 0em;
 	background: #f5f5f5
 }
 
@@ -203,20 +204,10 @@ a {
 	    <td>${dto.car_op }</td>
 	    <td>${dto.car_year }</td>
 	    <td>
-<%-- 	    <button onclick="./AdminCarUpdate.ad?car_code=${dto.car_code }">수정</button> --%>
-<%-- 	    <a href="./AdminCarUpdate.ad?car_code=${dto.car_code }">수정</a> --%>
 	    <input type ="button" value="수정" onclick="location.href='./AdminCarUpdate.ad?car_code=${dto.car_code }';">
 	    /
-<%-- 	    	<c:set var= "code" value="${dto.car_code }"/> --%>
-	    
-	    <input type = "button" value = "삭제" onclick="deleteCar();">
-<%-- 		<button onclick="deleteCar(${dto.car_code });">삭제</button> --%>
-<%-- 	    <a href="deleteCar(${dto.car_code });">삭제</a> --%>
+	    <input type = "button" value = "삭제" onclick="deleteCar(${dto.car_code });">
 		
-		
-
-	    
-<%-- 	    <a href="./AdminCarDelete.ad?car_code=${dto.car_code }">삭제</a> --%>
 	    </td>
     </tr>
 	</c:forEach>
@@ -277,13 +268,13 @@ a {
 
 
 	<!-- 자바스크립트, 화면 설정 관련 -->
-	<div id="ftco-loader" class="show fullscreen">
-		<svg class="circular" width="48px" height="48px">
-			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
-				stroke-width="4" stroke="#eeeeee" />
-			<circle class="path" cx="24" cy="24" r="22" fill="none"
-				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
-	</div>
+<!-- 	<div id="ftco-loader" class="show fullscreen"> -->
+<!-- 		<svg class="circular" width="48px" height="48px"> -->
+<%-- 			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" --%>
+<%-- 				stroke-width="4" stroke="#eeeeee" /> --%>
+<%-- 			<circle class="path" cx="24" cy="24" r="22" fill="none" --%>
+<%-- 				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg> --%>
+<!-- 	</div> -->
 
 
 	<script src="./js/jquery.min.js"></script>

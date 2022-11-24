@@ -6,17 +6,17 @@ import javax.servlet.http.HttpSession;
 
 import com.taiso.admin.review.db.AdminReviewDAO;
 
-public class AdminReviewDeleteAction implements AdminReview {
+public class AdminReviewDeleteAction implements Action {
 
 	@Override
-	public AdminReviewForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		System.out.println(" M : AdminReviewDeleteAction_execute 호출 ");
 		
 //		// 세션제어(admin)
 //		HttpSession session = request.getSession();
 //		String id = (String) session.getAttribute("id");
-		AdminReviewForward forward = new AdminReviewForward();
+		ActionForward forward = new ActionForward();
 //		if(id == null || !id.equals("admin")) {
 //			forward.setPath("./MemberLogin.me");
 //			forward.setRedirect(true);
@@ -31,8 +31,10 @@ public class AdminReviewDeleteAction implements AdminReview {
 		AdminReviewDAO dao = new AdminReviewDAO();
 		dao.deleteReivew(rev_num);
 		
+		System.out.println(rev_num + ",,,,, " + pageNum);
+		
 		// 페이지이동
-		forward.setPath("./AdminReviewList.adr");
+		forward.setPath("./AdminReviewList.adr?pageNum="+pageNum);
 		forward.setRedirect(true);
 		return forward;
 	}
