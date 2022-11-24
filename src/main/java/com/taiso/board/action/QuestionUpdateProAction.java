@@ -26,8 +26,8 @@ public class QuestionUpdateProAction implements Action {
 		String pageNum = request.getParameter("pageNum");
 		
 		// DB에 가서 수정
-		BoardDAO dao = new BoardDAO();
-		int result = dao.UpdateQuestion(bodto);
+		BoardDAO bodao = new BoardDAO();
+		int result = bodao.UpdateQuestion(bodto);
 		
 		System.out.println(" M : 수정완료 "+result);
 		
@@ -44,7 +44,7 @@ public class QuestionUpdateProAction implements Action {
 			// 이제 출력해보자 html, 즉 JS코드를 쓸 수 있게 되었다! 
 //			out.print("<h1>안녕 테스트</h1>");
 			out.print("<script>");
-			out.print("alert('수정 완료!');");
+			out.print("alert('수정이 완료되었습니다!');");
 			out.print(" location.href='./QuestionList.bo'; ");
 			out.print("</script>");
 			out.close();
@@ -53,7 +53,7 @@ public class QuestionUpdateProAction implements Action {
 			
 		}else if(result == 0){
 			out.print("<script>");
-			out.print(" alert('비밀번호 오류!! 수정 X'); ");
+			out.print(" alert('비밀번호가 다릅니다'); ");
 			out.print(" history.back(); ");
 			out.print("</script>");
 			out.close();
@@ -62,7 +62,7 @@ public class QuestionUpdateProAction implements Action {
 			
 		}else { //result == -1
 			out.print("<script>");
-			out.print(" alert('게시판 글 없음!! 수정 X'); ");
+			out.print(" alert('해당 게시글이 존재하지 않습니다'); ");
 			out.print(" history.back(); ");
 			out.print("</script>");
 			out.close();

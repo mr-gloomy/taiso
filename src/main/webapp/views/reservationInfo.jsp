@@ -215,9 +215,10 @@
 										<div class="d-flex mb-3" style="display: flex; justify-content: center;">
 											 <form action="" name="fr" method="post">
 							   					  <input type="hidden" name="mem_id" value="${mDTO.mem_id }" >   
+							   					  <input type="hidden" name="pay_uqNum" value="${payDTO.pay_uqNum }" >   
 											 </form>
-											 <input type = "button" class="btn btn-primary py-1 mr-1" value = "예약 조회로 돌아가기">ㅤ
-											 <input type = "button" class="btn btn-primary py-2 mr-1" value = "예약 취소">
+											 <input type = "button" class="btn btn-primary py-1 mr-1" value = "예약 조회로 돌아가기" onclick="location.href='./ReservationListAction.rez';">ㅤ
+											 <input type = "button" class="btn btn-primary py-2 mr-1" value = "예약 취소" onclick="location.href='./ReservationCancelCheck.rez?mem_id=${mDTO.mem_id}&rez_uqNum=${rezDTO.rez_uqNum }';">
 											
 										</div>
 									</div>

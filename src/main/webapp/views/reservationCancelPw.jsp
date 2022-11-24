@@ -44,7 +44,7 @@ function checkPW(){
    
    // 새창열기
 //    location.href="./ReservationCancel.rez?mem_pw="+mem_pw+"mem_id="+mem_id+"rez_uqNum="+rez_uqNum";
-   location.href="./ReservationCancelAction.rez";
+   location.href="./ReservationCancel.rez";
    
 } 
 
