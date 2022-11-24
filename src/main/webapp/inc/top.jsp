@@ -35,7 +35,7 @@
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="./ReservationMain.rez">단기렌트</a>
 								<a class="dropdown-item" href="#">장기렌트</a>
-								<a class="dropdown-item" href="./CarList.ca">차량목록</a>
+								<a class="dropdown-item" href="./CarListAll.ca">차량목록</a>
 							</div>
 						</div>
 						<div class="dropdown">

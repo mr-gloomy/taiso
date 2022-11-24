@@ -39,7 +39,7 @@ public class AdminReservationListAction implements Action {
       int cnt = dao.getReservationCount(); 
       
       // 한 페이지에 보여줄 글의 개수를 설정
-      int pageSize = 10;
+      int pageSize = 3;
       
       // http://localhost:8088/TAISO/views/admin_reservation_list.jsp?pageNum=2
       
@@ -76,7 +76,7 @@ public class AdminReservationListAction implements Action {
       int pageCount = (cnt/pageSize)+(cnt%pageSize==0? 0:1); // 삼항연산 A? 참이면 true:false ==> 0:1
       
       // 한 화면에 보여줄 페이지수 (화면에 나타나는 페이지 인덱스 개수)
-      int pageBlock = 2;
+      int pageBlock = 5;
       
       // 페이지블럭의 시작번호   1~10 => 1, 11~20 => 11, 21~30 => 21
       int startPage = ((currentPage-1)/pageBlock)*pageBlock+1;

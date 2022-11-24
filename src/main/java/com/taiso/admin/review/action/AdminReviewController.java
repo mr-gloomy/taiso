@@ -27,8 +27,8 @@ public class AdminReviewController extends HttpServlet{
 				
 				System.out.println(" C : 1. 가상주소 계산 끝 \n");
 				
-				AdminReview action = null;
-				AdminReviewForward forward = null;
+				Action action = null;
+				ActionForward forward = null;
 				
 				// 2. 가상주소 매핑(패턴1,2,3)
 				if(command.equals("/AdminReviewList.adr")) {

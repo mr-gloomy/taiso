@@ -1,5 +1,7 @@
 package com.taiso.reservation.action;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -54,13 +56,14 @@ public class ReservationAction implements Action {
 
 		// 회원DAO - 회원정보 가져오기
 		ReservationDAO rezDAO = new ReservationDAO(); // ******회원DAO로 바꾸기
-		MemberDTO mDTO = rezDAO.getMemberInfo(mem_id);
+		ArrayList totalDTO = rezDAO.getMemberInfo(mem_id);
 
-		System.out.println(mDTO);
+		System.out.println(totalDTO);
 
 		
 		// request 영역에 저장
-		request.setAttribute("mDTO", mDTO);
+		request.setAttribute("mDTO", totalDTO.get(0));
+		request.setAttribute("rezDTO", totalDTO.get(1));
 
 		forward = new ActionForward();
 		// 페이지 이동(./views/reservationForm.jsp)

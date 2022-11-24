@@ -244,6 +244,41 @@ public class ReservationController extends HttpServlet{
 				}
 				
 			    
+				/**
+				 * ReservationToMail
+				 * 
+				 */
+				else if(command.equals("/ReservationToMail.rez")) {
+					System.out.println(" C : /ReservationToMail.rez 호출 ");
+					System.out.println(" C : [패턴 2] ");
+					
+					action = new ReservationToMail();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+				
+				
+				/**
+				 * ReservationToKakao
+				 * 
+				 */
+				else if(command.equals("/ReservationToKakao.rez")) {
+					System.out.println(" C : /ReservationToKakao.rez 호출 ");
+					System.out.println(" C : [패턴 1] ");
+					
+					action = new ReservationToKakao();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+				
+				
+				
 			    System.out.println(" C : 2. 가상주소 매핑 끝");
 			      
 			    

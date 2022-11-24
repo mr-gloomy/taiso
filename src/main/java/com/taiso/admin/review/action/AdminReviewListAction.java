@@ -7,10 +7,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.taiso.admin.review.db.AdminReviewDAO;
 
-public class AdminReviewListAction implements AdminReview {
+public class AdminReviewListAction implements Action {
 
 	@Override
-	public AdminReviewForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println(" M : AdminReviewListAction_execute() 호출");
 		
 		// AdminReviewDAO 객체 생성
@@ -90,8 +90,8 @@ public class AdminReviewListAction implements AdminReview {
 			request.setAttribute("endPage", endPage);
 			
 			// 페이징 이동준비(티켓 생성)
-			AdminReviewForward forward = new AdminReviewForward();
-			forward.setPath("./reviewBoard/adminReviewBoard2.jsp");
+			ActionForward forward = new ActionForward();
+			forward.setPath("./reviewBoard/adminReviewBoard.jsp");
 			forward.setRedirect(false);
 			
 			return forward;
