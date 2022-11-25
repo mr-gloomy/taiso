@@ -69,8 +69,8 @@
 		// 컨트롤러에서 ReviewDelete.rev는 페이지 이동 없이 디비에서 해당 글 삭제하고 다시 reviewList.jsp로 이동
 		
 		
-		session.setAttribute("mem_id", "itwill");
-		session.setAttribute("rez_uqNum", 1);
+// 		session.setAttribute("mem_id", "itwill");
+// 		session.setAttribute("rez_uqNum", 1);
 				
 	%>		
 <!-- 			<form action="./ReviewWrite.rev"> -->

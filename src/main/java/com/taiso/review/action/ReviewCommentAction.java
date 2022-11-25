@@ -1,5 +1,7 @@
 package com.taiso.review.action;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -18,27 +20,21 @@ public class ReviewCommentAction implements Action {
 		HttpSession session = request.getSession();
 		
 		String mem_id = (String) session.getAttribute("mem_id");
-		int rez_uqNum = (int) session.getAttribute("rez_uqNum");
-		int rev_num = Integer.parseInt(request.getParameter("rev_num"));
 		
-		System.out.println(mem_id);
-		System.out.println(rez_uqNum);
-		// System.out.println(rev_num);
+		System.out.println("회원 아이디: " + mem_id);
 		
 		ActionForward forward = new ActionForward();
-//		if(mem_id == null) {
-//			forward.setPath("로그인 안 했을 때 이동할 주소");
-//			forward.setRedirect(true);
-//			return forward;
-//		}
+		if(mem_id == null) {
+			forward.setPath("./MemberLogin.me");
+			forward.setRedirect(true);
+			return forward;
+		}
 		
 		// DTO 생성
 		ReviewDTO rDTO = new ReviewDTO();
 		
-		rDTO.setRez_uqNum(rez_uqNum);
 		rDTO.setMem_id(mem_id);
 		rDTO.setRev_subject(request.getParameter("rev_subject"));
-		rDTO.setCar_code(Integer.parseInt(request.getParameter("car_code")));
 		rDTO.setRev_content(request.getParameter("rev_content"));
 		rDTO.setRev_image(request.getParameter("rev_image"));
 		rDTO.setRev_ref(Integer.parseInt(request.getParameter("rev_num")));
@@ -48,10 +44,15 @@ public class ReviewCommentAction implements Action {
 		ReviewDAO rDAO = new ReviewDAO();
 		rDAO.insertReviewReply(rDTO);
 		
-		forward.setPath("./ReviewListAction.rev");
-		forward.setRedirect(true);
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		
-		return forward;
+		out.print("<script>");
+		out.print("history.back();");
+		out.print("</script>");
+		out.close();
+		
+		return null;
 	}
 
 }

@@ -127,7 +127,6 @@ public class ReviewController extends HttpServlet {
 			}
 			
 		}
-		
 		System.out.println("C : 2. 가상주소 매핑 완료\n");
 		
 		// 3. 페이지 이동

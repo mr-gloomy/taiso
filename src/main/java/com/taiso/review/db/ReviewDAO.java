@@ -11,6 +11,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.mysql.cj.protocol.Resultset;
+
 public class ReviewDAO {
 	
 	private Connection con = null;
@@ -57,10 +59,46 @@ public class ReviewDAO {
 	}
 	// 자원해제 메서드 - closeDB ()
 	
+	// 예약번호로 리뷰 글 있는지 조회하는 메서드 - checkReview()
+	public List getCheckReview(String mem_id) {
+		List rList = new ArrayList();
+		
+		try {
+			// 디비 연결
+			con = getConnection();
+			
+			// 쿼리 작성 및 객체 생성
+			sql = "select * from car_review where mem_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mem_id);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ReviewDTO rDTO = new ReviewDTO();
+				
+				rDTO.setRev_num(rs.getInt("rev_num"));
+				rDTO.setRez_uqNum(rs.getInt("rez_uqNum"));
+				
+				rList.add(rDTO);
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		// 디비 조회 후 글이 있으면 1을 리턴, 없으면 0을 리턴
+		return rList;
+	}
+	
+	// 예약번호로 리뷰 글 있는지 조회하는 메서드 - checkReview() - 끝 
+	
 	// 리뷰 글쓰기 메서드 - insertReview(ReviewDTO dto)
-	public void insertReview(ReviewDTO rDTO) {
+	public void insertReview(ReviewDTO rDTO, String mem_id) {
 		int rev_num = 0;
 		String mem_nickName = null;
+		String car_name = null;
 		try {
 			// 디비 연결
 			con = getConnection();
@@ -76,40 +114,43 @@ public class ReviewDAO {
 			}
 			
 			// 쿼리 작성 및 객체 생성 (닉네임)
-			sql = "select member.mem_nickName from car_review join member on car_review.mem_id = member.mem_id";
+			sql = "select mem_nickName from member where mem_id=?";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mem_id);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				mem_nickName = rs.getString("mem_nickName");
+				mem_nickName = rs.getString(1);
+			}
+			
+			sql = "select car_name from car where car_code=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, rDTO.getCar_code());
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				car_name = rs.getString(1);
 			}
 
-			// 쿼리 작성 및 객체 생성
-			sql = "select car_code from rez_reservation where rez_uqNum=?";
+			sql = "insert into car_review(rev_num,rev_subject,rev_content,rev_image,rev_star,car_code,car_name,mem_id,rez_uqNum,rev_ref,rev_lev,rev_seq, mem_nickName) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, rDTO.getRez_uqNum());
-			rs = pstmt.executeQuery();
+			pstmt.setInt(1, rev_num);		
+			pstmt.setString(2, rDTO.getRev_subject());
+			pstmt.setString(3, rDTO.getRev_content());
+			pstmt.setString(4, rDTO.getRev_image());
+			pstmt.setInt(5, rDTO.getRev_star());
+			pstmt.setInt(6, rDTO.getCar_code());
+			pstmt.setString(7, car_name);
+			pstmt.setString(8, rDTO.getMem_id());
+			pstmt.setInt(9, rDTO.getRez_uqNum());
+			pstmt.setInt(10, rev_num);
+			pstmt.setInt(11, 0);
+			pstmt.setInt(12, 0);
+			pstmt.setString(13, mem_nickName);
+			pstmt.executeUpdate();
 			
-			if(rs.next()) {
-			
-				sql = "insert into car_review(rev_num,rev_subject,rev_content,rev_image,rev_star,car_code,mem_id,rez_uqNum,rev_ref,rev_lev,rev_seq, mem_nickName) values(?,?,?,?,?,?,?,?,?,?,?,?)";
-				pstmt = con.prepareStatement(sql);
-				pstmt.setInt(1, rev_num);		
-				pstmt.setString(2, rDTO.getRev_subject());
-				pstmt.setString(3, rDTO.getRev_content());
-				pstmt.setString(4, rDTO.getRev_image());
-				pstmt.setInt(5, rDTO.getRev_star());
-				pstmt.setInt(6, rs.getInt("car_code"));
-				pstmt.setString(7, rDTO.getMem_id());
-				pstmt.setInt(8, rDTO.getRez_uqNum());
-				pstmt.setInt(9, rev_num);
-				pstmt.setInt(10, 0);
-				pstmt.setInt(11, 0);
-				pstmt.setString(12, mem_nickName);
-				pstmt.executeUpdate();
-				
-				System.out.println("DAO : 리뷰 글쓰기 완료!");
-			}
+			System.out.println("DAO : 리뷰 글쓰기 완료!");
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -120,25 +161,25 @@ public class ReviewDAO {
 	// 리뷰 글쓰기 메서드 - insertReview(ReviewDTO dto) - 끝
 	
 	// 한개의 글정보 담는 메서드 - getReview(int rev_num)
-	public ReviewDTO getReview(int rev_num) {
+	public ReviewDTO getReview(int rez_uqNum) {
 		ReviewDTO rDTO = null;
+		int rev_num = 0;
 		
 		try {
 			// 디비 연걸
 			con = getConnection();
 			
-			// 쿼리 작성 및 객체 생성
-			sql = "select * from car_review where rev_num=?";
+			sql = "select * from car_review where rez_uqNum=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, rev_num);
+			pstmt.setInt(1, rez_uqNum);
 			rs = pstmt.executeQuery();
-			
+
 			if(rs.next()) {
 				rDTO = new ReviewDTO();
 				
 				rDTO.setRev_content(rs.getString("rev_content"));
 				rDTO.setRev_image(rs.getString("rev_image"));
-				rDTO.setRev_num(rev_num);
+				rDTO.setRev_num(rs.getInt("rev_num"));
 				rDTO.setRev_star(rs.getInt("rev_star"));
 				rDTO.setRev_subject(rs.getString("rev_subject"));
 				
@@ -185,16 +226,17 @@ public class ReviewDAO {
 	// 리뷰 글수정 메서드 - updateReview(ReviewDTO dto) - 끝
 	
 	// 리뷰 글삭제 메서드 - deleteReview(int rev_num)
-	public void deleteReview(int rev_num) {
+	public void deleteReview(int rez_uqNum) {
 		
 		try {
 			// 디비 연결
 			con = getConnection();
 			
 			// 쿼리 작성 및 객체 생성 
-			sql = "delete from car_review where rev_num=?";
+			sql = "delete from car_review where rez_uqNum=? and rev_star!=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, rev_num);
+			pstmt.setInt(1, rez_uqNum);
+			pstmt.setInt(2, 0);
 
 			pstmt.executeUpdate();
 			
@@ -287,11 +329,24 @@ public class ReviewDAO {
 	// 답글 정보 저장하는 메서드 - insertReviewReply(dto)
 	public void insertReviewReply(ReviewDTO rDTO) {
 		int rev_num = 0;
+		int car_code = 0;
+		String car_name = null;
 		String mem_nickName = null;
 		
 		try {
 			// 디비 연결
 			con = getConnection();
+			
+			// 쿼리 작성 및 객체 생성 (카코드, 카네임)
+			sql = "select car_code, car_name from car_review where rev_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, rDTO.getRev_ref());
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				car_code = rs.getInt(1);
+				car_name = rs.getString(2);
+			}
 			
 			// 쿼리 작성 및 객체 생성
 			sql = "select max(rev_num) from car_review";
@@ -321,30 +376,32 @@ public class ReviewDAO {
 			}
 			
 			// 쿼리 작성 및 객체 생성 (닉네임)
-			sql = "select member.mem_nickName from car_review join member on car_review.mem_id = member.mem_id";
+			sql = "select mem_nickName from member where mem_id=?";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, rDTO.getMem_id());
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				mem_nickName = rs.getString("mem_nickName");
+				mem_nickName = rs.getString(1);
 			}
 			
 			
 			// 쿼리 작성 및 객체 생성
-			sql = "insert into car_review(rev_num,rev_subject,rev_content,rev_image,rev_star,car_code,mem_id,rez_uqNum,rev_ref,rev_lev,rev_seq,mem_nickName) values(?,?,?,?,?,?,?,?,?,?,?,?)";
+			sql = "insert into car_review(rev_num,rev_subject,rev_content,rev_image,rev_star,car_code,car_name,mem_id,rez_uqNum,rev_ref,rev_lev,rev_seq,mem_nickName) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, rev_num);		
 			pstmt.setString(2, rDTO.getRev_subject());
 			pstmt.setString(3, rDTO.getRev_content());
 			pstmt.setString(4, rDTO.getRev_image());
 			pstmt.setInt(5, rDTO.getRev_star());
-			pstmt.setInt(6, rDTO.getCar_code());
-			pstmt.setString(7, rDTO.getMem_id());
-			pstmt.setInt(8, rDTO.getRez_uqNum());
-			pstmt.setInt(9, rDTO.getRev_ref());
-			pstmt.setInt(10, rDTO.getRev_lev()+1);
-			pstmt.setInt(11, rDTO.getRev_seq()+1);
-			pstmt.setString(12, mem_nickName);
+			pstmt.setInt(6, car_code);
+			pstmt.setString(7, car_name);
+			pstmt.setString(8, rDTO.getMem_id());
+			pstmt.setInt(9, rDTO.getRez_uqNum());
+			pstmt.setInt(10,rDTO.getRev_ref());
+			pstmt.setInt(11, rDTO.getRev_lev()+1);
+			pstmt.setInt(12, rDTO.getRev_seq()+1);
+			pstmt.setString(13, mem_nickName);
 			
 			pstmt.executeUpdate();
 			
@@ -391,4 +448,5 @@ public class ReviewDAO {
 		
 	}
 	// 리뷰 정보 랜덤 5개 조회 - selectRandReview()
+	
 }
