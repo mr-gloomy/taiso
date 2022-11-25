@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="./css/flaticon.css">
     <link rel="stylesheet" href="./css/icomoon.css">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/board.css">
+    <link rel="stylesheet" href="./css/adminReview.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
     <script type="text/javascript">
 		function deleteReview(a,b){
@@ -78,22 +78,24 @@
                 <div class="top">
                     <div class="num">번호</div>
                     <div class="count">닉네임</div>
+                    <div class="count">차량명</div>
                     <div class="title3">제목</div>
                     <div class="date3">작성일</div>
-                    <div class="count">관리</div>
+                    <div class="count2">관리</div>
                 </div>
                 
               <c:forEach var="dto" items="${reviewListAll }">
                 <div>
                     <div class="num">${dto.rev_num }</div>
                     <div class="count">${dto.mem_nickName } </div>
+                     <div class="count">${dto.car_name } </div>
                     <div class="title3">
                     	<a href="./AdminReivewContent.adr?rev_num=${dto.rev_num }&pageNum=${pageNum}">${dto.rev_subject }</a>
                     </div>
                     <div class="date3">
                      <fmt:formatDate value="${dto.rev_date }" pattern="yyyy년 MM월 dd일 " />
                     </div>
-                    <div class="count">
+                    <div class="count2">
                  	    <input type = "button" class="btn btn-primary py-2 mr-1" value = "삭제" onclick="deleteReview(${dto.rev_num },${pageNum });">
 
                     </div>

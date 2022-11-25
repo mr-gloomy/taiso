@@ -101,6 +101,7 @@ public class AdminReviewDAO {
 					rDTO.setRev_star(rs.getInt("rev_star"));
 					rDTO.setRev_date(rs.getTimestamp("rev_date"));
 					rDTO.setMem_nickName(rs.getString("mem_nickName"));
+					rDTO.setCar_name(rs.getString("car_name"));
 					
 					// DTO -> List
 					ReviewList.add(rDTO);
