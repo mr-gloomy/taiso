@@ -77,7 +77,7 @@
                <div class="col-md-4">
                   <div class="car-wrap rounded ftco-animate">
                      <div class="img rounded d-flex align-items-end"
-                        style="background-image: url(./upload/${dto.car_file.split(',')[0] });">
+                        style="background-image: url(./upload/${cars.car_file.split(',')[0] });">
                      </div>
                      <div class="text">
                         <h2 class="mb-0">

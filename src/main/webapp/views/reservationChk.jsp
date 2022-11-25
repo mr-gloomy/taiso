@@ -69,29 +69,10 @@
 }
 </style>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.1/kakao.min.js"
-  integrity="sha384-eKjgHJ9+vwU/FCSUG3nV1RKFolUXLsc6nLQ2R1tD0t4YFPCvRmkcF8saIfOZNWf/" crossorigin="anonymous"></script>
-
-<script>
-  Kakao.init('4f2b3314b4b648f582b93600574cd923'); // JS키
-  
-  Kakao.Share.createCustomButton({
-	  container: '#kakaotalk-sharing-btn',
-	  templateId: ${86235},
-	  templateArgs: {
-		"mem_id":'${sessionScope.mem_id}',
-		"rental_date":'${rezDTO.rez_rentalDate}',
-		"return_date":'${rezDTO.rez_returnDate}',
-		"rez_site":'${rezDTO.rez_site}',
-		"car_name":'${rezDTO.car_name}'
-	  }
-  });
-</script>
-
 </head>
 <body>
+	<c:set var="mDTO" value="${mDTO }"/>
+	<c:set var="rezDTO" value="${rezDTO }"/>
 	<div class="test"></div>
 	<section class="ftco-section">
 		<div class="container">
@@ -104,51 +85,49 @@
 			</div>
 			<div class="row">
 				<div class="col-md-3">
+					<a href='./ReservationMain.rez'>
 					<div class="services services-2 w-100 text-center">
 						<div class="icon d-flex align-items-center justify-content-center">
 							<div class="mainicon"></div>
 						</div>
 						<div class="text w-100">
 							<h3 class="heading mb-2">메인으로 이동</h3>
-							<input type="button" value="메인으로 가기" onclick="location.href='./Reservation.jsp';">
 						</div>
-					</div>
+					</div></a>
 				</div>
 				<div class="col-md-3">
+					<a href='./ReservationListAction.rez?mem_id=${sessionScope.mem_id}'>
+					
 					<div class="services services-2 w-100 text-center">
 						<div class="icon d-flex align-items-center justify-content-center">
 							<div class="listicon"></div>
 						</div>
 						<div class="text w-100">
 							<h3 class="heading mb-2">예약목록 조회</h3>
-							<input type="button" value="예약 확인하기" onclick="location.href='./ReservationListAction.rez?mem_id=${sessionScope.mem_id}';">
 						</div>
-					</div>
+					</div></a>
 				</div>
 				<div class="col-md-3">
+					<a href='./ReservationToMail.rez?mem_id=${sessionScope.mem_id}&payNum=${param.pay_uqNum }'>
 					<div class="services services-2 w-100 text-center">
 						<div class="icon d-flex align-items-center justify-content-center">
 							<div class="mailicon"></div>
 						</div>
 						<div class="text w-100">
 							<h3 class="heading mb-2">메일 전송</h3>
-							<input type="button" value="메일 전송" onclick="location.href='./ReservationToMail.rez?mem_id=${sessionScope.mem_id}&pay_uqNum=${param.pay_uqNum }';">
 						</div>
-					</div>
+					</div></a>
 				</div>
 				<div class="col-md-3">
+					<a id="kakaotalk-sharing-btn">
 					<div class="services services-2 w-100 text-center">
 						<div class="icon d-flex align-items-center justify-content-center">
 							<div class="kakaoicon"></div>
 						</div>
 						<div class="text w-100">
 							<h3 class="heading mb-2">카카오톡 공유</h3>
-								<a id="kakaotalk-sharing-btn" href="javascript:;">
-								  <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png"
-								    alt="카카오톡 공유 보내기 버튼" />
-								</a>
 						</div>
-					</div>
+					</div></a>
 				</div>
 			</div>
 		</div>
@@ -182,6 +161,35 @@
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="js/google-map.js"></script>
 	<script src="js/main.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.1/kakao.min.js"
+  integrity="sha384-eKjgHJ9+vwU/FCSUG3nV1RKFolUXLsc6nLQ2R1tD0t4YFPCvRmkcF8saIfOZNWf/" crossorigin="anonymous"></script>
+
+<script>
+  Kakao.init('4f2b3314b4b648f582b93600574cd923'); // JS키
+</script>
+  
+  <!-- jQuery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+		$('#kakaotalk-sharing-btn').click(function(){
+			  Kakao.Share.createCustomButton({
+				  container: '#kakaotalk-sharing-btn',
+				  templateId: ${86235},
+				  templateArgs: {
+					"mem_id":'${sessionScope.mem_id}',
+					"rental_date":'${rezDTO.rez_rentalDate}',
+					"return_date":'${rezDTO.rez_returnDate}',
+					"rez_site":'${rezDTO.rez_site}',
+					"car_name":'${rezDTO.car_name}'
+				  }
+			  });
+		});
+	});
+</script>
 
 </body>
 </html>

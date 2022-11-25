@@ -518,7 +518,7 @@ public class ReservationDAO {
 				rezDTO.setRez_site(rs.getString("rez_Site"));
 				rezDTO.setCar_name(rs.getString("car_name"));
 			}
-			
+			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@"+rezDTO);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
