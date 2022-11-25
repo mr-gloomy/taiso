@@ -339,6 +339,7 @@
 																	<c:forEach begin="1" end="${dto.rev_star }" step="1">
 																		<i class="ion-ios-star"></i>
 																	</c:forEach>
+																	
 																</span>
 																<span class="text-right">
 																	<a href="javascript:commentOpen(${dto.rev_num });" class="reply">

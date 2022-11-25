@@ -13,7 +13,7 @@
 // response.sendRedirect("./AdminCarList.ad");
 
 // response.sendRedirect("./AdminCarList.ad");
-response.sendRedirect("./ReservationMain.rez");
+// response.sendRedirect("./ReservationMain.rez");
 
 
 // response.sendRedirect("./AdminReviewList.adr");

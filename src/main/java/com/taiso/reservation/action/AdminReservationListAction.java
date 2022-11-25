@@ -39,7 +39,7 @@ public class AdminReservationListAction implements Action {
       int cnt = dao.getReservationCount(); 
       
       // 한 페이지에 보여줄 글의 개수를 설정
-      int pageSize = 3;
+      int pageSize = 10;
       
       // http://localhost:8088/TAISO/views/admin_reservation_list.jsp?pageNum=2
       

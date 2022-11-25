@@ -34,6 +34,8 @@
 <link rel="stylesheet" href="./css/flaticon.css">
 <link rel="stylesheet" href="./css/icomoon.css">
 <link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/adminCar.css">
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
 <style type="text/css">
 body {
@@ -156,7 +158,7 @@ a {
 								class="ion-ios-arrow-forward"></i></a></span> <span>Cars <i
 							class="ion-ios-arrow-forward"></i></span>
 					</p>
-					<h1 class="mb-3 bread">당신의 차를 선택하라.</h1>
+					<h1 class="mb-3 bread">관리자 차량관리</h1>
 				</div>
 			</div>
 		</div>
@@ -167,9 +169,12 @@ a {
 	
 						<!-- 하단에 링크 걸어서 차량 사진 불러오기 -->
 						<!-- 게시판 -->
-<article>
-<h1> [관리자] 차량 리스트 </h1>
-<div>
+<div class="adminCar_wrap2">
+<div class="adminCar_title">
+            <strong>[관리자] 차량리스트</strong>
+  			<p> 전체 차량 대수 : ${requestScope.totalCnt } 개 </p>          
+  </div>
+<div class="btn">
 	<a href="./AdminCarList.ad">전체</a>
 	<a href="./AdminCarList.ad?item=small">소형</a>
 	<a href="./AdminCarList.ad?item=compact">준중형</a>
@@ -178,50 +183,48 @@ a {
 	<a href="./AdminCarList.ad?item=suv">suv</a>
 	<a href="./AdminCarList.ad?item=foreign">수입차</a>
 </div>
-<table id="notice">
-<tr><th>상품번호</th>
-	<th>브랜드명</th>
-	<th>차량명</th>
-    <th>카테고리</th>
-    <th>지점</th>
-    <th>이미지</th>
-    <th>가격</th>
-    <th>옵션</th>
-    <th>연식</th>
-    <th>관리</th>
-    </tr>
+ <div class="adminCar_list_wrap">
+            <div class="adminCar_list">
+               <div class="top">
+               	<div class="num">상품번호</div>
+               	 <div class="count">브랜드명</div>
+                 <div class="count">차량명</div>
+                 <div class="count">카테고리</div>
+                 <div class="count3">지점</div>
+                  <div class="count">렌트가격</div>
+                  <div class="title3">옵션</div>
+                  <div class="count">연식</div>
+                  <div class="count2">관리</div>
+                 </div>
+               	
     <c:forEach var="dto" items="${adminCarList }">
-	<tr>
-		<td>${dto.car_code }</td>
-		<td>${dto.car_brand }</td>
-		<td>${dto.car_name }</td>
-		<td class="left">${dto.car_category }</td>
-		<td>${dto.car_site }</td>
-	    <td>
-	    	<img src="./upload/${dto.car_file.split(',')[0] }" width="50" height="50">
-	    </td>
-	    <td>${dto.car_price }</td>
-	    <td>${dto.car_op }</td>
-	    <td>${dto.car_year }</td>
-	    <td>
-	    <input type ="button" value="수정" onclick="location.href='./AdminCarUpdate.ad?car_code=${dto.car_code }';">
-	    /
-	    <input type = "button" value = "삭제" onclick="deleteCar(${dto.car_code });">
+	 <div>
+			<div class="num">${dto.car_code }</div>
+		<div class="count">${dto.car_brand }</div>
+		<div class="count">${dto.car_name }</div>
+		<div class="count">${dto.car_category }</div>
+		<div class="count3">${dto.car_site }</div>
+<!-- 	    <td> -->
+<%-- 	    	<img src="./upload/${dto.car_file.split(',')[0] }" width="50" height="50"> --%>
+<!-- 	    </td> -->
+	    <div class="count">${dto.car_price }</div>
+	   <div class="title3">${dto.car_op }</div>
+	    <div class="count">${dto.car_year }</div>
+	   <div class="count2">
+	    <input type ="button" class="btn btn-primary py-2 mr-1" value="수정" onclick="location.href='./AdminCarUpdate.ad?car_code=${dto.car_code }';">
+	    |
+	    <input type = "button" class="btn btn-primary py-2 mr-1" value = "삭제" onclick="deleteCar(${dto.car_code });">
 		
-	    </td>
-    </tr>
+	    </div>
+    </div>
 	</c:forEach>
-</table>
+</div>
 <div id="table_search">
 	<input type="button" value="상품등록" class="btn"
 		onclick="location.href='./AdminCarAdd.ad';">
-		
 </div>
-<div class="clear"></div>
-<div id="page_control">
-
 </div>
-</article>
+</div>
 <!-- 게시판 -->
 					
 
@@ -262,20 +265,9 @@ a {
 
 		</c:if>
 
-
-	<jsp:include page="../inc/bottom.jsp"></jsp:include>
-
-
-
-	<!-- 자바스크립트, 화면 설정 관련 -->
-<!-- 	<div id="ftco-loader" class="show fullscreen"> -->
-<!-- 		<svg class="circular" width="48px" height="48px"> -->
-<%-- 			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" --%>
-<%-- 				stroke-width="4" stroke="#eeeeee" /> --%>
-<%-- 			<circle class="path" cx="24" cy="24" r="22" fill="none" --%>
-<%-- 				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg> --%>
-<!-- 	</div> -->
-
+<!-- 푸터들어가는 곳 -->
+	<jsp:include page="../inc/bottom.jsp" />
+<!-- 푸터들어가는 곳 -->
 
 	<script src="./js/jquery.min.js"></script>
 	<script src="./js/jquery-migrate-3.0.1.min.js"></script>
