@@ -19,7 +19,7 @@ public class PaymentAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println(" m : PaymentAction_execute() 호출");
+		System.out.println(" m : Payment_execute() 호출");
 
 		// 1. carDTO - 차량 상태 업데이트 (관련 컬럼이 없어서 보류)
 		

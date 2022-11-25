@@ -45,8 +45,8 @@ public class ReviewController extends HttpServlet {
 			forward.setPath("./review/reviewWrite.jsp");
 			forward.setRedirect(false);
 		}
-		else if(command.equals("/ReviewWriteAction.rev")) {
-			System.out.println("C : /ReviewWriteAction.rev 호출");
+		else if(command.equals("/ReviewWriteProAction.rev")) {
+			System.out.println("C : /ReviewWriteProAction.rev 호출");
 			
 			action = new ReviewWriteAction();
 			
@@ -58,7 +58,7 @@ public class ReviewController extends HttpServlet {
 			}
 			
 		}
-		else if(command.equals("/ReviewUpdateAction.rev")) {
+		else if(command.equals("/ReviewUpdate.rev")) {
 			System.out.println("C : /ReviewUpdate.rev 호출");
 			
 			action = new ReviewUpdateAction();
@@ -83,8 +83,8 @@ public class ReviewController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		else if(command.equals("/ReviewDeleteAction.rev")) {
-			System.out.println("C : /ReviewDeleteAction.rev 호출");
+		else if(command.equals("/ReviewDelete.rev")) {
+			System.out.println("C : /ReviewDelete.rev 호출");
 			
 			action = new ReviewDeleteAction();
 			
@@ -95,7 +95,7 @@ public class ReviewController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		else if(command.equals("/ReviewListAction.rev")) {
+		else if(command.equals("/ReviewList.rev")) {
 			System.out.println("C : /ReviewList.rev 호출");
 			
 			action = new ReviewListAction();
@@ -114,10 +114,10 @@ public class ReviewController extends HttpServlet {
 			forward.setPath("./review/reviewComment.jsp");
 			forward.setRedirect(false);
 		}
-		else if(command.equals("/ReviewCommentAction.rev")){
+		else if(command.equals("/ReviewCommentProAction.rev")){
 			System.out.println("C : /ReviewCommentAcion.rev 호출");
 			
-			action = new ReviewCommentAction();
+			action = new ReviewCommentProAction();
 			
 			try {
 				forward = action.execute(request, response);

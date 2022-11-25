@@ -11,7 +11,7 @@ public class AdminQuestionReWriteAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println(" M : QuestionReWriteAction_execute 호출");
+		System.out.println(" M : QuestionReWriteAction_execute 호출"); 
 		
 		
 		// 세션에 아이디 저장 

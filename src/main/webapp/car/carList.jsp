@@ -93,9 +93,9 @@
 	                           </p>
 	                        </div>
 	                        <p class="d-flex mb-0 d-block">
-	                           <a href="./ReservationAction.rez?car_code=${cars.car_code }"
+	                           <a href="./Reservation.rez?car_code=${cars.car_code }"
 	                              class="btn btn-primary py-2 mr-1">예약하기</a> <a
-	                              href="./ReviewListAction.rev?car_code=${cars.car_code }&car_name=${cars.car_name }"
+	                              href="./ReviewList.rev?car_code=${cars.car_code }&car_name=${cars.car_name }"
 	                              class="btn btn-secondary py-2 ml-1">차량상세정보 </a>
 	                        </p>
 	                     </div>

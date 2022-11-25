@@ -46,8 +46,8 @@ public class PaymentController extends HttpServlet {
 			forward.setRedirect(false);
 		}
 		
-		else if(command.equals("/PaymentAction.pay")) {
-			System.out.println("PaymentAction.pay 호출");
+		else if(command.equals("/Payment.pay")) {
+			System.out.println("Payment.pay 호출");
 			
 			action = new PaymentAction();
 			

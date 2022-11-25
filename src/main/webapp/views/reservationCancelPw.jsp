@@ -57,7 +57,7 @@ function checkPW(){
 <!-- 우선 기본으로 그냥 만들어 놓은것 -->
       <article>
          <h1>결제 취소 확인</h1>
-         <form action="./ReservationCancelAction.rez"  method="post" 
+         <form action="./ReservationCancel.rez"  method="post" 
                name="fr"  onsubmit="return checkPW()">
             <fieldset>
             

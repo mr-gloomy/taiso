@@ -474,7 +474,7 @@
 		    						</div>
 		    						<p class="d-flex mb-0 d-block">
 <!-- 			    						<a href="#" class="btn btn-primary py-2 mr-1">Book now</a> -->
-			    						<a href="./ReviewListAction.rev?car_code=${rCar.car_code }"
+			    						<a href="./ReviewList.rev?car_code=${rCar.car_code }"
 											class="btn btn-secondary py-2 ml-1">차량상세정보</a>
 									</p>
 		    					</div>
@@ -581,7 +581,7 @@
                          <p class="r-horizon-text" id="h-redDate">${rez_pick_time }</p>
                       </td>
                       <td>
-                         <p class="r-horizon-text ellipsis" id="h-car_name"><a href="./ReservationAction.rez?car_code=${param.car_code }" class="btn btn-primary py-2 mr-1">예약하기</a></p>
+                         <p class="r-horizon-text ellipsis" id="h-car_name"><a href="./Reservation.rez?car_code=${param.car_code }" class="btn btn-primary py-2 mr-1">예약하기</a></p>
                       </td>
                    </tr>
                 </tbody>
