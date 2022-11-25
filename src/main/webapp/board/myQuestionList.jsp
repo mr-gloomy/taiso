@@ -24,6 +24,16 @@
 <link rel="stylesheet" href="./css/board.css">
 <link rel="stylesheet" href="./css/admin_my.css">
 
+<script type="text/javascript">
+function Login() {
+// 	var mem_id = ${sessionScope.mem_id }
+// 	if(mem_id==null) {
+	alert("수정제안");
+// 	location.href="./MemberLogin.me";
+// 	return;
+	}
+}
+</script>
 
 <!-- input에 오늘날짜 기본값으로 넣기 -->
 <script type="text/javascript">
@@ -36,8 +46,13 @@
 		bir.value = today;
 	}
 </script>
-
-
+<style>
+    #wrapper{
+        width:300px;
+        margin:auto;
+        padding: 30px;
+    }
+</style>
 </head>
 <body>
 	<div id="wrap">
@@ -45,8 +60,7 @@
 		<jsp:include page="../inc/top.jsp" />
 		<!-- 헤더들어가는 곳 -->
 
-
-		<!--  -->
+		<!--  -->  
 		<section class="hero-wrap hero-wrap-2 js-fullheight"
 			data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
@@ -55,11 +69,11 @@
 					class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
 					<div class="col-md-9 ftco-animate pb-5">
 						<p class="breadcrumbs">
-							<span class="mr-2"><a href="./ReservationMain.rez"">Home <i
+							<span class="mr-2"><a href="./ReservationMain.rez">Home <i
 									class="ion-ios-arrow-forward"></i></a></span> <span>고객센터 <i
 								class="ion-ios-arrow-forward"></i></span>
 						</p>
-						<h1 class="mb-3 bread">수정제안</h1>
+						<h1 class="mb-3 bread">고객센터</h1>
 					</div>
 				</div>
 			</div>
@@ -71,125 +85,131 @@
 <%--    <%=request.getAttribute("boardListAll") %> --%>
 <%--	${requestScope.QuestionList } --%>
 	
-	<!-- left -->
-    <section class="ftco-section contact-section">
-      <div class="container">
-        <div class="row d-flex mb-5 contact-info">
-    	<div class="col-md-4">
-        	
-     	<!-- 프로필 -->
-     	<div class="row mb-5">
-			<div class="membercard">
-			  <div align="right">			
-				<button type="button" class="btn btn-secondary btn-sm" id="minibtn" onclick="location.href='./MemberUpdatePw.me' ">내 정보</button>
-			  </div>
-				<div class="text">
-					<img src="./images/user.png">
-					<h5>${mDTO.mem_nickName}</h5>
-					<p>문의사항　　|　　나의 리뷰</p>
-					<div align="center">${myqnacnt }　　　　|　　　　 ${myreviewcnt }</div>	　　　
-						
-				</div>
-			</div>
-     	<!-- 프로필 -->
-		
-		<!-- 메뉴바 -->
-
-    <div class="middle-md-12">
-        <div class="menu">
-            <ul id="noul">
-                <li class="buttonitem" id="profile" >
-                    <a href="#profile" class="menubtn" ><i class="fa fa-cog"></i> 렌트 내역</a>
-                    <div class="smenu" >
-                        <a href="./ReservationListAction.rez">예약/취소 조회</a>
-                        <a href="">2</a>
-                    </div>
-                </li>
-
-                <li class="buttonitem" id="messages">
-                    <a href="#messages" class="menubtn"><i class="fa fa-user"></i> 나의 게시글 모음 </a>
-                    <div class="smenu" style="display:block;">
-                        <a href="./MyQuestionList.bo" id="smenu">1:1 문의 내역</a>
-                        <a href="./ProposalList.bo">수정제안</a>
-                    </div>
-                </li>
-
-                <li class="buttonitem" id="settings">
-                    <a href="#settings" class="menubtn"><i class="fa fa-cog"></i> 회원정보 관리</a>
-                    <div class="smenu">
-                        <a href="./MemberUpdate.me">회원정보 변경(탈퇴)</a>
-<!--                         <a href="">비밀번호 변경</a> -->
-                    </div>
-                </li>
-                
-               </ul>
-             </div>
-            </div>
-		<!-- 메뉴바 -->
-  		</div> 
-   	 </div> 
+		<!-- left -->
+		<section class="ftco-section contact-section">
+			<div class="container">
+				<div class="row d-flex mb-5 contact-info">
 				
+				<!-- @@@@@@@@@@@@여기부터 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
+					<jsp:include page="../inc/mysidebar.jsp" />
+				<!-- @@@@@@@@@@@@여기까지 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
+		
 		<!-- @@@@@@@@@@@@@@@@@우측@@@@@@@@@@@@@@@@ -->
 					<div class="col-md-8 block-9 mb-md-5">
 							<div class="board_wrap">
 								<div class="board_title">
-								   <strong>수정제안</strong>
+								   <strong>내가 쓴 문의</strong>
 								 	<div align="right">
-											<input type="submit" value="작성하기" class="btn btn-primary" onclick=" location.href='./ProposalWrite.bo'; ">
-									</div>	
+											<input type="submit" value="작성하기" class="btn btn-primary" onclick=" location.href='./QuestionWritePre.bo'; " >
+									</div>
+
 									<!--  검색 폼 -->
-									<p>전체 글 개수 : ${requestScope.cnt } 개</p>	
 									<div class="n_search" border="1" width="90%">
+									<p>나의 글 개수 : ${requestScope.cnt } 개</p>	
 										<div align="right">
 											<input type="text" name="search"> 
-											<input type="submit" value="Search" class="btn btn-outline-secondary" >
 										</div>
 									</div>
 								</div>
 		
+						  <!-- 옵션정보 -->
+						  <div class="tab-content" id="pills-tabContent">
+						  
+						  <!-- 이 안으로 내용 바뀜 -->
+							    <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-description-tab">
 	
 						<div class="board_list_wrap">
 							<div class="board_list">
 								<div class="top">
 									<div class="num">번호</div>
+									<div class="bo_cate">카테고리</div>
 									<div class="title">제목</div>
 									<div class="mem_id">작성자</div>
 									<div class="date">작성일</div>
 								</div>
-										<c:forEach var="bodto" items="${ProposalList }">
-											<div>
-												<div class="num">${bodto.bo_num }</div>
-												<div class="title">
-													 <a href="./ProposalDetail.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}">${bodto.bo_title }</a>
-												</div>
-												<div class="mem_id">${bodto.mem_id }</div>
-												<div class="date">${bodto.bo_sysdate }</div>
+									<c:forEach var="bodto" items="${QuestionList }">
+										<div>
+											<div class="num">${bodto.bo_num }</div>
+											<div class="bo_cate">
+										    <c:if test="${bodto.bo_cate eq '1'}">이용안내</c:if>
+										    <c:if test="${bodto.bo_cate eq '2'}">예약/결제</c:if>
+										    <c:if test="${bodto.bo_cate eq '3'}">취소/환불</c:if>
+										    <c:if test="${bodto.bo_cate eq '4'}">보험/사고</c:if>
+										    <c:if test="${bodto.bo_cate eq '5'}">기타</c:if>
 											</div>
-										</c:forEach>
-
+											
+											
+											<div class="title" id="titlepadding2">
+											<c:if test="${bodto.bo_re_lev > 0}">
+												<img src="./img/level.gif" width="${bodto.bo_re_lev * 10 }">
+												<img src="./img/re.gif">
+											</c:if>
+											<a
+												href="./QuestionDetail.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}">
+												${bodto.bo_title } 
+<%-- 													<c:if test="${bodto.bo_file == null }"> --%>
+												
+<%-- 													</c:if> --%>
+<%-- 													<c:if test="${bodto.bo_file != "" }"> --%>
+<!-- 														<img src="./img/save.png" width="15" height="15"> -->
+<%-- 													</c:if> --%>
+												<c:choose>
+											    <c:when test="${empty bodto.bo_file}">
+											        &nbsp;
+											    </c:when>
+											    <c:when test="${not empty bodto.bo_file}">
+											        <img src="./img/save.png" width="13" height="13">
+											    </c:when>
+											    <c:otherwise>
+											        ?
+											    </c:otherwise>
+											</c:choose>
+											</a>
+											</div>
+												<div class="mem_id">${bodto.mem_nickName }</div>
+												<div class="date">${bodto.bo_sysdate }</div>
+										</div>
+									</c:forEach>
+									</div>
 									</div>
 								</div>
+								<!-- 여기까지 1번 카테  -->
+								
+
+								<!-- 아에 tabcontent 끝 -->
 							</div>
+
+						   	<div class="n_page" align="center" id="wrapper"> 
+						   		<c:if test="${requestScope.cnt != 0}">
+					  
+								    <!-- 이전 -->
+								    <c:if test="${startPage > pageBlock }">
+								    	<a href="./QuestionList.bo?pageNum=${startPage-pageBlock }" class="btn btn-outline-primary" ><<</a>
+								    </c:if>
+								    <!-- 페이지 번호(1,2,3....) -->	  
+								    <c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
+								          <a href="./QuestionList.bo?pageNum=${i }" class="btn btn-outline-primary" >${i }</a> 
+								    </c:forEach>  
+								    
+								    <!-- 다음 -->	
+								    <c:if test="${endPage < pageCount }">
+								        <a href="./QuestionList.bo?pageNum=${startPage+pageBlock }" class="btn btn-outline-primary">>></a>
+								    </c:if>
+								</c:if>
+						   	</div>
+		 					  	<!-- 페이지처리 이전,다음 -->
+		   	
+		   	
 						</div>								
 		<!-- 이 안이 변동사항 아래는 외부 틀이라서 필수 -->			
 			</div>
 <!-- 				<div class="row justify-content-center"></div> -->
-		</div>
-
+			</div>
+			</div>
 		</section>
-			
+		
 		<!-- @@@@@@@@@@@@@@@@@우측@@@@@@@@@@@@@@@@ -->
 	            
-	 		<!-- 페이지처리 -->
-            <div class="n_page"> 
-	  		 <c:if test="${cnt != 0}">
-                <!-- 페이지번호 -->
-                <c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
-		         	 <a href="./QuestionList.bo?pageNum=${i }" class="btn btn-outline-primary" >${i }</a> 
-		    	</c:forEach>  
-			  </c:if>
-		  	 </div>	
-		   	<!-- 페이지처리 -->
 		   
 		<div class="clear"></div>
 		<!-- 푸터들어가는 곳 -->

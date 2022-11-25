@@ -127,7 +127,7 @@
 
 </script>
 
-
+<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
 </head>
 <body>
 	
@@ -221,7 +221,9 @@
 									<hr>
 								</div>
 								<div class="cont">
+<!-- 								    <textarea name="bo_content" id="editor"></textarea> -->
 									<textarea name="bo_content" placeholder="내용을 입력해주세요"></textarea>
+									
 								</div>
 								<br>
 								<div class="input-group">

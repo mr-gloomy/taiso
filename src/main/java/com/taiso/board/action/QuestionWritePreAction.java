@@ -37,6 +37,9 @@ public class QuestionWritePreAction implements Action {
 			return null;
 		}	
 		
+		request.setAttribute("mem_id",mem_id);
+
+		
 		// 페이지이동
 		forward.setPath("./board/questionWrite.jsp");
 		forward.setRedirect(false);

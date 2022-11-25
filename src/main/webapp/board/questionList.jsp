@@ -47,7 +47,13 @@ function Login() {
 	}
 </script>
 
-
+<style>
+    #wrapper{
+        width:300px;
+        margin:auto;
+        padding: 30px;
+    }
+</style>
 </head>
 <body>
 	<div id="wrap">
@@ -93,16 +99,19 @@ function Login() {
 					<div class="col-md-8 block-9 mb-md-5">
 							<div class="board_wrap">
 								<div class="board_title">
-								   <strong>1:1 문의하기</strong>
-								 	<div align="right">
-											<input type="submit" value="작성하기" class="btn btn-primary" onclick=" location.href='./QuestionWritePre.bo'; " >
+								   <strong>1:1 문의하기</strong> 
+								 	<div align="right" id="rightinline">
+											<input type="submit" value="작성하기" class="btn btn-primary" onclick=" location.href='./QuestionWritePre.bo'; " id="">
 									</div>
 
 									<!--  검색 폼 -->
-									<div class="n_search" border="1" width="90%">
+									<div class="n_search" border="1" width="90%" >
 									<p>전체 글 개수 : ${requestScope.cnt } 개</p>	
-										<div align="right">
-											<input type="text" name="search"> 
+										<div class="n_search" border="1" width="90%">
+											<div align="right">
+												<input type="text" name="search"> 
+												<input type="submit" value="Search" class="btn btn-outline-primary">
+											</div>
 										</div>
 									</div>
 								</div>
@@ -125,7 +134,15 @@ function Login() {
 									<c:forEach var="bodto" items="${QuestionList }">
 										<div>
 											<div class="num">${bodto.bo_num }</div>
-											<div class="bo_cate">${bodto.bo_cate }</div>
+											<div class="bo_cate">
+										    <c:if test="${bodto.bo_cate eq '1'}">이용안내</c:if>
+										    <c:if test="${bodto.bo_cate eq '2'}">예약/결제</c:if>
+										    <c:if test="${bodto.bo_cate eq '3'}">취소/환불</c:if>
+										    <c:if test="${bodto.bo_cate eq '4'}">보험/사고</c:if>
+										    <c:if test="${bodto.bo_cate eq '5'}">기타</c:if>
+											</div>
+											
+											
 											<div class="title" id="titlepadding2">
 											<c:if test="${bodto.bo_re_lev > 0}">
 												<img src="./img/level.gif" width="${bodto.bo_re_lev * 10 }">
@@ -176,7 +193,7 @@ function Login() {
 <!-- 		  	 </div>	 -->
 		   	<!-- 페이지처리 -->
 		   	<!-- 페이지처리 이전,다음 -->
-		   	<div class="n_page" align="center"> 
+		   	<div class="n_page" align="center" id="wrapper"> 
 		   		<c:if test="${requestScope.cnt != 0}">
 	  
 				    <!-- 이전 -->

@@ -67,7 +67,7 @@ public class ProposalWriteAction implements Action {
 //		bodto.setBo_re_ref(Integer.parseInt(request.getParameter("bo_re_ref")));
 //		bodto.setBo_re_lev(Integer.parseInt(request.getParameter("bo_re_lev")));
 //		bodto.setBo_re_seq(Integer.parseInt(request.getParameter("bo_re_seq")));
-		bodto.setMem_id(multi.getParameter("mem_id"));
+		bodto.setMem_id(mem_id);
 		bodto.setBo_cate(multi.getParameter("bo_cate"));
 		bodto.setBo_title(multi.getParameter("bo_title"));
 		bodto.setBo_pass(multi.getParameter("bo_pass"));
@@ -79,7 +79,7 @@ public class ProposalWriteAction implements Action {
 		BoardDAO bodao = new BoardDAO();
 		
 		// insertBoard()
-		bodao.insertQuestion(bodto);
+		bodao.insertQuestion(bodto, mem_id);
 		System.out.println(bodto+"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@S");
 		// 페이지 이동정보 생성(티켓 생성) 
 		forward.setPath("./ProposalList.bo");

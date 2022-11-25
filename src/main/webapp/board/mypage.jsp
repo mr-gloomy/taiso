@@ -146,7 +146,7 @@
                 <li class="buttonitem" id="messages">
                     <a href="#messages" class="menubtn"><i class="fa fa-user"></i> 나의 게시글 모음 </a>
                     <div class="smenu" style="display:block;">
-                        <a href="./QuestionList.bo" id="smenu">1:1 문의 내역</a>
+                        <a href="./MyQuestionList.bo" id="smenu">1:1 문의 내역</a>
 <!--                         <a href="./ProposalList.bo">수정제안</a> -->
                     </div>
                 </li>
@@ -162,38 +162,77 @@
                </ul>
              </div>
             </div>
-		<!-- 메뉴바 -->
   		</div> 
+		<!-- 메뉴바 -->
    	 </div> 
    	 <!-- 우측 -->
-          <div class="col-md-8 block-9 mb-md-5">
-            <form action="#" class="bg-light p-5 contact-form">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Name">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Email">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Subject">
-              </div>
-              <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-              </div>
-              <div class="form-group">
-                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-              </div>
-            </form>
-          
-          </div>
-        </div>
-        <div class="row justify-content-center">
-        	<div class="col-md-12">
-        		<div id="map" class="bg-white"></div>
-        	</div>
-        </div>
-      </div>
-    </section>
+   	 <div class="col-md-8 block-9 mb-md-5">
+     <section class="ftco-section2 bg-light">
+			<h2>예약정보 조회</h2>
+<!-- 			<div class="row"> -->
+				<div class="col-md-4-2">
+					<div class="car-wrap rounded ftco-animate">
+					
+						<c:forEach var = "rez" items="${reservationList }" step="1">
+							<div class="text">
+								<div class="d-flex mb-3">
+									<span class="cat">단기렌트</span>
+									<span class="cat" style="text-align:right;width:90%;">${rez.rez_uqNum }</span>
+			
+								</div>
+								<div class="d-flex mb-3">
+									<span class="cat"></span>
+								</div>
+								<div class="d-flex mb-3">
+									<span class="cat"></span>
+								</div>
+								<h2 class="mb-0">
+									<c:if test="${rez.rez_status == 1}">
+										<a href="car-single.html">${rez.car_name }</a>ㅤ<input type = "button" class="btn btn-primary py-1 mr-1" value="예약 완료">
+									</c:if>
+									<c:if test="${rez.rez_status == 0}">
+										<a href="car-single.html">${rez.car_name }</a>ㅤ<input type = "button" class="btn btn-primary3 py-1 mr-1" value="예약 취소">
+									</c:if>	
+								</h2>
+								<div class="d-flex mb-3">
+									<span class="cat">${rez.rez_rentalDate} ~ ${rez.rez_returnDate}</span>
+								</div>
+								<div class="d-flex mb-3">
+									<span class="cat"></span>
+								</div>
+								<div class="d-flex mb-3">
+									<span class="cat"></span>
+								</div>
+								<div class="d-flex mb-3" style="display: flex; justify-content: center;">
+									<input type = "button" class="btn btn-primary2 py-2 mr-1" value = "예약 상세 조회" onclick="location.href='./ReservationInfoAction.rez?rez_uqNum=${rez.rez_uqNum }';" >ㅤ
+									<c:set var="loop_flag" value="false"/>
+									<c:set var="check" value ="0"/>
+									<c:forEach var="rev" items="${reviewList }" varStatus="status">
+										<c:if test="${not loop_flag }">
+											<c:if test="${check == 0}">
+												<c:if test="${rev.rez_uqNum == rez.rez_uqNum }">
+													<input type = "button" class="btn btn-primary py-2 mr-1" value = "리뷰수정" onclick="updateOpen(${rez.rez_uqNum});">
+													<input type = "button" class="btn btn-primary py-2 mr-1" value = "리뷰삭제" onclick="deleteBoard(${rez.rez_uqNum});">
+													<c:set var="loop_flag" value="true"/>
+													<c:set var="check" value ="1"/>
+												</c:if>
+											</c:if>
+										</c:if>
+									</c:forEach>
+										<c:if test="${check != 1}">
+											<input type = "button" class="btn btn-primary py-2 mr-1" value = "리뷰작성" onclick="writeOpen(${rez.car_code}+','+${rez.rez_uqNum});">
+											<c:set var="loop_flag" value="true"/>
+										</c:if>
+								</div>
+							</div>
+						</c:forEach>
+				</div>
+			</div>
+		</section>
+		
+			</div>
+	</div>
+	</section>
 	 <!-- 우측 -->
 	
 	<div class="clear"></div>
@@ -201,6 +240,10 @@
 		<jsp:include page="../inc/bottom.jsp" />
 	<!-- 푸터들어가는 곳 -->
 	</div>
+<!-- 	</div> -->
+<!-- 	</div> -->
+<!-- 	</section> -->
+	
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 

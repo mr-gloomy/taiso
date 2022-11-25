@@ -7,8 +7,19 @@
   margin-right: 10px;
 }
 
+#rightinline{
+  display: inline-block;
+  margin-top: 20px;
+  float: right;
+}
+
+#n_search {
+	  display: inline-block;
+}
+
 .n_page{
   display: flex;
+   justify-content: center;
  margin-top:10px;
   margin-right: 10px;
 }
@@ -346,18 +357,22 @@ a {
 
 .board_view .info2 {/*notice detail*/
     padding: 2px;
+    padding-top: 10px;
     border-bottom: 1px solid #999;
     font-size: 0;
 }
 
 .board_view .info2 dl {/*notice detail*/
     position: relative;
+    padding-top: 10px;
+    margin-left: 2px;
     display: inline-block;
-    padding: 0  20px;
+    padding: 0  7px;
 }
 
 .board_view .info2 dl:first-child {
-    padding-left: 0;
+    margin-left: 2px;
+     padding-top: 10px;
 }
 
 .board_view .info2 dl::before {
@@ -383,7 +398,8 @@ a {
 }
 
 .board_view .info2 dl dt {
-
+	    margin-left: 2px;
+	
 }
 
 .board_view .info2 dl dd {

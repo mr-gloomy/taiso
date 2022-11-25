@@ -60,7 +60,7 @@
 					<jsp:include page="../inc/sidebar.jsp" />
 				<!-- @@@@@@@@@@@@여기까지 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
 		
-
+				</div>
 		<!-- @@@@@@@@@@@@@@@@@우측@@@@@@@@@@@@@@@@ -->
 		<div class="col-md-8 block-9 mb-md-5">
 		<div class="board_wrap">
@@ -131,10 +131,12 @@
 							class="btn btn-primary">수정하기</a> 
 						<a href="./QuestionDelete.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}"
 							class="btn btn-primary">삭제하기</a> 
-					
-						<!-- 답변은 관리자만 가능 -->
-						<a href="./AdminQuestionReWrite.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}&bo_re_ref=${bodto.bo_re_ref}&bo_re_lev=${bodto.bo_re_lev}&bo_re_seq=${bodto.bo_re_seq}"
-							class="btn btn-primary">답변하기</a> 	
+							<c:choose>
+						    	<c:when test="${mem_id=='admin'}">
+								<a href="./AdminQuestionReWrite.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}&bo_re_ref=${bodto.bo_re_ref}&bo_re_lev=${bodto.bo_re_lev}&bo_re_seq=${bodto.bo_re_seq}"
+									class="btn btn-primary">답변하기</a> 	
+						    	</c:when>
+						    </c:choose>
 		
 						
 						<!--  <input type="button" value="수정하기" -->
@@ -143,11 +145,14 @@
 				</div>
 			</div>
 		</div>
-	</div>
+
 	
 		<!-- 메인 -->
+			
 			</div>
 			</div>
+			
+			
 <!-- 				<div class="row justify-content-center"></div> -->
 		</section>
 

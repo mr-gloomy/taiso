@@ -102,6 +102,19 @@ public class BoardFrontController extends HttpServlet{
 				e.printStackTrace();
 			}
 	}
+		else if(command.equals("/MyQuestionList.bo")) {
+			System.out.println(" C : /MyQuestionList.bo 호출 ");
+			System.out.println(" C : [패턴3]");
+		
+			action = new MyQuestionListAction();
+		
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+	}
+
 		else if(command.equals("/QuestionDetail.bo")) {
 				System.out.println(" C : /QuestionContent.bo 호출 ");
 				System.out.println(" C : [패턴3]");
