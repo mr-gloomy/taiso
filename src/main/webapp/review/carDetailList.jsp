@@ -487,6 +487,11 @@
     	</div>
     </section>
    			<!-- 차량 추천 section -->
+   			
+   			
+   <!-- 푸터들어가는 곳 -->
+   <jsp:include page="../inc/bottom.jsp" />
+   <!-- 푸터들어가는 곳 -->
     			
     
 
