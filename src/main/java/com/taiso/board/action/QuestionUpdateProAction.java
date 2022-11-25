@@ -16,7 +16,7 @@ public class QuestionUpdateProAction implements Action {
 		
 		BoardDTO bodto = new BoardDTO();
 		bodto.setBo_num(Integer.parseInt(request.getParameter("bo_num")));
-//		bodto.setMem_id(request.getParameter("mem_id"));
+		bodto.setMem_id(request.getParameter("mem_id"));
 		bodto.setBo_cate(request.getParameter("bo_cate"));
 		bodto.setBo_title(request.getParameter("bo_title"));
 		bodto.setBo_pass(request.getParameter("bo_pass"));
