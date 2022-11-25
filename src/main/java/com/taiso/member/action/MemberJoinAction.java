@@ -25,7 +25,6 @@ public class MemberJoinAction implements Action {
 		mDTO.setMem_email(request.getParameter("mem_email"));
 		mDTO.setMem_accept_sns(Integer.parseInt(request.getParameter("mem_accept_sns")));
 		mDTO.setMem_blacklist(request.getParameter("mem_blacklist"));
-		
 
 		System.out.println(" M : mDTO : " +mDTO);
 		

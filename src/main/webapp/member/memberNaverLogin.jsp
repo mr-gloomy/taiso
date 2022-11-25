@@ -32,7 +32,9 @@
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
-<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 </head>
 
@@ -61,79 +63,92 @@
 	<!-- 본문 시작 -->
 	<section class="ftco-section contact-section">
 		<div class="container">
-		
-		
-		
-		
-		
-			<ul>
-	<li>
-      <!-- 아래와같이 아이디를 꼭 써준다. -->
-      <a id="naverIdLogin_loginButton" href="javascript:void(0)">
-          <span>네이버 로그인</span>
-      </a>
-	</li>
-	<li onclick="naverLogout(); return false;">
-      <a href="javascript:void(0)">
-          <span>네이버 로그아웃</span>
-      </a>
-	</li>
-</ul>
+	
+	<div id="naver_id_login"></div>
+			
+<script type="text/javascript">
+var naver_id_login = new naver_id_login("wmfagQjB6wykoV0oZUGH", "http://localhost:8088/project_taiso/MemberLogin.me");
+//접근 토큰 값 출력
+// alert(naver_id_login.oauthParams.access_token);
+//네이버 사용자 프로필 조회
+naver_id_login.get_naver_userprofile("naverSignInCallback()");
+//네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
 
-<!-- 네이버 스크립트 -->
-<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+function naverSignInCallback() {
+	
+	var id = naver_id_login.getProfileData('id');
+	var name = naver_id_login.getProfileData('name');
+	var nickname = naver_id_login.getProfileData('nickname');
+	var email = naver_id_login.getProfileData('email');
+	var birthday = naver_id_login.getProfileData('birthday');
+// 	var birthyear = naver_id_login.getProfileData('birthyear');
+// 	var mobile = naver_id_login.getProfileData('mobile');
+	
+// 	alert(id);
+// 	alert(name);
+// 	alert(nickname);
+// 	alert(email);
+// 	alert(birthday);
+// 	alert(birthyear);
+// 	alert(mobile);
 
-<script>
-
-var naverLogin = new naver.LoginWithNaverId(
-		{
-			clientId: "wmfagQjB6wykoV0oZUGH", //내 애플리케이션 정보에 cliendId를 입력해줍니다.
-			callbackUrl: "http://localhost:8088/project_taiso/MemberNaverLogin.me", // 내 애플리케이션 API설정의 Callback URL 을 입력해줍니다.
-			isPopup: false,
-			callbackHandle: true
+ 	$.ajax({
+		url: "./MemberNaverLoginAction.me",
+		type: 'post',
+// 		dataType: 'json',
+// 		contentType : 'json',           
+		data : {
+			id:naver_id_login.getProfileData('id'),
+			name:naver_id_login.getProfileData('name'),
+			nickname:naver_id_login.getProfileData('nickname'),
+			email:naver_id_login.getProfileData('email'),
+			birthday:naver_id_login.getProfileData('birthday')
+// 			birthyear:naver_id_login.getProfileData('birthyear'),
+// 			mobile:naver_id_login.getProfileData('mobile')
 		}
-	);	
-
-naverLogin.init();
-
-window.addEventListener('load', function () {
-	naverLogin.getLoginStatus(function (status) {
-		if (status) {
-			var email = naverLogin.user.getEmail(); // 필수로 설정할것을 받아와 아래처럼 조건문을 줍니다.
-    		
-			console.log(naverLogin.user); 
-    		
-            if( email == undefined || email == null) {
-				alert("이메일은 필수정보입니다. 정보제공을 동의해주세요.");
-				naverLogin.reprompt();
-				return;
-			}
-		} else {
-			console.log("callback 처리에 실패하였습니다.");
-		}
+// 		success : successCall,                       
+// 		error   : errorCall                         
+ 
 	});
-});
+ 	
 
-
-var testPopUp;
-function openPopUp() {
-    testPopUp= window.open("https://nid.naver.com/nidlogin.logout", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,width=1,height=1");
-}
-function closePopUp(){
-    testPopUp.close();
+ 	
+ 	
+ 	
 }
 
-function naverLogout() {
-	openPopUp();
-	setTimeout(function() {
-		closePopUp();
-		}, 1000);
-	
-	
-}
+// function successCall(){
+//     alert("전송성공");
+// }
+
+// function errorCall(){
+//     alert("전송실패");
+// }
+		
+// 		data:{
+
+// 			id:naver_id_login.getProfileData('id'),
+// 			name:naver_id_login.getProfileData('name')
+// 			nickname:naver_id_login.getProfileData('nickname'),
+// 			email:naver_id_login.getProfileData('email'),
+// 			birthyear:naver_id_login.getProfileData('birthyear'),
+// 			birthday:naver_id_login.getProfileData('birthday'),
+// 			mobile:naver_id_login.getProfileData('mobile')
+// 	  }
+//  	});
+// }
+
 </script>
-			</div>
+<!-- 네이버 로그인 관련 -->		
+	
+	 
 		</div>
+	</section>
+		
+
+  
+
+	
 		<!-- 본문 끝 -->
 
 <!-- 본문 css -->
