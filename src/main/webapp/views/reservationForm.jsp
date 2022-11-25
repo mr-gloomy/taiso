@@ -127,7 +127,7 @@
                     pay_status : rsp.status         // 결제상황
                  }
               });
-                   location.href="./ReservationChk.rez?pay_uqNum="+rsp.imp_uid;
+                   location.href="./PaymentTest.pay?pay_uqNum="+rsp.imp_uid;
            } else {
                var msg = '결제에 실패하였습니다.';
                msg += '\nerror : ' + rsp.error_msg;
@@ -320,37 +320,57 @@
               <hr>
               <br>
               
-          <div class="form-group">
+ <div class="form-group">
           <c:if test=""></c:if>
               <h3>면허정보입력</h3>    
-                면허발급일자 : <input type="date" class="form-control" name="license_issueDate" class="form-control2" placeholder="면허발급일자를 정확하게 입력해주세요.">
+                면허발급일자 : <input type="date" class="form-control" name="license_issueDate" class="form-control2" value="${rezDTO.license_issueDate }" placeholder="면허발급일자를 정확하게 입력해주세요.">
           </div>
-          
-          <div class="form-group">
+
+  				<div class="form-group">
                   면허종류 : 
                     <select class="form-control" name="license_type" class="form-control">
                           <option value="0">면허종류를 선택하세요</option>
                        <optgroup label="1종">
-                           <option>1종대형</option>
-                        <option>1종보통</option>
-                        <option>1종소형</option>
+                           <option value="1종대형" 
+                                 <c:if test="${rezDTO.license_type.equals('1종대형') }">
+                        selected="selected"
+                        </c:if>
+                           >1종대형</option>
+                           
+                        <option value="1종보통" 
+                                <c:if test="${rezDTO.license_type.equals('1종보통') }">
+                        selected="selected"
+                                </c:if>
+                        >1종보통</option>
+                        
+                        <option value="1종소형" 
+                                <c:if test="${rezDTO.license_type.equals('1종소형') }">
+                        selected="selected"
+                                </c:if>               
+                        >1종소형</option>
                      </optgroup>
+                     
                      <optgroup label="2종">   
-                        <option>2종보통</option>
-                        <option>2종소형</option>
+                        <option value="2종보통" 
+                                <c:if test="${rezDTO.license_type.equals('2종보통') }">
+                        selected="selected"
+                                </c:if>                         
+                        >2종보통</option>
+                        
+                        <option value="2종소형" 
+                                <c:if test="${rezDTO.license_type.equals('2종소형') }">
+                        selected="selected"
+                                </c:if>                       
+                        >2종소형</option>
                    </optgroup>
-                   <optgroup label="특수">   
-                      <option>대형견인</option>
-                      <option>소형견인</option>
-                      <option>구난</option>
-                   </optgroup>
-                    </select>   
-          </div>
-          
+                   </select>
+                   </div>
+                   
+                   
           <div class="form-group">
-                 면허증번호 : <input type="text" name="license_num" class="form-control" value="" maxlength='12' placeholder="int값면허증번호를 정확하게 입력해주세요.">
+                 면허증번호 : <input type="text" name="license_num" class="form-control" maxlength='12' value="${rezDTO.license_num }" placeholder="00-00-000000-00">
+<%--                  면허증번호 : <input type="text" name="license_num" class="form-control" maxlength='12' pattern="[0-9]" value="${rezDTO.license_num }" placeholder="int값면허증번호를 정확하게 입력해주세요."> --%>
           </div>
-          
    
            
            <br>
