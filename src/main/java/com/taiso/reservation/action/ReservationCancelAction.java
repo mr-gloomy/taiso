@@ -41,28 +41,33 @@ public class ReservationCancelAction implements Action {
       ReservationDTO rezDTO= new ReservationDTO();
       MemberDTO mDTO = new MemberDTO();
       
-      mDTO.setMem_id(request.getParameter("mem_id"));
-      mDTO.setMem_pw(request.getParameter("mem_pw"));
-      rezDTO.setRez_uqNum(Integer.parseInt(request.getParameter("rez_uqNum"))); //ReservationCancel.jsp에서 주소줄로 보낸 후 파람으로 가져오기
+      String mem_id = request.getParameter("mem_id");
+      String mem_pw = request.getParameter("mem_pw");
+      int rez_uqNum = Integer.parseInt(request.getParameter("rez_uqNum"));
       System.out.println("멤버아이디 :"+ mDTO.getMem_id());
+      System.out.println("멤버아이디 :"+ request.getParameter("mem_id"));
       
-      System.out.println("rezDTO 나오나 : " + rezDTO + ", mDTO 나오나 : " + mDTO);
 
 
       // DAO - 예약취소 정보저장 메서드 호출 (이유, 일시,수수료) 
+      rezDTO.setRez_uqNum(Integer.parseInt(request.getParameter("rez_uqNum"))); //ReservationCancel.jsp에서 주소줄로 보낸 후 파람으로 가져오기
+      rezDTO.setMem_id(request.getParameter("mem_id"));
       rezDTO.setPay_uqNum(request.getParameter("pay_uqNum"));
       rezDTO.setCancel_reason(request.getParameter("cancel_reason"));
       rezDTO.setCancel_commission(Integer.parseInt(request.getParameter("cancel_commission")));
       
-      
+      System.out.println("rezDTO 나오나 : " + rezDTO + ", mDTO 나오나 : " + mDTO);
+
       System.out.println("@@@@@@@rez_uqNum : " + rezDTO.getRez_uqNum());
+      System.out.println("@@@@@@@mem_id : " + rezDTO.getMem_id());
+      System.out.println("@@@@@@@mem_pw : " + mem_pw);
       System.out.println("@@@@@@@pay_uqNum : " + rezDTO.getPay_uqNum());
       System.out.println("@@@@@@@cancel_reason : " + rezDTO.getCancel_reason());
       
       // DAO - 취소이유저장, 예약상태 변경메서드
       ReservationDAO rezDAO = new ReservationDAO();
-      int result = rezDAO.reservationCancelChange(rezDTO);
-      rezDAO.resevationCancelSave(rezDTO);
+      rezDAO.reservationCancelSave(rezDTO, mem_pw);
+      int result = rezDAO.reservationCancelChange(rez_uqNum,mem_id,mem_pw);
       
       
       System.out.println(" M 결과 : " + result);
