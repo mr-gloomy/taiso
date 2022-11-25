@@ -73,7 +73,7 @@ public class PaymentAction implements Action {
 		payDTO.setPay_status(request.getParameter("pay_status"));
 		
 		ReservationDAO rezDAO = new ReservationDAO();
-		rezDAO.resevationSave(rezDTO, payDTO); 
+		rezDAO.reservationSave(rezDTO, payDTO); 
 		
 		String merchant_uid = request.getParameter("merchant_uid");
 		System.out.println("merchant_uid : "+merchant_uid);

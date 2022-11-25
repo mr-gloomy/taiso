@@ -22,7 +22,7 @@ response.sendRedirect("./ReservationMain.rez");
 // 회원---------------------------------------------------------------
 
 
-// response.sendRedirect("./MemberJoin.me");
+// response.sendRedirect("./MemberJ
 //  response.sendRedirect("./MemberLogin.me");
 // response.sendRedirect("./MemberNaverLogin.me");
 // response.sendRedirect("./MemberUpdatePw.me");
