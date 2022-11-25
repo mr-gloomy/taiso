@@ -9,9 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import com.taiso.car.db.CarDAO;
 import com.taiso.car.db.CarDTO;
-import com.taiso.member.db.MemberDTO;
 import com.taiso.reservation.db.ReservationDAO;
-import com.taiso.reservation.db.ReservationDTO;
 
 public class ReservationAction implements Action {
 
