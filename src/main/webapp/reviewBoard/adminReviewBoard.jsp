@@ -106,13 +106,16 @@
     			<c:if test="${totalCnt != 0 }">
 
 			<!-- 이전 -->
-			<c:if test="${startPage > pageBlock }">
-				<a href="./AdminReviewList.adr?pageNum=${startPage-pageBlock }">[이전]</a>
-			</c:if>
+<%-- 			<c:if test="${startPage > pageBlock }"> --%>
+<%-- 				<a href="./AdminReviewList.adr?pageNum=${startPage-pageBlock }">[이전]</a> --%>
+<%-- 			</c:if> --%>
 			<!--     	<div class="row mt-5"> -->
 			<div class="col text-center">
 				<div class="block-27">
 					<ul>
+					<c:if test="${startPage > pageBlock }">
+				<a href="./AdminReviewList.adr?pageNum=${startPage-pageBlock }">[이전]</a>
+			</c:if>
 						<!-- 페이지 번호(1,2,3...) -->
 					<c:forEach var="i" begin="${startPage }" end="${endPage }"
 						step="1">
@@ -128,14 +131,17 @@
 						
 
 						</c:forEach>
+						<c:if test="${endPage < pageCount }" >
+				<a href="./AdminReviewList.adr?pageNum=${startPage+pageBlock }">[다음]</a>
+			</c:if>
 					</ul>
 				</div>
 			</div>
 
 			<!-- 다음 -->
-			<c:if test="${endPage < pageCount }">
-				<a href="./AdminReviewList.adr?pageNum=${startPage+pageBlock }">[다음]</a>
-			</c:if>
+<%-- 			<c:if test="${endPage < pageCount }" > --%>
+<%-- 				<a href="./AdminReviewList.adr?pageNum=${startPage+pageBlock }">[다음]</a> --%>
+<%-- 			</c:if> --%>
 
 		</c:if>
   

@@ -127,7 +127,7 @@
                            
                 차량명 : <input type="text" name="car_name" class="form-control" ><br>
                         
-                가격 : <input type="text" name="car_price" class="form-control" ><br>
+                렌트가격(/day) : <input type="text" name="car_price" class="form-control" ><br>
                 
                 차량옵션 : <input type="text" name="car_op" class="form-control" ><br>
                            
