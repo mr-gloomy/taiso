@@ -113,6 +113,29 @@ public class MemberController extends HttpServlet {
 			}			
 			
 			
+		}else if(command.equals("/MemberJoinPhone.me")) {
+			System.out.println(" C : /MemberJoinPhone.me 호출");
+			System.out.println(" C : [패턴 1] ");
+			
+			forward = new ActionForward();
+			forward.setPath("./member/memberJoinPhone.jsp");
+			forward.setRedirect(false);	
+			
+			
+		}else if(command.equals("/MemberJoinPhoneAction.me")) {
+			System.out.println(" C : /MemberJoinPhoneAction.me 호출");
+			System.out.println(" C : [패턴 2] ");
+			
+			// MemberJoinPhoneAction() 객체 
+			action = new MemberJoinPhoneAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			
 		}else if(command.equals("/MemberLogin.me")) {
 			System.out.println(" C : /MemberLogin.me 호출 ");
 			System.out.println(" C : [패턴 1]");
@@ -143,6 +166,21 @@ public class MemberController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("./member/memberNaverLogin.jsp");
 			forward.setRedirect(false);	
+			
+		
+		
+		}else if(command.equals("/MemberNaverLoginAction.me")) {
+			System.out.println(" C : /MemberNaverLoginAction.me 호출 ");
+			System.out.println(" C : [패턴 2]");
+			
+			// MemberNaverLoginAction() 객체 
+			action = new MemberNaverLoginAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}	
 			
 			
 		}else if(command.equals("/MemberUpdatePw.me")) {

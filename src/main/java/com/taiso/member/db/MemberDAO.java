@@ -113,6 +113,61 @@ public class MemberDAO {
 	
 	
 	
+	// 네이버 회원가입 메서드 - memberNaverJoin(DTO)
+	public void memberNaverJoin(MemberDTO mDTO) {
+		int mem_num = 0;
+		
+		try {
+			// 1.2. 
+			con = getConnection();
+			
+			// 3. 
+			sql = "select max(mem_num) from member";
+			pstmt = con.prepareStatement(sql);
+			
+			// 4. 
+			rs = pstmt.executeQuery();
+			
+			// 5. 
+			if(rs.next()) {
+				mem_num = rs.getInt(1)+1;
+			}
+			
+			System.out.println(" DAO : mem_num : " +mem_num);
+				
+
+				// 3. 
+				sql = "insert into member(mem_num,mem_id,mem_pw,mem_name,mem_nickName,mem_phone,mem_birthday,mem_email,mem_accept_sns,mem_registDate,mem_blacklist) values(?,?,?,?,?,?,?,?,?,now(),?)";
+				pstmt = con.prepareStatement(sql);
+				
+				// ??
+				pstmt.setInt(1, mem_num);
+				pstmt.setString(2, mDTO.getMem_id());
+				pstmt.setString(3, mDTO.getMem_pw());
+				pstmt.setString(4, mDTO.getMem_name());
+				pstmt.setString(5, mDTO.getMem_nickName());
+				pstmt.setString(6, mDTO.getMem_phone());
+				pstmt.setString(7, mDTO.getMem_birthday());
+				pstmt.setString(8, mDTO.getMem_email());
+				pstmt.setInt(9, 0);
+				pstmt.setString(10, mDTO.getMem_blacklist());
+				
+				// 4. 
+				pstmt.executeUpdate();
+				
+				
+				System.out.println(" DAO : 네이버 회원가입 성공! ");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+	}
+	// 네이버 회원가입 메서드 - memberNaverJoin(DTO) - 끝
+	
+	
+	
 	// 아이디 중복체크 메서드 - memberIdCheck(mem_id)
 	public int memberIdCheck(String mem_id) {
 		int result = 0; // 0 - 중복 X(아이디 사용 O) / 1 - 중복 O(아이디 사용 X)
@@ -282,6 +337,49 @@ public class MemberDAO {
 	}
 	// 로그인 메서드 - memberLogin(mem_id, mem_pw) - 끝
 	
+	
+	
+	// 네이버 로그인 메서드 - memberNaverLogin(mem_id, mem_pw)
+	public int memberNaverLogin(String mem_id, String mem_pw) {
+		int result = -1;
+		
+		try {
+			// 1.2. 
+			con = getConnection();
+			
+			// 3. 
+			sql = "select mem_pw from member where mem_id=?";
+			pstmt = con.prepareStatement(sql);
+			
+			// ??
+			pstmt.setString(1, mem_id);
+			
+			// 4. 
+			rs = pstmt.executeQuery();
+			
+			// 5. 
+			if(rs.next()) {
+				
+				// 회원일 경우
+				if(mem_pw.equals(rs.getString("mem_pw"))) {
+					// 로그인 성공
+					result = 1;
+				}
+			}else {
+				// 비회원
+				result = -1;
+			}
+			System.out.println(" DAO : 로그인 체크 ("+result+")");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		
+		return result;
+	}
+	// 네이버 로그인 메서드 - memberNaverLogin(mem_id, mem_pw) - 끝
 	
 	
 	// 회원정보 조회 메서드 - getMember(mem_id)

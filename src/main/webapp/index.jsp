@@ -14,7 +14,7 @@
 
 // response.sendRedirect("./AdminCarList.ad");
 // response.sendRedirect("./ReservationMain.rez");
-response.sendRedirect("./SiteInfo.rez");
+// response.sendRedirect("./SiteInfo.rez");
 
 // response.sendRedirect("./AdminReviewList.adr");
 // response.sendRedirect("./AdminReviewList.adr");
@@ -32,7 +32,7 @@ response.sendRedirect("./SiteInfo.rez");
 // response.sendRedirect("./MemberFindPw.me");
 // response.sendRedirect("./MemberFindIdResult.me");
 // response.sendRedirect("./MemberJoinClause.me");
-// response.sendRedirect("./AdminMain.mb");
+response.sendRedirect("./AdminMain.mb");
 
 		
 
