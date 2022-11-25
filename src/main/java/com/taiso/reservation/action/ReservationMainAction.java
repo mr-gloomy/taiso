@@ -17,8 +17,7 @@ public class ReservationMainAction implements Action {
 		
 		ReviewDAO rDAO = new ReviewDAO();
 		CarDAO carDAO = new CarDAO();
-		ReviewDTO rList = new ReviewDTO();
-		CarDTO carList = new CarDTO();
+		
 		request.setAttribute("rList", rDAO.selectRandReview());
 		request.setAttribute("carList", carDAO.selectRandCar());
 		request.setAttribute("carCnt", carDAO.getCarCount());

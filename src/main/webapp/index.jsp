@@ -11,10 +11,8 @@
 // response.sendRedirect("./ReviewList.rev");
 // response.sendRedirect("./AdminCarAdd.ad");
 // response.sendRedirect("./AdminCarList.ad");
-
 // response.sendRedirect("./AdminCarList.ad");
-// response.sendRedirect("./ReservationMain.rez");
-response.sendRedirect("./SiteInfo.rez");
+response.sendRedirect("./ReservationMain.rez");
 
 // response.sendRedirect("./AdminReviewList.adr");
 // response.sendRedirect("./AdminReviewList.adr");
@@ -24,7 +22,7 @@ response.sendRedirect("./SiteInfo.rez");
 // 회원---------------------------------------------------------------
 
 
-// response.sendRedirect("./MemberJoin.me");
+// response.sendRedirect("./MemberJ
 //  response.sendRedirect("./MemberLogin.me");
 // response.sendRedirect("./MemberNaverLogin.me");
 // response.sendRedirect("./MemberUpdatePw.me");
