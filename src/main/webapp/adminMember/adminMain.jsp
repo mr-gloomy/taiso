@@ -37,7 +37,7 @@
 
 <style type="text/css">
 .mb-5, .my-5 {
-    margin-bottom: 3rem;
+    margin-bottom: 16rem;
 }
 .card-title {
     margin-bottom: 0.7rem;
@@ -141,11 +141,10 @@
 /* 월별현황 */
 .list {
 	width: 450px;
+	height: 1000px;
 
 }
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
   width: 100%;
   border: 1px solid #ddd;
 }
@@ -159,6 +158,7 @@ tr:nth-child(even) {
   background-color: white;
 }
 /* 월별현황 */
+
 </style>
 
 </head>
@@ -177,7 +177,7 @@ tr:nth-child(even) {
 				class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
 				<div class="col-md-9 ftco-animate pb-5">
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> 
+						<span class="mr-2"><a href="./AdminMain.mb">Home <i class="ion-ios-arrow-forward"></i></a></span> 
 						<span> admin <i class="ion-ios-arrow-forward"></i></span>
 					</p>
 				</div>
@@ -212,24 +212,31 @@ tr:nth-child(even) {
 									<li class="buttonitem" id="profile"><a href="#profile"
 										class="menubtn"><i class="fa fa-cog"></i> 회원관리</a>
 										<div class="smenu">
-											<a href="./AdminMemberList.mb">회원조회</a> <a href="#">채팅상담</a>
-										</div></li>
-									<li class="buttonitem" id="messages"><a href="#messages"
-										class="menubtn"><i class="fa fa-user"></i> 고객센터 </a>
-										<div class="smenu">
-											<a href="./AdminNoticeList.nb">공지사항</a> <a href="#">FAQ</a> <a
-												href="./QuestionList.bo">문의사항</a>
+											<a href="./AdminMemberList.mb">전체회원조회</a> 
+											<a href="./AdminMemberBlackList.mb">블랙리스트 회원조회</a> 
 										</div></li>
 									<li class="buttonitem" id="settings"><a href="#settings"
 										class="menubtn"><i class="fa fa-cog"></i> 차량관리</a>
 										<div class="smenu">
 											<a href="./AdminCarList.ad">차량리스트</a>
-										</div></li>
+											<a href="./AdminReviewList.adr">차량리뷰조회</a>
+										</div>
+									</li>
 									<li class="buttonitem" id="setting"><a href="#setting"
 										class="menubtn"><i class="fa fa-cog"></i> 예약관리</a>
 										<div class="smenu">
-											<a href="./ReservationList.rez">예약현황</a>
-										</div></li>
+											<a href="./AdminReservationListAction.rez">예약현황</a>
+										</div>
+									</li>
+									<li class="buttonitem" id="messages"><a href="#messages"
+										class="menubtn"><i class="fa fa-user"></i> 고객센터 </a>
+										<div class="smenu">
+											<a href="./AdminNoticeList.nb">공지사항</a>
+											<a href="./QuestionList.bo">1:1문의사항</a>
+											<a href="./FaqList.bo">FAQ</a> 
+										</div>
+									</li>
+										
 								</ul>
 							</div>
 						</div>
@@ -242,10 +249,10 @@ tr:nth-child(even) {
 					<h5>11월 현황</h5>
 					<table>
 						<tr>
-							<th>회원수</th>
-							<th>예약건수</th>
-							<th>취소건수</th>
-							<th>차량수</th>
+							<th><a href="./AdminMemberList.mb">회원 수</a></th>
+							<th><a href="./AdminReservationListAction.rez">예약건수</a></th>
+							<th><a href="./AdminReservationListAction.rez">취소건수</a></th>
+							<th><a href="./AdminCarList.ad">차량 수</a></th>
 						</tr>
 						<tr>
 							<td>${requestScope.totalCnt1 }</td>
@@ -260,16 +267,16 @@ tr:nth-child(even) {
 					<h5>고객관리</h5>
 					<table>
 						<tr>
-							<th>문의사항</th>
-							<th>리뷰게시판</th>
-							<th>수정제안</th>
-							<th>장기렌트</th>
+							<th><a href="./QuestionList.bo">1:1문의사항</a></th>
+							<th><a href="./AdminReviewList.adr">차량리뷰</a></th>
+							<th><a href="./ProposalList.bo">수정/제안</a></th>
+							<th><a href="./QuestionList.bo">장기렌트</a></th>
 						</tr>
 						<tr>
 							<td>${requestScope.totalCnt2 }</td>
 							<td>${requestScope.totalCnt4 }</td>
 							<td>${requestScope.totalCnt3 }</td>
-							<td><a href="#">[바로가기]</a></td>
+							<td>1</td>
 						</tr>
 					</table><br>
 				<!-- 문의/제안내역 --> 
@@ -284,13 +291,10 @@ tr:nth-child(even) {
 										<label> <input type="checkbox" class="ti-close"><i></i>
 											<span>22/11/28 강진석님 장기렌트 상담예약</span> 
 										</label>
-										<label> <input type="checkbox" class="ti-close"><i></i>
-											<span>22/11/25 문의사항 답변등록</span> 
-										</label>
 										<span></span>
 										<div id="todo-list"></div>
 									</div>
-									<input id="todo" class="tdl-new form-control" placeholder=" 내용을 입력해주세요."> 
+									<input id="todo" class="tdl-new form-control" placeholder="내용을 입력해주세요."> 
 									<input type="hidden" id="add-button">
 								</div>
 							</div>
@@ -341,13 +345,10 @@ tr:nth-child(even) {
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen">
 		<svg class="circular" width="48px" height="48px">
-    <circle class="path-bg" cx="24" cy="24" r="22" fill="none"
-				stroke-width="4" stroke="#eeeeee" />
-    <circle class="path" cx="24" cy="24" r="22" fill="none"
-				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
+    <circle class="path-bg" cx="24" cy="24" r="22" fill="none"stroke-width="4" stroke="#eeeeee" />
+    <circle class="path" cx="24" cy="24" r="22" fill="none"stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-	<script src="./js/google_chart"></script>
 	<script src="./js/jquery.min.js"></script>
 	<script src="./js/jquery-migrate-3.0.1.min.js"></script>
 	<script src="./js/popper.min.js"></script>
@@ -363,16 +364,12 @@ tr:nth-child(even) {
 	<script src="./js/jquery.timepicker.min.js"></script>
 	<script src="./js/scrollax.min.js"></script>
 	<script src="./js/main.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
-	<script type="text/javascript"
-		src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script src="./js/calendar.js"></script>
 	<script src="./js/taskList.js"></script>
-	<script
-		src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-	<script
-		src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
 </body>
