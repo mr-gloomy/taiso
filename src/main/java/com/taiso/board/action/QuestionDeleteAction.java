@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.taiso.board.db.BoardDAO;
-import com.taiso.board.db.BoardDTO;
 
 public class QuestionDeleteAction implements Action {
 

@@ -1,12 +1,9 @@
 package com.taiso.admin.member.action;
 
 import javax.servlet.http.HttpServletRequest;
-
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.taiso.admin.member.db.AdminMemberDAO;
-import com.taiso.admin.member.db.MemberDTO;
 
 public class AdminMemberDeleteAction implements Action {
 

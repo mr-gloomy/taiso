@@ -2,7 +2,6 @@ package com.taiso.admin.review.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.taiso.admin.review.db.AdminReviewDAO;
 

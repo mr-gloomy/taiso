@@ -4,9 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.taiso.car.db.CarDAO;
-import com.taiso.car.db.CarDTO;
 import com.taiso.review.db.ReviewDAO;
-import com.taiso.review.db.ReviewDTO;
 
 public class ReservationMainAction implements Action {
 

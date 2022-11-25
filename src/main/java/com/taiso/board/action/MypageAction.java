@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.taiso.admin.member.db.MemberDTO;
 import com.taiso.board.db.BoardDAO;
 import com.taiso.board.db.BoardDTO;
 import com.taiso.member.db.MemberDAO;

@@ -1,16 +1,11 @@
 package com.taiso.reservation.action;
 
-import java.sql.Date;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.tomcat.websocket.Transformation;
-
-import com.taiso.car.db.CarDAO;
 import com.taiso.car.db.CarDTO;
-import com.taiso.payment.db.PaymentDTO;
+import com.taiso.reservation.db.PaymentDTO;
 import com.taiso.reservation.db.ReservationDAO;
 import com.taiso.reservation.db.ReservationDTO;
 

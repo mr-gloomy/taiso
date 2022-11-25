@@ -1,7 +1,6 @@
 package com.taiso.admin.member.db;
 
 import java.sql.Connection;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +11,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import com.taiso.board.db.BoardDTO;
-import com.taiso.payment.db.PaymentDTO;
+import com.taiso.reservation.db.PaymentDTO;
 import com.taiso.reservation.db.ReservationDTO;
 import com.taiso.review.db.ReviewDTO;
 
