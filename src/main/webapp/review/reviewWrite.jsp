@@ -120,7 +120,7 @@
 </head>
   <body>
           <div class="col-md-8 block-9 mb-md-5">
-            <form action="./ReviewWriteAction.rev" name = "fr" class="bg-light p-5 contact-form" method="post" enctype="multipart/form-data">
+            <form action="./ReviewWriteProAction.rev" name = "fr" class="bg-light p-5 contact-form" method="post" enctype="multipart/form-data">
            <div class="form-group">
            	 <h3><b>리뷰 등록</b></h3>	 
               <div class="form-group">

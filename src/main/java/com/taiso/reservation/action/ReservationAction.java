@@ -16,7 +16,7 @@ public class ReservationAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-		System.out.println(" M : ReservationAction_execute() 호출");
+		System.out.println(" M : Reservation_execute() 호출");
 
 		// ******************************* 회원정보 없어서 주석처리한 것. 로직 확인할 때 주석풀어주세요
 		// 로그인 세션 저장

@@ -64,13 +64,13 @@
 
       <div class="container">
          <div>
-            <a href="./CarList.ca">전체</a>
-            <a href="./CarList.ca?item=small">소형</a>
-            <a href="./CarList.ca?item=compact">준중형</a>
-            <a href="./CarList.ca?item=middle">중형</a> 
-            <a href="./CarList.ca?item=large">대형</a> 
-            <a href="./CarList.ca?item=suv">suv</a>
-            <a href="./CarList.ca?item=foreign">수입차</a>
+            <a class="btn btn-primary" href="./CarList.ca">전체</a>
+            <a class="btn btn-primary" href="./CarList.ca?item=small">소형</a>
+            <a class="btn btn-primary" href="./CarList.ca?item=compact">준중형</a>
+            <a class="btn btn-primary" href="./CarList.ca?item=middle">중형</a> 
+            <a class="btn btn-primary" href="./CarList.ca?item=large">대형</a> 
+            <a class="btn btn-primary" href="./CarList.ca?item=suv">suv</a>
+            <a class="btn btn-primary" href="./CarList.ca?item=foreign">수입차</a>
          </div>
          <div class="row">
          	<c:choose>
@@ -93,9 +93,9 @@
 	                           </p>
 	                        </div>
 	                        <p class="d-flex mb-0 d-block">
-	                           <a href="./ReservationAction.rez?car_code=${cars.car_code }"
+	                           <a href="./Reservation.rez?car_code=${cars.car_code }"
 	                              class="btn btn-primary py-2 mr-1">예약하기</a> <a
-	                              href="./ReviewListAction.rev?car_code=${cars.car_code }&car_name=${cars.car_name }"
+	                              href="./ReviewList.rev?car_code=${cars.car_code }&car_name=${cars.car_name }"
 	                              class="btn btn-secondary py-2 ml-1">차량상세정보 </a>
 	                        </p>
 	                     </div>

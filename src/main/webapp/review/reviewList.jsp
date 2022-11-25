@@ -21,7 +21,7 @@
 		}).then((result) => {
 		  if (result.value) {
 	          //"등록" 버튼을 눌렀을 때 작업할 내용을 이곳에 넣어주면 된다. 
-			  location.href='./ReviewDeleteAction.rev?rev_num=2';
+			  location.href='./ReviewDelete.rev?rev_num=2';
 		  }
 		})
 	}
@@ -50,7 +50,7 @@
 	    var _top = Math.ceil(( window.screen.height - _height )/2); 
  		// 새 창 열기
  		document.domain = "localhost"; //document.domain 값이 팝업과 부모창 동일해야 합니다.
- 		window.open("./ReviewUpdateAction.rev?rev_num=2","",'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top);
+ 		window.open("./ReviewUpdate.rev?rev_num=2","",'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top);
 	}
 </script>
 </head>
@@ -80,6 +80,6 @@
 			<input type = "button" value = "리뷰 등록" onclick="writeOpen();">
 			<input type = "button" value = "리뷰 수정" onclick="updateOpen();">
 			<input type = "button" value = "삭제" onclick="deleteBoard();">
-			<a href = "./ReviewListAction.rev">리뷰확인</a>
+			<a href = "./ReviewList.rev">리뷰확인</a>
 </body>
 </html>

@@ -88,7 +88,7 @@
 </head>
   <body>
           <div class="col-md-8 block-9 mb-md-5">
-            <form action="./ReviewCommentAction.rev" name = "fr" class="bg-light p-5 contact-form" method="get" enctype="multipart/form-data">
+            <form action="./ReviewCommentProAction.rev" name = "fr" class="bg-light p-5 contact-form" method="get" enctype="multipart/form-data">
           	 <div class="form-group">
            	 <h3><b>댓글 등록</b></h3>	 
               <div class="form-group">

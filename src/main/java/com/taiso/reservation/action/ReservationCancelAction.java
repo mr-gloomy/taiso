@@ -98,7 +98,7 @@ public class ReservationCancelAction implements Action {
          
          out.print("<script>");
          out.print(" alert('예약 취소 완료'); ");
-         out.print(" location.href='./ReservationListAction.rez'; ");   // 예약취소 이유 저장 액션으로 이동 후 완료페이지
+         out.print(" location.href='./ReservationList.rez'; ");   // 예약취소 이유 저장 액션으로 이동 후 완료페이지
          out.print("</script>");
          out.close();
          

@@ -147,8 +147,8 @@
 	              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-dashboard"></span></div>
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
-		                	Mileage
-		                	<span>40,000</span>
+		               		연식 
+		                	<span>${carDTO.car_year }</span>
 		                </h3>
 	                </div>
                 </div>
@@ -162,8 +162,8 @@
 	              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-pistons"></span></div>
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
-		                	Transmission
-		                	<span>Manual</span>
+		                	차종 
+		                	<span>${carDTO.car_category }</span>
 		                </h3>
 	                </div>
                 </div>
@@ -207,8 +207,8 @@
 	              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-diesel"></span></div>
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
-		                	Fuel
-		                	<span>Petrol</span>
+		                	연료타입 
+		                	<span>${carDTO.car_fuel }</span>
 		                </h3>
 	                </div>
                 </div>
@@ -474,7 +474,7 @@
 		    						</div>
 		    						<p class="d-flex mb-0 d-block">
 <!-- 			    						<a href="#" class="btn btn-primary py-2 mr-1">Book now</a> -->
-			    						<a href="./ReviewListAction.rev?car_code=${rCar.car_code }"
+			    						<a href="./ReviewList.rev?car_code=${rCar.car_code }"
 											class="btn btn-secondary py-2 ml-1">차량상세정보</a>
 									</p>
 		    					</div>
@@ -581,7 +581,7 @@
                          <p class="r-horizon-text" id="h-redDate">${rez_pick_time }</p>
                       </td>
                       <td>
-                         <p class="r-horizon-text ellipsis" id="h-car_name"><a href="./ReservationAction.rez?car_code=${param.car_code }" class="btn btn-primary py-2 mr-1">예약하기</a></p>
+                         <p class="r-horizon-text ellipsis" id="h-car_name"><a href="./Reservation.rez?car_code=${param.car_code }" class="btn btn-primary py-2 mr-1">예약하기</a></p>
                       </td>
                    </tr>
                 </tbody>
