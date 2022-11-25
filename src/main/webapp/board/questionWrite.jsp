@@ -183,7 +183,7 @@
 									<!-- 여기까지 위쪽 틀 아래는 변수 -->
 
 						               <input type="hidden" name="bo_num" value="${param.bo_num }">
-							           <input type="hidden" name="mem_id" value="${sessionScope.mem_id }">
+							           <input type="hidden" name="mem_id" value="${param.mem_id }">
 							           <input type="hidden" name="bo_re_ref" value="${param.bo_re_ref }">
 							           <input type="hidden" name="bo_re_seq" value="${param.bo_re_seq }">
 							           <input type="hidden" name="bo_re_lev" value="${param.bo_re_lev }">

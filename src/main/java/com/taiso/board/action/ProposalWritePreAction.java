@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 import com.taiso.board.db.BoardDAO;
 import com.taiso.board.db.BoardDTO;
 
-public class QuestionProposalPreAction implements Action {
+public class ProposalWritePreAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {

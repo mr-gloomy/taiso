@@ -202,7 +202,7 @@ public class BoardFrontController extends HttpServlet{
 			System.out.println(" C : [패턴3] ");
 			
 			// QuestionWriteAction() 객체
-			action = new QuestionProposalPreAction();
+			action = new ProposalWritePreAction();
 			
 			try {
 				forward = action.execute(request, response);
