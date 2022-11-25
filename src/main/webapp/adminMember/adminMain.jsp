@@ -237,7 +237,6 @@ tr:nth-child(even) {
 										</div>
 									</li>
 										
-										
 								</ul>
 							</div>
 						</div>
