@@ -1,6 +1,5 @@
 package com.taiso.review.action;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,14 +23,14 @@ public class ReviewListAction implements Action {
 		int car_code = Integer.parseInt(request.getParameter("car_code"));
 		String car_name = request.getParameter("car_name");
 		ActionForward forward = new ActionForward();
-		if(mem_id == null) {
-			forward.setPath("./MemberLogin.me");
-			forward.setRedirect(true);
-			return forward;
-		}
+//		if(mem_id == null) {
+//			forward.setPath("./MemberLogin.me");
+//			forward.setRedirect(true);
+//			return forward;
+//		}
 
 		ReviewDAO rDAO = new ReviewDAO();
-		CarDAO dao = new CarDAO();
+		CarDAO carDAO = new CarDAO();
 		
 		// 디비에 등록된 글 개수 불러오기
 		int cnt = rDAO.getReviewCount(car_name);
@@ -45,7 +44,13 @@ public class ReviewListAction implements Action {
 		// 세션에 저장
 		request.setAttribute("cnt", cnt);
 		request.setAttribute("reviewList", reviewList);
-		request.setAttribute("carDTO", dao.getOneCarList(car_code));
+		request.setAttribute("carDTO", carDAO.getOneCarList(car_code));
+		
+//		request.setAttribute("rList", rDAO.selectRandReview());
+		request.setAttribute("carList", carDAO.selectRandCar());
+		request.setAttribute("carCnt", carDAO.getCarCount());
+		request.setAttribute("mCnt", rDAO.getMemberCount());
+		request.setAttribute("rezCnt", rDAO.getRezCount());
 		
 		// 페이지 이동
 		forward.setPath("./review/carDetailList.jsp");
