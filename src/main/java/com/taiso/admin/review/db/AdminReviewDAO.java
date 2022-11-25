@@ -82,7 +82,7 @@ public class AdminReviewDAO {
 			   
 			   try {
 				con = getConnection();
-				sql = "select * from car_review order by rev_num limit ?,?";
+				sql = "select * from car_review where rev_star != 0 order by rev_num limit ?,? ";
 				pstmt = con.prepareStatement(sql);
 				
 				// ???

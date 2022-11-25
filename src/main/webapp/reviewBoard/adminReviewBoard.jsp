@@ -40,7 +40,6 @@
 			  if (result.value) {
 		          //"등록" 버튼을 눌렀을 때 작업할 내용을 이곳에 넣어주면 된다. 
 				  location.href='./AdminReviewDelete.adr?rev_num='+a+'&pageNum='+b;
-		          
 			  }
 			})
 		}
@@ -73,13 +72,6 @@
         <div class="board_title">
             <strong>리뷰리스트</strong>
             <p> 전체 글 개수 : ${requestScope.totalCnt } 개 </p>
-            <!--  검색 폼 -->
-<!-- 			<div class="n_search" border="1" width="90%"> -->
-<!-- 				<div align="right"> -->
-<!-- 					<input type="text" name="search" > -->
-<!-- 					<input type="submit" value="Search" class="btn btn-outline-secondary"> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
         </div>
         <div class="board_list_wrap">
             <div class="board_list">
@@ -88,7 +80,6 @@
                     <div class="count">닉네임</div>
                     <div class="title3">제목</div>
                     <div class="date3">작성일</div>
-<!--                     <div class="count">평점</div> -->
                     <div class="count">관리</div>
                 </div>
                 
@@ -102,56 +93,62 @@
                     <div class="date3">
                      <fmt:formatDate value="${dto.rev_date }" pattern="yyyy년 MM월 dd일 " />
                     </div>
-<%--                     <div class="count">${dto.rev_star } </div> --%>
                     <div class="count">
-<%--                     	<a href="./AdminReviewDelete.adr?rev_num=${dto.rev_num }&pageNum=${pageNum }">삭제</a> --%>
-                 	    <input type = "button" value = "삭제" onclick="deleteReview(${dto.rev_num },${pageNum });">
+                 	    <input type = "button" class="btn btn-primary py-2 mr-1" value = "삭제" onclick="deleteReview(${dto.rev_num },${pageNum });">
 
                     </div>
                 </div>
               </c:forEach>
 			</div><br>
               
-            <!-- 페이지처리 -->
-            <div align="center"> 
-	  		 	<c:if test="${totalCnt != 0 }">
-	
-		<!-- 이전 -->
-		<c:if test="${startPage > pageBlock }">
-			<a href="./AdminReviewList.adr?pageNum=${startPage-pageBlock }">[이전]</a>
+
+			<!-- 페이징처리 -->
+    			<c:if test="${totalCnt != 0 }">
+
+			<!-- 이전 -->
+			<c:if test="${startPage > pageBlock }">
+				<a href="./AdminReviewList.adr?pageNum=${startPage-pageBlock }">[이전]</a>
+			</c:if>
+			<!--     	<div class="row mt-5"> -->
+			<div class="col text-center">
+				<div class="block-27">
+					<ul>
+						<!-- 페이지 번호(1,2,3...) -->
+					<c:forEach var="i" begin="${startPage }" end="${endPage }"
+						step="1">
+					
+
+							<li <c:if test="${pageNum == i }">class="active" </c:if>
+								
+							>
+						<span>
+						<a href="./AdminReviewList.adr?pageNum=${i }">${i }</a>
+						</span>
+						</li>
+						
+
+						</c:forEach>
+					</ul>
+				</div>
+			</div>
+
+			<!-- 다음 -->
+			<c:if test="${endPage < pageCount }">
+				<a href="./AdminReviewList.adr?pageNum=${startPage+pageBlock }">[다음]</a>
+			</c:if>
+
 		</c:if>
-		<!-- 페이지 번호(1,2,3...) -->
-		<c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
-			<a href="./AdminReviewList.adr?pageNum=${i }">${i }</a>
-		</c:forEach>
-		
-		<!-- 다음 -->
-		<c:if test="${endPage < pageCount }">
-			<a href="./AdminReviewList.adr?pageNum=${startPage+pageBlock }">[다음]</a>
-		</c:if>
-	
-	</c:if>
-		   </div>	
   
       </div><br>
       
-<!--       버튼 -->
-<!--       <div> -->
-<!--       	<input type="button" value="새글작성" class="btn btn-primary" onclick="location.href='./AdminNoticeWrite.nb';"> -->
-<!--       </div> -->
-           
         </div>
     </div>
   
 	<!-- 메인 -->
-     
-	
-	
-	<div class="clear"></div>
 	<!-- 푸터들어가는 곳 -->
 	<jsp:include page="../inc/bottom.jsp" />
 	<!-- 푸터들어가는 곳 -->
-	</div>
+	
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="20px" height="20px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
