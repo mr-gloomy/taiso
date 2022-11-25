@@ -215,13 +215,12 @@
 							</div>
 						
 					</div>
+					</section>
         </div>
 <!-- <div id="table_search"> -->
 <!-- 	<input type="button" value="관리자메인페이지로이동" class="btn" -->
 <!-- 		onclick=" location.href='./여기에가상주소입력';" -->
 	
-</div>
-</section>
 	<!-- 푸터들어가는 곳 -->
 	<jsp:include page="../inc/bottom.jsp" />
 	<!-- 푸터들어가는 곳 -->
