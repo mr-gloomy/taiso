@@ -41,6 +41,14 @@
     
  <script type="text/javascript">
     
+   // 하이픈입력하기
+   const autoHyphen = (target) => { // 00-00-000000-00
+       target.value = target.value
+         .replace(/[^0-9]/g, '')
+         .replace(/^(\d{2})(\d{2})(\d{6})(\d{2})$/, `$1-$2-$3-$4`);
+      }
+
+ 
    // 보험 상세보기 
    function Detail1(){
       Swal.fire({
@@ -128,7 +136,8 @@
                     pay_status : rsp.status         // 결제상황
                  }
               });
-                   location.href="./PaymentTest.pay";
+                   location.href="./ReservationChk.rez?pay_uqNum="+rsp.imp_uid;
+
            } else {
                var msg = '결제에 실패하였습니다.';
                msg += '\nerror : ' + rsp.error_msg;
@@ -147,31 +156,61 @@
        
           
        if(document.fr.license_issueDate.value == ""){
-          alert("면허증 발급일자를 입력하세요!");
-          document.fr.license_issueDate.focus();
+          
+          Swal.fire({         
+                title : '면허증 발급일자를 입력하세요!',
+                 icon: 'warning',
+                confirmButtonText: '확인'
+             })
+          document.fr.license_issueDate.focus();          
           return;
+          
        }   
           
        if(document.fr.license_type.selectedIndex==0){
-         alert("면허 종류를 입력하세요!");
+          
+          Swal.fire({   
+              title : '면허 종류를 입력하세요!',
+               icon: 'warning',
+              confirmButtonText: '확인'
+           })
          document.fr.license_type.focus();
          return;
+         
        }
        
        if(document.fr.license_num.value == ""){
-          alert("자격증 번호를 입력하세요!");
+          
+          Swal.fire({   
+                title : '자격증 번호를 입력하세요!',
+                 icon: 'warning',
+                confirmButtonText: '확인'
+             })
           document.fr.license_num.focus();
           return;
+          
        }   
          
        if(document.fr.car_insurance[0].checked==false && document.fr.car_insurance[1].checked==false){
-         alert("자동차 보험을 선택해주세요!");
+          
+          Swal.fire({   
+              title : '자동차 보험을 선택해주세요!',
+               icon: 'warning',
+              confirmButtonText: '확인'
+           })
          return;
+          
       }
        
        if(document.fr.agreement.checked==false){
-         alert("약관 동의하세요");
+          
+          Swal.fire({   
+                title : '약관에 동의해주세요!',
+                 icon: 'warning',
+                confirmButtonText: '확인'
+             })
          return;
+          
       }
        
         var totalCharge = parseInt(document.fr.pay_total.value); // 최종결제금액 
@@ -198,6 +237,8 @@
     } 
     
    </script>
+
+
 
   </head>
 
@@ -244,12 +285,12 @@
                 <div class="col-md-12">
                   <!-- <div class="border w-100 p-4 rounded mb-2 d-flex"> -->
                     <div class="form-group">  
-                    <p style="text-align:center;">[예약정보]</p> <br>
+                          <h3>예약정보</h3>  
                         <label>대여일시 : <input type="text" name="rez_rentalDate" class="form-control2" value="${sessionScope.rez_pick_date }" readonly="readonly"></label><br> <!-- rezDTO -->
                         <label>반납일시 : <input type="text" name="rez_returnDate" value="${sessionScope.rez_off_date }" class="form-control2" readonly="readonly"></label><br>
                         <label>대여시간 : <input type="text" name="rez_pick_time" value="${sessionScope.rez_pick_time }" class="form-control2" readonly="readonly"></label><br> <!-- rezDTO -->
                         <label>반납시간 : <input type="text" name="rez_off_time" value="${sessionScope.rez_off_time }" class="form-control2" readonly="readonly"> </label><br>
-                        <label>총예약일 : <input type="text" name="rez_totalDate" value="${sessionScope.rez_totalDate }" class="form-control2" readonly="readonly"></label><br>
+                        <label>총예약일 : <input type="text" name="rez_totalDate" value="${sessionScope.rez_totalDate }" class="form-control2" readonly="readonly">일</label><br>
                         <label>대여/반납장소 : <input type="text" name="rez_site" value="${sessionScope.rez_site }" class="form-control2" readonly="readonly"></label>         
                      </div>
                   <!-- </div> -->
@@ -259,7 +300,7 @@
                 <div class="col-md-12">
 <!--                    <div class="border w-100 p-4 rounded mb-2 d-flex"> -->
                <div class="form-group">  
-                     <p style="text-align:center;">[선택차량정보]</p> <br>
+                     <h3>선택차량정보</h3>  
                      <input type="hidden" name="car_code" value="${carDTO.car_code}">
                      <label>차량 카테고리 : <input type="text" name="car_category" value="${carDTO.car_category}" class="form-control2" readonly="readonly"></label> <br>
                       <label>차량 브랜드 : <input type="text" name="car_brand" value="${carDTO.car_brand}" class="form-control2" readonly="readonly"></label><br><!-- 주소줄에서받아오기 -->
@@ -273,12 +314,7 @@
                 
               </div>
 <!--           </div> -->
-<!-- Left Side -->               
-              <hr>
-              <br>
-              <br>
-
-          <div class="form-group">
+            <div class="form-group">
               <h3>운전자정보입력</h3>
               
               <input type="hidden" name="mem_id" value="${sessionScope.mem_id }">
@@ -297,42 +333,61 @@
          <div class="form-group">      
                 이메일 : <input type="email" name="mem_email" class="form-control" class="form-control2" value="${mDTO.mem_email }" readonly="readonly">
           </div>
-              
-           <br>
+                            
               <hr>
               <br>
-              
-          <div class="form-group">
+              <br>
+
+         <div class="form-group">
               <h3>면허정보입력</h3>    
-                면허발급일자 : <input type="date" class="form-control" name="license_issueDate" class="form-control2" placeholder="면허발급일자를 정확하게 입력해주세요.">
+                면허발급일자 : <input type="date" class="form-control" name="license_issueDate" class="form-control2" value="${rezDTO.license_issueDate }" placeholder="면허발급일자를 정확하게 입력해주세요.">
           </div>
-          
-          <div class="form-group">
+
+              <div class="form-group">
                   면허종류 : 
                     <select class="form-control" name="license_type" class="form-control">
                           <option value="0">면허종류를 선택하세요</option>
                        <optgroup label="1종">
-                           <option>1종대형</option>
-                        <option>1종보통</option>
-                        <option>1종소형</option>
+                           <option value="1종대형" 
+                                 <c:if test="${rezDTO.license_type.equals('1종대형') }">
+                        selected="selected"
+                        </c:if>
+                           >1종대형</option>
+                           
+                        <option value="1종보통" 
+                                <c:if test="${rezDTO.license_type.equals('1종보통') }">
+                        selected="selected"
+                                </c:if>
+                        >1종보통</option>
+                        
+                        <option value="1종소형" 
+                                <c:if test="${rezDTO.license_type.equals('1종소형') }">
+                        selected="selected"
+                                </c:if>               
+                        >1종소형</option>
                      </optgroup>
+                     
                      <optgroup label="2종">   
-                        <option>2종보통</option>
-                        <option>2종소형</option>
+                        <option value="2종보통" 
+                                <c:if test="${rezDTO.license_type.equals('2종보통') }">
+                        selected="selected"
+                                </c:if>                         
+                        >2종보통</option>
+                        
+                        <option value="2종소형" 
+                                <c:if test="${rezDTO.license_type.equals('2종소형') }">
+                        selected="selected"
+                                </c:if>                       
+                        >2종소형</option>
                    </optgroup>
-                   <optgroup label="특수">   
-                      <option>대형견인</option>
-                      <option>소형견인</option>
-                      <option>구난</option>
-                   </optgroup>
-                    </select>   
+                   </select>
+                   </div>
+                   
+          <div class="form-group"> <!-- 면허증번호 12자리 그리고 패턴 설정하기 -->
+                 면허증번호 : <input type="text" id="license_num" name="license_num" class="form-control" oninput="autoHyphen(this)" maxlength="15" value="${rezDTO.license_num }" placeholder="00-00-000000-00">
+<%--                  면허증번호 : <input type="text" name="license_num" class="form-control" maxlength='12' pattern="[0-9]" value="${rezDTO.license_num }" placeholder="00-00-000000-00"> --%>
           </div>
           
-          <div class="form-group">
-                 면허증번호 : <input type="text" name="license_num" class="form-control" value="" maxlength='12' placeholder="int값면허증번호를 정확하게 입력해주세요.">
-          </div>
-          
-   
            
            <br>
            <hr>

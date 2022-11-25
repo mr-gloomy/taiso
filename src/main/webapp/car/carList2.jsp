@@ -77,7 +77,7 @@
                <div class="col-md-4">
                   <div class="car-wrap rounded ftco-animate">
                      <div class="img rounded d-flex align-items-end"
-                        style="background-image: url(./upload/${dto.car_file.split(',')[0] });">
+                        style="background-image: url(./upload/${cars.car_file.split(',')[0] });">
                      </div>
                      <div class="text">
                         <h2 class="mb-0">
@@ -122,13 +122,16 @@
          <c:if test="${totalCnt != 0 }">
 
             <!-- 이전 -->
-            <c:if test="${startPage > pageBlock }">
-               <a href="./CarListAll.ca?pageNum=${startPage-pageBlock }">[이전]</a>
-            </c:if>
+<%--             <c:if test="${startPage > pageBlock }"> --%>
+<%--                <a href="./CarListAll.ca?pageNum=${startPage-pageBlock }">[이전]</a> --%>
+<%--             </c:if> --%>
             <!--        <div class="row mt-5"> -->
             <div class="col text-center">
                <div class="block-27">
                   <ul>
+                  <c:if test="${startPage > pageBlock }">
+		               <a href="./CarListAll.ca?pageNum=${startPage-pageBlock }">[이전]</a>
+		          </c:if>
                      <!-- 페이지 번호(1,2,3...) -->
                      <c:forEach var="i" begin="${startPage }" end="${endPage }"
                         step="1">
@@ -144,14 +147,17 @@
                         
 
                      </c:forEach>
+                     <c:if test="${endPage < pageCount }">
+		               <a href="./CarListAll.ca?pageNum=${startPage+pageBlock }">[다음]</a>
+		            </c:if>
                   </ul>
                </div>
             </div>
 
             <!-- 다음 -->
-            <c:if test="${endPage < pageCount }">
-               <a href="./CarListAll.ca?pageNum=${startPage+pageBlock }">[다음]</a>
-            </c:if>
+<%--             <c:if test="${endPage < pageCount }"> --%>
+<%--                <a href="./CarListAll.ca?pageNum=${startPage+pageBlock }">[다음]</a> --%>
+<%--             </c:if> --%>
 
          </c:if>
 

@@ -222,7 +222,7 @@ public class ReservationController extends HttpServlet{
 				 */
 				else if(command.equals("/SiteInfo.rez")) {
 					forward = new ActionForward();
-					forward.setPath("./views/siteInfo.jsp");
+					forward.setPath("./views/siteInfo3.jsp");
 					forward.setRedirect(false);
 				}
 				
@@ -300,6 +300,16 @@ public class ReservationController extends HttpServlet{
 				}
 				
 				
+				/**
+				 * InsuranceInfo
+				 * 
+				 */
+				else if(command.equals("/RezCheck.rez")) {
+					forward = new ActionForward();
+					forward.setPath("./views/reservationChk.jsp");
+					forward.setRedirect(false);
+				}
+									
 				
 			    System.out.println(" C : 2. 가상주소 매핑 끝");
 			      

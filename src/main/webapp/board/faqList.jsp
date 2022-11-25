@@ -29,264 +29,6 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/admin_my.css">
 
-<style>
- 
- /** ---------------------- style.css ---------------------------- */
- 
-	.panel {
-  padding: 20px;
-  
-}
-.accordionMainTitle {
-  background:#c1e3ff;
-  border: 2px solid #ddd;
-  border-radius: 10px 10px 0 0;
-  padding: 20px 35px;
-  font-family: 'Raleway', sans-serif;
-  font-size: 25px;
-}
-
-.acc-header {
-  cursor: pointer;
-  padding: 25px;
-  color: #397BB5;
-  border-radius: 10px;
-  font-weight: bold;
-  background-color: #FAFAFA;
-  display: block;
-  font-family: 'Raleway', sans-serif;
-  margin-bottom:0px;
-  border-bottom: none !important;
-}
-
-
-.acc-body {
-    padding: 20px;
-    line-height: 1.9;
-    background-color: #FAFAFA;
-    border-radius: 0 0 10px 10px;
-    font-family: 'Raleway', sans-serif;
-}
-#accordion .acc-body{
-   display : none;
-}
-
-#accordion .active .acc-body {
-   display : block;
-}
-
-#panel-wrapper {
-  border: 2px solid #DDD;
-  border-top: none;
-  border-radius: 0 0 10px 10px;
-  display: block;
-}
-.iconFixer {
-  float: right;
-}
-.acc-header:hover{
-  background-color: #397BB5 !important;
-  color: white !important;
-}
-
-.panel:hover .acc-header {
-    background-color: #397BB5 !important;
-    color: white !important;
-    
-}
-
-/** demo.css */
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-*{ margin: 0; padding: 0;}
-body{
-  font-family: 'Roboto', sans-serif;
-  font-style: normal;
-  font-weight: 300;
-  font-smoothing: antialiased;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-  font-size: 15px;
-/*   background: #eee; */
-}
-.intro{
-   background: #fff;
-   padding: 60px 30px;
-   color: #333;
-   margin-bottom: 15px;
-   line-height: 1.5;
-   text-align: center;
-}
-.intro h1 {
-   font-size: 18pt;
-   padding-bottom: 15px;
-
-}
-.intro p{
-   font-size: 14px;
-}
-
-.action{
-   text-align: center;
-   display: block;
-   margin-top: 20px;
-}
-
-a.btn {
-  text-decoration: none;
-  color: #666;
-   border: 2px solid #666;
-   padding: 10px 15px;
-   display: inline-block;
-   margin-left: 5px;
-}
-a.btn:hover{
-   background: #666;
-   color: #fff;
-    transition: .3s;
--webkit-transition: .3s;
-}
-.btn:before{
-  font-family: FontAwesome;
-  font-weight: normal;
-  margin-right: 10px;
-}
-.github:before{content: "\f09b"}
-.down:before{content: "\f019"}
-.back:before{content:"\f112"}
-.credit{
-    background: #fff;
-    padding: 12px;
-    font-size: 9pt;
-    text-align: center;
-    color: #333;
-    margin-top: 40px;
-
-}
-.credit span:before{
-   font-family: FontAwesome;
-   color: #e41b17;
-   content: "\f004";
-
-
-}
-.credit a{
-   color: #333;
-   text-decoration: none;
-}
-.credit a:hover{
-   color: #1DBF73; 
-}
-.credit a:hover:after{
-    font-family: FontAwesome;
-    content: "\f08e";
-    font-size: 9pt;
-    position: absolute;
-    margin: 3px;
-}
-main{
-  background: #fff;
-  padding:: 20px;
-  
-}
-
-article li{
-   color: #444;
-   font-size: 15px;
-   margin-left: 33px;
-   line-height: 1.5;
-   padding: 5px;
-}
-article h1,
-article h2,
-article h3,
-article h4,
-article p{
-   padding: 14px;
-   color: #333;
-}
-article p{
-   font-size: 15px;
-    line-height: 1.5;
-}
- 
-@media only screen and (min-width: 720px){
-    main{
-      max-width: 720px;
-      margin-left: auto;
-      margin-right: auto; 
-      padding: 24px;
-    }
-
-
-}
-
-.set-overlayer,
-.set-glass,
-.set-sticky {
-	cursor: pointer;
-	height: 45px;
-	line-height: 45px;
-	padding: 0 15px;
-	color: #333;
-	font-size: 16px;
-}
-.set-overlayer:after,
-.set-glass:after,
-.to-active:after,
-.set-sticky:after {
-	font-family: FontAwesome;
-	font-size: 18pt;
-	position: relative;
-	float: right;
-}
-.set-overlayer:after,
-.set-glass:after,
-.set-sticky:after {
-	content: "\f204";
-	transition: .6s;
-}
-
-.to-active:after {
-	content: "\f205";
-	color: #008080;
-	transition: .6s;
-}
-.set-overlayer,
-.set-glass,
-.set-sticky,
-.source,
-.theme-tray {
-	margin: 10px;
-	background: #f2f2f2;
-	border-radius: 5px;
-	border: 2px solid #f1f1f1;
-	box-sizing: border-box;
-}
-/* Syntax Highlighter*/
-
-pre.prettyprint {
-	padding: 15px !important;
-   margin: 10px;
-	border: 0 !important;
-  background: #f2f2f2;
-  overflow: auto;
-}
-
-.source {
-	white-space: pre;
-	overflow: auto;
-	max-height: 400px;
-}
-code{
-    border:1px solid #ddd;
-    padding: 2px;
-    border-radius: 2px;
-}
-
-/** ---------------------- demo.css ------------------------------- */
-	
-	</style>
   </head>
   <body>
   <div id="wrap">
@@ -322,88 +64,59 @@ code{
             <div class="col-md-8 block-9 mb-md-5">
 
 
-						<div class="accord">
-							<div id="accordion">
-								<div class="accordionMainTitle">
-									<span>FAQ</span>
-								</div>
-								<div id="panel-wrapper">
-									<div class="panel active">
-										<div class="acc-header">
-											<span>What is Codehim?</span> <i
-												class="fa fa-chevron-down iconFixer"></i>
-										</div>
-										<div class="acc-body">
-											<p>CodeHim is one of the BEST developer websites that
-												provide web designers and developers with a simple way to
-												preview and download a variety of free code &amp; scripts.</p>
-										</div>
-									</div>
-									<div class="panel">
-										<div class="acc-header">
-											<span>Lorem Ipsum is simply dummy text</span> <i
-												class="fa fa-chevron-down iconFixer"></i>
-										</div>
-										<div class="acc-body">
-											<p>But I must explain to you how all this mistaken idea
-												of denouncing pleasure and praising pain was born and I will
-												give you a complete account of the system, and expound the
-												actual teachings of the great explorer of the truth, the
-												master-builder of human happiness. No one rejects, dislikes,
-												or avoids pleasure itself, because it is pleasure, but
-												because those who do not know how to pursue pleasure
-												rationally encounter consequences that are extremely
-												painful.</p>
-										</div>
-									</div>
-									<div class="panel">
-										<div class="acc-header">
-											<span class="acc-header-title">Lorem Ipsum is simply
-												dummy text</span> <i class="fa fa-chevron-down iconFixer"></i>
-										</div>
-										<div class="acc-body">
-											<p>But I must explain to you how all this mistaken idea
-												of denouncing pleasure and praising pain was born and I will
-												give you a complete account of the system, and expound the
-												actual teachings of the great explorer of the truth, the
-												master-builder of human happiness. No one rejects, dislikes,
-												or avoids pleasure itself, because it is pleasure, but
-												because those who do not know how to pursue pleasure
-												rationally encounter consequences that are extremely
-												painful.</p>
-										</div>
-									</div>
-								</div>
+<!-- 		<section class="ftco-section ftco-car-details"> -->
+      <div class="container">
+      	<div class="row">
+      		<div class="col-md-12 pills">
+						<div class="bd-example bd-example-tabs">
+							<div class="d-flex justify-content-center">
+							  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
+							    <li class="nav-item">
+							      <a class="nav-link" id="pills-1-tab" data-toggle="pill" href="#pills-1" role="tab" aria-controls="pills-1" aria-expanded="true">이용안내</a>
+							    </li>
+							    <li class="nav-item">
+							      <a class="nav-link active" id="pills-2-tab" data-toggle="pill" href="#pills-2" role="tab" aria-controls="pills-2" aria-expanded="true">예약/결제</a>
+							    </li>
+							    <li class="nav-item">
+							      <a class="nav-link" id="pills-3-tab" data-toggle="pill" href="#pills-3" role="tab" aria-controls="pills-3" aria-expanded="true">취소/환불</a>
+							    </li>
+							    <li class="nav-item">
+							      <a class="nav-link" id="pills-4-tab" data-toggle="pill" href="#pills-4" role="tab" aria-controls="pills-4" aria-expanded="true">보험/사고</a>
+							    </li>							    
+							    <li class="nav-item">
+							      <a class="nav-link" id="pills-5-tab" data-toggle="pill" href="#pills-5" role="tab" aria-controls="pills-5" aria-expanded="true">기타</a>
+							    </li>
+							  </ul>
 							</div>
-						</div>
+
+						  <div class="tab-content" id="pills-tabContent">
+						    <div class="tab-pane fade" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab">
+								칸 비움 1 
+						    </div>
+						    <div class="tab-pane fade show active" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
+ 								칸 비움 2
+						    </div>
+						    <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab">
+						     	칸 비움 3
+							</div>
+							<div class="tab-pane fade" id="pills-4" role="tabpanel" aria-labelledby="pills-4-tab">
+						     	칸 비움 4
+							</div>
+							<div class="tab-pane fade" id="pills-5" role="tabpanel" aria-labelledby="pills-5-tab">
+						     	칸 비움 5
+							</div>
+							
+							
+		   			   </div>	<!-- tab-content -->
+				</div>
+			</div>
+		</div>
+      </div>
 
 
-						<!--           <div class="col-md-8 block-9 mb-md-5"> -->
-<!--             <form action="#" class="bg-light p-5 contact-form"> -->
-<!--               <div class="form-group"> -->
-<!--                 <input type="text" class="form-control" placeholder="Your Name"> -->
-<!--               </div> -->
-<!--               <div class="form-group"> -->
-<!--                 <input type="text" class="form-control" placeholder="Your Email"> -->
-<!--               </div> -->
-<!--               <div class="form-group"> -->
-<!--                 <input type="text" class="form-control" placeholder="Subject"> -->
-<!--               </div> -->
-<!--               <div class="form-group"> -->
-<!--                 <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea> -->
-<!--               </div> -->
-<!--               <div class="form-group"> -->
-<!--                 <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5"> -->
-<!--               </div> -->
-<!--             </form> -->
-          
-<!--           </div> -->
-<!--         </div> -->
-<!--         <div class="row justify-content-center"> -->
-<!--         	<div class="col-md-12"> -->
-<!--         		<div id="map" class="bg-white"></div> -->
-<!--         	</div> -->
+ <!-- 아래는 틀  -->
+
         </div>
       </div>
      </div>
