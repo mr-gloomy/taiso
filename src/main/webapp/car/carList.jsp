@@ -64,13 +64,13 @@
 
       <div class="container">
          <div>
-            <a href="./CarList.ca">전체</a>
-            <a href="./CarList.ca?item=small">소형</a>
-            <a href="./CarList.ca?item=compact">준중형</a>
-            <a href="./CarList.ca?item=middle">중형</a> 
-            <a href="./CarList.ca?item=large">대형</a> 
-            <a href="./CarList.ca?item=suv">suv</a>
-            <a href="./CarList.ca?item=foreign">수입차</a>
+            <a class="btn btn-primary" href="./CarList.ca">전체</a>
+            <a class="btn btn-primary" href="./CarList.ca?item=small">소형</a>
+            <a class="btn btn-primary" href="./CarList.ca?item=compact">준중형</a>
+            <a class="btn btn-primary" href="./CarList.ca?item=middle">중형</a> 
+            <a class="btn btn-primary" href="./CarList.ca?item=large">대형</a> 
+            <a class="btn btn-primary" href="./CarList.ca?item=suv">suv</a>
+            <a class="btn btn-primary" href="./CarList.ca?item=foreign">수입차</a>
          </div>
          <div class="row">
          	<c:choose>
