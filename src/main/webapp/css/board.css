@@ -15,7 +15,7 @@
 
 /* 프로필 */
 .profile {
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  	box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
     padding: 30px;
     display: flex;
     flex-direction: column;
@@ -522,10 +522,7 @@ a {
         width: 100%;
     }
 
-
-
-
-
-/* */
-
 }
+
+
+

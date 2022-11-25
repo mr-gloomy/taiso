@@ -54,9 +54,7 @@
 					class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
 					<div class="col-md-9 ftco-animate pb-5">
 						<p class="breadcrumbs">
-							<span class="mr-2"><a href="./ReservationMain.rez"">Home <i
-									class="ion-ios-arrow-forward"></i></a></span> <span>고객센터 <i
-								class="ion-ios-arrow-forward"></i></span>
+							<span class="mr-2"><a href="./ReservationMain.rez"">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>고객센터 <i class="ion-ios-arrow-forward"></i></span>
 						</p>
 						<h1 class="mb-3 bread">고객센터</h1>
 					</div>
@@ -111,8 +109,8 @@
 								<p>전체 글 개수 : ${requestScope.totalCnt } 개</p>
 								<div class="n_search" border="1" width="90%">
 									<div align="right">
-										<input type="text" name="search"> <input type="submit"
-											value="Search" class="btn btn-outline-secondary">
+										<input type="text" name="search"> 
+										<input type="submit" value="Search" class="btn btn-outline-primary">
 									</div>
 								</div>
 							</div>
@@ -130,8 +128,7 @@
 										<div>
 											<div class="num">${boDTO.bo_num }</div>
 											<div class="title">
-												<a
-													href="./NoticeDetail.nb?bo_num=${boDTO.bo_num }&pageNum=${pageNum}">${boDTO.bo_title }</a>
+												<a href="./NoticeDetail.nb?bo_num=${boDTO.bo_num }&pageNum=${pageNum}">${boDTO.bo_title }</a>
 											</div>
 											<div class="date">${boDTO.bo_sysdate }</div>
 											<div class="count">${boDTO.bo_readcount }</div>

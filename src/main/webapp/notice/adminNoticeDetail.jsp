@@ -76,8 +76,8 @@
                 
             </div>
             <div align="center">
-                <a href="./AdminNoticeUpdate.nb?bo_num=${boDTO.bo_num }&pageNum=${pageNum }" class="btn btn-primary">수정하기</a>
-                <a href="./AdminNoticeList.nb" class="btn btn-primary">목록이동</a>
+                <a href="./AdminNoticeUpdate.nb?bo_num=${boDTO.bo_num }&pageNum=${pageNum }" class="btn btn-primary py-2 px-3">수정하기</a>
+                <a href="./AdminNoticeList.nb" class="btn btn-primary py-2 px-3">목록이동</a>
             </div>
         </div>
     </div>

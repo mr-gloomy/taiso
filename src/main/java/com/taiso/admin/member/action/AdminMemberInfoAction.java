@@ -14,11 +14,11 @@ public class AdminMemberInfoAction implements Action {
 		System.out.println(" M : AdminMemberInfoAction_execute 호출");
 		
 		// 전달정보 저장
-		String mem_num = request.getParameter("mem_num");
+		int mem_num = Integer.parseInt(request.getParameter("mem_num"));
 		String pageNum =  request.getParameter("pageNum");
 		
 		// DAO
-		AdminMemberDAO  dao = new AdminMemberDAO();
+		AdminMemberDAO dao = new AdminMemberDAO();
 		
 		// DTO 정보 가져오기
 		MemberDTO mDTO = dao.getMemberInfo(mem_num);
@@ -37,3 +37,4 @@ public class AdminMemberInfoAction implements Action {
 	}
 
 }
+

@@ -100,7 +100,7 @@
 							</dd>
 							<dt>작성자</dt>
 							<dd>
-								<input type="text" value="${sessionScope.mem_id }"name="mem_id">
+								<input type="text" value="${sessionScope.mem_id }"name="mem_id" readonly="readonly">
 							</dd>
 							<dt>비밀번호</dt> <!-- 기존 비밀번호랑 일치 -->
 							<dd>
@@ -116,14 +116,14 @@
 							<div>첨부파일 : ${boDTO.bo_file}</div>
 							<br>
 					
-				<!-- 버튼 -->
-				<div class="d-grid gap-8 col-3 mx-auto">
-					<input type="button" value="수정완료" class="btn btn-primary" onclick="noticeUpdate()"/>
-					<input type="button" value="목록이동" class="btn btn-primary" onclick="location.href='./AdminNoticeList.nb?bo_num=${boDTO.bo_num }&pageNum=${pageNum }';">
-				</div>
-			</div>
-	 	</div>
-	 </form>
+					<!-- 버튼 -->
+					<div class="form-group" align="center">
+						<input type="button" value="수정완료" class="btn btn-primary py-2 px-3" onclick="noticeUpdate()">
+						<input type="button" value="수정취소" class="btn btn-primary py-2 px-3" onclick="location.href='./AdminNoticeList.nb?bo_num=${boDTO.bo_num }&pageNum=${pageNum }';">
+					</div>
+				 </div>
+			 </div>
+		</form>
 	 </section>
 	<!-- 메인 -->
      

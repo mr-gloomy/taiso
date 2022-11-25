@@ -78,7 +78,7 @@
 				
 				<!-- 버튼 -->
 				<div align="center" >
-					<input type="button" value="목록이동" class="btn btn-primary" onclick="location.href='./NoticeList.nb';">
+					<input type="button" value="목록이동" class="btn btn-primary py-2 px-3" onclick="location.href='./NoticeList.nb';">
 				</div>
 			</div>
 		</div>
@@ -94,10 +94,8 @@
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen">
 		<svg class="circular" width="20px" height="20px">
-			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
-				stroke-width="4" stroke="#eeeeee" />
-			<circle class="path" cx="24" cy="24" r="22" fill="none"
-				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
 
 	<script src="./js/jquery.min.js"></script>
