@@ -49,6 +49,7 @@ public class CarController extends HttpServlet {
 		else if(command.equals("/CarListAll.ca")) {
 			System.out.println(" C : /CarListAll.ca 호출 ");
 			System.out.println(" C : [패턴3]");
+			// 헤더에서 차량목록으로 연결되는 페이지 
 			action = new CarListAllAction();
 			try {
 				forward = action.execute(request, response);

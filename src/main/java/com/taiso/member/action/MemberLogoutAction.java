@@ -16,12 +16,17 @@ public class MemberLogoutAction implements Action {
 		session.invalidate();
 		
 		
-		// 메인으로 이동
-		ActionForward forward = new ActionForward();
-		forward.setPath("./ReservationMain.rez");
-		forward.setRedirect(true);
 		
-		return forward;
+		// 전 페이지로 이동
+		response.sendRedirect(request.getHeader("referer"));
+		
+		
+		// 메인으로 이동
+//		ActionForward forward = new ActionForward();
+//		forward.setPath("./ReservationMain.rez");
+//		forward.setRedirect(true);
+		
+		return null;
 	}
 
 }
