@@ -137,6 +137,7 @@
                  }
               });
                    location.href="./ReservationChk.rez?pay_uqNum="+rsp.imp_uid;
+
            } else {
                var msg = '결제에 실패하였습니다.';
                msg += '\nerror : ' + rsp.error_msg;

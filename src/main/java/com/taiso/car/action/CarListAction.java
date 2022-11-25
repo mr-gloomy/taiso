@@ -64,7 +64,9 @@ public class CarListAction implements Action {
 
 		// 총 페이지 = 글 개수(총량) / 페이지당 출력
 		// => 만약에 나머지가 있을때 페이지 1개 추가
-
+		List carsList = cDAO.getCarList(startRow, pageSize, item, rez_site, rez_pick_date, rez_off_date);
+		cnt = carsList.size();
+		System.out.println("M : 예약가능한 차량 대수 : " + cnt);
 		// 전체 페이지수
 		int pageCount = (cnt / pageSize) + (cnt % pageSize == 0 ? 0 : 1); // 0이면 0을, 아니면 1을 더한다
 
@@ -82,7 +84,7 @@ public class CarListAction implements Action {
 //
 
 		// DB에 저장된 상품정보를 가져오기
-		List carsList = cDAO.getCarList(startRow, pageSize, item, rez_site, rez_pick_date, rez_off_date);
+//		List carsList = cDAO.getCarList(startRow, pageSize, item, rez_site, rez_pick_date, rez_off_date);
 		// DB에 저장된 상품정보를 가져오기
 
 		System.out.println(" M : item, car_site : " + item + "," + rez_site);
