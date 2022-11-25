@@ -547,6 +547,8 @@ public class BoardDAO {
 				con = getConnection();
 				
 				sql = "select * from member_board where bo_cate = '6' order by bo_re_ref desc, bo_re_seq asc;";
+				sql = "select * from member_board where bo_cate = '6' order by bo_re_ref desc, bo_re_seq asc limit ?,?";
+				
 				pstmt = con.prepareStatement(sql);
 				
 				// ???
