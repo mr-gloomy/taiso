@@ -19,16 +19,10 @@ public class ReviewListAction implements Action {
 		
 //		// 세션 제어 (id)
 		HttpSession session = request.getSession();
-		String mem_id = (String) session.getAttribute("mem_id");
 		
 		int car_code = Integer.parseInt(request.getParameter("car_code"));
 		String car_name = request.getParameter("car_name");
 		ActionForward forward = new ActionForward();
-		if(mem_id == null) {
-			forward.setPath("./MemberLogin.me");
-			forward.setRedirect(true);
-			return forward;
-		}
 
 		ReviewDAO rDAO = new ReviewDAO();
 		CarDAO dao = new CarDAO();
