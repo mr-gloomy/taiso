@@ -69,7 +69,7 @@
 			Swal.fire({
                 icon: 'warning',
                 /* title: '내용을 입력하세요!', */
-                text: '내용을 입력하세요!',
+                text: '비밀번호를 입력하세요!',
             });
 			document.fr.bo_pass.focus();
 			return;
@@ -78,7 +78,7 @@
 			Swal.fire({
                 icon: 'warning',
                 /* title: '내용을 입력하세요!', */
-                text: '비밀번호를 입력하세요!',
+                text: '내용을 입력하세요!',
             });
 			document.fr.bo_content.focus();
 			return;

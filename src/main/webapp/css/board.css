@@ -9,7 +9,7 @@
 
 .n_page{
   display: flex;
-
+ margin-top:10px;
   margin-right: 10px;
 }
 
@@ -206,11 +206,14 @@ a {
     width: 10%;
 }
 .board_list .num1 { /*notice list*/
-    width: 16%;
+    width: 12%;
+}
+.board_list .bo_cate { /*notice list*/
+    width: 15%;
 }
 
 .board_list .title {/*notice list*/
-    width: 60%;
+    width: 45%;
     text-align: center;
 }
 .board_list .title3 {/*a_notice list*/
@@ -218,10 +221,18 @@ a {
 /*     padding-left: 55px; */
 }  
 
+
+#titlepadding2{
+	width: 45%;
+    text-align: center;
+    padding-left: 35px;
+    text-align: left;
+}
+
 #titlepadding{
 	width: 60%;
     text-align: center;
-    padding-left: 55px;
+    padding-left: 35px;
     text-align: left;
 }
 
@@ -246,7 +257,7 @@ a {
 }
 
 .board_list .count {/*notice list*/
-    width: 10%;
+    width: 15%;
 }
 
 
