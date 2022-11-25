@@ -45,7 +45,7 @@ public class QuestionWriteAction implements Action {
 		// 첨부파일 크기 지정 / 10MB
 		
 		ServletContext CTX = request.getServletContext();
-		String realPath = CTX.getRealPath("/upload");
+		String realPath = CTX.getRealPath("./upload");
 		System.out.println(" M : realPath : "+realPath);
 		int maxSize = 10 * 1024 * 1024;
 		

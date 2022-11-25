@@ -78,7 +78,7 @@
                 </li>
 
                 <li class="buttonitem" id="settings">
-                    <a href="/QuestionWrite.bo" class="menubtn"><i class="fa fa-cog"></i>1:1 문의하기</a>
+                    <a href="/QuestionList.bo" class="menubtn"><i class="fa fa-cog"></i>1:1 문의하기</a>
 <!--                     <div class="smenu"> -->
 <!--                         <a href="./MemberUpdate.me">회원정보 변경(탈퇴)</a> -->
 <!-- <!--                         <a href="">비밀번호 변경</a> --> 

@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.taiso.admin.member.db.MemberDTO;
+import com.taiso.board.db.BoardDAO;
+import com.taiso.board.db.BoardDTO;
 import com.taiso.member.db.MemberDAO;
 
 public class MypageAction implements Action {
@@ -71,11 +73,25 @@ public class MypageAction implements Action {
 //		}	
 	/** -----------------JS----------------------------- */		
 
-		// 전달정보저장
-
+		// 전달정보저장(닉네임)
 		MemberDAO mDAO = new MemberDAO();
-		com.taiso.member.db.MemberDTO mDTO = mDAO.getMember(mem_id);
-
+		com.taiso.member.db.MemberDTO mDTO = new com.taiso.member.db.MemberDTO();
+		mDTO = mDAO.getMember(mem_id);
+		System.out.println(mDTO);
+		
+		request.setAttribute("mDTO",mDTO);
+		
+		//전달정보저장
+		BoardDAO bodao = new BoardDAO();
+		BoardDTO bodto = new BoardDTO();
+		int myqnacnt = bodao.getMyqnacnt(mem_id);
+		int myreviewcnt = bodao.getMyreviewcnt(mem_id);
+		
+		System.out.println(myqnacnt);
+		System.out.println(myreviewcnt);
+		request.setAttribute("myqnacnt", myqnacnt);
+		request.setAttribute("myreviewcnt", myreviewcnt);
+		
 		// 페이지이동
 		forward.setPath("./board/mypage.jsp");
 		forward.setRedirect(false);
