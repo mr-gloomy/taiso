@@ -66,6 +66,8 @@ public class ReservationDAO {
 
    } // 자원해제 메서드 끝
 
+   
+   
    /**
     * 회원1명의 정보 가져오기 - getMemberInfo(mem_id)
     */
@@ -77,17 +79,13 @@ public class ReservationDAO {
 
       try {
          con = getConnection();
-         sql = "select * from member mem " 
-         		+ "join rez_driverlicense rezd " 
-         		+ "on mem.mem_id = rezd.mem_id " 
-         		+ "where mem.mem_id=?";
+         sql = "select * from member where mem_id=?";
          pstmt = con.prepareStatement(sql);
          pstmt.setString(1, mem_id);
          rs = pstmt.executeQuery();
 
          if (rs.next()) {
             mDTO = new MemberDTO();
-            rezDTO = new ReservationDTO(); 
             
             // 특정 아이디에 해당하는 회원 정보 저장
             // DB -> DTO
@@ -97,13 +95,23 @@ public class ReservationDAO {
             mDTO.setMem_birthday(rs.getString("mem_birthday"));
             mDTO.setMem_email(rs.getString("mem_email"));
             
-            rezDTO.setLicense_num(rs.getString("license_num"));
-            rezDTO.setLicense_issueDate(rs.getString("license_issueDate"));
-            rezDTO.setLicense_type(rs.getString("license_type"));
-            
          } // if
          
+         sql = "select rezd.license_num, rezd.license_issueDate, rezd.license_type from member mem"
+         		+ " join rez_driverlicense rezd"
+         		+ " on mem.mem_id = rezd.mem_id"
+         		+ " where mem.mem_id=?";
+         pstmt = con.prepareStatement(sql);
+         pstmt.setString(1, mem_id);
+         rs = pstmt.executeQuery();
          
+         if(rs.next()) {
+        	 rezDTO = new ReservationDTO();
+	         rezDTO.setLicense_num(rs.getString(1));
+	         rezDTO.setLicense_issueDate(rs.getString(2));
+	         rezDTO.setLicense_type(rs.getString(3));
+         
+         }
 
          System.out.println(" DAO : 회원정보 가져오기 완료 ");
 
@@ -118,7 +126,8 @@ public class ReservationDAO {
       
       return totalDTO;
    } // 회원1명의 정보 가져오기 - getMemberInfo(mem_id)
-
+   
+   
    
    
    /**
@@ -336,17 +345,21 @@ public class ReservationDAO {
     * 예약+차 목록 조회 - getResevationList(String mem_id)
     */
 
-   public ArrayList getResevationList(String mem_id) {
+   public ArrayList getResevationList(String mem_id, int startRow,int pageSize) {
       ArrayList reservationList = new ArrayList();
 
       try {
          con = getConnection();
          // sql - id값에 해당하는 예약 정보 조회
-         sql = "select * from rez_reservation rez join member mem on rez.mem_id = mem.mem_id where rez.mem_id=? order by rez.rez_uqNum desc";
+         sql = "select * from rez_reservation rez join member mem on rez.mem_id = mem.mem_id where rez.mem_id=? order by rez.rez_uqNum desc limit ?,?";
          pstmt = con.prepareStatement(sql);
          pstmt.setString(1, mem_id);
+         pstmt.setInt(2, startRow-1); // 시작행 - 1 
+         pstmt.setInt(3, pageSize); // 개수 
          rs = pstmt.executeQuery();
+         
 
+         
          while (rs.next()) {
             // 예약 정보 저장
             // DB -> DTO -> List
@@ -479,6 +492,7 @@ public class ReservationDAO {
       public ReservationDTO getReservationMailInfo(String pay_uqNum) {
     	  
     	  ReservationDTO rezDTO = null;
+    	  System.out.println("@@@@@@@@@@@@@DAO확인@@@@@@@@@@@@@"+pay_uqNum);
     	  try {
 			con = getConnection();
 			sql = "select * from rez_reservation rez where rez_uqNum=(select pay.rez_uqNum from rez_payment pay where pay.pay_uqNum=?)";
@@ -498,6 +512,7 @@ public class ReservationDAO {
 		} finally {
 			closeDB();
 		}
+    	  System.out.println("@@@@@@@@@@@@@DAO확인@@@@@@@@@@@@@"+rezDTO);
     	  return rezDTO;
       }
       
