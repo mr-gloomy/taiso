@@ -128,7 +128,12 @@
 									<span class="cat"></span>
 								</div>
 								<h2 class="mb-0">
-									<a href="car-single.html">${rez.car_name }</a>ㅤ<input type = "button" class="btn btn-primary py-1 mr-1" value="예약 완료">
+									<c:if test="${rez.rez_status == 1}">
+<%-- 									<a href="car-single.html">${rez.car_name }</a>ㅤ<input type = "button" class="btn btn-primary py-1 mr-1" value="예약 완료"> --%>
+									</c:if>
+									<c:if test="${rez.rez_status == 0}">
+										<a href="car-single.html">${rez.car_name }</a>ㅤ<input type = "button" class="btn btn-primary3 py-1 mr-1" value="예약 취소">
+									</c:if>	
 								</h2>
 								<div class="d-flex mb-3">
 									<span class="cat">${rez.rez_rentalDate} ~ ${rez.rez_returnDate}</span>

@@ -59,12 +59,12 @@ public class PaymentController extends HttpServlet {
 			
 		}
 		
-		else if(command.equals("/PaymentTest.pay")){
+		else if(command.equals("/PaymentProActon.pay")){
 			
-			System.out.println("PaymentTest.pay 호출");
+			System.out.println("PaymentProActon.pay 호출");
 			
 			forward = new ActionForward();
-			forward.setPath("./views/paymentTest.jsp");
+			forward.setPath("./views/PaymentProActon.jsp");
 			forward.setRedirect(false);
 		}
 	    
