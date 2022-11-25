@@ -24,9 +24,9 @@
 							<button type="button" class="btn dropdown-toggle"
 								data-toggle="dropdown">사이트소개</button>
 							<div class="dropdown-menu">
-								<a class="dropdown-item" href="./Siteinfo.rez">지점안내</a> 
-								<a class="dropdown-item" href="#">이용안내</a>
-								<a class="dropdown-item" href="#">보험안내</a>
+								<a class="dropdown-item" href="./SiteInfo.rez">지점안내</a> 
+								<a class="dropdown-item" href="./UseInfo.rez">이용안내</a>
+								<a class="dropdown-item" href="./InsuranceInfo.rez">보험안내</a>
 							</div>
 						</div>
 						<div class="dropdown">

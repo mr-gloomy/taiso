@@ -76,6 +76,7 @@ public class BoardDAO {
 	// 글쓰기 메서드-insertQuestion(bodto)
 	public void insertQuestion(BoardDTO bodto) {
 		int bo_num = 0;
+		String mem_nickName = null;
 		
 		try {
 			// 1.2. 디비연결
@@ -91,11 +92,25 @@ public class BoardDAO {
 				bo_num = rs.getInt(1)+1;
 			}
 			
+			//쿼리 작성 및 객체 생성(닉네임)
+			sql = "select member.mem_nickName from member_board join member on member_board.mem_id = member.mem_id where member.mem_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, bodto.getMem_id());
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				mem_nickName = rs.getString("mem_nickName");
+			}
+			
 			System.out.println(" DAO : bo_num : "+bo_num);
+			System.out.println(" DAO : mem_nickName : "+mem_nickName);
+			
+			if(rs.next()) {
+			
 			//3.
 			sql = "insert into member_board(bo_num,mem_id,bo_cate,bo_title,bo_pass,bo_content,"
-					+ "bo_file,bo_sysdate,bo_re_ref,bo_re_lev,bo_re_seq) "
-					+ "values(?,?,?,?,?,?,?,now(),?,?,?)";
+					+ "bo_file,bo_sysdate,bo_re_ref,bo_re_lev,bo_re_seq,mem_nickName) "
+					+ "values(?,?,?,?,?,?,?,now(),?,?,?,?)";
 			
 			pstmt = con.prepareStatement(sql);
 			
@@ -110,18 +125,21 @@ public class BoardDAO {
 			pstmt.setInt(8, bo_num); // ref == bno
 			pstmt.setInt(9, 0);  // lev 0
 			pstmt.setInt(10, 0);  // seq 0
-			
+			pstmt.setString(11, mem_nickName);
 			// 4. 
 			pstmt.executeUpdate();
 			
 			System.out.println(" DAO : 글쓰기 완료! ");
-			
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
 			closeDB();
 		}
 	}
+	
+		
+	
 	// 글쓰기 메서드-insertQuestion(bodto)
 	
 	// 글 전체 개수 확인 - getQuestionCount()
@@ -213,8 +231,7 @@ public class BoardDAO {
 				try {
 					con = getConnection();
 					
-					sql = "select * from member_board "
-							+ "order by bo_re_ref desc, bo_re_seq asc limit ?,?";
+					sql = "select * from member_board where bo_cate between 1 and 5 order by bo_re_ref desc, bo_re_seq asc limit ?,?";
 					pstmt = con.prepareStatement(sql);
 					
 					// ???
@@ -224,7 +241,6 @@ public class BoardDAO {
 					rs = pstmt.executeQuery();
 					
 					while(rs.next()) {
-						// DB -> DTO
 						// DB -> DTO
 						BoardDTO bodto = new BoardDTO();
 						bodto.setBo_num(rs.getInt("bo_num"));
@@ -239,6 +255,7 @@ public class BoardDAO {
 						bodto.setBo_re_seq(rs.getInt("bo_re_seq"));
 						bodto.setBo_re_lev(rs.getInt("bo_re_lev"));
 //						bodto.setBo_readcount(rs.getInt("bo_readcount"));
+						bodto.setMem_nickName(rs.getString("mem_nickName"));
 						
 						// DTO -> List
 						QuestionList.add(bodto);
@@ -254,7 +271,9 @@ public class BoardDAO {
 				
 				return QuestionList;
 			}
-	
+			// 글정보 가져오기 - getBoardList(int startRow, int pageSize)
+			
+			
 		// 게시글 1개 내용 출력 - getQuestionDetail(bo_num)
 		public BoardDTO getQuestionDetail(int bo_num) {
 			BoardDTO bodto = null;
@@ -288,6 +307,7 @@ public class BoardDAO {
 					bodto.setBo_re_lev(rs.getInt("bo_re_lev"));
 					bodto.setBo_re_seq(rs.getInt("bo_re_seq"));
 					bodto.setBo_sysdate(rs.getDate("bo_sysdate"));
+					bodto.setMem_nickName(rs.getString("mem_nickName"));
 				}
 
 				System.out.println(" DAO : 글 정보 1개 저장완료! ");
@@ -404,6 +424,7 @@ public class BoardDAO {
 		//게시판 답글 쓰기 - reInsertQuestion(bodto)
 		public void reInsertQuestion(BoardDTO bodto) {
 			int bo_num = 0;
+			String mem_nickName = null;			
 			try {
 				con = getConnection();
 				
@@ -439,10 +460,24 @@ public class BoardDAO {
 			//////////////////////////////////////////////
 			// [답글 쓰기]
 		
+			//쿼리 작성 및 객체 생성(닉네임)
+			sql = "select member.mem_nickName from member_board join member on member_board.mem_id = member.mem_id where member.mem_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, bodto.getMem_id());
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				mem_nickName = rs.getString("mem_nickName");
+			}
+			
+			System.out.println(" DAO : bo_num : "+bo_num);
+			System.out.println(" DAO : mem_nickName : "+mem_nickName);
+			
+			if(rs.next()) {
 				//3. sql + pstmt
 				sql = "insert into member_board(bo_num,mem_id,bo_cate,bo_title,bo_pass,bo_content,"
-						+ "bo_file,bo_sysdate,bo_re_ref,bo_re_lev,bo_re_seq) "
-						+ "values(?,?,?,?,?,?,?,now(),?,?,?)";
+						+ "bo_file,bo_sysdate,bo_re_ref,bo_re_lev,bo_re_seq,mem_nickName) "
+						+ "values(?,?,?,?,?,?,?,now(),?,?,?,?)";
 				
 				pstmt = con.prepareStatement(sql);
 				
@@ -457,12 +492,13 @@ public class BoardDAO {
 				pstmt.setInt(8, bodto.getBo_re_ref()); 
 				pstmt.setInt(9, bodto.getBo_re_lev()+1); 
 				pstmt.setInt(10, bodto.getBo_re_seq()+1); 
+				pstmt.setString(11, mem_nickName); 
 				
 				// 4. rs
 				pstmt.executeUpdate();
 				
 				System.out.println(" DAO : 답글 쓰기 완료! ");
-				
+			}
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
@@ -535,6 +571,7 @@ public class BoardDAO {
 					bodto.setBo_re_seq(rs.getInt("bo_re_seq"));
 					bodto.setBo_re_lev(rs.getInt("bo_re_lev"));
 //					bodto.setBo_readcount(rs.getInt("bo_readcount"));
+					bodto.setMem_nickName(rs.getString("mem_nickName"));
 					
 					// DTO -> List
 					ProposalList.add(bodto);
@@ -585,6 +622,8 @@ public class BoardDAO {
 					bodto.setBo_re_lev(rs.getInt("bo_re_lev"));
 					bodto.setBo_re_seq(rs.getInt("bo_re_seq"));
 					bodto.setBo_sysdate(rs.getDate("bo_sysdate"));
+					bodto.setMem_nickName(rs.getString("mem_nickName"));
+
 				}
 
 				System.out.println(" DAO : 글 정보 1개 저장완료! ");
@@ -598,6 +637,65 @@ public class BoardDAO {
 			return bodto;
 		}
 		// 게시글 1개 내용 출력 - getProposalDetail(bo_num)
+		
+		// 내가 쓴 문의글 개수 확인 - getMyqnacnt()
+		public int getMyqnacnt(String mem_id) {
+			int myqnacnt = 0;
+
+			try {
+				//1.2. 디비연결
+				con = getConnection();
+				// 3. sql
+				sql = "select count(*) from member_board where (not bo_cate in ('0','6')) and mem_id=?";
+				pstmt = con.prepareStatement(sql);
+				// ???
+				pstmt.setString(1, mem_id);
+				// 4. sql 실행
+				rs = pstmt.executeQuery();
+				// 5. 데이터 처리
+				if(rs.next()) {
+					//cnt = rs.getInt(1);
+					myqnacnt = rs.getInt("count(*)");
+				}
+				System.out.println(" DAO : 나의 글 개수 : "+myqnacnt+"개");
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				closeDB();
+			}
+			return myqnacnt;
+		}
+		// 내가 쓴 문의글 개수 확인 - getMyqnacnt()
+		
+		// 내가 쓴 문의글 개수 확인 - getMyqnacnt()
+		public int getMyreviewcnt(String mem_id) {
+			int myreviewcnt = 0;
+
+			try {
+				//1.2. 디비연결
+				con = getConnection();
+				// 3. sql
+				sql = "select count(*) from car_review where mem_id = ? and rev_star != ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, mem_id);
+				pstmt.setInt(2,0);
+				rs = pstmt.executeQuery();
+				
+				// 5. 데이터 처리
+				if(rs.next()) {
+					//cnt = rs.getInt(1);
+					myreviewcnt = rs.getInt("count(*)");
+				}
+				System.out.println(" DAO : 나의 글 개수 : "+myreviewcnt+"개");
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				closeDB();
+			}
+			return myreviewcnt;
+		}
+		// 내가 쓴 문의글 개수 확인 - getMyreviewcnt()
+		
 		
 }
 

@@ -45,7 +45,7 @@ public class ReservationChkAction implements Action {
 		
 		////////////////////// 카카오 공유	//////////////////////
 		
-		forward.setPath("./views/paymentTest.jsp");
+		forward.setPath("./views/reservationChk.jsp");
 		forward.setRedirect(false);
 		return forward;
 //		return null;

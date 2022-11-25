@@ -75,8 +75,7 @@
 		<section class="ftco-section contact-section">
 			<div class="container">
 				<div class="row d-flex mb-5 contact-info">
-					<div class="col-md-4">
-
+ㄴ
 						<!-- 프로필 -->
 						<div class="row mb-5">
 
@@ -162,7 +161,6 @@
 		<!-- 이 안이 변동사항 아래는 외부 틀이라서 필수 -->			
 			</div>
 <!-- 				<div class="row justify-content-center"></div> -->
-			</div>
 		</section>
 		
 		<!-- @@@@@@@@@@@@@@@@@우측@@@@@@@@@@@@@@@@ -->

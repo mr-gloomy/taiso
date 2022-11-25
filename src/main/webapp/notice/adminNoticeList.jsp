@@ -52,7 +52,7 @@
 			<div class="n_search" border="1" width="90%">
 				<div align="right">
 					<input type="text" name="search" >
-					<input type="submit" value="Search" class="btn btn-outline-secondary">
+					<input type="submit" value="Search" class="btn btn-outline-primary">
 				</div>
 			</div>
         </div>
@@ -83,7 +83,7 @@
 			</div><br>
 	      <!-- 버튼 -->
 	      <div align="right">
-	      	<input type="button" value="새글작성" class="btn btn-primary" onclick="location.href='./AdminNoticeWrite.nb';">
+	      	<input type="button" value="새글작성" class="btn btn-primary py-2 px-3" onclick="location.href='./AdminNoticeWrite.nb';">
 	      </div>
 	           
 	        </div>

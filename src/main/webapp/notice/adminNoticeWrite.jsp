@@ -121,15 +121,15 @@
 							</div>
 						<br>
 					<!-- 버튼 -->
-					<div class="d-grid gap-8 col-3 mx-auto">
-						<input type="button" value="작성완료" class="btn btn-primary" onclick="noticeWrite()"/>
-						<input type="button" value="작성취소" class="btn btn-primary" onclick="location.href='./AdminNoticeList.nb';">
+					<div class="form-group" align="center">
+						<input type="button" value="작성완료" class="btn btn-primary py-2 px-3" onclick="noticeWrite()">
+						<input type="button" value="작성취소" class="btn btn-primary py-2 px-3" onclick="location.href='./AdminNoticeList.nb';">
+		                <input type="reset" value="초기화" class="btn btn-primary py-2 px-3">
 					</div>
-					
-				
-			</div>
-	 	</div>
-	 </form>
+	              </div>
+			    </div>
+		 	</div>
+		 </form>
 	 </section>
 	<!-- 메인 -->
      

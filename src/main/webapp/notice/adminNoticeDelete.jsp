@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="./css/flaticon.css">
     <link rel="stylesheet" href="./css/icomoon.css">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/main2.css">
+    <link rel="stylesheet" href="./css/board.css">
     
   </head>
   <body>
@@ -43,7 +43,7 @@
 	<!-- 헤더들어가는 곳 -->
 	
 	<!-- 메인 -->
-  	<div class="board_wrap">
+  	<div class="board_wrap" align="center">
         <div class="board_title">
             <strong>공지사항 글 삭제하기</strong>
             <p>비밀번호 입력 후 [삭제하기] 버튼 클릭 시 해당 게시물이 삭제됩니다.</p>
@@ -54,7 +54,7 @@
 	           	 	<form action="./AdminNoticeDeleteAction.nb?pageNum=${param.pageNum }" method="post">
 					    <input type="hidden" name="bo_num" value="${param.bo_num }">
 						비밀번호 : <input type="password" name="bo_pass">
-						<input type="submit" value="삭제하기" class="btn btn-primary">
+						<input type="submit" value="삭제하기" class="btn btn-primary py-2 px-3">
 					</form>
 	            </div>
             </div>
@@ -62,7 +62,6 @@
     </div>
 	<!-- 메인 -->
      
-	
 	
 	<div class="clear"></div>
 	<!-- 푸터들어가는 곳 -->

@@ -2,6 +2,7 @@ package com.taiso.admin.member.action;
 
 import java.util.ArrayList;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -22,6 +23,7 @@ public class AdminMemberListAction implements Action {
 
 		// 게시판 전체 글 개수 확인
 		int cnt = dao.getMemberCount();
+		
 
 		System.out.println(" M : 전체 글 개수 : " + cnt + "개");
 
