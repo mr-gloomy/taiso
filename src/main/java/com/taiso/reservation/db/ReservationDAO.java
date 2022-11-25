@@ -160,10 +160,13 @@ public class ReservationDAO {
 //         * [v] license_num
 
          // 주문정보 저장
+         
          sql = "insert into rez_reservation "
                + "(rez_uqNum,rez_rentalDate,rez_returnDate,rez_totalDate,rez_site,rez_status, "
                + "car_code,car_insurance,mem_id,license_num,car_name) " + "values(?,?,?,?,?,?,?,?,?,?,?)";
 
+         if (rs.next()) {
+         } else {
          PreparedStatement pstmt2 = con.prepareStatement(sql);
 //         pstmt.setInt(1, Integer.parseInt(sdf.format(cal.getTime()))+rez_uqNum);
          pstmt2.setInt(1, rez_uqNum);
@@ -178,7 +181,7 @@ public class ReservationDAO {
          pstmt2.setString(10, rezDTO.getLicense_num());
          pstmt2.setString(11, rezDTO.getCar_name());
          pstmt2.executeUpdate();
-
+         }
          System.out.println(" dao - 예약정보 저장 완료");
 
          
@@ -187,7 +190,8 @@ public class ReservationDAO {
 //         * [v] mem_id
 //         * [v] license_issueDate
 //          * [v] license_type
-
+         if (rs.next()) {
+         } else {
          sql = "insert into rez_driverlicense(license_num,mem_id,license_issueDate,license_type) "
                + "values(?,?,?,?)";
          PreparedStatement pstmt3 = con.prepareStatement(sql);
@@ -198,7 +202,7 @@ public class ReservationDAO {
 
          pstmt3.executeUpdate();
          System.out.println(" dao - 면허정보 저장 완료");
-
+         }
          
          // 결제정보 추가
 //         * [v] pay_uqNum

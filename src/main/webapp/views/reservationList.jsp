@@ -129,7 +129,7 @@
 								</div>
 								<h2 class="mb-0">
 									<c:if test="${rez.rez_status == 1}">
-<%-- 									<a href="car-single.html">${rez.car_name }</a>ㅤ<input type = "button" class="btn btn-primary py-1 mr-1" value="예약 완료"> --%>
+										<a href="car-single.html">${rez.car_name }</a>ㅤ<input type = "button" class="btn btn-primary py-1 mr-1" value="예약 완료">
 									</c:if>
 									<c:if test="${rez.rez_status == 0}">
 										<a href="car-single.html">${rez.car_name }</a>ㅤ<input type = "button" class="btn btn-primary3 py-1 mr-1" value="예약 취소">
