@@ -21,6 +21,9 @@ public class ReservationMainAction implements Action {
 		CarDTO carList = new CarDTO();
 		request.setAttribute("rList", rDAO.selectRandReview());
 		request.setAttribute("carList", carDAO.selectRandCar());
+		request.setAttribute("carCnt", carDAO.getCarCount());
+		request.setAttribute("mCnt", rDAO.getMemberCount());
+		request.setAttribute("rezCnt", rDAO.getRezCount());
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath("./views/reservation.jsp");

@@ -127,7 +127,7 @@
 					<c:set var="dto" value="${carList[i]}"/>
     					<div class="item">
     						<div class="car-wrap rounded ftco-animate">
-		    					<div class="img rounded d-flex align-items-end" style="background-image: url(images/car-1.jpg);">
+		    					<div class="img rounded d-flex align-items-end" style="background-image: url(./upload/${dto.car_file.split(',')[0] });">
 		    					</div>
 		    					<div class="text">
 		    						<h2 class="mb-0"><a href="#">${dto.car_brand }</a></h2>
@@ -167,7 +167,7 @@
 	<c:set var="dto" value="${rList[i]}"/>
               <div class="item">
                 <div class="testimony-wrap rounded text-center py-4 pb-5">
-                  <div class="user-img mb-2" style="background-image: url(images/person_1.jpg)">
+                  <div class="user-img mb-2" style="background-image: url(./upload/${dto.rev_image.split(',')[0] })">
                   </div>
                   <div class="text pt-4">
                     <p class="mb-4">${dto.rev_content }</p>
@@ -193,32 +193,32 @@
           <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
             <div class="block-18">
               <div class="text text-border d-flex align-items-center">
-                <strong class="number" data-number="60">0</strong>
-                <span>Year <br>Experienced</span>
+                <strong class="number" data-number="1">0</strong>
+                <span>년의 <br>역사</span>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
             <div class="block-18">
               <div class="text text-border d-flex align-items-center">
-                <strong class="number" data-number="1090">0</strong>
-                <span>Total <br>Cars</span>
+                <strong class="number" data-number="${carCnt }">0</strong>
+                <span>대의 <br>차량</span>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
             <div class="block-18">
               <div class="text text-border d-flex align-items-center">
-                <strong class="number" data-number="2590">0</strong>
-                <span>Happy <br>Customers</span>
+                <strong class="number" data-number="${mCnt }">0</strong>
+                <span>명의 <br>고객</span>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
             <div class="block-18">
               <div class="text d-flex align-items-center">
-                <strong class="number" data-number="67">0</strong>
-                <span>Total <br>Branches</span>
+                <strong class="number" data-number="${rezCnt }">0</strong>
+                <span>건의 <br>예약</span>
               </div>
             </div>
           </div>

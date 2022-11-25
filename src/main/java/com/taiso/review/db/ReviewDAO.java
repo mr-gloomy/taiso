@@ -422,7 +422,7 @@ public class ReviewDAO {
 		try {
 			con = getConnection();
 //			sql = "select rev_num, rev_subject, rev_content, rev_image, mem_nickName FROM car_review ORDER BY RAND() LIMIT 4";
-			sql = "select rev_subject, substring(rev_content,1,21) as rev_content_cut, rev_image, mem_nickName FROM car_review ORDER BY RAND() LIMIT 4";
+			sql = "select rev_subject, substring(rev_content,1,21) as rev_content_cut, rev_image, mem_nickName FROM car_review where rev_star!=0 ORDER BY RAND() LIMIT 4";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
@@ -448,5 +448,53 @@ public class ReviewDAO {
 		
 	}
 	// 리뷰 정보 랜덤 5개 조회 - selectRandReview()
+	
+	// 회원 수 조회 - getMemberCount()
+	public int getMemberCount() {
+		int mCnt = 0;
+		try {
+			con = getConnection();
+			sql = "select count(*) from member";
+			pstmt = con.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				mCnt = rs.getInt(1);
+			}
+			System.out.println(" DAO : 전체 회원수 : " + mCnt + "명");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		   return mCnt;
+	}	
+	// 회원 수 조회 - getMemberCount()
+	
+	// 총 예약 수 조회 - getRezCount()
+	public int getRezCount() {
+		int rezCnt = 0;
+		try {
+			con = getConnection();
+			sql = "select count(*) from rez_reservation";
+			pstmt = con.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				rezCnt = rs.getInt(1);
+			}
+			System.out.println(" DAO : 전체 예약수 : " + rezCnt + "건");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		return rezCnt;
+	}	
+	// 총 예약 수 조회 - getRezCount()
 	
 }
