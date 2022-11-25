@@ -15,7 +15,7 @@
 
 // response.sendRedirect("./AdminReviewList.adr");
 // response.sendRedirect("./AdminReviewList.adr");
-
+response.sendRedirect("./ReservationMain.rez");
 
 
 // 회원---------------------------------------------------------------
@@ -29,7 +29,7 @@
 // response.sendRedirect("./MemberFindPw.me");
 // response.sendRedirect("./MemberFindIdResult.me");
 // response.sendRedirect("./MemberJoinClause.me");
-response.sendRedirect("./AdminMain.mb");
+// response.sendRedirect("./AdminMain.mb");
 
 		
 

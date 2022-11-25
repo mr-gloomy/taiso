@@ -4,6 +4,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<%
+	String referer = request.getHeader("referer");
+	
+%>
+
+
 <head>
 <title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
 <meta charset="utf-8">
@@ -76,7 +82,7 @@
 						</div>
 						
 						<div class="panel-body p-3">
-							<form action="./MemberLoginAction.me" method="POST" name="f">
+							<form action="./MemberLoginAction.me?uri=<%=referer %>" method="POST" name="f">
 								<div class="form-group py-2">
 									<div class="input-field">
 										<span class="far fa-user p-2"></span> 
