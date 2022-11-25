@@ -55,8 +55,7 @@ function Login() {
 		<jsp:include page="../inc/top.jsp" />
 		<!-- 헤더들어가는 곳 -->
 
-
-		<!--  -->
+		<!--  -->  
 		<section class="hero-wrap hero-wrap-2 js-fullheight"
 			data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
