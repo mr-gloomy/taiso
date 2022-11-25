@@ -167,6 +167,23 @@
 			</div>
 		</section>
 
+	
+	  <c:if test="${totalCnt != 0 }">
+	      <!-- 이전 -->
+	      <c:if test="${startPage > pageBlock }">
+	         <a href="./ReservationListAction.rez?pageNum=${startPage - pageBlock  }">[이전]</a>
+	      </c:if>   
+	         
+	      <!-- 페이지 번호(1,2,3) -->
+	      <c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
+	         <a href="./ReservationListAction.rez?pageNum=${i }">${i }</a>
+	      </c:forEach>   
+	         
+	      <!-- 다음 -->
+	      <c:if test="${endPage < pageCount }">
+	         <a href="./ReservationListAction.rez?pageNum=${startPage+pageBlock }">[다음]</a>
+	      </c:if>
+	   </c:if>
 
 
 	<!-- 푸터들어가는 곳 -->
