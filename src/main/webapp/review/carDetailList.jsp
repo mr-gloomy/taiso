@@ -147,8 +147,8 @@
 	              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-dashboard"></span></div>
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
-		                	Mileage
-		                	<span>40,000</span>
+		               		연식 
+		                	<span>${carDTO.car_year }</span>
 		                </h3>
 	                </div>
                 </div>
@@ -162,8 +162,8 @@
 	              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-pistons"></span></div>
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
-		                	Transmission
-		                	<span>Manual</span>
+		                	차종 
+		                	<span>${carDTO.car_category }</span>
 		                </h3>
 	                </div>
                 </div>
@@ -207,8 +207,8 @@
 	              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-diesel"></span></div>
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
-		                	Fuel
-		                	<span>Petrol</span>
+		                	연료타입 
+		                	<span>${carDTO.car_fuel }</span>
 		                </h3>
 	                </div>
                 </div>
