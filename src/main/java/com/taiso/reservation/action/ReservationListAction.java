@@ -79,8 +79,13 @@ public class ReservationListAction implements Action {
 //		ReviewDAO rDAO = new ReviewDAO();
 //		List reviewList = rDAO.getCheckReview(mem_id);
 		
+		// 회원 아이디로 리뷰 글 있는지 조회하기
+		ReviewDAO rDAO = new ReviewDAO();
+		List reviewList = rDAO.getCheckReview(mem_id);
+		
 	
 		System.out.println(" M :reservationList" + reservationList); // ***** 잘들어갔는지 확인하는 용도, 나중에 주석처리할 것! 
+		System.out.println(" M :reviewList" + reviewList); // ***** 잘들어갔는지 확인하는 용도, 나중에 주석처리할 것! 
 		
 		
 		  
@@ -122,6 +127,7 @@ public class ReservationListAction implements Action {
 		
 		// request 영역에 저장
 		request.setAttribute("reservationList", reservationList);
+		request.setAttribute("reviewList", reviewList);
 		
 		// 페이지 이동(./views/reservationList.jsp)
 		forward.setPath("./views/reservationList.jsp");

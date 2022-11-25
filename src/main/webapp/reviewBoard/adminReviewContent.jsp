@@ -50,6 +50,7 @@
         <div class="board_view_wrap">
             <div class="board_view">
                 <div class="title">
+                	 제목 || 
                     ${adrDTO.rev_subject }
                 </div>
                 <div class="info">
@@ -63,7 +64,17 @@
                     </dl>
                     <dl>
                         <dt>평점</dt>
-                        <dd>${adrDTO.rev_star } / 5 </dd>
+                        <dd class="star"><span> 
+							<c:forEach begin="1" end="${adrDTO.rev_star }" step="1">
+									★
+							</c:forEach>
+							<c:forEach begin="1" end="${5-adrDTO.rev_star }" step="1">
+									☆
+							</c:forEach>
+						</span>
+						</dd>
+                      
+															
                     </dl>
                 </div>
                 <div class="cont">

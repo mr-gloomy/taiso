@@ -82,53 +82,14 @@
     <section class="ftco-section contact-section">
       <div class="container">
         <div class="row d-flex mb-5 contact-info">
-    	<div class="col-md-4">
         	
-     	<!-- 프로필 -->
-     	<div class="row mb-5">
-
-     	<!-- 프로필 -->
-		
-		<!-- 메뉴바 -->
-
-    <div class="middle-md-12">
-        <div class="menu">
-            <ul id="noul">
-                <li class="buttonitem" id="profile" >
-                    <a href="#profile" class="menubtn" ><i class="fa fa-cog"></i> 렌트 내역</a>
-                    <div class="smenu" >
-                        <a href="">1</a>
-                        <a href="">2</a>
-                    </div>
-                </li>
-
-                <li class="buttonitem" id="messages">
-                    <a href="#messages" class="menubtn"><i class="fa fa-user"></i> 나의 게시글 모음 </a>
-                    <div class="smenu" style="display:block;">
-                        <a href="./QuestionList.bo" id="smenu">1:1 문의 내역</a>
-                        <a href="./ProposalList.bo">수정제안</a>
-                    </div>
-                </li>
-
-                <li class="buttonitem" id="settings">
-                    <a href="#settings" class="menubtn"><i class="fa fa-cog"></i> 회원정보 관리</a>
-                    <div class="smenu">
-                        <a href="./MemberUpdate.me">회원정보 변경(탈퇴)</a>
-<!--                         <a href="">비밀번호 변경</a> -->
-                    </div>
-                </li>
-                
-               </ul>
-             </div>
-            </div>
-		<!-- 메뉴바 -->
-  		</div> 
-   	 </div> 
-
+				<!-- @@@@@@@@@@@@여기부터 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
+					<jsp:include page="../inc/sidebar.jsp" />
+				<!-- @@@@@@@@@@@@여기까지 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
    	 <!-- 우측 -->
 	<div class="col-md-8 block-9 mb-md-5">
 		<section class="notice_main">
-			<form action="./QuestionWriteAction.bo" method="post" enctype="multipart/form-data" name="fr">
+			<form action="./QuestionUpdateProAction.bo?pageNum=${param.pageNum }" method="post" name="fr">
 				<div class="board_wrap">
 					<div class="board_title">
 						<strong>1:1 문의하기</strong>
@@ -174,11 +135,11 @@
 								<input type="text" name="bo_title"
 									placeholder="제목을 입력해주세요" value="${bodto.bo_title }">
 							</dd>
-							<dt>작성자</dt>
-							<dd>
-								<input type="text" value="${sessionScope.mem_id }"
-									name="mem_id" readonly="readonly">
-							</dd>
+<!-- 							<dt>작성자</dt> -->
+<!-- 							<dd> -->
+<%-- 								<input type="text" value="${sessionScope.mem_nickName }" --%>
+<!-- 									name="mem_id" readonly="readonly"> -->
+<!-- 							</dd> -->
 							<dt>비밀번호</dt>
 							<dd>
 								<input type="password" name="bo_pass"
@@ -188,7 +149,7 @@
 						<hr>
 					</div>
 					<div class="cont">
-						<textarea name="bo_content" placeholder="내용을 입력해주세요"></textarea>
+						<textarea name="bo_content" placeholder="내용을 입력해주세요">${bodto.bo_content }</textarea>
 					</div>
 					<br>
 					<div class="input-group">
@@ -201,7 +162,7 @@
 					<input type="button" value="수정완료" class="btn btn-primary2"
 						onclick="QuestionWrite()" > 
 					<input type="button" value="수정취소" class="btn btn-primary2"
-						onclick="location.href='./QuestionList.bo';">
+						onclick="location.href='./QuestionList.bo?pageNum=${param.pageNum}';">
 							</div>
 						</div>
 					</div>	

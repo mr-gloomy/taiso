@@ -3,6 +3,7 @@ package com.taiso.admin.member.action;
 import java.io.IOException;
 
 
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,7 +18,7 @@ public class AdminMemberController extends HttpServlet{
    
 	
 		protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			System.out.println(" NoticeController - doProcess() 호출");
+			System.out.println(" AdminMemberController - doProcess() 호출");
 		
 		// 1.가상주소계산
 		System.out.println(" C : (1단계 시작) 가상주소 계산 시작 ------------- ");
@@ -44,6 +45,18 @@ public class AdminMemberController extends HttpServlet{
 			System.out.println(" C : /AdminMemberList.mb 호출");
 			
 			action = new AdminMemberListAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+		else if(command.equals("/AdminMemberBlackList.mb")) {
+			System.out.println(" C : /AdminMemberBlackList.mb 호출");
+			
+			action = new AdminMemberBlackListAction();
 			
 			try {
 				forward = action.execute(request, response);
@@ -86,6 +99,19 @@ public class AdminMemberController extends HttpServlet{
 				e.printStackTrace();
 			}
 		}
+		else if(command.equals("/AdminBlacklistUpdate.mb")) {
+			System.out.println(" C : /AdminBlacklistUpdate.mb ");
+			
+			action = new AdminMemberBlackListAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			
+			}
+			
+		}
 			
 			
 		
@@ -118,13 +144,13 @@ public class AdminMemberController extends HttpServlet{
 	
 		@Override
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			System.out.println("NoticeController - doGet() 호출");
+			System.out.println("AdminMemberController - doGet() 호출");
 			doProcess(request, response);
 		}
 		
 		@Override
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			System.out.println("NoticeController - doPost() 호출");
+			System.out.println("AdminMemberController - doPost() 호출");
 					doProcess(request, response);
 				
 				

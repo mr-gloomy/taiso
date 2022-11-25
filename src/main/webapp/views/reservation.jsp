@@ -124,21 +124,21 @@
     			<div class="col-md-12">
     				<div class="carousel-car owl-carousel">
   					<c:forEach var="i" begin="0" end="${carList.size()-1 }" step="1">
-					<c:set var="dto" value="${carList[i]}"/>
+					<c:set var="rCar" value="${carList[i]}"/>
     					<div class="item">
     						<div class="car-wrap rounded ftco-animate">
-		    					<div class="img rounded d-flex align-items-end" style="background-image: url(images/car-1.jpg);">
+		    					<div class="img rounded d-flex align-items-end" style="background-image: url(./upload/${rCar.car_file.split(',')[0] });">
 		    					</div>
 		    					<div class="text">
-		    						<h2 class="mb-0"><a href="#">${dto.car_brand }</a></h2>
+		    						<h2 class="mb-0"><a href="#">${rCar.car_brand }</a></h2>
 		    						<div class="d-flex mb-3">
-			    						<span class="cat">${dto.car_name }</span>
-			    						<p class="price ml-auto">${dto.car_price }원 <span>/day</span></p>
+			    						<span class="cat">${rCar.car_name }</span>
+			    						<p class="price ml-auto">${rCar.car_price }원 <span>/day</span></p>
 		    						</div>
 		    						<p class="d-flex mb-0 d-block">
 <!-- 			    						<a href="#" class="btn btn-primary py-2 mr-1">Book now</a> -->
-			    						<a href="./ReviewListAction.rev?car_code=${dto.car_code }"
-											class="btn btn-secondary py-2 ml-1">Details</a>
+			    						<a href="./ReviewListAction.rev?car_code=${rCar.car_code }"
+											class="btn btn-secondary py-2 ml-1">차량상세정보</a>
 									</p>
 		    					</div>
 		    				</div>
@@ -164,15 +164,15 @@
             <div class="carousel-testimony owl-carousel ftco-owl">
             
 	<c:forEach var="i" begin="0" end="${rList.size()-1 }" step="1">
-	<c:set var="dto" value="${rList[i]}"/>
+	<c:set var="rReview" value="${rList[i]}"/>
               <div class="item">
                 <div class="testimony-wrap rounded text-center py-4 pb-5">
-                  <div class="user-img mb-2" style="background-image: url(images/person_1.jpg)">
+                  <div class="user-img mb-2" style="background-image: url(./upload/${rReview.rev_image.split(',')[0] })">
                   </div>
                   <div class="text pt-4">
-                    <p class="mb-4">${dto.rev_content }</p>
-                    <p class="name">${dto.rev_subject }</p>
-                    <span class="position">${dto.mem_nickName }</span>
+                    <p class="mb-4">${rReview.rev_content }</p>
+                    <p class="name">${rReview.rev_subject }</p>
+                    <span class="position">${rReview.mem_nickName }</span>
                   </div>
                 </div>
               </div>
@@ -193,32 +193,32 @@
           <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
             <div class="block-18">
               <div class="text text-border d-flex align-items-center">
-                <strong class="number" data-number="60">0</strong>
-                <span>Year <br>Experienced</span>
+                <strong class="number" data-number="1">0</strong>
+                <span>년의 <br>역사</span>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
             <div class="block-18">
               <div class="text text-border d-flex align-items-center">
-                <strong class="number" data-number="1090">0</strong>
-                <span>Total <br>Cars</span>
+                <strong class="number" data-number="${carCnt }">0</strong>
+                <span>대의 <br>차량</span>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
             <div class="block-18">
               <div class="text text-border d-flex align-items-center">
-                <strong class="number" data-number="2590">0</strong>
-                <span>Happy <br>Customers</span>
+                <strong class="number" data-number="${mCnt }">0</strong>
+                <span>명의 <br>고객</span>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
             <div class="block-18">
               <div class="text d-flex align-items-center">
-                <strong class="number" data-number="67">0</strong>
-                <span>Total <br>Branches</span>
+                <strong class="number" data-number="${rezCnt }">0</strong>
+                <span>건의 <br>예약</span>
               </div>
             </div>
           </div>

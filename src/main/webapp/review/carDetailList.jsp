@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/nav.css">
     <script type="text/javascript">
 	
 	    function commentOpen(rev_num){
@@ -339,6 +340,7 @@
 																	<c:forEach begin="1" end="${dto.rev_star }" step="1">
 																		<i class="ion-ios-star"></i>
 																	</c:forEach>
+																	
 																</span>
 																<span class="text-right">
 																	<a href="javascript:commentOpen(${dto.rev_num });" class="reply">
@@ -446,124 +448,83 @@
       </div>
     </section>
 
-    <section class="ftco-section ftco-no-pt">
+        	<!-- 차량 추천 section -->
+        	<section class="ftco-section ftco-no-pt bg-light">
     	<div class="container">
     		<div class="row justify-content-center">
           <div class="col-md-12 heading-section text-center ftco-animate mb-5">
-          	<span class="subheading">Choose Car</span>
-            <h2 class="mb-2">Related Cars</h2>
+          	<span class="subheading">최고의 차</span>
+            <h2 class="mb-2">추천합니다</h2>
           </div>
         </div>
-        <div class="row">
-        	<div class="col-md-4">
-    				<div class="car-wrap rounded ftco-animate">
-    					<div class="img rounded d-flex align-items-end" style="background-image: url(images/car-1.jpg);">
+    		<div class="row">
+    			<div class="col-md-12">
+    				<div class="carousel-car owl-carousel">
+  					<c:forEach var="i" begin="0" end="${carList.size()-1 }" step="1">
+					<c:set var="rCar" value="${carList[i]}"/>
+    					<div class="item">
+    						<div class="car-wrap rounded ftco-animate">
+		    					<div class="img rounded d-flex align-items-end" style="background-image: url(./upload/${rCar.car_file.split(',')[0] });">
+		    					</div>
+		    					<div class="text">
+		    						<h2 class="mb-0"><a href="#">${rCar.car_brand }</a></h2>
+		    						<div class="d-flex mb-3">
+			    						<span class="cat">${rCar.car_name }</span>
+			    						<p class="price ml-auto">${rCar.car_price }원 <span>/day</span></p>
+		    						</div>
+		    						<p class="d-flex mb-0 d-block">
+<!-- 			    						<a href="#" class="btn btn-primary py-2 mr-1">Book now</a> -->
+			    						<a href="./ReviewListAction.rev?car_code=${rCar.car_code }"
+											class="btn btn-secondary py-2 ml-1">차량상세정보</a>
+									</p>
+		    					</div>
+		    				</div>
     					</div>
-    					<div class="text">
-    						<h2 class="mb-0"><a href="car-single.html">Mercedes Grand Sedan</a></h2>
-    						<div class="d-flex mb-3">
-	    						<span class="cat">Cheverolet</span>
-	    						<p class="price ml-auto">$500 <span>/day</span></p>
-    						</div>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p>
-    					</div>
+   					</c:forEach>
     				</div>
     			</div>
-    			<div class="col-md-4">
-    				<div class="car-wrap rounded ftco-animate">
-    					<div class="img rounded d-flex align-items-end" style="background-image: url(images/car-2.jpg);">
-    					</div>
-    					<div class="text">
-    						<h2 class="mb-0"><a href="car-single.html">Range Rover</a></h2>
-    						<div class="d-flex mb-3">
-	    						<span class="cat">Subaru</span>
-	    						<p class="price ml-auto">$500 <span>/day</span></p>
-    						</div>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="car-wrap rounded ftco-animate">
-    					<div class="img rounded d-flex align-items-end" style="background-image: url(images/car-3.jpg);">
-    					</div>
-    					<div class="text">
-    						<h2 class="mb-0"><a href="car-single.html">Mercedes Grand Sedan</a></h2>
-    						<div class="d-flex mb-3">
-	    						<span class="cat">Cheverolet</span>
-	    						<p class="price ml-auto">$500 <span>/day</span></p>
-    						</div>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p>
-    					</div>
-    				</div>
-    			</div>
-        </div>
+    		</div>
     	</div>
     </section>
+   			<!-- 차량 추천 section -->
+    			
     
 
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2"><a href="#" class="logo">Car<span>book</span></a></h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-              </ul>
-            </div>
+    <!-- 푸터들어가는 곳 -->
+   <jsp:include page="../inc/bottom.jsp" />
+   <!-- 푸터들어가는 곳 -->
+    
+                  <div class="r-horizon">
+         <div class="r-horizon-bar">
+            <div class="r-horizon-button"></div>
+         </div>
+          <div class="r-horizon-content">
+             <table class="r-table">
+                <tbody>
+                   <tr>
+                      <th><span class="r-h-info r-h-infoA">대여지점</span></th>
+                      <th><span class="r-h-info r-h-infoB">대여일시</span></th>
+                      <th><span class="r-h-info r-h-infoC">픽업시간</span></th>
+                      <th><span class="r-h-info r-h-infoC"></span></th>
+                   </tr>
+                   <tr>
+                      <td>
+                         <p class="r-horizon-text" id="h-rental_branch">${rez_site }</p>
+                      </td>
+                      <td>
+                         <p class="r-horizon-text" id="h-redDate">${rez_pick_date } ~ ${rez_off_date }</p>
+                      </td>
+                      <td>
+                         <p class="r-horizon-text" id="h-redDate">${rez_pick_time }</p>
+                      </td>
+                      <td>
+                         <p class="r-horizon-text ellipsis" id="h-car_name"><a href="./ReservationAction.rez?car_code=${param.car_code }" class="btn btn-primary py-2 mr-1">예약하기</a></p>
+                      </td>
+                   </tr>
+                </tbody>
+             </table>
           </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4 ml-md-5">
-              <h2 class="ftco-heading-2">Information</h2>
-              <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">About</a></li>
-                <li><a href="#" class="py-2 d-block">Services</a></li>
-                <li><a href="#" class="py-2 d-block">Term and Conditions</a></li>
-                <li><a href="#" class="py-2 d-block">Best Price Guarantee</a></li>
-                <li><a href="#" class="py-2 d-block">Privacy &amp; Cookies Policy</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Customer Support</h2>
-              <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">FAQ</a></li>
-                <li><a href="#" class="py-2 d-block">Payment Option</a></li>
-                <li><a href="#" class="py-2 d-block">Booking Tips</a></li>
-                <li><a href="#" class="py-2 d-block">How it works</a></li>
-                <li><a href="#" class="py-2 d-block">Contact Us</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
-            	<div class="block-23 mb-3">
-	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-	              </ul>
-	            </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 text-center">
-
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-          </div>
-        </div>
       </div>
-    </footer>
-    
   
 
   <!-- loader -->
@@ -587,6 +548,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/rt.js"></script>
     
   </body>
 </html>

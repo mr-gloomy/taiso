@@ -73,33 +73,45 @@
             <a href="./CarList.ca?item=foreign">수입차</a>
          </div>
          <div class="row">
-            <c:forEach var="cars" items="${carsList }">
-               <div class="col-md-4">
-                  <div class="car-wrap rounded ftco-animate">
-                     <div class="img rounded d-flex align-items-end"
-                        style="background-image: url(./upload/${dto.car_file.split(',')[0] });">
-                     </div>
-                     <div class="text">
-                        <h2 class="mb-0">
-                           <a href="car-single.html">${cars.car_name }</a>
-                        </h2>
-                        <div class="d-flex mb-3">
-                           <span class="cat">${cars.car_brand }</span>
-                           <p class="price ml-auto">
-                              <fmt:formatNumber value="${cars.car_price }" />
-                              원
-                           </p>
-                        </div>
-                        <p class="d-flex mb-0 d-block">
-                           <a href="./ReservationAction.rez?car_code=${cars.car_code }"
-                              class="btn btn-primary py-2 mr-1">예약하기</a> <a
-                              href="./ReviewListAction.rev?car_code=${cars.car_code }&car_name=${cars.car_name }"
-                              class="btn btn-secondary py-2 ml-1">차량상세정보 </a>
-                        </p>
-                     </div>
-                  </div>
-               </div>
-            </c:forEach>
+         	<c:choose>
+         	<c:when test="${carsList.size() != 0 }">
+	            <c:forEach var="cars" items="${carsList }">
+	               <div class="col-md-4">
+	                  <div class="car-wrap rounded ftco-animate">
+	                     <div class="img rounded d-flex align-items-end"
+	                        style="background-image: url(./upload/${dto.car_file.split(',')[0] });">
+	                     </div>
+	                     <div class="text">
+	                        <h2 class="mb-0">
+	                           <a href="car-single.html">${cars.car_name }</a>
+	                        </h2>
+	                        <div class="d-flex mb-3">
+	                           <span class="cat">${cars.car_brand }</span>
+	                           <p class="price ml-auto">
+	                              <fmt:formatNumber value="${cars.car_price }" />
+	                              원
+	                           </p>
+	                        </div>
+	                        <p class="d-flex mb-0 d-block">
+	                           <a href="./ReservationAction.rez?car_code=${cars.car_code }"
+	                              class="btn btn-primary py-2 mr-1">예약하기</a> <a
+	                              href="./ReviewListAction.rev?car_code=${cars.car_code }&car_name=${cars.car_name }"
+	                              class="btn btn-secondary py-2 ml-1">차량상세정보 </a>
+	                        </p>
+	                     </div>
+	                  </div>
+	               </div>
+	            </c:forEach>
+	            </c:when>
+	            <c:otherwise>
+	            	<div class="col-md-5">
+	            	<h2>
+	            	ㅤ
+	            	</h2>
+	            	<h2 style="text-align: center;">이용 가능한 차량이 없습니다.</h2>
+	            	</div>
+	            </c:otherwise>
+            </c:choose>
          </div>
          
          
@@ -184,6 +196,7 @@
                       <th><span class="r-h-info r-h-infoA">대여지점</span></th>
                       <th><span class="r-h-info r-h-infoB">대여일시</span></th>
                       <th><span class="r-h-info r-h-infoC">픽업시간</span></th>
+                      <th><span class="r-h-info r-h-infoC"></span></th>
                    </tr>
                    <tr>
                       <td>
@@ -192,11 +205,13 @@
                       <td>
                          <p class="r-horizon-text" id="h-redDate">${rez_pick_date } ~ ${rez_off_date }</p>
                       </td>
-                      <td class="ellipsis">
-                         <p class="r-horizon-text ellipsis" id="h-car_name">${rez_pick_time }</p>
+                      <td>
+                         <p class="r-horizon-text" id="h-redDate">${rez_pick_time }</p>
+                      </td>
+                      <td>
+                         <p></p>
                       </td>
                    </tr>
-                </tbody>
              </table>
           </div>
       </div>

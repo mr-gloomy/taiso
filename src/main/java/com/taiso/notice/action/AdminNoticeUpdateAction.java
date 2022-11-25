@@ -28,6 +28,7 @@ public class AdminNoticeUpdateAction implements Action {
 		
 		// 페이지 이동
 		ActionForward forward = new ActionForward();
+		
 		forward.setPath("./notice/adminNoticeUpdate.jsp");
 		forward.setRedirect(false);
 		

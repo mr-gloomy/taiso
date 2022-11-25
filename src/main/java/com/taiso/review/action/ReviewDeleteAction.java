@@ -15,24 +15,23 @@ public class ReviewDeleteAction implements Action {
 		
 //		// 세션 제어 (id)
 		HttpSession session = request.getSession();
-//		String mem_id = (String) session.getAttribute("mem_id");
-//		
+		String mem_id = (String) session.getAttribute("mem_id");
+	
 		ActionForward forward = new ActionForward();
-//		if(mem_id == null) {
-//			forward.setPath("로그인 안 했을 때 이동할 주소");
-//			// 현재 페이지 가상주소에서 옮겨가야 하니까 리다이렉트로
-//			forward.setRedirect(true);
-//			return forward;\
-//		}
+		if(mem_id == null) {
+			forward.setPath("./MemberLogin.me");
+			forward.setRedirect(true);
+			return forward;
+		}
 		
 		// 글번호 저장
-		int rev_num = Integer.parseInt(request.getParameter("rev_num"));
+		int rez_uqNum = Integer.parseInt(request.getParameter("rez_uqNum"));
 		
 		// DAO 객체 생성
 		ReviewDAO rDAO = new ReviewDAO();
-		rDAO.deleteReview(rev_num);
+		rDAO.deleteReview(rez_uqNum);
 		
-		forward.setPath("./ReviewListAction.rev");
+		forward.setPath("./ReservationListAction.rez");
 		forward.setRedirect(true);
 		
 		return forward;

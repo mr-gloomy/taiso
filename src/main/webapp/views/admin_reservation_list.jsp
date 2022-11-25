@@ -6,8 +6,28 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>TAISO</title>
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="./images/logo.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="./css/animate.css">
+    <link rel="stylesheet" href="./css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="./css/magnific-popup.css">
+    <link rel="stylesheet" href="./css/aos.css">
+    <link rel="stylesheet" href="./css/ionicons.min.css">
+    <link rel="stylesheet" href="./css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="./css/jquery.timepicker.css">
+    <link rel="stylesheet" href="./css/flaticon.css">
+    <link rel="stylesheet" href="./css/icomoon.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/adminReservation.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+  
 </head>
+
 <article>
 <h1> 관리자 예약 조회 리스트 </h1>
 <h1> admin_reservation_list.jsp </h1>
@@ -67,6 +87,5 @@
 <div class="clear"></div>
 <div id="page_control">
 </div>
-</article>
 </body>
 </html>

@@ -1,6 +1,7 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -41,6 +42,23 @@
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+
+/* task list */
+#inputFiled {
+	width: 350px;
+	height: 46px;
+	border: 1px solid black;
+	outline: none;
+	font-size: 40px;
+	vertical-align: middle;
+}
+
+.to-dos {
+	margin-top: 25px;
+}
+
+/* task list */
+
 </style>
 
   </head>
@@ -62,101 +80,127 @@ tr:nth-child(even) {
 	<!-- 헤더들어가는 곳 -->
 	
 	<!-- 메인페이지  -->
-    <section class="ftco-section contact-section">
-      <div class="container">
-        <div class="row d-flex mb-3 contact-info">
-    	<div class="col-md-4">
-        <div class="board_title">
-            <strong>회원정보 상세조회</strong></div>
+		<section class="ftco-section contact-section">
+			<div class="container">
+				<div class="row d-flex mb-3 contact-info">
+					<div class="col-md-4">
+						<div class="board_title">
+							<strong>회원정보 상세조회</strong>
+						</div>
 
-     	<!-- 프로필 -->
-     	<div class="row mb-6">
-			<div class="profile">
-				<div class="txt">
-					<img src="./images/user.png">
-					<p>${mDTO.mem_name } 님</p>
-					<p>문의사항　　 　 리뷰</p>
+						<!-- 프로필 -->
+						<div class="row mb-6">
+							<div class="profile">
+								<div class="txt">
+									<img src="./images/user.png">
+									<p>${mDTO.mem_name }님</p>
+									<p>문의사항 리뷰</p>
+								</div>
+							</div>
+
+							<!-- 프로필 -->
+
+						</div>
+					</div>
+					<!-- 우측 -->
+					<div class="col-md-3 block-1 mb-md-1" align="center">
+						<table class="table">
+							<tbody class="tbody">
+								<tr align="center">
+									<td><p>회원번호</p></td>
+									<td>${mDTO.mem_num }</td>
+								</tr>
+								<tr align="center">
+									<td><p>회원명</p></td>
+									<td>${mDTO.mem_name }</td>
+								<tr align="center">
+									<td><p>닉네임</p></td>
+									<td>${mDTO.mem_nickName }</td>
+								</tr>
+								<tr align="center">
+									<td><p>생년월일</p></td>
+									<td>${mDTO.mem_birthday }</td>
+								</tr>
+								<tr align="center">
+									<td><p>아이디</p></td>
+									<td>${mDTO.mem_id }</td>
+								</tr>
+								<tr align="center">
+									<td><p>비밀번호</p></td>
+									<td>${mDTO.mem_pw }</td>
+								</tr>
+								<tr align="center">
+									<td><p>전화번호</p></td>
+									<td>${mDTO.mem_phone }</td>
+								<tr align="center">
+									<td><p>이메일</p></td>
+									<td>${mDTO.mem_email }</td>
+								</tr>
+								<tr align="center">
+									<td><p>SNS 수신 여부</p></td>
+									<td>${mDTO.mem_accept_sns }</td>
+								</tr>
+								<tr align="center">
+									<td><p>회원등록일</p></td>
+									<td>${mDTO.mem_registDate }</td>
+								<tr align="center">
+									<td><p>프로필 이미지</p></td>
+									<td>${mDTO.mem_image }</td>
+								</tr>
+								<tr align="center">
+									<td><p>면허증번호</p></td>
+									<td>${mDTO.license_num }</td>
+								</tr>
+								<tr align="center">
+									<td><p>블랙리스트</p></td>
+									<td>
+									<form action="./AdminBlacklistUpdate.mb?mem_num=${mDTO.mem_num }">
+										<input type="hidden" name="mem_num" value="${mDTO.mem_num }">
+										<div class="form-check form-check-inline" align="right">
+											<input class="form-check-input" type="radio" name="blacklist" value="Y"
+												<c:if test="${mDTO.mem_blacklist == 'Y'}">
+								     			checked
+								 				</c:if>
+								 			> Y
+								 		</div>
+										<div class="form-check form-check-inline" align="right">
+											<input class="form-check-input" type="radio" name="blacklist" value="N"
+												<c:if test="${mDTO.mem_blacklist == 'N'}">
+				     			 				checked
+				 								</c:if>
+				 							> N
+										</div> 
+										<input type="submit" value="수정하기" class="btn btn-primary py-1 px-2">
+									 </form>
+									</td>
+								</tr>
+								<tr>
+									<td align="center"><p>특이사항</p></td>
+									<td>
+										<div class="col-lg-18">
+											<div class="todo">
+												<div class="todo-title">
+													<div class="tdl-holder">
+														<div class="tdl-content" align="left">
+															<span></span>
+															<div id="todo-list"></div>
+														</div>
+														<input id="todo" class="tdl-new form-control" placeholder="입력해주세요."> 
+														<input type="hidden" id="add-button">
+													</div>
+												</div>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
-      	
-     	<!-- 프로필 -->
-		
-  		</div> 
-   	 </div> 
-   	 <!-- 우측 -->
-   	   <div class="col-md-3 block-1 mb-md-1" align="center">
-            <table class="table" >
-              	<tbody class="tbody">
-				  <tr align="center">
-				    <td><p>회원번호</p></td>
-				    <td>${mDTO.mem_num }</td>
-				  </tr>
-				  <tr align="center">
-				    <td><p>회원명</p></td>
-				    <td>${mDTO.mem_name }</td>
-				  <tr align="center">
-				    <td><p>닉네임</p></td>
-				    <td>${mDTO.mem_nickName }</td>
-				  </tr>
-				  <tr align="center">
-				    <td><p>생년월일</p></td>
-				    <td>${mDTO.mem_birthday }</td>
-				  </tr>
-				  <tr align="center">
-				    <td><p>아이디</p></td>
-				    <td>${mDTO.mem_id }</td>
-				  </tr>
-				  <tr align="center">
-				    <td><p>비밀번호</p></td>
-				    <td>${mDTO.mem_pw }</td>
-				  </tr>
-				  <tr align="center">
-				    <td><p>전화번호</p></td>
-				    <td>${mDTO.mem_phone }</td>
-				  <tr align="center">
-				    <td><p>이메일</p></td>
-				    <td>${mDTO.mem_email }</td>
-				  </tr>
-				  <tr align="center">
-				    <td><p>SNS 수신 여부</p></td>
-				    <td>${mDTO.mem_accept_sns }</td>
-				  </tr>
-				  <tr align="center">
-				    <td><p>회원등록일</p></td>
-				    <td>${mDTO.mem_registDate }</td>
-				  <tr align="center">
-				    <td><p>프로필 이미지</p></td>
-				    <td>${mDTO.mem_image }</td>
-				  </tr>
-				  <tr align="center">
-				    <td><p>면허증번호</p></td>
-				    <td>${mDTO.license_num }</td>
-				  </tr>
-				  <tr align="center">
-				    <td><p>블랙리스트</p></td>
-				    <td>${mDTO.mem_blacklist }</td>
-				  </tr>
-				  <tr align="center">
-				    <td><p>블랙리스트 사유</p></td>
-				    <td><textarea cols="50" rows="2"></textarea>
-				  </tr>
-				  </tbody>
-				  
-				  
-			</table>
-            </div>
-        </div>
-      </div>
-    </section>		
-					
-						
-						
-						
-						
-						
-						
-						
-	 <!-- 우측 -->
+		</section>
+
+		<!-- 우측 -->
 	
 
 	<!-- 메인페이지  -->
@@ -184,11 +228,10 @@ tr:nth-child(even) {
 	<script src="./js/bootstrap-datepicker.js"></script>
 	<script src="./js/jquery.timepicker.min.js"></script>
 	<script src="./js/scrollax.min.js"></script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="./js/google-map.js"></script>
 	<script src="./js/main.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
-    
+    <script src="./js/taskList.js"></script>
   </body>
 </html>

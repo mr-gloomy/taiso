@@ -313,64 +313,10 @@ code{
     <section class="ftco-section contact-section">
       <div class="container">
         <div class="row d-flex mb-5 contact-info">
-    	<div class="col-md-4">
         	
-     	<!-- 프로필 -->
-     	<div class="row mb-5">
-			<div class="membercard">
-			  <div align="right">			
-				<button type="button" class="btn btn-secondary btn-sm" id="minibtn">내 정보</button>
-			  </div>
-				<div class="text">
-					<img src="./images/user.png">
-					<h5>${sessionScope.mem_id }</h5>
-					<p>IT | 관리</p>
-				</div>
-			</div>
-      	
-     	<!-- 프로필 -->
-		
-		<!-- 메뉴바 -->
-     <div class="middle-md-12">
-        <div class="menu">
-            <ul id="noul">
-                <li class="buttonitem" id="profile" >
-                    <a href="./NoticeList.nb" class="menubtn" ><i class="fa fa-cog"></i>공지사항</a>
-<!--                     <div class="smenu" > -->
-<!--                         <a href="">1</a> -->
-<!--                         <a href="">2</a> -->
-<!--                     </div> -->
-                </li>
-
-                <li class="buttonitem" id="messages">
-                    <a href="./FaqList.bo" class="menubtn"><i class="fa fa-user"></i>FAQ</a>
-<!--                     <div class="smenu" style="display:block;" > -->
-<!--                         <a href="./QuestionList.bo">1:1 문의 내역</a> -->
-<!--                         <a href="">수정제안</a> -->
-<!--                     </div> -->
-                </li>
-
-                <li class="buttonitem" id="settings">
-                    <a href="./QuestionWrite.bo" class="menubtn"><i class="fa fa-cog"></i>1:1 문의하기</a>
-<!--                     <div class="smenu"> -->
-<!--                         <a href="./MemberUpdate.me">회원정보 변경(탈퇴)</a> -->
-<!-- <!--                         <a href="">비밀번호 변경</a> --> 
-<!--                     </div> -->
-                </li>
-                <li class="buttonitem" id="profile" >
-                    <a href="./ProposalWrite.bo" class="menubtn" ><i class="fa fa-cog"></i>수정제안</a>
-<!--                     <div class="smenu" > -->
-<!--                         <a href="">1</a> -->
-<!--                         <a href="">2</a> -->
-<!--                     </div> -->
-                </li>
-                
-               </ul>
-             </div>
-            </div>
-		<!-- 메뉴바 -->
-  		</div> 
-   	 </div> 
+				<!-- @@@@@@@@@@@@여기부터 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
+					<jsp:include page="../inc/sidebar.jsp" />
+				<!-- @@@@@@@@@@@@여기까지 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
    	 <!-- 우측 -->
      <!-- 여기부터는 틀이라서 건드리면 안 됨  --> 
             <div class="col-md-8 block-9 mb-md-5">

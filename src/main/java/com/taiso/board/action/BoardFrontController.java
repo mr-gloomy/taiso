@@ -43,7 +43,7 @@ public class BoardFrontController extends HttpServlet{
 		
 		if(command.equals("/Mypage.bo")) {
 			System.out.println(" C : /Mypage.bo 호출 ");
-			System.out.println(" C : [패턴1] ");
+			System.out.println(" C : [패턴3] ");
 			
 			// MypageAction() 객체
 			action = new MypageAction();
@@ -64,15 +64,19 @@ public class BoardFrontController extends HttpServlet{
 		forward.setRedirect(false);
 		System.out.println("mypage.jsp 호출");
 		}
-		
-		else if(command.equals("/QuestionWrite.bo")) {
-			System.out.println(" C : /questionWrite.bo 호출 ");
-			System.out.println(" C : [패턴1] ");
+		else if(command.equals("/QuestionWritePre.bo")) {
+			System.out.println(" C : QuestionWritePreAction.bo 호출 ");
+			System.out.println(" C : [패턴3] ");
 			
-		forward = new ActionForward();
-		forward.setPath("./board/questionWrite.jsp");
-		forward.setRedirect(false);
-		}
+			// QuestionWriteAction() 객체
+			action = new QuestionWritePreAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}		
 		else if(command.equals("/QuestionWriteAction.bo")) {
 			System.out.println(" C : QuestionWriteAction.bo 호출 ");
 			System.out.println(" C : [패턴2] ");
@@ -163,21 +167,13 @@ public class BoardFrontController extends HttpServlet{
 		}
 		
 		else if(command.equals("/AdminQuestionReWrite.bo")){
-			System.out.println(" C : /AdminQuest ionReWrite.bo 호출 ");
-			System.out.println(" C : [패턴1] DB사용 X, view페이지 이동");
+			System.out.println(" C : /AdminQuestionReWrite.bo 호출 ");
+			System.out.println(" C : [패턴3] DB사용 X, view페이지 이동");
 			
-			forward = new ActionForward();
-			forward.setPath("./board/adminQuestionReWrite.jsp");
-			forward.setRedirect(false);
-		}
-		
-		else if(command.equals("/AdminQuestionReWriteAction.bo")) {
-			System.out.println(" C : /adminQuestionReWriteAction.bo 호출");
-			System.out.println(" C : [패턴2] DB사용 O, 페이지 이동(화면전환)");
-		
 			//adminQuestionReWriteAction() 객체 - execute()
-		try {
 			action = new AdminQuestionReWriteAction();
+			
+		try {
 			forward = action.execute(request, response);
 			
 		} catch (Exception e) {
@@ -185,6 +181,37 @@ public class BoardFrontController extends HttpServlet{
 		} 
 		
 	}
+		
+		else if(command.equals("/AdminQuestionReWriteAction.bo")) {
+			System.out.println(" C : /adminQuestionReWriteAction.bo 호출");
+			System.out.println(" C : [패턴2] DB사용 O, 페이지 이동(화면전환)");
+		
+			//adminQuestionReWriteAction() 객체 - execute()
+			action = new AdminQuestionReWriteProAction();
+			
+		try {
+			forward = action.execute(request, response);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		
+	}
+		else if(command.equals("/ProposaWritePre.bo")) {
+			System.out.println(" C : QuestionProposalPreAction.bo 호출 ");
+			System.out.println(" C : [패턴3] ");
+			
+			// QuestionWriteAction() 객체
+			action = new QuestionProposalPreAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}		
+		
+		
 		else if(command.equals("/ProposalWrite.bo")) {
 			System.out.println(" C : /ProposalWrite.bo 호출 ");
 			System.out.println(" C : [패턴1] ");

@@ -217,12 +217,34 @@ public class ReservationController extends HttpServlet{
 				
 				
 				/**
-				 * Siteinfo
+				 * siteInfo
 				 * 
 				 */
-				else if(command.equals("/Siteinfo.rez")) {
+				else if(command.equals("/SiteInfo.rez")) {
 					forward = new ActionForward();
-					forward.setPath("./views/siteinfo.jsp");
+					forward.setPath("./views/siteInfo.jsp");
+					forward.setRedirect(false);
+				}
+				
+				
+				/**
+				 * useInfo
+				 * 
+				 */
+				else if(command.equals("/UseInfo.rez")) {
+					forward = new ActionForward();
+					forward.setPath("./views/useInfo.jsp");
+					forward.setRedirect(false);
+				}
+				
+				
+				/**
+				 * InsuranceInfo
+				 * 
+				 */
+				else if(command.equals("/InsuranceInfo.rez")) {
+					forward = new ActionForward();
+					forward.setPath("./views/insuranceInfo.jsp");
 					forward.setRedirect(false);
 				}
 					
@@ -244,6 +266,41 @@ public class ReservationController extends HttpServlet{
 				}
 				
 			    
+				/**
+				 * ReservationToMail
+				 * 
+				 */
+				else if(command.equals("/ReservationToMail.rez")) {
+					System.out.println(" C : /ReservationToMail.rez 호출 ");
+					System.out.println(" C : [패턴 2] ");
+					
+					action = new ReservationToMail();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+				
+				
+				/**
+				 * ReservationChk(kakao)
+				 * 
+				 */
+				else if(command.equals("/ReservationChk.rez")) {
+					System.out.println(" C : /ReservationChk.rez 호출 ");
+					System.out.println(" C : [패턴 3] ");
+					
+					action = new ReservationChkAction();
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+				
+				
+				
 			    System.out.println(" C : 2. 가상주소 매핑 끝");
 			      
 			    

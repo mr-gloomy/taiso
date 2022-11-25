@@ -85,7 +85,9 @@
     
   </head>
   <body>
- ${sessionScope.mem_id}
+  
+  
+<%--  ${sessionScope.mem_id} --%>
   <div id="wrap">
 	<!-- 헤더들어가는 곳 -->
 		<jsp:include page="../inc/top.jsp"/>
@@ -120,9 +122,10 @@
 			  </div>
 				<div class="text">
 					<img src="./images/user.png">
-					
-					<h5>${sessionScope.mem_id }</h5>
+					<h5>${mDTO.mem_nickName}</h5>
 					<p>문의사항　　|　　나의 리뷰</p>
+					<div align="center">${myqnacnt }　　　　|　　　　 ${myreviewcnt }</div>	　　　
+						
 				</div>
 			</div>
      	<!-- 프로필 -->
@@ -144,7 +147,7 @@
                     <a href="#messages" class="menubtn"><i class="fa fa-user"></i> 나의 게시글 모음 </a>
                     <div class="smenu" style="display:block;">
                         <a href="./QuestionList.bo" id="smenu">1:1 문의 내역</a>
-                        <a href="./ProposalList.bo">수정제안</a>
+<!--                         <a href="./ProposalList.bo">수정제안</a> -->
                     </div>
                 </li>
 

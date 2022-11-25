@@ -3,8 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>  
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -43,12 +44,35 @@
    <input type="button" value="관리자메인페이지로이동" class="btn"
       onclick=" location.href='./여기에가상주소입력';"
    >
+
 </div>
+</section>
+	<!-- 푸터들어가는 곳 -->
+	<jsp:include page="../inc/bottom.jsp" />
+	<!-- 푸터들어가는 곳 -->
+
 
 
 <div class="clear"></div>
 <div id="page_control">
 </div>
-</article>
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="./js/popper.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="./js/jquery.easing.1.3.js"></script>
+	<script src="./js/jquery.waypoints.min.js"></script>
+	<script src="./js/jquery.stellar.min.js"></script>
+	<script src="./js/owl.carousel.min.js"></script>
+	<script src="./js/jquery.magnific-popup.min.js"></script>
+	<script src="./js/aos.js"></script>
+	<script src="./js/jquery.animateNumber.min.js"></script>
+	<script src="./js/bootstrap-datepicker.js"></script>
+	<script src="./js/jquery.timepicker.min.js"></script>
+	<script src="./js/scrollax.min.js"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="./js/google-map.js"></script>
+	<script src="./js/main.js"></script>
 </body>
 </html>

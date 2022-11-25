@@ -32,7 +32,7 @@ public class ProposalWriteAction implements Action {
 		
 		if(mem_id==null) {
 			out.print("<script>");
-			out.print("alert('로그인이 필요합니다!');");
+			out.print("alert('proaction');");
 			out.print(" location.href='./MemberLogin.me'; ");
 			out.print("</script>");
 			out.close();

@@ -34,6 +34,18 @@
 <link rel="stylesheet" href="./css/board.css">
 <script src="sweetalert2.all.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+
+// $().ready(function(){
+// 			var a = ${sessionScope.mem_id};
+// // 		if(${sessionScope.mem_id} != null) {
+// // 		alert(${sessionScope.mem_id});
+// 			alert(a);
+// // 		}
+// });		
+
+</script>
 
 <script type="text/javascript">
     <!-- input에 오늘날짜 기본값으로 넣기 -->
@@ -63,6 +75,15 @@
 // 		})
 // 	}
 	
+	function Login() {
+		var mem_id = ${sessionScope.mem_id }
+		if(mem_id==null) {
+		alert("로그인이 필요합니다!");
+		location.href="./MemberLogin.me";
+		}
+	}
+	
+	
 	function QuestionWrite() {
 		var bo_cate = $('.form-select').val();
 		if(bo_cate==""){
@@ -87,7 +108,7 @@
 			Swal.fire({
                 icon: 'warning',
                 /* title: '내용을 입력하세요!', */
-                text: '내용을 입력하세요!',
+                text: '비밀번호를 입력하세요!',
             });
 			document.fr.bo_pass.focus();
 			return;
@@ -96,18 +117,22 @@
 			Swal.fire({
                 icon: 'warning',
                 /* title: '내용을 입력하세요!', */
-                text: '비밀번호를 입력하세요!',
+                text: '내용을 입력하세요!',
             });
 			document.fr.bo_content.focus();
 			return;
 		}
-		
 		document.fr.submit();
 	}
-	
+
 </script>
+
+
 </head>
 <body>
+	
+<%-- 	%> --%>
+
 	<div id="wrap">
 		<!-- 헤더들어가는 곳 -->
 		<jsp:include page="../inc/top.jsp" />
@@ -127,7 +152,8 @@
 									class="ion-ios-arrow-forward"></i></a></span> <span>1:1 문의하기 <i
 								class="ion-ios-arrow-forward"></i></span>
 						</p>
-						<h1 class="mb-3 bread">고객센터</h1>
+						<h1 class="mb-3 bread">고객센터	${sessionScope.mem_id}
+						</h1>
 					</div>
 				</div>
 			</div>
@@ -138,55 +164,9 @@
 		<section class="ftco-section contact-section">
 			<div class="container">
 				<div class="row d-flex mb-5 contact-info">
-					<div class="col-md-4">
-
-						<!-- 프로필 -->
-						<div class="row mb-5">
-
-							<!-- 프로필 -->
-
-							<!-- 메뉴바 -->
-
-    <div class="middle-md-12">
-        <div class="menu">
-            <ul id="noul">
-                <li class="buttonitem" id="profile" >
-                    <a href="./NoticeList.nb" class="menubtn" ><i class="fa fa-cog"></i>공지사항</a>
-<!--                     <div class="smenu" > -->
-<!--                         <a href="">1</a> -->
-<!--                         <a href="">2</a> -->
-<!--                     </div> -->
-                </li>
-
-                <li class="buttonitem" id="messages">
-                    <a href="./FaqList.bo" class="menubtn"><i class="fa fa-user"></i>FAQ</a>
-<!--                     <div class="smenu" style="display:block;" > -->
-<!--                         <a href="./QuestionList.bo">1:1 문의 내역</a> -->
-<!--                         <a href="">수정제안</a> -->
-<!--                     </div> -->
-                </li>
-
-                <li class="buttonitem" id="settings">
-                    <a href="./QuestionWrite.bo" class="menubtn"><i class="fa fa-cog"></i>1:1 문의하기</a>
-<!--                     <div class="smenu"> -->
-<!--                         <a href="./MemberUpdate.me">회원정보 변경(탈퇴)</a> -->
-<!-- <!--                         <a href="">비밀번호 변경</a> --> 
-<!--                     </div> -->
-                </li>
-                <li class="buttonitem" id="profile" >
-                    <a href="./ProposalWrite.bo" class="menubtn" ><i class="fa fa-cog"></i>수정제안</a>
-<!--                     <div class="smenu" > -->
-<!--                         <a href="">1</a> -->
-<!--                         <a href="">2</a> -->
-<!--                     </div> -->
-                </li>
-                
-               </ul>
-             </div>
-            </div>
-							<!-- 메뉴바 -->
-					</div>
-					</div>
+				<!-- @@@@@@@@@@@@여기부터 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
+					<jsp:include page="../inc/sidebar.jsp" />
+				<!-- @@@@@@@@@@@@여기까지 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
 
 						<!-- 우측 -->
 		<div class="col-md-8 block-9 mb-md-5">
@@ -203,7 +183,7 @@
 									<!-- 여기까지 위쪽 틀 아래는 변수 -->
 
 						               <input type="hidden" name="bo_num" value="${param.bo_num }">
-							           <input type="hidden" name="mem_id" value="${param.mem_id }">
+							           <input type="hidden" name="mem_id" value="${sessionScope.mem_id }">
 							           <input type="hidden" name="bo_re_ref" value="${param.bo_re_ref }">
 							           <input type="hidden" name="bo_re_seq" value="${param.bo_re_seq }">
 							           <input type="hidden" name="bo_re_lev" value="${param.bo_re_lev }">
@@ -227,11 +207,11 @@
 											<input type="text" name="bo_title"
 												placeholder="제목을 입력해주세요">
 										</dd>
-										<dt>작성자</dt>
-										<dd>
-											<input type="text" value="${sessionScope.mem_id }"
-												name="mem_id" readonly="readonly">
-										</dd>
+<!-- 										<dt>작성자</dt> -->
+<!-- 										<dd> -->
+<%-- 											<input type="text" value="${ }" --%>
+<!-- 												name="mem_id" readonly="readonly"> -->
+<!-- 										</dd> -->
 										<dt>비밀번호</dt>
 										<dd>
 											<input type="password" name="bo_pass"
@@ -249,6 +229,15 @@
 										value="첨부파일" aria-describedby="inputGroupFileAddon04"
 										aria-label="Upload">
 								</div>
+<!-- 									<div class="input-group mb-3"> -->
+<!-- 									  <div class="input-group-prepend"> -->
+<!-- 									    <span class="input-group-text">첨부파일</span> -->
+<!-- 									  </div> -->
+<!-- 									  <div class="custom-file"> -->
+<!-- 									    <input type="file" class="custom-file-input" id="inputGroupFile01"> -->
+<!-- 									    <label class="custom-file-label" for="inputGroupFile01">파일을 선택하세요</label> -->
+<!-- 									  </div> -->
+<!-- 									</div> -->
 							</div>
 							<br>
 							<!-- 버튼 -->

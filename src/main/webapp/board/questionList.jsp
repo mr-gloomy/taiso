@@ -24,6 +24,16 @@
 <link rel="stylesheet" href="./css/board.css">
 <link rel="stylesheet" href="./css/admin_my.css">
 
+<script type="text/javascript">
+function Login() {
+// 	var mem_id = ${sessionScope.mem_id }
+// 	if(mem_id==null) {
+	alert("수정제안");
+// 	location.href="./MemberLogin.me";
+// 	return;
+	}
+}
+</script>
 
 <!-- input에 오늘날짜 기본값으로 넣기 -->
 <script type="text/javascript">
@@ -75,48 +85,10 @@
 		<section class="ftco-section contact-section">
 			<div class="container">
 				<div class="row d-flex mb-5 contact-info">
-					<div class="col-md-4">
 
-						<!-- 프로필 -->
-						<div class="row mb-5">
-
-							<!-- 프로필 -->
-
-							<!-- 메뉴바 -->
-
-    <div class="middle-md-12">
-        <div class="menu">
-            <ul id="noul">
-                <li class="buttonitem" id="profile" >
-                    <a href="#profile" class="menubtn" ><i class="fa fa-cog"></i> 렌트 내역</a>
-                    <div class="smenu" >
-                        <a href="">1</a>
-                        <a href="">2</a>
-                    </div>
-                </li>
-
-                <li class="buttonitem" id="messages">
-                    <a href="#messages" class="menubtn"><i class="fa fa-user"></i> 나의 게시글 모음 </a>
-                    <div class="smenu" style="display:block;">
-                        <a href="./QuestionList.bo" id="smenu">1:1 문의 내역</a>
-                        <a href="./ProposalList.bo">수정제안</a>
-                    </div>
-                </li>
-
-                <li class="buttonitem" id="settings">
-                    <a href="#settings" class="menubtn"><i class="fa fa-cog"></i> 회원정보 관리</a>
-                    <div class="smenu">
-                        <a href="./MemberUpdate.me">회원정보 변경(탈퇴)</a>
-<!--                         <a href="">비밀번호 변경</a> -->
-                    </div>
-                </li>
-                
-               </ul>
-             </div>
-            </div>
-							<!-- 메뉴바 -->
-						</div>
-					</div>
+				<!-- @@@@@@@@@@@@여기부터 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
+					<jsp:include page="../inc/sidebar.jsp" />
+				<!-- @@@@@@@@@@@@여기까지 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
 		
 		<!-- @@@@@@@@@@@@@@@@@우측@@@@@@@@@@@@@@@@ -->
 					<div class="col-md-8 block-9 mb-md-5">
@@ -124,7 +96,7 @@
 								<div class="board_title">
 								   <strong>1:1 문의하기</strong>
 								 	<div align="right">
-											<input type="submit" value="작성하기" class="btn btn-primary" onclick=" location.href='./QuestionWrite.bo'; ">
+											<input type="submit" value="작성하기" class="btn btn-primary" onclick=" location.href='./QuestionWritePre.bo'; " >
 									</div>	
 									<!--  검색 폼 -->
 									<p>전체 글 개수 : ${requestScope.cnt } 개</p>	
@@ -148,10 +120,34 @@
 										<c:forEach var="bodto" items="${QuestionList }">
 											<div>
 												<div class="num">${bodto.bo_num }</div>
-												<div class="title">
-													 <a href="./QuestionDetail.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}">${bodto.bo_title }</a>
-												</div>
-												<div class="mem_id">${bodto.mem_id }</div>
+												<div class="title" id="titlepadding">
+												<c:if test="${bodto.bo_re_lev > 0}">
+													<img src="./img/level.gif" width="${bodto.bo_re_lev * 10 }">
+													<img src="./img/re.gif">
+												</c:if>
+												<a
+													href="./QuestionDetail.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}">
+													${bodto.bo_title } 
+<%-- 													<c:if test="${bodto.bo_file == null }"> --%>
+													
+<%-- 													</c:if> --%>
+<%-- 													<c:if test="${bodto.bo_file != "" }"> --%>
+<!-- 														<img src="./img/save.png" width="15" height="15"> -->
+<%-- 													</c:if> --%>
+													<c:choose>
+												    <c:when test="${empty bodto.bo_file}">
+												        &nbsp;
+												    </c:when>
+												    <c:when test="${not empty bodto.bo_file}">
+												        <img src="./img/save.png" width="13" height="13">
+												    </c:when>
+												    <c:otherwise>
+												        ?
+												    </c:otherwise>
+												</c:choose>
+												</a>
+											</div>
+												<div class="mem_id">${bodto.mem_nickName }</div>
 												<div class="date">${bodto.bo_sysdate }</div>
 											</div>
 										</c:forEach>
@@ -160,15 +156,37 @@
 								</div>
 							</div>
 	 		<!-- 페이지처리 -->
-            <div class="n_page"> 
-	  		 <c:if test="${requestScope.cnt != 0}">
-                <!-- 페이지번호 -->
-                <c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
-		         	 <a href="./QuestionList.bo?pageNum=${i }" class="btn btn-outline-primary" >${i }</a> 
-		    	</c:forEach>  
-			  </c:if>
-		  	 </div>	
+<!--             <div class="n_page">  -->
+<%-- 	  		 <c:if test="${requestScope.cnt != 0}"> --%>
+<!--                 페이지번호 -->
+<%--                 <c:forEach var="i" begin="${startPage }" end="${endPage }" step="1"> --%>
+<%-- 		         	 <a href="./QuestionList.bo?pageNum=${i }" class="btn btn-outline-primary" >${i }</a>  --%>
+<%-- 		    	</c:forEach>   --%>
+<%-- 			  </c:if> --%>
+<!-- 		  	 </div>	 -->
 		   	<!-- 페이지처리 -->
+		   	<!-- 페이지처리 이전,다음 -->
+		   	<div class="n_page" align="center"> 
+		   		<c:if test="${requestScope.cnt != 0}">
+	  
+				    <!-- 이전 -->
+				    <c:if test="${startPage > pageBlock }">
+				    	<a href="./QuestionList.bo?pageNum=${startPage-pageBlock }" class="btn btn-outline-primary"><<</a>
+				    </c:if>
+				    <!-- 페이지 번호(1,2,3....) -->	  
+				    <c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
+				          <a href="./QuestionList.bo?pageNum=${i }" class="btn btn-outline-primary" >${i }</a> 
+				    </c:forEach>  
+				    
+				    <!-- 다음 -->	
+				    <c:if test="${endPage < pageCount }">
+				        <a href="./QuestionList.bo?pageNum=${startPage+pageBlock }" class="btn btn-outline-primary">>></a>
+				    </c:if>
+				</c:if>
+		   	</div>
+		   	<!-- 페이지처리 이전,다음 -->
+		   	
+		   	
 						</div>								
 		<!-- 이 안이 변동사항 아래는 외부 틀이라서 필수 -->			
 			</div>

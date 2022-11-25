@@ -30,6 +30,10 @@ a {
     margin-bottom: 10px;
 }
 
+.board_title3 {
+    margin-bottom: 10px;
+}
+
 .board_title strong {
     font-size: 2rem;
     color: #1089FF;
@@ -116,12 +120,13 @@ a {
     width: 30%;
     text-align: center;
 }
+
 .board_list2 .title2 {/*notice list*/
-    width: 18%;
+    width: 13%;
     text-align: center;
 }
 .board_list2 .title3 {/*notice list*/
-    width: 10%;
+    width: 40%;
     text-align: center;
 }
 .board_list .title3 {/*a_notice list*/

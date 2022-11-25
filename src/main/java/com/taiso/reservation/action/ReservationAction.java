@@ -1,3 +1,4 @@
+
 package com.taiso.reservation.action;
 
 import java.util.ArrayList;
@@ -71,5 +72,6 @@ public class ReservationAction implements Action {
       forward.setRedirect(false);
       return forward;
    }
+
 
 }
