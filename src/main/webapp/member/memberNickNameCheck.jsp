@@ -13,10 +13,10 @@ function mem_userNName(){
 	alert('닉네임 사용가능');
 		
 	// 확인된 닉네임을 회원가입창으로 전달
-	opener.document.fr.mem_newNickName.value = document.ckfr2.mem_userNName.value;
+	opener.document.fr.mem_nickName.value = document.ckfr2.mem_userNName.value;
 
 	// 해당창 종료
-	window.close();	
+	window.close();		
 }
 </script>
 
@@ -30,13 +30,12 @@ function mem_userNName(){
  	<div class="formbold-form-wrapper">
  	
     	<form action="./MemberNickNameCheckAction.me" method="POST" name="ckfr2" >
-    	
       	<div class="formbold-email-subscription-form">
      	   <input type="text" name="mem_userNName" id="mem_userNName" value="${param.inputNName }" class="formbold-form-input"/>
        	   <button class="submit"> 중복확인 </button>
       	</div>
-
     	</form>
+    	
  	</div>
 </div>
 
@@ -45,7 +44,7 @@ function mem_userNName(){
 		<c:if test="${result == 0 }">
 			<div class=textstyle>
 				사용 가능한 닉네임 입니다.
-			<input type="button" value="사용하기" onclick="mem_userNName();">
+				<input type="button" value="사용하기" onclick="mem_userNName();">
 			</div>
 		</c:if>
 

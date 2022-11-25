@@ -9,15 +9,15 @@
 <title>Insert title here</title>
 
 <script type="text/javascript">
-	function mem_userId(){
-		alert('아이디 사용가능');
-		
-		// 확인된 아이디를 회원가입창으로 전달
-		opener.document.fr.mem_id.value = document.ckfr.mem_userId.value;
+function mem_userId(){
+	alert('아이디 사용가능');
+	
+	// 확인된 아이디를 회원가입창으로 전달
+	opener.document.fr.mem_id.value = document.ckfr.mem_userId.value;
 
-		// 해당창 종료
-		window.close();		
-	}
+	// 해당창 종료
+	window.close();		
+}
 </script>
 
 </head>

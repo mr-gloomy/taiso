@@ -140,7 +140,7 @@ a {
 }
 
 .adminCar_wrap2 { /*notice Detail*/
-    width: 60%;
+    width: 67%;
     margin: 50px auto;
 }
 .adminCar_wrap3 { /*notice write*/
@@ -164,7 +164,7 @@ a {
 }
 
 .adminCar_list {
-    width: 115%;
+    width: 120%;
     border-top: 1px solid #000;
 }
 
@@ -198,7 +198,7 @@ a {
 
 
 .adminCar_list .num { /*notice list*/
-    width: 5%;
+    width: 7%;
 }
 .adminCar_list .num1 { /*notice list*/
     width: 16%;
@@ -209,7 +209,7 @@ a {
     text-align: center;
 }
 .adminCar_list .title3 {/*a_notice list*/
-    width: 30%;
+    width: 35%;
     text-align: center;
 }  
 
@@ -241,7 +241,7 @@ a {
 }
 
 .adminCar_list .count3 {/*notice list*/
-    width: 15%;
+    width: 11%;
 }
 
 

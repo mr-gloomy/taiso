@@ -55,8 +55,7 @@ function Login() {
 		<jsp:include page="../inc/top.jsp" />
 		<!-- 헤더들어가는 곳 -->
 
-
-		<!--  -->
+		<!--  -->  
 		<section class="hero-wrap hero-wrap-2 js-fullheight"
 			data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
@@ -97,63 +96,74 @@ function Login() {
 								   <strong>1:1 문의하기</strong>
 								 	<div align="right">
 											<input type="submit" value="작성하기" class="btn btn-primary" onclick=" location.href='./QuestionWritePre.bo'; " >
-									</div>	
+									</div>
+
 									<!--  검색 폼 -->
-									<p>전체 글 개수 : ${requestScope.cnt } 개</p>	
 									<div class="n_search" border="1" width="90%">
+									<p>전체 글 개수 : ${requestScope.cnt } 개</p>	
 										<div align="right">
 											<input type="text" name="search"> 
-											<input type="submit" value="Search" class="btn btn-outline-secondary" >
 										</div>
 									</div>
 								</div>
 		
+						  <!-- 옵션정보 -->
+						  <div class="tab-content" id="pills-tabContent">
+						  
+						  <!-- 이 안으로 내용 바뀜 -->
+							    <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-description-tab">
 	
 						<div class="board_list_wrap">
 							<div class="board_list">
 								<div class="top">
 									<div class="num">번호</div>
+									<div class="bo_cate">카테고리</div>
 									<div class="title">제목</div>
 									<div class="mem_id">작성자</div>
 									<div class="date">작성일</div>
 								</div>
-										<c:forEach var="bodto" items="${QuestionList }">
-											<div>
-												<div class="num">${bodto.bo_num }</div>
-												<div class="title" id="titlepadding">
-												<c:if test="${bodto.bo_re_lev > 0}">
-													<img src="./img/level.gif" width="${bodto.bo_re_lev * 10 }">
-													<img src="./img/re.gif">
-												</c:if>
-												<a
-													href="./QuestionDetail.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}">
-													${bodto.bo_title } 
+									<c:forEach var="bodto" items="${QuestionList }">
+										<div>
+											<div class="num">${bodto.bo_num }</div>
+											<div class="bo_cate">${bodto.bo_cate }</div>
+											<div class="title" id="titlepadding2">
+											<c:if test="${bodto.bo_re_lev > 0}">
+												<img src="./img/level.gif" width="${bodto.bo_re_lev * 10 }">
+												<img src="./img/re.gif">
+											</c:if>
+											<a
+												href="./QuestionDetail.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}">
+												${bodto.bo_title } 
 <%-- 													<c:if test="${bodto.bo_file == null }"> --%>
-													
+												
 <%-- 													</c:if> --%>
 <%-- 													<c:if test="${bodto.bo_file != "" }"> --%>
 <!-- 														<img src="./img/save.png" width="15" height="15"> -->
 <%-- 													</c:if> --%>
-													<c:choose>
-												    <c:when test="${empty bodto.bo_file}">
-												        &nbsp;
-												    </c:when>
-												    <c:when test="${not empty bodto.bo_file}">
-												        <img src="./img/save.png" width="13" height="13">
-												    </c:when>
-												    <c:otherwise>
-												        ?
-												    </c:otherwise>
-												</c:choose>
-												</a>
+												<c:choose>
+											    <c:when test="${empty bodto.bo_file}">
+											        &nbsp;
+											    </c:when>
+											    <c:when test="${not empty bodto.bo_file}">
+											        <img src="./img/save.png" width="13" height="13">
+											    </c:when>
+											    <c:otherwise>
+											        ?
+											    </c:otherwise>
+											</c:choose>
+											</a>
 											</div>
 												<div class="mem_id">${bodto.mem_nickName }</div>
 												<div class="date">${bodto.bo_sysdate }</div>
-											</div>
-										</c:forEach>
-
+										</div>
+									</c:forEach>
+									</div>
 									</div>
 								</div>
+								<!-- 여기까지 1번 카테  -->
+								
+
+								<!-- 아에 tabcontent 끝 -->
 							</div>
 	 		<!-- 페이지처리 -->
 <!--             <div class="n_page">  -->
@@ -191,6 +201,7 @@ function Login() {
 		<!-- 이 안이 변동사항 아래는 외부 틀이라서 필수 -->			
 			</div>
 <!-- 				<div class="row justify-content-center"></div> -->
+			</div>
 			</div>
 		</section>
 		
