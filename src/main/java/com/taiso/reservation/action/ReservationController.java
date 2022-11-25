@@ -217,12 +217,34 @@ public class ReservationController extends HttpServlet{
 				
 				
 				/**
-				 * Siteinfo
+				 * siteInfo
 				 * 
 				 */
-				else if(command.equals("/Siteinfo.rez")) {
+				else if(command.equals("/SiteInfo.rez")) {
 					forward = new ActionForward();
-					forward.setPath("./views/siteinfo.jsp");
+					forward.setPath("./views/siteInfo.jsp");
+					forward.setRedirect(false);
+				}
+				
+				
+				/**
+				 * useInfo
+				 * 
+				 */
+				else if(command.equals("/UseInfo.rez")) {
+					forward = new ActionForward();
+					forward.setPath("./views/useInfo.jsp");
+					forward.setRedirect(false);
+				}
+				
+				
+				/**
+				 * InsuranceInfo
+				 * 
+				 */
+				else if(command.equals("/InsuranceInfo.rez")) {
+					forward = new ActionForward();
+					forward.setPath("./views/insuranceInfo.jsp");
 					forward.setRedirect(false);
 				}
 					
