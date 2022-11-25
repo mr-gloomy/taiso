@@ -54,6 +54,7 @@ public class ReservationToMail implements Action {
 		
 		// 2. 예약정보 가져오기
 		String pay_uqNum = request.getParameter("pay_uqNum");
+		System.out.println("@@@@@@@@@@@@@@~@@@@@@@@"+pay_uqNum);
 		ReservationDTO rezDTO = rezDAO.getReservationMailInfo(pay_uqNum);
 		String rental_date = rezDTO.getRez_rentalDate();
 		String return_date = rezDTO.getRez_returnDate();

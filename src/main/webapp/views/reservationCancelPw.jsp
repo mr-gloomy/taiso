@@ -16,7 +16,8 @@ function checkPW(){
    
       var mem_pw = document.fr.mem_pw.value;   
       var mem_id = document.fr.mem_id.value;   
-      var rez_uqNum = document.fr.rez_uqNum.value;  
+      var rez_uqNum = document.fr.rez_uqNum.value; 
+      var pay_uqNum = document.fr.pay_uqNum.value;
    
    if(document.fr.cancel_reason.selectedIndex==0){
       
@@ -26,7 +27,7 @@ function checkPW(){
           confirmButtonText: '확인'
        })
       document.fr.cancel_reason.focus();
-       return;
+       return false;
    }
    
    
@@ -39,12 +40,12 @@ function checkPW(){
             confirmButtonText: '확인'
          })          
           document.fr.mem_pw.focus();
-      return;
+      return false;
    }  
    
    // 새창열기
 //    location.href="./ReservationCancel.rez?mem_pw="+mem_pw+"mem_id="+mem_id+"rez_uqNum="+rez_uqNum";
-   location.href="./ReservationCancel.rez";
+//    location.href="./ReservationCancelAction.rez?rez_uqNum="+rez_uqNum+"pay_uqNum="+pay_uqNum+"mem_id="+mem_id+"mem_pw="+mem_pw;
    
 } 
 
@@ -56,8 +57,8 @@ function checkPW(){
 <!-- 우선 기본으로 그냥 만들어 놓은것 -->
       <article>
          <h1>결제 취소 확인</h1>
-         <form action=""  method="post" 
-               name="fr"  onsubmit="alert('데이터 유효성체크 완료');">
+         <form action="./ReservationCancelAction.rez"  method="post" 
+               name="fr"  onsubmit="return checkPW()">
             <fieldset>
             
                <label>취소사유</label>
@@ -82,8 +83,13 @@ function checkPW(){
                <label>아이디</label>
                <input type="text" name="mem_id" value="${param.mem_id }"> <br>
                
-               <label>아이디</label>
+               <label>예약번호</label>
                예약번호 : <input type="text" name="rez_uqNum" value="${param.rez_uqNum }"> <br>
+               
+               <br>
+                
+                <label>결제고유번호</label>
+               결제고유번호 : <input type="text" name="pay_uqNum" value="${param.pay_uqNum }"> <br>
                
                <br>
                
@@ -93,7 +99,7 @@ function checkPW(){
             </fieldset>
             <div class="clear"></div>
             <div id="buttons">
-               <input type="button" value="결제하기" onclick="checkPW();">
+               <input type="submit" value="결제하기" >
             </div>
          </form>
       </article>

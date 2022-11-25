@@ -74,7 +74,7 @@ public class ReservationProAction implements Action {
 		payDTO.setPay_status(request.getParameter("pay_status"));
 		
 		ReservationDAO rezDAO = new ReservationDAO();
-		rezDAO.resevationSave(rezDTO, payDTO); 
+		rezDAO.reservationSave(rezDTO, payDTO); 
 		
 		String merchant_uid = request.getParameter("merchant_uid");
 		System.out.println("merchant_uid : "+merchant_uid);
@@ -126,7 +126,7 @@ public class ReservationProAction implements Action {
 //            
 //            // DAO 객체 생성 - 예약정보저장 메서드 호출
 //            ReservationDAO rezDAO = new ReservationDAO();
-//            rezDAO.resevationSave(rezDTO,carDTO);
+//            rezDAO.reservationSave(rezDTO,carDTO);
 //          
 //            
 ////            // 메일,문자 전송  //------------> 결제완료 뒤로 옮길 예정
