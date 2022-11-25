@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,7 +89,7 @@
 			Swal.fire({
                 icon: 'warning',
                 /* title: '내용을 입력하세요!', */
-                text: '내용을 입력하세요!',
+                text: '비밀번호를 입력하세요!',
             });
 			document.fr.bo_pass.focus();
 			return;
@@ -96,7 +98,7 @@
 			Swal.fire({
                 icon: 'warning',
                 /* title: '내용을 입력하세요!', */
-                text: '비밀번호를 입력하세요!',
+                text: '내용을 입력하세요!',
             });
 			document.fr.bo_content.focus();
 			return;
@@ -121,7 +123,7 @@
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
           <div class="col-md-9 ftco-animate pb-5">
           	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Contact <i class="ion-ios-arrow-forward"></i></span></p>
-            <h1 class="mb-3 bread">관리자 - 1:1 답변하기</h1>
+            <h1 class="mb-3 bread">관리자 - 1:1 답변하기 / ${sessionScope.mem_id }</h1>
           </div>
         </div>
       </div>
@@ -132,59 +134,15 @@
     <section class="ftco-section contact-section">
       <div class="container">
         <div class="row d-flex mb-5 contact-info">
-    	<div class="col-md-4">
         	
-     	<!-- 프로필 -->
-     	<div class="row mb-5">
-
-     	<!-- 프로필 -->
-		
-		<!-- 메뉴바 -->
-    <div class="middle-md-12">
-        <div class="menu">
-            <ul id="noul">
-                <li class="buttonitem" id="profile" >
-                    <a href="./NoticeList.nb" class="menubtn" ><i class="fa fa-cog"></i>공지사항</a>
-<!--                     <div class="smenu" > -->
-<!--                         <a href="">1</a> -->
-<!--                         <a href="">2</a> -->
-<!--                     </div> -->
-                </li>
-
-                <li class="buttonitem" id="messages">
-                    <a href="./FaqList.bo" class="menubtn"><i class="fa fa-user"></i>FAQ</a>
-<!--                     <div class="smenu" style="display:block;" > -->
-<!--                         <a href="./QuestionList.bo">1:1 문의 내역</a> -->
-<!--                         <a href="">수정제안</a> -->
-<!--                     </div> -->
-                </li>
-
-                <li class="buttonitem" id="settings">
-                    <a href="./QuestionWrite.bo" class="menubtn"><i class="fa fa-cog"></i>1:1 문의하기</a>
-<!--                     <div class="smenu"> -->
-<!--                         <a href="./MemberUpdate.me">회원정보 변경(탈퇴)</a> -->
-<!-- <!--                         <a href="">비밀번호 변경</a> --> 
-<!--                     </div> -->
-                </li>
-                <li class="buttonitem" id="profile" >
-                    <a href="./ProposalWrite.bo" class="menubtn" ><i class="fa fa-cog"></i>수정제안</a>
-<!--                     <div class="smenu" > -->
-<!--                         <a href="">1</a> -->
-<!--                         <a href="">2</a> -->
-<!--                     </div> -->
-                </li>
-                
-               </ul>
-             </div>
-            </div>
-		<!-- 메뉴바 -->
-  		</div> 
-   	 </div> 
+				<!-- @@@@@@@@@@@@여기부터 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
+					<jsp:include page="../inc/sidebar.jsp" />
+				<!-- @@@@@@@@@@@@여기까지 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
 
    	 <!-- 우측 -->
 		<div class="col-md-8 block-9 mb-md-5">
 			<section class="notice_main">
-				<form action="./QuestionWriteAction.bo" method="post" enctype="multipart/form-data" name="fr">
+				<form action="./AdminQuestionReWriteAction.bo?bo_num=${bodto.bo_num }&pageNum=${param.pageNum }" method="post" enctype="multipart/form-data" name="fr">
 					<div class="board_wrap">
 						<div class="board_title">
 							<strong>1:1 문의하기</strong>
@@ -193,9 +151,8 @@
 						<div class="board_write_wrap">
 							<div class="board_write">
 								<div class="title">
-								
-              <input type="hidden" name="bo_num" value="${param.bo_num }">
-	           <input type="hidden" name="mem_id" value="${param.mem_id }">
+              <input type="hidden" name="bo_num" value="${bodto.bo_num }">
+	           <input type="hidden" name="mem_id" value="${sessionScope.mem_id }">
 	           <input type="hidden" name="bo_re_ref" value="${param.bo_re_ref }">
 	           <input type="hidden" name="bo_re_seq" value="${param.bo_re_seq }">
 	           <input type="hidden" name="bo_re_lev" value="${param.bo_re_lev }">
@@ -226,13 +183,13 @@
 										<dt>제목</dt>
 										<dd>
 											<input type="text" name="bo_title"
-												placeholder="제목을 입력해주세요" value="[답변]">
+												placeholder="제목을 입력해주세요" value="">
 										</dd>
-										<dt>작성자</dt>
-										<dd>
-											<input type="text" value="${sessionScope.mem_id }"
-												name="mem_id" readonly="readonly">
-										</dd>
+<!-- 										<dt>작성자</dt> -->
+<!-- 										<dd> -->
+<%-- 											<input type="text" value="${sessionScope.mem_id }" --%>
+<!-- 												name="mem_id" readonly="readonly"> -->
+<!-- 										</dd> -->
 										<dt>비밀번호</dt>
 										<dd>
 											<input type="password" name="bo_pass"
@@ -257,7 +214,7 @@
 								<input type="button" value="작성완료" class="btn btn-primary2"
 									onclick="QuestionWrite()" > 
 								<input type="button" value="작성취소" class="btn btn-primary2"
-									onclick="location.href='./QuestionList.bo';">
+									onclick="location.href='./QuestionList.bo?pageNum=${param.pageNum}';">
 									</div>
 									
 								</div>

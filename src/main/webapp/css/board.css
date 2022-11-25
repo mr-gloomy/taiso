@@ -7,6 +7,12 @@
   margin-right: 10px;
 }
 
+.n_page{
+  display: flex;
+
+  margin-right: 10px;
+}
+
   .btn.btn-primary2 {
     background: #1089ff !important;
     border: 1px solid #1089ff !important;
@@ -209,11 +215,19 @@ a {
 }
 .board_list .title3 {/*a_notice list*/
     width: 50%;
-    text-align: center;
+/*     padding-left: 55px; */
 }  
+
+#titlepadding{
+	width: 60%;
+    text-align: center;
+    padding-left: 55px;
+    text-align: left;
+}
 
 .board_list .top .title {
     text-align: center;
+    
 }
 
 .board_list .writer {
@@ -277,7 +291,7 @@ a {
     left: 0;
     display: block;
     width: 1.5px;
-    height: 20px;
+    height: 25px;
     background: #ddd;
 }
 
@@ -342,8 +356,9 @@ a {
     left: 0;
     display: block;
     width: 1.5px;
-    height: 20px;
+    height: 25px;
     background: #ddd;
+    margin: 2px;
 }
 
 .board_view .info2 dl:first-child::before {

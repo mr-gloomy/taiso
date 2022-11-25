@@ -25,7 +25,7 @@ public class QuestionListAction implements Action {
 		// 페이징 처리 (1)
 
 		// 한 페이지에 보여줄 글의 개수
-		int pageSize = 5;
+		int pageSize = 6;
 
 		// 현 페이지가 몇페이지 인지 확인
 		String pageNum = request.getParameter("pageNum");
