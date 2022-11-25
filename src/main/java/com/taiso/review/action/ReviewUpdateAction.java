@@ -13,7 +13,7 @@ public class ReviewUpdateAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		
-		System.out.println("ReviewUpdateAction_execute() 호출");
+		System.out.println("ReviewUpdate_execute() 호출");
 //		// 세션 제어 (id)
 		HttpSession session = request.getSession();
 		String mem_id = (String) session.getAttribute("mem_id");

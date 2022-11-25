@@ -63,8 +63,8 @@ public class ReservationController extends HttpServlet{
 				 */
 				// 예약페이지 이동 ( 액션에서 정보들 가져와서 reservationForm.jsp 출력하도록 만들기)
 				// 예약일시정보 + 차량정보
-				else if(command.equals("/ReservationAction.rez")) {
-					System.out.println(" C : [패턴3] : ReservationAction.rez 호출 ");
+				else if(command.equals("/Reservation.rez")) {
+					System.out.println(" C : [패턴3] : Reservation.rez 호출 ");
 					
 					//ReservationAction 객체 생성
 					action = new ReservationAction();
@@ -117,9 +117,9 @@ public class ReservationController extends HttpServlet{
 				 * ReservationListAction
 				 * 
 				 */
-				// 예약 리스트 조회 (ReservationListAction.java)
-				else if(command.equals("/ReservationListAction.rez")) {
-					System.out.println(" C : [패턴3] : ReservationListAction.rez 호출");
+				// 예약 리스트 조회 (ReservationList.java)
+				else if(command.equals("/ReservationList.rez")) {
+					System.out.println(" C : [패턴3] : ReservationList.rez 호출");
 					
 					// ReservationListAction 객체 생성
 					action = new ReservationListAction();
@@ -137,8 +137,8 @@ public class ReservationController extends HttpServlet{
 				 * 
 				 */
 				// 예약+결제 1개의 정보 조회 (ReservationInfoAction.java)
-				else if(command.equals("/ReservationInfoAction.rez")) {
-					System.out.println(" C : [패턴3] : ReservationInfoAction.rez 호출");
+				else if(command.equals("/ReservationInfo.rez")) {
+					System.out.println(" C : [패턴3] : ReservationInfo.rez 호출");
 					
 					// ReservationInfoAction 객체 생성
 					action = new ReservationInfoAction();
@@ -169,8 +169,8 @@ public class ReservationController extends HttpServlet{
 				 * ReservationCancelAction
 				 * - 비밀번호 체크 후 예약상태 변경
 				 */
-				else if(command.equals("/ReservationCancelAction.rez")) {
-					System.out.println(" C : [패턴2] : ReservationCancelAction.rez 호출");
+				else if(command.equals("/ReservationCancel.rez")) {
+					System.out.println(" C : [패턴2] : ReservationCancel.rez 호출");
 					
 					// ReservationCancelAction 객체 생성
 					action = new ReservationCancelAction();
@@ -186,8 +186,8 @@ public class ReservationController extends HttpServlet{
 			     * AdminReservationListAction
 			     * - 관리자 예약 조회
 			     */
-				else if(command.equals("/AdminReservationListAction.rez")) {
-					System.out.println(" C : [패턴3] : AdminReservationListAction.rez 호출");
+				else if(command.equals("/AdminReservationList.rez")) {
+					System.out.println(" C : [패턴3] : AdminReservationList.rez 호출");
 					
 					// AdminReservationListAction 객체 생성
 					action = new AdminReservationListAction();
@@ -203,8 +203,8 @@ public class ReservationController extends HttpServlet{
 				 * AdminReservationDetailListAction
 				 * - 관리자 예약번호에 해당하는 하나의 예약정보 조회
 				 */
-				else if(command.equals("/AdminReservationDetailListAction.rez")) {
-					System.out.println(" C : [패턴3] : AdminReservationDetailListAction.rez 호출");
+				else if(command.equals("/AdminReservationDetailList.rez")) {
+					System.out.println(" C : [패턴3] : AdminReservationDetailList.rez 호출");
 					
 					// AdminReservationDetailListAction 객체 생성
 					action = new AdminReservationDetailListAction();

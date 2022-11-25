@@ -121,7 +121,7 @@ public class ReservationToMail implements Action {
         }
 		
 //		페이지 이동
-		forward.setPath("./ReservationListAction.rez?mem_id="+mem_id);
+		forward.setPath("./ReservationList.rez?mem_id="+mem_id);
 		forward.setRedirect(true);
 		return forward;
 	}

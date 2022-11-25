@@ -137,7 +137,7 @@
 		    						</div>
 		    						<p class="d-flex mb-0 d-block">
 <!-- 			    						<a href="#" class="btn btn-primary py-2 mr-1">Book now</a> -->
-			    						<a href="./ReviewListAction.rev?car_code=${rCar.car_code }"
+			    						<a href="./ReviewList.rev?car_code=${rCar.car_code }"
 											class="btn btn-secondary py-2 ml-1">차량상세정보</a>
 									</p>
 		    					</div>

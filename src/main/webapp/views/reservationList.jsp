@@ -46,7 +46,7 @@
 		}).then((result) => {
 		  if (result.value) {
 	          //"등록" 버튼을 눌렀을 때 작업할 내용을 이곳에 넣어주면 된다. 
-			  location.href='./ReviewDeleteAction.rev?rez_uqNum='+seq;
+			  location.href='./ReviewDelete.rev?rez_uqNum='+seq;
 		  }
 		})
 	}
@@ -83,7 +83,7 @@
 	    var _top = Math.ceil(( window.screen.height - _height )/2); 
  		// 새 창 열기
  		document.domain = "localhost"; //document.domain 값이 팝업과 부모창 동일해야 합니다.
- 		window.open("./ReviewUpdateAction.rev?rez_uqNum="+rez_uqNum,"",'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top);
+ 		window.open("./ReviewUpdate.rev?rez_uqNum="+rez_uqNum,"",'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top);
 	}
 	
 </script>
@@ -176,17 +176,17 @@
 	  <c:if test="${totalCnt != 0 }">
 	      <!-- 이전 -->
 	      <c:if test="${startPage > pageBlock }">
-	         <a href="./ReservationListAction.rez?pageNum=${startPage - pageBlock  }">[이전]</a>
+	         <a href="./ReservationList.rez?pageNum=${startPage - pageBlock  }">[이전]</a>
 	      </c:if>   
 	         
 	      <!-- 페이지 번호(1,2,3) -->
 	      <c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
-	         <a href="./ReservationListAction.rez?pageNum=${i }">${i }</a>
+	         <a href="./ReservationList.rez?pageNum=${i }">${i }</a>
 	      </c:forEach>   
 	         
 	      <!-- 다음 -->
 	      <c:if test="${endPage < pageCount }">
-	         <a href="./ReservationListAction.rez?pageNum=${startPage+pageBlock }">[다음]</a>
+	         <a href="./ReservationList.rez?pageNum=${startPage+pageBlock }">[다음]</a>
 	      </c:if>
 	   </c:if>
 

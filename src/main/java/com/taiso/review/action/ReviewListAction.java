@@ -14,7 +14,7 @@ public class ReviewListAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-		System.out.println("ReviewListAction_execute() 호출");
+		System.out.println("ReviewList_execute() 호출");
 		
 //		// 세션 제어 (id)
 		HttpSession session = request.getSession();

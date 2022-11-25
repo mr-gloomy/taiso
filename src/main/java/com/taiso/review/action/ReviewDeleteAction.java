@@ -11,7 +11,7 @@ public class ReviewDeleteAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-		System.out.println("ReviewDeleteAction_exectue() 호출");
+		System.out.println("ReviewDelete_exectue() 호출");
 		
 //		// 세션 제어 (id)
 		HttpSession session = request.getSession();
@@ -31,7 +31,7 @@ public class ReviewDeleteAction implements Action {
 		ReviewDAO rDAO = new ReviewDAO();
 		rDAO.deleteReview(rez_uqNum);
 		
-		forward.setPath("./ReservationListAction.rez");
+		forward.setPath("./ReservationList.rez");
 		forward.setRedirect(true);
 		
 		return forward;

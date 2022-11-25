@@ -12,7 +12,7 @@ public class ReviewUpdateProAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-		System.out.println("ReviewUpdateAction_execute() 호출");
+		System.out.println("ReviewUpdate_execute() 호출");
 		
 //		// 세션 제어 (id)
 		HttpSession session = request.getSession();
@@ -37,7 +37,7 @@ public class ReviewUpdateProAction implements Action {
 		ReviewDAO rDAO = new ReviewDAO();
 		rDAO.updateReview(rDTO);
 		
-		forward.setPath("./ReservationListAction.rez");
+		forward.setPath("./ReservationList.rez");
 		forward.setRedirect(true);
 				
 		return forward;
