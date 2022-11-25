@@ -13,7 +13,7 @@ public class MemberLogoutAction implements Action {
 		
 		// 로그아웃 ( 세션정보 초기화 )
 		HttpSession session = request.getSession();
-		session.invalidate();
+		session.removeAttribute("mem_id");
 		
 		
 		
