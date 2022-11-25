@@ -16,15 +16,14 @@ public class ReviewUpdateProAction implements Action {
 		
 //		// 세션 제어 (id)
 		HttpSession session = request.getSession();
-//		String id = (String) session.getAttribute("id");
+		String mem_id = (String) session.getAttribute("mem_id");
 //		
 		ActionForward forward = new ActionForward();
-//		if(id == null) {
-//			forward.setPath("로그인 안 했을 때 이동할 주소");
-//			// 현재 페이지 가상주소에서 옮겨가야 하니까 리다이렉트로
-//			forward.setRedirect(true);
-//			return forward;
-//		}
+		if(mem_id == null) {
+			forward.setPath("./MemberLogin.me");
+			forward.setRedirect(true);
+			return forward;
+		}
 		
 		// 넘어온 데이터 저장
 		ReviewDTO rDTO = new ReviewDTO();
@@ -38,8 +37,8 @@ public class ReviewUpdateProAction implements Action {
 		ReviewDAO rDAO = new ReviewDAO();
 		rDAO.updateReview(rDTO);
 		
-		forward.setPath("./review/reviewList.jsp");
-		forward.setRedirect(false);
+		forward.setPath("./ReservationListAction.rez");
+		forward.setRedirect(true);
 				
 		return forward;
 	}

@@ -262,14 +262,14 @@ public class ReservationController extends HttpServlet{
 				
 				
 				/**
-				 * ReservationToKakao
+				 * ReservationChk(kakao)
 				 * 
 				 */
-				else if(command.equals("/ReservationToKakao.rez")) {
-					System.out.println(" C : /ReservationToKakao.rez 호출 ");
-					System.out.println(" C : [패턴 1] ");
+				else if(command.equals("/ReservationChk.rez")) {
+					System.out.println(" C : /ReservationChk.rez 호출 ");
+					System.out.println(" C : [패턴 3] ");
 					
-					action = new ReservationToKakao();
+					action = new ReservationChkAction();
 					try {
 						forward = action.execute(request, response);
 					} catch (Exception e) {

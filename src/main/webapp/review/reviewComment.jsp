@@ -99,8 +99,6 @@
               <input type = "hidden" name = "rev_subject" value = "null">
               <input type = "hidden" name = "rev_image" value = "null">
               <input type = "hidden" name = "rev_star" value = "null">
-              <input type = "hidden" name = "car_code" value = "1"> <!-- 나중에 값 불러와야 함 -->
-              <input type = "hidden" name = "rez_uqNum" value = "1"> <!-- 나중에 값 불러와야 함 -->
               <input type = "hidden" name = "rev_num" value = "${param.rev_num }">
 				<br>
 			  <div class="form-group">

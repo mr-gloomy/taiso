@@ -64,13 +64,13 @@
 
       <div class="container">
          <div>
-            <a href="./CarList.ca">전체</a>
-            <a href="./CarList.ca?item=small">소형</a>
-            <a href="./CarList.ca?item=compact">준중형</a>
-            <a href="./CarList.ca?item=middle">중형</a> 
-            <a href="./CarList.ca?item=large">대형</a> 
-            <a href="./CarList.ca?item=suv">suv</a>
-            <a href="./CarList.ca?item=foreign">수입차</a>
+            <a href="./CarListAll.ca">전체</a>
+            <a href="./CarListAll.ca?item=small">소형</a>
+            <a href="./CarListAll.ca?item=compact">준중형</a>
+            <a href="./CarListAll.ca?item=middle">중형</a> 
+            <a href="./CarListAll.ca?item=large">대형</a> 
+            <a href="./CarListAll.ca?item=suv">suv</a>
+            <a href="./CarListAll.ca?item=foreign">수입차</a>
          </div>
          <div class="row">
             <c:forEach var="cars" items="${carsList }">
@@ -91,8 +91,9 @@
                            </p>
                         </div>
                         <p class="d-flex mb-0 d-block">
-                           <a href="./ReservationAction.rez?car_code=${cars.car_code }"
-                              class="btn btn-primary py-2 mr-1">예약하기</a> <a
+<%--                            <a href="./ReservationAction.rez?car_code=${cars.car_code }" --%>
+<!--                               class="btn btn-primary py-2 mr-1">예약하기</a> -->
+                               <a
                               href="./ReviewListAction.rev?car_code=${cars.car_code }&car_name=${cars.car_name }"
                               class="btn btn-secondary py-2 ml-1">차량상세정보 </a>
                         </p>
@@ -122,7 +123,7 @@
 
             <!-- 이전 -->
             <c:if test="${startPage > pageBlock }">
-               <a href="./CarList.ca?pageNum=${startPage-pageBlock }">[이전]</a>
+               <a href="./CarListAll.ca?pageNum=${startPage-pageBlock }">[이전]</a>
             </c:if>
             <!--        <div class="row mt-5"> -->
             <div class="col text-center">
@@ -137,7 +138,7 @@
                               
                            >
                         <span>
-                        <a href="./CarList.ca?pageNum=${i }">${i }</a>
+                        <a href="./CarListAll.ca?pageNum=${i }">${i }</a>
                         </span>
                         </li>
                         
@@ -149,7 +150,7 @@
 
             <!-- 다음 -->
             <c:if test="${endPage < pageCount }">
-               <a href="./CarList.ca?pageNum=${startPage+pageBlock }">[다음]</a>
+               <a href="./CarListAll.ca?pageNum=${startPage+pageBlock }">[다음]</a>
             </c:if>
 
          </c:if>
@@ -173,7 +174,8 @@
       </div>
    </section>
 
-              <div class="r-horizon">
+		<!-- 하단 네비바 -->
+         <!--       <div class="r-horizon">
          <div class="r-horizon-bar">
             <div class="r-horizon-button"></div>
          </div>
@@ -184,7 +186,6 @@
                       <th><span class="r-h-info r-h-infoA">대여지점</span></th>
                       <th><span class="r-h-info r-h-infoB">대여일시</span></th>
                       <th><span class="r-h-info r-h-infoC">픽업시간</span></th>
-                      <th><span class="r-h-info r-h-infoC"></span></th>
                    </tr>
                    <tr>
                       <td>
@@ -193,17 +194,15 @@
                       <td>
                          <p class="r-horizon-text" id="h-redDate">${rez_pick_date } ~ ${rez_off_date }</p>
                       </td>
-                      <td>
-                         <p class="r-horizon-text" id="h-redDate">${rez_pick_time }</p>
-                      </td>
-                      <td>
-                         <p></p>
+                      <td class="ellipsis">
+                         <p class="r-horizon-text ellipsis" id="h-car_name">${rez_pick_time }</p>
                       </td>
                    </tr>
+                </tbody>
              </table>
           </div>
-      </div>
-
+      </div> -->
+	<!-- 하단 네비바 -->
 
    <!-- 푸터들어가는 곳 -->
    <jsp:include page="../inc/bottom.jsp" />

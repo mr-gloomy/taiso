@@ -472,7 +472,35 @@ public class ReservationDAO {
       } // 예약취소 정보 저장 - ResrvationCancelSave(String mem_id)
 
    
-
+      /**
+       * 예약 정보 조회 - getReservationMailInfo()
+       */
+      
+      public ReservationDTO getReservationMailInfo(String pay_uqNum) {
+    	  
+    	  ReservationDTO rezDTO = null;
+    	  try {
+			con = getConnection();
+			sql = "select * from rez_reservation rez where rez_uqNum=(select pay.rez_uqNum from rez_payment pay where pay.pay_uqNum=?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, pay_uqNum);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				rezDTO = new ReservationDTO();
+				rezDTO.setRez_rentalDate(rs.getString("rez_rentalDate"));
+				rezDTO.setRez_returnDate(rs.getString("rez_returnDate"));
+				rezDTO.setRez_site(rs.getString("rez_Site"));
+				rezDTO.setCar_name(rs.getString("car_name"));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+    	  return rezDTO;
+      }
+      
 
 //   /**
 //    * 예약 상태 변경 - reservationCancelChange(ReservationDTO rezDTO)

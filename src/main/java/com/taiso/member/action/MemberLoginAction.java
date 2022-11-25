@@ -54,20 +54,27 @@ public class MemberLoginAction implements Action {
 		HttpSession session = request.getSession();
 		session.setAttribute("mem_id", mem_id);
 		
+		String uri = request.getParameter("uri");
+		
+		request.setAttribute("uri", uri);
+		System.out.println(" M : uri :"+uri);
+		
+		response.sendRedirect(uri);
+		
 		// 메인으로 이동
 //		ActionForward forward = new ActionForward();
 //		forward.setPath("./ReservationMain.rez");
 //		forward.setRedirect(true);
 		
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		out.print("<script>");
-		out.print("	alert('로그인 완료. '); ");
-		out.print(" history.go(-2); ");
-		out.print("</script>");
-		out.close();
-		
-		
+//		response.setContentType("text/html; charset=UTF-8");
+//		PrintWriter out = response.getWriter();
+//		out.print("<script>");
+//		out.print("	alert('로그인 완료. '); ");
+//		out.print(" history.go(-2); ");
+//		out.print("</script>");
+//		out.close();
+//		
+//		
 		return null;
 		}
 	}

@@ -113,5 +113,4 @@ public class AdminReservationListAction implements Action {
       forward.setRedirect(false);
       
       return forward;
-      
 }}

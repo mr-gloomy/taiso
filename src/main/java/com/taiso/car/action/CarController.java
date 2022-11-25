@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.taiso.reservation.action.ReservationDate;
-
 
 @WebServlet("*.ca")
 public class CarController extends HttpServlet {
@@ -39,6 +37,18 @@ public class CarController extends HttpServlet {
 			System.out.println(" C : /CarList.ca 호출 ");
 			System.out.println(" C : [패턴3]");
 			action = new CarListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+		else if(command.equals("/CarListAll.ca")) {
+			System.out.println(" C : /CarListAll.ca 호출 ");
+			System.out.println(" C : [패턴3]");
+			// 헤더에서 차량목록으로 연결되는 페이지 
+			action = new CarListAllAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
