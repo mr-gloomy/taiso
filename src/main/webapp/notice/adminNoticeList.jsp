@@ -88,15 +88,26 @@
 	           
 	        </div>
               
-            <!-- 페이지처리 -->
-            <div align="center"> 
-	  		 <c:if test="${totalCnt != 0}">
-                <!-- 페이지번호 -->
-                <c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
-		         	 <a href="./AdminNoticeList.nb?pageNum=${i }" class="btn btn-outline-primary" >${i }</a> 
-		    	</c:forEach>  
-			 </c:if>
-		   </div>	
+           	<!-- 페이지처리 이전,다음 -->
+		   	<div class="n_page" align="center"> 
+		   		<c:if test="${requestScope.cnt != 0}">
+	  
+				    <!-- 이전 -->
+				    <c:if test="${startPage > pageBlock }">
+				    	<a href="./AdminNoticeList.nb?pageNum=${startPage-pageBlock }" class="btn btn-outline-primary"><<</a>
+				    </c:if>
+				    <!-- 페이지 번호(1,2,3....) -->	  
+				    <c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
+				          <a href="./AdminNoticeList.nb?pageNum=${i }" class="btn btn-outline-primary" >${i }</a> 
+				    </c:forEach>  
+				    
+				    <!-- 다음 -->	
+				    <c:if test="${endPage < pageCount }">
+				        <a href="./AdminNoticeList.nb?pageNum=${startPage+pageBlock }" class="btn btn-outline-primary">>></a>
+				    </c:if>
+				</c:if>
+		   	</div>
+		   	<!-- 페이지처리 이전,다음 -->
   
       </div><br>
 	 </div>
