@@ -38,6 +38,7 @@
     
 <script type="text/javascript">
 function winopen(){ // 아이디 중복 체크
+	
 	 // 아이디창에 아이디 입력여부 확인
 	 if(document.fr.mem_id.value == ""){
 		 alert('아이디를 입력하세요.');
@@ -53,6 +54,7 @@ function winopen(){ // 아이디 중복 체크
 }
 
 function winopen2(){ // 닉네임 중복 체크
+	
 	 // 닉네임창에 닉네임 입력여부 확인
 	 if(document.fr.mem_nickName.value == ""){
 		 alert('닉네임을 입력하세요.');
@@ -75,83 +77,163 @@ if (document.getElementById("supportCheckbox").checked) { // 체크박스
 
 <script type="text/javascript">
 $(document).ready(function(){
-alert("시작");
 
 	$('#sbtn').click(function(){
-	alert('확인');
 
     var mem_id = $('#mem_id').val();
     var mem_pw = $('#mem_pw').val();
+    var mem_name = $('#mem_name').val();
     var mem_nickName = $('#mem_nickName').val();
+    var mem_phone = $('#mem_phone').val();
     var mem_email = $('#mem_email').val();
     var mem_birthday = $('#mem_birthday').val();
     var mem_year = mem_birthday.substring(0,4);
     
     var check_id = /^[a-zA-Z0-9]{5,20}$/; // 아이디 유효성 검사 (영문/숫자 5-20)
     var check_pw = /^[a-zA-Z0-9]{8,16}$/; // 비밀번호 유효성 검사 (영문/숫자 8-16)
+    var check_name = /^[가-힣]{0,10}$/; // 이름 유효성 검사 (10글자 제한)
     var check_nickName = /^[a-zA-Z0-9ㄱ-ㅎ|ㅏ-ㅣ|가-힣]{2,10}$/; // 닉네임 유효성 검사 (한글/영어/숫자 2-10)
+    var check_phone = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/; // 전화번호 유효성 검사
     var check_email = /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/; // 이메일 양식 검사
     
-
+	
+    // 아이디 공백 확인
+    if (mem_id == "" || mem_id == null) {
+        alert('아이디를 입력해주세요.');
+        $('#mem_id').focus();
+        return false;
+    }
+	
     // 아이디 유효성 체크
     if (!check_id.test(mem_id)) {
         $('.idCheck').html('영문 및 숫자 5-20자로 입력해주세요.');
         $('#mem_id').val("");
         $('#mem_id').focus();
-        
         return false;
+    } else {
+    	$('.idCheck').html('');
     }
+    
+    // 비밀번호 공백 확인
+    if (mem_pw == "" || mem_pw == null) {
+        alert('비밀번호를 입력해주세요.');
+        $('#mem_pw').focus();
+        return false;
+    }	    
 
     // 비밀번호 유효성 체크
     if (!check_pw.test(mem_pw)) {
         $('.pwCheck').html('영문 및 숫자 8-16자로 입력해주세요.');
         $('#mem_pw').val("");
         $('#mem_pw').focus();
-        
         return false;
+    } else {
+    	$('.pwCheck').html('');
     }
+    
+    // 비밀번호 재입력 공백 확인
+    if (mem_rpw == "" || mem_rpw == null) {
+         alert('비밀번호를 입력해주세요.');
+         $('#mem_rpw').focus();
+         return false;
+     }     
     
     // 비밀번호 일치 체크
     if($("#mem_pw").val() != $("#mem_rpw").val()){
     	$('.pwReCheck').html('비밀번호가 일치하지 않습니다.');
-        $("#mem_pw").val("");
         $("#mem_rpw").val("");
         $("#mem_pw").focus();
-        
         return false;
+    } else {
+     	$('.pwReCheck').html('');
+    }	
+    
+    //  이름 공백 확인
+    if (mem_name == "" || mem_name == null) {
+         alert('이름을 입력해주세요.');
+         $('#mem_name').focus();
+         return false;
+     }	
+
+    // 이름 유효성 체크
+    if (!check_name.test(mem_name)) {
+        $('.nameCheck').html('한글 10자 이내로 입력해주세요.');
+        $('#mem_name').val("");
+        $('#mem_name').focus();
+        return false;
+    } else {
+     	$('.nameCheck').html('');
     }
+    
+    //  닉네임 공백 확인
+    if (mem_nickName == "" || mem_nickName == null) {
+         alert('닉네임을 입력해주세요.');
+         $('#mem_nickName').focus();
+         return false;
+     }	
 
     // 닉네임 유효성 체크
     if (!check_nickName.test(mem_nickName)) {
         $('.nickNameCheck').html('영문과 한글, 숫자로 2-10자로 입력해주세요.');
         $('#mem_nickName').val("");
         $('#mem_nickName').focus();
-        
         return false;
-    }
+	} else {
+     	$('.nickNameCheck').html('');
+    }	
+    
+    //  전화번호 공백 확인
+    if (mem_phone == "" || mem_phone == null) {
+         alert('전화번호를 입력해주세요.');
+         $('#mem_phone').focus();
+         return false;
+     }	
+
+    // 전화번호 유효성 체크
+    if (!check_phone.test(mem_phone)) {
+        $('.phoneCheck').html('전화번호 양식이 올바르지 않습니다.');
+        $('#mem_phone').val("");
+        $('#mem_phone').focus();
+        return false;
+	} else {
+     	$('.phoneCheck').html('');
+    }	
+    
+    //  생년월일 공백 확인
+    if (mem_birthday == "" || mem_birthday == null) {
+         alert('생년월일을 입력해주세요.');
+         $('#mem_birthday').focus();
+         return false;
+     }	
     
     // 미성년자 체크
     if (mem_year > 2003) {
        	alert('미성년자는 가입 하실 수 없습니다.');
         $('#mem_birthday').val("");
         $('#mem_birthday').focus();
-        
         return false;
     }
+    
+    //  이메일 공백 확인
+    if (mem_email == "" || mem_email == null) {
+         alert('이메일을 입력해주세요.');
+         $('#mem_email').focus();
+         return false;
+     }	
         
     // 이메일 유효성 체크
     if (!check_email.test(mem_email)) {
   		 $('.emailCheck').html('이메일 양식이 올바르지 않습니다.');
    		 $('#mem_email').val("");
   		 $('#mem_email').focus();
-    
    		 return false;
+	} else {
+     	$('.emailCheck').html('');
     }
-    
-
+	
 	});
+	
 });
-
 </script>
 
 </head>
@@ -214,6 +296,7 @@ alert("시작");
 					<div class="formbold-mb-3">
 						<label for="mem_name" class="formbold-form-label"> 이름 </label> 
 						<input type="text" name="mem_name" id="mem_name" placeholder="회원이름" class="formbold-form-input" required />
+						<div class="nameCheck" id="textstyle"> </div>
 					</div>
 					
 					<div class="formbold-mb-3 formbold-input-wrapp">
@@ -225,12 +308,10 @@ alert("시작");
 						<div class="nickNameCheck" id="textstyle"> </div>
 					</div>
 					
-					<div class="formbold-mb-3 formbold-input-wrapp">
+					<div class="formbold-mb-3">
 						<label for="mem_phone" class="formbold-form-label"> 전화번호 </label>
-						<div>
-							<input type="text" name="mem_phone" id="mem_phone" placeholder="010-0000-0000" class="formbold-form-input-small" required />
-						    <button class="formbold-btn"> 인증하기 </button>
-						</div>
+						<input type="text" name="mem_phone" id="mem_phone" placeholder="010-0000-0000" class="formbold-form-input" required />
+						<div class="phoneCheck" id="textstyle"> </div>
 					</div>
 					
 					<div class="formbold-mb-3">
@@ -270,6 +351,7 @@ alert("시작");
 					<button type="submit" class="submit2" id="sbtn">가입하기</button>
 
 					<input type="hidden" name="mem_blacklist" id="mem_blacklist" value="N" class="formbold-form-input-small" />
+				
 				</form>
 			</div>
 		</div>

@@ -9,6 +9,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.taiso.member.action.SHA256;
+
 public class MemberDAO {
 	
 	private Connection con = null;
@@ -82,7 +84,7 @@ public class MemberDAO {
 			System.out.println(" DAO : mem_num : " +mem_num);
 			
 			// 3. 
-			sql = "insert into member(mem_num,mem_id,mem_pw,mem_name,mem_nickName,mem_phone,mem_birthday,mem_email,mem_accept_sns,mem_registDate,mem_blacklist) values(?,?,?,?,?,?,?,?,?,now(),?)";
+			sql = "insert into member(mem_num,mem_id,mem_pw,mem_name,mem_nickName,mem_phone,mem_birthday,mem_email,mem_emailCheck,mem_accept_sns,mem_registDate,mem_blacklist) values(?,?,?,?,?,?,?,?,?,?,now(),?)";
 			pstmt = con.prepareStatement(sql);
 			
 			// ??
@@ -94,8 +96,9 @@ public class MemberDAO {
 			pstmt.setString(6, mDTO.getMem_phone());
 			pstmt.setString(7, mDTO.getMem_birthday());
 			pstmt.setString(8, mDTO.getMem_email());
-			pstmt.setInt(9, mDTO.getMem_accept_sns());
-			pstmt.setString(10, mDTO.getMem_blacklist());
+			pstmt.setString(9, mDTO.getMem_emailCheck());
+			pstmt.setInt(10, mDTO.getMem_accept_sns());
+			pstmt.setString(11, mDTO.getMem_blacklist());
 			
 			// 4. 
 			pstmt.executeUpdate();
@@ -137,7 +140,7 @@ public class MemberDAO {
 				
 
 				// 3. 
-				sql = "insert into member(mem_num,mem_id,mem_pw,mem_name,mem_nickName,mem_phone,mem_birthday,mem_email,mem_accept_sns,mem_registDate,mem_blacklist) values(?,?,?,?,?,?,?,?,?,now(),?)";
+				sql = "insert into member(mem_num,mem_id,mem_pw,mem_name,mem_nickName,mem_email,mem_emailCheck,mem_accept_sns,mem_registDate,mem_blacklist) values(?,?,?,?,?,?,?,?,now(),?)";
 				pstmt = con.prepareStatement(sql);
 				
 				// ??
@@ -146,11 +149,10 @@ public class MemberDAO {
 				pstmt.setString(3, mDTO.getMem_pw());
 				pstmt.setString(4, mDTO.getMem_name());
 				pstmt.setString(5, mDTO.getMem_nickName());
-				pstmt.setString(6, mDTO.getMem_phone());
-				pstmt.setString(7, mDTO.getMem_birthday());
-				pstmt.setString(8, mDTO.getMem_email());
-				pstmt.setInt(9, 0);
-				pstmt.setString(10, mDTO.getMem_blacklist());
+				pstmt.setString(6, mDTO.getMem_email());
+				pstmt.setString(7, mDTO.getMem_emailCheck());
+				pstmt.setInt(8, 0);
+				pstmt.setString(9, mDTO.getMem_blacklist());
 				
 				// 4. 
 				pstmt.executeUpdate();
@@ -209,8 +211,8 @@ public class MemberDAO {
 	
 	
 	
-	// 닉네임 중복체크 메서드 - memberNNameCheck(mem_nickName)
-	public int memberNNameCheck(String mem_nickName) {
+	// 닉네임 중복체크 메서드 - memberNickNameCheck(mem_nickName)
+	public int memberNickNameCheck(String mem_nickName) {
 		int result = 0; // 0 - 중복 X(닉네임 사용 O) / 1 - 중복 O(닉네임 사용 X)
 		
 		try {
@@ -246,39 +248,72 @@ public class MemberDAO {
 		
 		return result;
 	}
-	// 닉네임 중복체크 메서드 - memberNNameCheck(mem_nickName)
+	// 닉네임 중복체크 메서드 - memberNickNameCheck(mem_nickName)
 	
 	
 	
 	
-	// 닉네임 중복체크 메서드 - memberNNameCheck(mem_newNickName)
-	public int memberNewNNameCheck(String mem_newNickName) {
-		int result = 0; // 0 - 중복 X(닉네임 사용 O) / 1 - 중복 O(닉네임 사용 X)
+//	// 닉네임 수정확인 중복체크 메서드 - memberUpdateNickNameCheck(mem_newNickName)
+//	public int memberUpdateNickNameCheck(String mem_newNickName) {
+//		int result = 0; // 0 - 중복 X(닉네임 사용 O) / 1 - 중복 O(닉네임 사용 X)
+//		
+//		try {
+//			// 1.2.
+//			con = getConnection();
+//			
+//			// 3. 
+//			sql = "select mem_pw from member where mem_nickName=?";
+//			pstmt = con.prepareStatement(sql);
+//			
+//			// ??
+//			pstmt.setString(1, mem_nickName);
+//			
+//			// 4.
+//			rs = pstmt.executeQuery();
+//			
+//			// 5.
+//			if(rs.next()) {
+//				
+//				// 회원정보가 있다(= 중복)
+//				result = 1;
+//				System.out.println(" DAO : 닉네임 중복 O ("+result+")");
+//			}
+//			
+//			// result == 0 (= 중복 X)
+//			System.out.println(" DAO : 닉네임 중복 X ("+result+")");			
+//			
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		} finally {
+//			closeDB();
+//		}
+//		
+//		return result;
+//	}
+//	// 닉네임 수정확인 중복체크 메서드 - memberUpdateNickNameCheck(mem_newNickName)
+	
+
+	
+	// 이메일 찾기 메서드 - getEmail(mem_id)
+	public MemberDTO getEmail(String mem_id) {
+		MemberDTO mDTO = null;
 		
 		try {
-			// 1.2.
+			
 			con = getConnection();
 			
-			// 3. 
-			sql = "select mem_pw from member where mem_newNickName=?";
+			sql = "select * from member where mem_id=?";
 			pstmt = con.prepareStatement(sql);
 			
-			// ??
-			pstmt.setString(1, mem_newNickName);
-			
-			// 4.
-			rs = pstmt.executeQuery();
-			
-			// 5.
-			if(rs.next()) {
-				
-				// 회원정보가 있다(= 중복)
-				result = 1;
-				System.out.println(" DAO : 닉네임 중복 O ("+result+")");
-			}
-			
-			// result == 0 (= 중복 X)
-			System.out.println(" DAO : 닉네임 중복 X ("+result+")");			
+	        pstmt.setString(1, mem_id);
+	        
+	        rs = pstmt.executeQuery();
+	        
+	        if(rs.next()) {
+	        	mDTO = new MemberDTO();
+	        	
+	        	mDTO.setMem_email(rs.getString("mem_email"));
+	        }
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -286,11 +321,10 @@ public class MemberDAO {
 			closeDB();
 		}
 		
-		return result;
+		return mDTO;
 	}
-	// 닉네임 중복체크 메서드 - memberNNameCheck(mem_newNickName)
+	// 이메일 찾기 메서드 - getEmail(mem_id) - 끝
 	
-
 	
 	// 로그인 메서드 - memberLogin(mem_id, mem_pw)
 	public int memberLogin(String mem_id, String mem_pw) {

@@ -15,7 +15,7 @@ public class MemberRemoveAction implements Action {
 		
 		System.out.println(" M : MemberRemoveProAction_execute 호출");
 		
-		// 세션제어
+		// 로그인 세션제어
 		HttpSession session = request.getSession();
 		String mem_id = (String) session.getAttribute("mem_id");
 		

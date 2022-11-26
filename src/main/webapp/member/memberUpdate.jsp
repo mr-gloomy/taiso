@@ -33,7 +33,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
 <script type="text/javascript">
-function winopen2(){ // 닉네임 중복 체크
+function nick(){ // 닉네임 중복 체크
 	 
 	 // 닉네임창에 닉네임 입력여부 확인
 	 if(document.fr.mem_newNickName.value == ""){
@@ -43,13 +43,107 @@ function winopen2(){ // 닉네임 중복 체크
 	 }
 	 
 	 // 입력된 닉네임정보
-	 var inputNName = document.fr.mem_newNickName.value;
+	 var inputNewName = document.fr.mem_newNickName.value;
 	 
 	 // 새창열기
-	 window.open("./MemberNickNameCheck.me?inputNName="+inputNName,"","width=550,height=200,top=300,left=500"); 
+	 window.open("./MemberUpdateNickNameCheck.me?inputNewName="+inputNewName,"","width=550,height=200,top=300,left=500"); 
 }
 </script>
- 
+
+<script type="text/javascript">
+// 체크박스 값 (선택O : 1 / 선택X : 0 )
+if (document.getElementById("supportCheckbox").checked) { // 체크박스 
+		document.getElementById("supportCheckbox_hidden").disabled = true;
+}
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$('#sbtn').click(function(){
+
+    var mem_name = $('#mem_name').val();
+    var mem_nickName = $('#mem_newNickName').val();
+    var mem_phone = $('#mem_phone').val();
+    var mem_email = $('#mem_email').val();
+
+    var check_name = /^[가-힣]{0,10}$/; // 이름 유효성 검사 (10글자 제한)
+    var check_nickName = /^[a-zA-Z0-9ㄱ-ㅎ|ㅏ-ㅣ|가-힣]{2,10}$/; // 닉네임 유효성 검사 (한글/영어/숫자 2-10)
+    var check_phone = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/; // 전화번호 유효성 검사
+    var check_email = /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/; // 이메일 양식 검사
+	
+	
+    //  이름 공백 확인
+    if (mem_name == "" || mem_name == null) {
+         alert('이름을 입력해주세요.');
+         $('#mem_name').focus();
+         return false;
+     }	
+
+    // 이름 유효성 체크
+    if (!check_name.test(mem_name)) {
+        $('.nameCheck').html('한글 10자 이내로 입력해주세요.');
+        $('#mem_name').val("");
+        $('#mem_name').focus();
+        return false;
+    }
+    
+    //  닉네임 공백 확인
+    if (mem_newNickName == "" || mem_newNickName == null) {
+         alert('닉네임을 입력해주세요.');
+         $('#mem_newNickName').focus();
+         return false;
+     }	
+
+    // 닉네임 유효성 체크
+    if (!check_nickName.test(mem_newNickName)) {
+        $('.nickNameCheck').html('영문과 한글, 숫자로 2-10자로 입력해주세요.');
+        $('#mem_newNickName').val("");
+        $('#mem_newNickName').focus();
+        return false;
+	} else {
+     	$('.nickNameCheck').html('');
+    }	
+    
+    //  전화번호 공백 확인
+    if (mem_phone == "" || mem_phone == null) {
+         alert('전화번호를 입력해주세요.');
+         $('#mem_phone').focus();
+         return false;
+     }	
+
+    // 전화번호 유효성 체크
+    if (!check_phone.test(mem_phone)) {
+        $('.phoneCheck').html('전화번호 양식이 올바르지 않습니다.');
+        $('#mem_phone').val("");
+        $('#mem_phone').focus();
+        return false;
+	} else {
+     	$('.phoneCheck').html('');
+    }	
+    
+    //  이메일 공백 확인
+    if (mem_email == "" || mem_email == null) {
+         alert('이메일을 입력해주세요.');
+         $('#mem_email').focus();
+         return false;
+     }	
+        
+    // 이메일 유효성 체크
+    if (!check_email.test(mem_email)) {
+  		 $('.emailCheck').html('이메일 양식이 올바르지 않습니다.');
+   		 $('#mem_email').val("");
+  		 $('#mem_email').focus();
+   		 return false;
+	} else {
+     	$('.emailCheck').html('');
+    }
+	
+	});
+	
+});
+</script>
+
 </head>
 
 <body>
@@ -95,28 +189,32 @@ function winopen2(){ // 닉네임 중복 체크
 	
 					<div class="formbold-mb-3">
 						<label for="mem_name" class="formbold-form-label"> 이름 </label> 
-						<input type="text" name="mem_name" id="mem_name" value="${mDTO.mem_name }"  class="formbold-form-input" />
+						<input type="text" name="mem_name" id="mem_name" value="${mDTO.mem_name }"  class="formbold-form-input" required />
+						<div class="nameCheck" id="textstyle"> </div>
 					</div>
 					
 					<div class="formbold-mb-3 formbold-input-wrapp">
 						<label for="mem_nickName" class="formbold-form-label"> 닉네임 </label>
 						<div>
-							<input type="text" name="mem_newNickName" id="mem_newNickName"  value="${mDTO.mem_nickName }" class="formbold-form-input-small"/>
-						    <button type="button" class="formbold-btn" onclick="winopen2();"> 중복확인 </button>
+							<input type="text" name="mem_newNickName" id="mem_newNickName"  value="${mDTO.mem_nickName }" class="formbold-form-input-small" required />
+						    <button type="button" class="formbold-btn" onclick="nick()"> 중복확인 </button>
 						</div>
+							<div class="nickNameCheck" id="textstyle"> </div>
 					</div>
 					
 					<div class="formbold-mb-3 formbold-input-wrapp">
 						<label for="mem_phone" class="formbold-form-label"> 전화번호 </label>
 						<div>
-							<input type="text" name="mem_phone" id="mem_phone" value="${mDTO.mem_phone }" class="formbold-form-input-small"/>
-						    <button class="formbold-btn"> 인증하기 </button>
+							<input type="text" name="mem_phone" id="mem_phone" value="${mDTO.mem_phone }" class="formbold-form-input" required />
+							<div class="idPhone" id="textstyle"> </div>
 						</div>
+							<div class="phoneCheck" id="textstyle"> </div>
 					</div>
 					
 					<div class="formbold-mb-3">
 						<label for="mem_email" class="formbold-form-label"> Email </label> 
 						<input type="email" name="mem_email" id="mem_email" value="${mDTO.mem_email }" class="formbold-form-input" readonly/>
+						<div class="emailCheck" id="textstyle"> </div>
 					</div>
 
 
@@ -139,8 +237,8 @@ function winopen2(){ // 닉네임 중복 체크
 					<div class="aforgot">
 						<a href="./MemberRemove.me" id="forgot" class="font-weight-bold">회원탈퇴</a>  
 					</div>
+						<button type="submit" class="submit2" id="sbtn">수정하기</button>
 						<input type="hidden" name="mem_pw" id="mem_pw" value="${mDTO.mem_pw }" />
-						<button type="submit" class="submit">수정하기</button>
 				</form>
 			</div>		
 		</div>
@@ -349,7 +447,7 @@ body {
 	cursor: pointer;
 }
 
-.submit {
+.submit2 {
 	text-align: center;
 	width: 100%;
 	font-size: 20px;
@@ -371,14 +469,16 @@ body {
 	width: 45%;
 }
 
-.textstyle {
-	color: #b1b3b6;
-	font-size: 14px;
-	line-height: 2px;
-	display: block;
-	margin-top: 20px;
-	margin-left: 5px;
+#textstyle {
+    color: #f53648ad;
+    font-size: 12px;
+    line-height: 2px;
+    display: block;
+    margin-top: 12px;
+    margin-left: 5px;
+    margin-bottom: 25px;
 }
+
 
 #forgot {
 	margin-left: 10px;

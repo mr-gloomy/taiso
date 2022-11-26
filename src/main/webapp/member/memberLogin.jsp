@@ -42,8 +42,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<meta name ="google-signin-client_id" content="231575130286-milrnaqgc87g434srftir69s67pmo0tc.apps.googleusercontent.com">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- SNS로그인 관련 -->
 
 </head>
@@ -55,18 +53,6 @@
 	
 	<!-- 중간제목 시작 -->
 	<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-				<div class="col-md-9 ftco-animate pb-5">
-					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> 
-						<span>Contact <i class="ion-ios-arrow-forward"></i></span>
-					</p>
-					<h1 class="mb-3 bread">Contact Us</h1>
-				</div>
-			</div>
-		</div>
 	</section>
 	<!-- 중간제목 끝 -->
 
@@ -76,6 +62,7 @@
 			<div class="row">
 				<div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
 					<div class="panel border bg-white">
+					
 					
 						<div class="panel-heading">
 							<h3 class="pt-3 font-weight-bold">로그인</h3>
@@ -98,17 +85,17 @@
 									</div>
 								</div>
 								
-								<div class="form-inline">
-									<input type="checkbox" name="remember" id="remember"> 
-									<label for="remember" class="text-muted">아이디 저장</label> 
-								</div>
+<!-- 								<div class="form-inline"> -->
+<!-- 									<input type="checkbox" name="remember" id="remember">  -->
+<!-- 									<label for="remember" class="text-muted">아이디 저장</label>  -->
+<!-- 								</div> -->
 								
-								<button class="btn btn-primary btn-block mt-3">로그인</button>
+								<button class="btn btn-primary btn-block">로그인</button>
 									<div class="aforgot">
 										<a href="./MemberFindId.me" id="forgot" class="font-weight-bold">아이디 찾기</a>
 										<a href="./MemberFindPw.me" id="forgot" class="font-weight-bold">비밀번호 찾기</a>
 									</div>
-								<div class=textstyle> 회원이 아니신가요? <a href="./MemberJoin.me">가입하기</a></div>
+								<div class=textstyle> 회원이 아니신가요? <a href="./MemberJoin.me" class="font-weight-bold">가입하기</a></div>
 							</form>
 						</div>
 						
@@ -119,8 +106,7 @@
 							<!-- 네이버 로그인 관련 -->
 							 <div id="naver_id_login"></div>
 							<!-- 네이버 로그인 관련 -->
-							
-							
+
 							</div>
 						</div>
 						
@@ -132,15 +118,16 @@
 		</section>
 		<!-- 본문 끝 -->
 
-
-	<script type="text/javascript">
+<script type="text/javascript">
 	  	var naver_id_login = new naver_id_login("wmfagQjB6wykoV0oZUGH", "http://localhost:8088/project_taiso/MemberNaverLogin.me");
 	  	var state = naver_id_login.getUniqState();
 	  	naver_id_login.setDomain("http://localhost:8088/");
 	  	naver_id_login.setButton("white",3,50);
 	  	naver_id_login.setState(state);
 	  	naver_id_login.init_naver_id_login();
-	  </script>
+</script>
+	  
+
 	  
 <!-- 본문 css -->
 <style>
@@ -159,7 +146,8 @@ body {
 
 .panel-heading {
 	text-align: center;
-	margin-bottom: 10px
+	margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 #forgot {
@@ -181,7 +169,8 @@ a:hover {
 
 .btn.btn-primary {
 	margin-top: 20px;
-	border-radius: 5px
+	border-radius: 5px;
+	margin-bottom: 5px;
 }
 
 .panel {
@@ -220,13 +209,6 @@ input[type='text'], input[type='password'] {
 	box-shadow: none
 }
 
-/* img { */
-/* 	width: 40px; */
-/* 	height: 40px; */
-/* 	object-fit: cover; */
-/* 	border-radius: 50%; */
-/* 	position: relative */
-/* } */
 
 a[target='_blank'] {
 	position: relative;
@@ -245,7 +227,8 @@ a[target='_blank'] {
 	top: -13px;
 	left: 37%;
 	background-color: #fff;
-	padding: 0px 8px
+	padding: 0px 8px;
+	font-weight: bold;
 }
 
 @media ( max-width : 360px) {
