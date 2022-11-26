@@ -183,6 +183,7 @@
 					"mem_id":'${sessionScope.mem_id}',
 					"rental_date":'${rezDTO.rez_rentalDate}',
 					"return_date":'${rezDTO.rez_returnDate}',
+					"rentTime":'${rezDTO.rez_rentTime}',
 					"rez_site":'${rezDTO.rez_site}',
 					"car_name":'${rezDTO.car_name}'
 				  }

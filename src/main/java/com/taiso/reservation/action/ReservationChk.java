@@ -11,7 +11,7 @@ import com.taiso.member.db.MemberDTO;
 import com.taiso.reservation.db.ReservationDAO;
 import com.taiso.reservation.db.ReservationDTO;
 
-public class ReservationChkAction implements Action {
+public class ReservationChk implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -37,10 +37,8 @@ public class ReservationChkAction implements Action {
 		
 		// 2. 예약정보 가져오기
 		String pay_uqNum = request.getParameter("pay_uqNum");
-		System.out.println("@@@@@@@~~~~~~@@@@@@@@@"+pay_uqNum);
+		System.out.println(" pay_uqNum : "+pay_uqNum);
 		ReservationDTO rezDTO = rezDAO.getReservationMailInfo(pay_uqNum);
-		System.out.println("@@mDTO : "+mDTO);
-		System.out.println("@@rezDTO : "+rezDTO);
 		request.setAttribute("mDTO", mDTO);
 		request.setAttribute("rezDTO", rezDTO);
 		request.setAttribute("pay_uqNum", pay_uqNum);

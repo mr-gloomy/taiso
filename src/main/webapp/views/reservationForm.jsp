@@ -113,7 +113,6 @@
             amount: 100                  // 숫자타입
        }, function(rsp) {
            if (rsp.success) {
-        	   alert('결제성공');
               $.ajax({
                  url: "./ReservationProAction.rez",
                  type: 'POST',
@@ -122,6 +121,7 @@
                   rez_rentalDate:document.fr.rez_rentalDate.value,
                    rez_returnDate:document.fr.rez_returnDate.value,
                      rez_totalDate:document.fr.rez_totalDate.value,
+                     rez_rentTime:document.fr.rez_pick_time.value,
                      rez_site:document.fr.rez_site.value,
                      car_name:document.fr.car_name.value,
                      car_code:${carDTO.car_code},
@@ -137,7 +137,6 @@
                     pay_status : rsp.status         // 결제상황
                  }
               });
-              		alert('ajax성공');
                    location.href="./ReservationChk.rez?pay_uqNum="+rsp.imp_uid;
 
            } else {
@@ -439,15 +438,6 @@
     </div>   
 <!-- contact 작성Form -->
 
-
-<!-- 지도 -->
-        <div class="row justify-content-center">
-           <div class="col-md-12">
-              <div id="map" class="bg-white"></div>
-           </div>
-        </div>
-      </div>
-<!-- 지도 -->
     </section>
    
    

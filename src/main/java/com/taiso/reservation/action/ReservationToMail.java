@@ -58,6 +58,7 @@ public class ReservationToMail implements Action {
 		ReservationDTO rezDTO = rezDAO.getReservationMailInfo(pay_uqNum);
 		String rental_date = rezDTO.getRez_rentalDate();
 		String return_date = rezDTO.getRez_returnDate();
+		String rentTime = rezDTO.getRez_rentTime();
 		String rez_site = rezDTO.getRez_site();
 		String car_name = rezDTO.getCar_name();
 		
@@ -105,8 +106,8 @@ public class ReservationToMail implements Action {
             		+ "<table><tr><th colspan=\"8\" align=\"left\">"
             		+ "<h3>주문 상세내역</h3></th></tr>"
             		+ "<tr><th>상품명</th><td>"+car_name+"</td></tr>"
-    				+ "<tr><th>대여일시</th><td>"+rental_date+"</td></tr>"
-					+ "<tr><th>반납일시</th><td>"+return_date+"</td></tr>", "text/html;charset=euc-kr");
+    				+ "<tr><th>대여일시</th><td>"+rental_date+" "+rentTime+"</td></tr>"
+					+ "<tr><th>반납일시</th><td>"+return_date+" "+rentTime+"</td></tr>", "text/html;charset=euc-kr");
 //            message.setContent("<h2>타이소를 이용해주셔서 감사합니다. "+mem_id+"님의 예약 내역을 알려드립니다.", "text/html;charset=euc-kr");
             
             // ======== javax.mail.Message ========
