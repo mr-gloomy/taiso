@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="./css/icomoon.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/admin_my.css">
+    <link rel="stylesheet" href="./css/board.css">
+    
+    
+    
 
   </head>
   <body>
@@ -67,16 +71,28 @@
 <!-- 		<section class="ftco-section ftco-car-details"> -->
       <div class="container">
       	<div class="row">
+
+     
+<!--       	<head> -->
+<!--     <meta charset="UTF-8"> -->
+
+<!--     <link rel="stylesheet" href="style.css"> -->
+<!--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
+<!-- </head> -->
+<!-- <body> -->
+
+      	
+      	
       		<div class="col-md-12 pills">
 						<div class="bd-example bd-example-tabs">
 							<div class="d-flex justify-content-center">
 							  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
 							    <li class="nav-item">
-							      <a class="nav-link" id="pills-1-tab" data-toggle="pill" href="#pills-1" role="tab" aria-controls="pills-1" aria-expanded="true">이용안내</a>
+							      <a class="nav-link active" id="pills-1-tab" data-toggle="pill" href="#pills-1" role="tab" aria-controls="pills-1" aria-expanded="true">이용안내</a>
 							    </li>
 							    <li class="nav-item">
-							      <a class="nav-link active" id="pills-2-tab" data-toggle="pill" href="#pills-2" role="tab" aria-controls="pills-2" aria-expanded="true">예약/결제</a>
+							      <a class="nav-link" id="pills-2-tab" data-toggle="pill" href="#pills-2" role="tab" aria-controls="pills-2" aria-expanded="true">예약/결제</a>
 							    </li>
 							    <li class="nav-item">
 							      <a class="nav-link" id="pills-3-tab" data-toggle="pill" href="#pills-3" role="tab" aria-controls="pills-3" aria-expanded="true">취소/환불</a>
@@ -92,19 +108,283 @@
 
 						  <div class="tab-content" id="pills-tabContent">
 						    <div class="tab-pane fade" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab">
-								칸 비움 1 
+						    
+								 <!-- -------------아코디언 메뉴--------------- -->
+								  
+								  <div class="wrapper">
+								    <!-- Accordion Heading One -->
+								    <div class="parent-tab">
+								      <input type="radio" name="tab" id="tab-1" checked>
+								      <label for="tab-1">
+								        <span>Q1. 타이소가 뭐죠?</span>
+								        <div class="icon"><i class="fas fa-plus"></i></div>
+								      </label>
+								      <div class="content">
+								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								      </div>
+								    </div>
+								    <!-- Accordion Heading Two -->
+								    <div class="parent-tab">
+								      <input type="radio" name="tab" id="tab-2">
+								      <label for="tab-2">
+								        <span>Q2. 웅애웅ㅇ?</span>
+								        <div class="icon"><i class="fas fa-plus"></i></div>
+								      </label>
+								      <div class="content">
+								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								      </div>
+								    </div>
+								    <!-- Accordion Heading Three -->
+								    <div class="parent-tab tab-3">
+								      <input type="radio" name="tab" id="tab-3">
+								      <label for="tab-3" class="tab-3">
+								        <span>Q3. ㅋㅋ</span>
+								        <div class="icon"><i class="fas fa-plus"></i></div>
+								      </label>
+								      <div class="content">
+								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								
+								      </div>
+								    </div>
+								    <!-- Accordion Heading Four -->
+								    <div class="parent-tab">
+								      <input type="radio" name="tab" id="tab-6">
+								      <label for="tab-6">
+								        <span>Q4. 몰라</span>
+								        <div class="icon"><i class="fas fa-plus"></i></div>
+								      </label>
+								      <div class="content">
+								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								      </div>
+								    </div>
+								  </div>
+								      	
+								      <!-- -------------아코디언 메뉴--------------- -->
 						    </div>
+						    
+						    
+						    
 						    <div class="tab-pane fade show active" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
- 								칸 비움 2
-						    </div>
+								 <!-- -------------아코디언 메뉴--------------- -->
+								  
+								  <div class="wrapper">
+								    <!-- Accordion Heading One -->
+								    <div class="parent-tab">
+								      <input type="radio" name="tab" id="tab-7" checked>
+								      <label for="tab-7">
+								        <span>Q1. 제 돈 다 드리고 싶네요 구라임</span>
+								        <div class="icon"><i class="fas fa-plus"></i></div>
+								      </label>
+								      <div class="content">
+								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								      </div>
+								    </div>
+								    <!-- Accordion Heading Two -->
+								    <div class="parent-tab">
+								      <input type="radio" name="tab" id="tab-8">
+								      <label for="tab-8">
+								        <span>Q2. 웅애웅ㅇ?</span>
+								        <div class="icon"><i class="fas fa-plus"></i></div>
+								      </label>
+								      <div class="content">
+								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								      </div>
+								    </div>
+								    <!-- Accordion Heading Three -->
+								    <div class="parent-tab tab-3">
+								      <input type="radio" name="tab" id="tab-9">
+								      <label for="tab-9" class="tab-3">
+								        <span>Q3. ㅋㅋ</span>
+								        <div class="icon"><i class="fas fa-plus"></i></div>
+								      </label>
+								      <div class="content">
+								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								
+								      </div>
+								    </div>
+								    <!-- Accordion Heading Four -->
+								    <div class="parent-tab">
+								      <input type="radio" name="tab" id="tab-10">
+								      <label for="tab-10">
+								        <span>Q4. 몰라</span>
+								        <div class="icon"><i class="fas fa-plus"></i></div>
+								      </label>
+								      <div class="content">
+								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								      </div>
+								    </div>
+								  </div>
+								      	
+								      <!-- -------------아코디언 메뉴--------------- -->						   
+							</div>
+						    
+						    
 						    <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab">
-						     	칸 비움 3
+								 <!-- -------------아코디언 메뉴--------------- -->
+								  
+								  <div class="wrapper">
+								    <!-- Accordion Heading One -->
+								    <div class="parent-tab">
+								      <input type="radio" name="tab" id="tab-11" checked>
+								      <label for="tab-11">
+								        <span>Q. 결제하고 싶어요</span>
+								        <div class="icon"><i class="fas fa-plus"></i></div>
+								      </label>
+								      <div class="content">
+								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								      </div>
+								    </div>
+								    <!-- Accordion Heading Two -->
+								    <div class="parent-tab">
+								      <input type="radio" name="tab" id="tab-12">
+								      <label for="tab-12">
+								        <span>Q2. 웅애웅ㅇ?</span>
+								        <div class="icon"><i class="fas fa-plus"></i></div>
+								      </label>
+								      <div class="content">
+								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								      </div>
+								    </div>
+								    <!-- Accordion Heading Three -->
+								    <div class="parent-tab tab-3">
+								      <input type="radio" name="tab" id="tab-13">
+								      <label for="tab-13" class="tab-3">
+								        <span>Q3. ㅋㅋ</span>
+								        <div class="icon"><i class="fas fa-plus"></i></div>
+								      </label>
+								      <div class="content">
+								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								
+								      </div>
+								    </div>
+								    <!-- Accordion Heading Four -->
+								    <div class="parent-tab">
+								      <input type="radio" name="tab" id="tab-14">
+								      <label for="tab-14">
+								        <span>Q4. 몰라</span>
+								        <div class="icon"><i class="fas fa-plus"></i></div>
+								      </label>
+								      <div class="content">
+								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								      </div>
+								    </div>
+								  </div>
+								      	
+								      <!-- -------------아코디언 메뉴--------------- -->	
 							</div>
+							
+							
+							
 							<div class="tab-pane fade" id="pills-4" role="tabpanel" aria-labelledby="pills-4-tab">
-						     	칸 비움 4
+								 <!-- -------------아코디언 메뉴--------------- -->
+								  
+								  <div class="wrapper">
+								    <!-- Accordion Heading One -->
+								    <div class="parent-tab">
+								      <input type="radio" name="tab" id="tab-15" checked>
+								      <label for="tab-15">
+								        <span>Q1.예약 잘 되나요 </span>
+								        <div class="icon"><i class="fas fa-plus"></i></div>
+								      </label>
+								      <div class="content">
+								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								      </div>
+								    </div>
+								    <!-- Accordion Heading Two -->
+								    <div class="parent-tab">
+								      <input type="radio" name="tab" id="tab-20">
+								      <label for="tab-20">
+								        <span>Q2. 웅애웅ㅇ?</span>
+								        <div class="icon"><i class="fas fa-plus"></i></div>
+								      </label>
+								      <div class="content">
+								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								      </div>
+								    </div>
+								    <!-- Accordion Heading Three -->
+								    <div class="parent-tab tab-30">
+								      <input type="radio" name="tab" id="tab-30">
+								      <label for="tab-30" class="tab-3">
+								        <span>Q3. ㅋㅋ</span>
+								        <div class="icon"><i class="fas fa-plus"></i></div>
+								      </label>
+								      <div class="content">
+								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								
+								      </div>
+								    </div>
+								    <!-- Accordion Heading Four -->
+								    <div class="parent-tab">
+								      <input type="radio" name="tab" id="tab-60">
+								      <label for="tab-60">
+								        <span>Q4. 몰라</span>
+								        <div class="icon"><i class="fas fa-plus"></i></div>
+								      </label>
+								      <div class="content">
+								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								      </div>
+								    </div>
+								  </div>
+								      	
+								      <!-- -------------아코디언 메뉴--------------- -->	
 							</div>
+							
+							
+							
+							
+							
 							<div class="tab-pane fade" id="pills-5" role="tabpanel" aria-labelledby="pills-5-tab">
-						     	칸 비움 5
+								 <!-- -------------아코디언 메뉴--------------- -->
+								  
+								  <div class="wrapper">
+								    <!-- Accordion Heading One -->
+								    <div class="parent-tab">
+								      <input type="radio" name="tab" id="tab-19" checked>
+								      <label for="tab-1">
+								        <span>Q1. 내 돈 내놔요</span>
+								        <div class="icon"><i class="fas fa-plus"></i></div>
+								      </label>
+								      <div class="content">
+								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								      </div>
+								    </div>
+								    <!-- Accordion Heading Two -->
+								    <div class="parent-tab">
+								      <input type="radio" name="tab" id="tab-29">
+								      <label for="tab-2">
+								        <span>Q2. 웅애웅ㅇ?</span>
+								        <div class="icon"><i class="fas fa-plus"></i></div>
+								      </label>
+								      <div class="content">
+								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								      </div>
+								    </div>
+								    <!-- Accordion Heading Three -->
+								    <div class="parent-tab tab-3">
+								      <input type="radio" name="tab" id="tab-39">
+								      <label for="tab-3" class="tab-39">
+								        <span>Q3. ㅋㅋ</span>
+								        <div class="icon"><i class="fas fa-plus"></i></div>
+								      </label>
+								      <div class="content">
+								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								
+								      </div>
+								    </div>
+								    <!-- Accordion Heading Four -->
+								    <div class="parent-tab">
+								      <input type="radio" name="tab" id="tab-69">
+								      <label for="tab-69">
+								        <span>Q4. 몰라</span>
+								        <div class="icon"><i class="fas fa-plus"></i></div>
+								      </label>
+								      <div class="content">
+								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								      </div>
+								    </div>
+								  </div>
+								      	
+								      <!-- -------------아코디언 메뉴--------------- -->	
 							</div>
 							
 							
@@ -150,6 +430,6 @@
 	<script src="./js/google-map.js"></script>
 	<script src="./js/main.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
-    
+    <script src="https://kit.fontawesome.com/595b26ba61.js" crossorigin="anonymous"></script>
   </body>
 </html>

@@ -41,9 +41,10 @@
                 </li>
 
                 <li class="buttonitem" id="settings">
-                    <a href="#settings" class="menubtn"><i class="fa fa-cog"></i> 회원정보 관리</a>
+                    <a href="#settings" class="menubtn"><i class="fa fa-cog"></i> 개인정보 관리</a>
                     <div class="smenu">
-                        <a href="./MemberUpdate.me">회원정보 변경(탈퇴)</a>
+                        <a href="./MemberUpdate.me">개인정보 변경</a>
+                        <a href="./MemberRemove.me">회원탈퇴</a>
 <!--                         <a href="">비밀번호 변경</a> -->
                     </div>
                 </li>
