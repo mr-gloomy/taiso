@@ -228,7 +228,7 @@ tr:nth-child(even) {
 									<li class="buttonitem" id="setting"><a href="#setting"
 										class="menubtn"><i class="fa fa-cog"></i> 예약관리</a>
 										<div class="smenu">
-											<a href="./AdminReservationListAction.rez">예약현황</a>
+											<a href="./AdminReservationList.rez">예약현황</a>
 										</div>
 									</li>
 									<li class="buttonitem" id="messages"><a href="#messages"
@@ -252,8 +252,8 @@ tr:nth-child(even) {
 					<table>
 						<tr>
 							<th><a href="./AdminMemberList.mb">회원 수</a></th>
-							<th><a href="./AdminReservationListAction.rez">예약건수</a></th>
-							<th><a href="./AdminReservationListAction.rez">취소건수</a></th>
+							<th><a href="./AdminReservationList.rez">예약건수</a></th>
+							<th><a href="./AdminReservationList.rez">취소건수</a></th>
 							<th><a href="./AdminCarList.ad">차량 수</a></th>
 						</tr>
 						<tr>
