@@ -8,7 +8,7 @@ import com.taiso.car.db.CarDTO;
 import com.taiso.review.db.ReviewDAO;
 import com.taiso.review.db.ReviewDTO;
 
-public class ReservationMainAction implements Action {
+public class ReservationMain implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {

@@ -113,7 +113,6 @@
             amount: 100                  // 숫자타입
        }, function(rsp) {
            if (rsp.success) {
-
               $.ajax({
                  url: "./ReservationProAction.rez",
                  type: 'POST',
@@ -122,6 +121,7 @@
                   rez_rentalDate:document.fr.rez_rentalDate.value,
                    rez_returnDate:document.fr.rez_returnDate.value,
                      rez_totalDate:document.fr.rez_totalDate.value,
+                     rez_rentTime:document.fr.rez_pick_time.value,
                      rez_site:document.fr.rez_site.value,
                      car_code:${carDTO.car_code},
                      car_insurance:document.fr.car_insurance.value,

@@ -150,21 +150,22 @@ public class ReservationDAO {
 
          // 주문정보 저장
          sql = "insert into rez_reservation "
-               + "(rez_uqNum,rez_rentalDate,rez_returnDate,rez_totalDate,rez_site,rez_status, "
-               + "car_code,car_insurance,mem_id,license_num,car_name) " + "values(?,?,?,?,?,?,?,?,?,?,?)";
+               + "(rez_uqNum,rez_rentalDate,rez_returnDate,rez_totalDate,rez_rentTime,rez_site,rez_status, "
+               + "car_code,car_insurance,mem_id,license_num,car_name) " + "values(?,?,?,?,?,?,?,?,?,?,?,?)";
 
          PreparedStatement pstmt1 = con.prepareStatement(sql);
          pstmt1.setInt(1, rez_uqNum);
          pstmt1.setString(2, rezDTO.getRez_rentalDate());
          pstmt1.setString(3, rezDTO.getRez_returnDate());
          pstmt1.setString(4, rezDTO.getRez_totalDate());
-         pstmt1.setString(5, rezDTO.getRez_site());
-         pstmt1.setInt(6, 1);
-         pstmt1.setInt(7, rezDTO.getCar_code());
-         pstmt1.setString(8, rezDTO.getCar_insurance());
-         pstmt1.setString(9, rezDTO.getMem_id());
-         pstmt1.setString(10, rezDTO.getLicense_num());
-         pstmt1.setString(11, rezDTO.getCar_name());
+         pstmt1.setString(5, rezDTO.getRez_rentTime());
+         pstmt1.setString(6, rezDTO.getRez_site());
+         pstmt1.setInt(7, 1);
+         pstmt1.setInt(8, rezDTO.getCar_code());
+         pstmt1.setString(9, rezDTO.getCar_insurance());
+         pstmt1.setString(10, rezDTO.getMem_id());
+         pstmt1.setString(11, rezDTO.getLicense_num());
+         pstmt1.setString(12, rezDTO.getCar_name());
          pstmt1.executeUpdate();
          
          System.out.println(" 1) 예약정보 저장 완료");
@@ -188,6 +189,8 @@ public class ReservationDAO {
         	 pstmt2.setString(4, rezDTO.getLicense_type());
         	 pstmt2.executeUpdate();
         	 System.out.println(" 2-1) 면허정보 저장 완료");
+        	 
+        	 
          } else {
         	 System.out.println(" 2-2) 이전에 입력한 정보 있으므로 면허정보 저장하지 않음");
          }
@@ -497,10 +500,11 @@ public class ReservationDAO {
 				rezDTO = new ReservationDTO();
 				rezDTO.setRez_rentalDate(rs.getString("rez_rentalDate"));
 				rezDTO.setRez_returnDate(rs.getString("rez_returnDate"));
+				rezDTO.setRez_rentTime(rs.getString("rez_rentTime"));
 				rezDTO.setRez_site(rs.getString("rez_Site"));
 				rezDTO.setCar_name(rs.getString("car_name"));
 			}
-			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@"+rezDTO);
+			System.out.println(" M : rezDTO : "+rezDTO);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

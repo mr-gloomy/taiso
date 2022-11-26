@@ -11,7 +11,7 @@ import com.taiso.payment.db.PaymentDAO;
 import com.taiso.reservation.db.ReservationDAO;
 import com.taiso.reservation.db.ReservationDTO;
 
-public class ReservationInfoAction implements Action {
+public class ReservationInfo implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -22,7 +22,6 @@ public class ReservationInfoAction implements Action {
 		 * - 예약 취소를 하기위에 특정 id에 해당하는 예약+결제 정보 저장
 		 */
 		
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 		// DAO - 해당고객에 해당하는 예약정보 다 가져오기
 		// 세션제어(id)(로그인 체크)
 //		String pay_uqNum = request.getParameter("pay_uqNum");

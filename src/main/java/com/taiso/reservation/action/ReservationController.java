@@ -141,7 +141,7 @@ public class ReservationController extends HttpServlet{
 					System.out.println(" C : [패턴3] : ReservationInfo.rez 호출");
 					
 					// ReservationInfoAction 객체 생성
-					action = new ReservationInfoAction();
+					action = new ReservationInfo();
 					try {
 						forward = action.execute(request, response);
 					} catch (Exception e) {
@@ -222,7 +222,7 @@ public class ReservationController extends HttpServlet{
 				 */
 				else if(command.equals("/SiteInfo.rez")) {
 					forward = new ActionForward();
-					forward.setPath("./views/siteInfo3.jsp");
+					forward.setPath("./views/siteInfo.jsp");
 					forward.setRedirect(false);
 				}
 				
@@ -257,7 +257,7 @@ public class ReservationController extends HttpServlet{
 					System.out.println(" C : /ReservationMain.rez 호출 ");
 					System.out.println(" C : [패턴 1] ");
 					
-					action = new ReservationMainAction();
+					action = new ReservationMain();
 					try {
 						forward = action.execute(request, response);
 					} catch (Exception e) {
@@ -291,7 +291,7 @@ public class ReservationController extends HttpServlet{
 					System.out.println(" C : /ReservationChk.rez 호출 ");
 					System.out.println(" C : [패턴 3] ");
 					
-					action = new ReservationChkAction();
+					action = new ReservationChk();
 					try {
 						forward = action.execute(request, response);
 					} catch (Exception e) {

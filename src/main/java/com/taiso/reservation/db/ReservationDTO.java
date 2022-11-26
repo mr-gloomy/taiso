@@ -17,6 +17,7 @@ public class ReservationDTO {
 	private String rez_returnDate;    // 반납 일시
 	private String rez_site;		  // 대여 반납 장소
 	private String rez_totalDate; 	  // 총 대여일 (X 시간)
+	private String rez_rentTime;	  // 예약 시간
 	
 	private int car_code;			  // 차량코드
 	private String car_name;		  // 차량이름 

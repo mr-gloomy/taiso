@@ -23,6 +23,7 @@ public class ReservationProAction implements Action {
 		rezDTO.setRez_rentalDate(request.getParameter("rez_rentalDate"));
 		rezDTO.setRez_returnDate(request.getParameter("rez_returnDate"));
 		rezDTO.setRez_totalDate(request.getParameter("rez_totalDate"));
+		rezDTO.setRez_rentTime(request.getParameter("rez_rentTime"));
 		rezDTO.setRez_site(request.getParameter("rez_site"));
 		rezDTO.setCar_code(Integer.parseInt(request.getParameter("car_code")));
 		rezDTO.setCar_insurance(request.getParameter("car_insurance"));
