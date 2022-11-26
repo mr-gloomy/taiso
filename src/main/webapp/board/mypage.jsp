@@ -124,7 +124,7 @@
 					<img src="./images/user.png">
 					<h5>${mDTO.mem_nickName}</h5>
 					<p>문의사항　　|　　나의 리뷰</p>
-					<div align="center">${myqnacnt }　　　　|　　　　 ${myreviewcnt }</div>	　　　
+					<div align="center">${myqnacnt }　　　　|　　　　 ${myreviewcnt }</div>	　 　　
 						
 				</div>
 			</div>
