@@ -111,29 +111,44 @@ public class MemberController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}			
+				
 			
-			
-		}else if(command.equals("/MemberJoinPhone.me")) {
-			System.out.println(" C : /MemberJoinPhone.me 호출");
-			System.out.println(" C : [패턴 1] ");
-			
-			forward = new ActionForward();
-			forward.setPath("./member/memberJoinPhone.jsp");
-			forward.setRedirect(false);	
-			
-			
-		}else if(command.equals("/MemberJoinPhoneAction.me")) {
-			System.out.println(" C : /MemberJoinPhoneAction.me 호출");
+		}else if(command.equals("/MemberJoinEmailSendAction.me")) {
+			System.out.println(" C : /MemberJoinEmailSendAction.me 호출");
 			System.out.println(" C : [패턴 2] ");
 			
-			// MemberJoinPhoneAction() 객체 
-			action = new MemberJoinPhoneAction();
+			// MemberEmailSendAction() 객체 
+			action = new MemberJoinEmailSendAction();
 			
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
+			
+		}else if(command.equals("/MemberJoinEmail.me")) {
+			System.out.println(" C : /MemberJoinEmail.me 호출 ");
+			System.out.println(" C : [패턴 1]");
+			
+			forward = new ActionForward();
+			forward.setPath("./member/memberJoinEmail.jsp");
+			forward.setRedirect(false);	
+			
+			
+		}else if(command.equals("/MemberJoinEmailCheckAction.me")) {
+			System.out.println(" C : /MemberJoinEmailCheckAction.me 호출");
+			System.out.println(" C : [패턴 2] ");
+			
+			// MemberEmailSendAction() 객체 
+			action = new MemberJoinEmailCheckAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 			
 			
 		}else if(command.equals("/MemberLogin.me")) {
@@ -218,6 +233,29 @@ public class MemberController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
+			
+		}else if(command.equals("/MemberUpdateNickNameCheck.me")) {
+			System.out.println(" C : /MemberUpdateNickNameCheck.me 호출");
+			System.out.println(" C : [패턴 1] ");
+			
+			forward = new ActionForward();
+			forward.setPath("./member/memberUpdateNickNameCheck.jsp");
+			forward.setRedirect(false);		
+			
+			
+		}else if(command.equals("/MemberUpdateNickNameCheckAction.me")) {
+			System.out.println(" C : /MemberUpdateNickNameCheckAction.me 호출 ");
+			System.out.println(" C : [패턴 3]");
+			
+			// MemberUpdateNickNameCheckAction() 객체 생성
+			action = new MemberUpdateNickNameCheckAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}			
 			
 			
 		}else if(command.equals("/MemberUpdateAction.me")) {

@@ -38,27 +38,6 @@
 
 </head>
 
-  <body>
-  	<!-- 헤더 시작 -->
-	<jsp:include page="../inc/top.jsp"></jsp:include>
-  	<!-- 헤더 끝-->
-	
-	<!-- 중간제목 시작 -->
-	<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-				<div class="col-md-9 ftco-animate pb-5">
-					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> 
-						<span>Contact <i class="ion-ios-arrow-forward"></i></span>
-					</p>
-					<h1 class="mb-3 bread">Contact Us</h1>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- 중간제목 끝 -->
 
 	<!-- 본문 시작 -->
 	<section class="ftco-section contact-section">
@@ -67,7 +46,7 @@
 	<div id="naver_id_login"></div>
 			
 <script type="text/javascript">
-var naver_id_login = new naver_id_login("wmfagQjB6wykoV0oZUGH", "http://localhost:8088/project_taiso/MemberLogin.me");
+var naver_id_login = new naver_id_login("wmfagQjB6wykoV0oZUGH","http://localhost:8088/project_taiso/MemberNaverLoginAction.me");
 //접근 토큰 값 출력
 // alert(naver_id_login.oauthParams.access_token);
 //네이버 사용자 프로필 조회
@@ -105,25 +84,19 @@ function naverSignInCallback() {
 			birthday:naver_id_login.getProfileData('birthday')
 // 			birthyear:naver_id_login.getProfileData('birthyear'),
 // 			mobile:naver_id_login.getProfileData('mobile')
-		}
-// 		success : successCall,                       
-// 		error   : errorCall                         
- 
-	});
+		},
+//  		success:function(data){
+// //  		alert('성공');
+//  		},
+		error:function(){
+// 			alert('이동');
+		location.href='./ReservationMain.rez';
+ 		}
+	})
  	
+};
 
- 	
- 	
- 	
-}
 
-// function successCall(){
-//     alert("전송성공");
-// }
-
-// function errorCall(){
-//     alert("전송실패");
-// }
 		
 // 		data:{
 
@@ -144,11 +117,6 @@ function naverSignInCallback() {
 	 
 		</div>
 	</section>
-		
-
-  
-
-	
 		<!-- 본문 끝 -->
 
 <!-- 본문 css -->

@@ -1,5 +1,7 @@
 package com.taiso.member.action;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -17,9 +19,7 @@ public class MemberNaverLoginAction implements Action {
 		String id = request.getParameter("id");
 		String mem_id = "N_"+id;
 		String mem_pw = "naver";
-		String birthday = request.getParameter("birthday");
-		String mem_birthday = "1990-"+birthday;
-		String mem_phone = "010-0000-0001";
+		String mem_emailCheck = "0";
 		String mem_blacklist = "N";
 		
 		MemberDAO mDAO = new MemberDAO();
@@ -38,8 +38,7 @@ public class MemberNaverLoginAction implements Action {
 			mDTO.setMem_name(request.getParameter("name"));
 			mDTO.setMem_nickName(request.getParameter("nickname"));
 			mDTO.setMem_email(request.getParameter("email"));
-			mDTO.setMem_birthday(mem_birthday);
-			mDTO.setMem_phone(mem_phone);
+			mDTO.setMem_emailCheck(mem_emailCheck);
 			mDTO.setMem_blacklist(mem_blacklist);
 			
 
@@ -49,26 +48,33 @@ public class MemberNaverLoginAction implements Action {
 			// DAO - 회원가입 메서드 호출
 			mDAO.memberNaverJoin(mDTO);
 			System.out.println(" M : 회원가입 성공! ");
+			
+			// 로그인
+			mDAO.memberNaverLogin(mem_id,mem_pw);
+			System.out.println(" M : 네이버 로그인! ");
 
-		
+			
 			// 페이지 이동
-			System.out.println("result-1");
-			forward.setPath("/MemberJoin.me");	
-			forward.setRedirect(false);		
+			HttpSession session = request.getSession();
+			session.setAttribute("mem_id", mem_id);
+			forward.setPath("/ReservationMain.rez");	
+			forward.setRedirect(true);		
+			
+			System.out.println("###################");
 			
 			return forward;	
-			
+
+//			
 			
 		}else {
 			// result == 1
 			// 로그인 성공 -> 아이디 세션영역에 저장
-			System.out.println("result1");
+			System.out.println("@@@@@@@@@@@@@@"+result);
 			HttpSession session = request.getSession();
 			session.setAttribute("mem_id", mem_id);
-
-			forward.setPath("/MemberLogin.me");	
-			forward.setRedirect(true);		
 			
+			forward.setPath("/ReservationMain.rez");	
+			forward.setRedirect(true);	
 			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 			
 			return forward;	

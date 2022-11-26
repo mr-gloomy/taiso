@@ -16,7 +16,6 @@ public class MemberLogoutAction implements Action {
 		session.removeAttribute("mem_id");
 		
 		
-		
 		// 전 페이지로 이동
 		response.sendRedirect(request.getHeader("referer"));
 		

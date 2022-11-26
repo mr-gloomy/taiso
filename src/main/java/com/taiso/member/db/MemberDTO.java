@@ -8,6 +8,7 @@ public class MemberDTO {
 	private String mem_id;				// 회원 아이디
 	private String mem_pw;				// 회원 비밀번호
 	private String mem_email;			// 회원 이메일
+	private String mem_emailCheck;		// 회원 이메일 확인
 	private String mem_name;			// 회원 실명
 	private String mem_nickName;		// 회원 닉네임
 	private String mem_phone;			// 회원 전화번호
@@ -45,6 +46,12 @@ public class MemberDTO {
 	}
 	public void setMem_email(String mem_email) {
 		this.mem_email = mem_email;
+	}
+	public String getMem_emailCheck() {
+		return mem_emailCheck;
+	}
+	public void setMem_emailCheck(String mem_emailCheck) {
+		this.mem_emailCheck = mem_emailCheck;
 	}
 	public String getMem_name() {
 		return mem_name;
@@ -107,11 +114,20 @@ public class MemberDTO {
 	@Override
 	public String toString() {
 		return "MemberDTO [mem_num=" + mem_num + ", mem_id=" + mem_id + ", mem_pw=" + mem_pw + ", mem_email="
-				+ mem_email + ", mem_name=" + mem_name + ", mem_nickName=" + mem_nickName + ", mem_phone=" + mem_phone
-				+ ", mem_birthday=" + mem_birthday + ", mem_registDate=" + mem_registDate + ", mem_accept_sns="
-				+ mem_accept_sns + ", mem_image=" + mem_image + ", mem_blacklist=" + mem_blacklist + ", license_num="
-				+ license_num + "]";
+				+ mem_email + ", mem_emailCheck=" + mem_emailCheck + ", mem_name=" + mem_name + ", mem_nickName="
+				+ mem_nickName + ", mem_phone=" + mem_phone + ", mem_registDate=" + mem_registDate + ", mem_birthday="
+				+ mem_birthday + ", mem_accept_sns=" + mem_accept_sns + ", mem_image=" + mem_image + ", mem_blacklist="
+				+ mem_blacklist + ", license_num=" + license_num + "]";
 	}
+	
+	public byte[] getBytes(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
+
 	
 	
 	
