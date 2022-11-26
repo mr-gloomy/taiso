@@ -7,6 +7,38 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+
+
+<script type="text/javascript">
+function remove(){
+	setTimeout(
+        Swal.fire({
+  		  title: '정말 탈퇴하시겠습니까?',
+  		  text: "탈퇴시 더이상 타이소를 이용하실 수 없습니다. .",
+  		  icon: 'error',
+  		  showCancelButton: true,
+//   		  confirmButtonColor: '#3085d6',
+//   		  cancelButtonColor: 'grey',
+  		  confirmButtonText: '탈퇴하기',
+  		  cancelButtonText: '취소하기'
+  		}).then((result) => {
+  		  if (result.value) {
+  			  location.href='./MemberRemoveAction.me';
+  		  }else{
+  			location.href='./ReservationDate.rez.me';
+  		  }
+  		})
+  	, 500);
+ 
+}
+
+</script>
+
+
 </head>
 
 <body>
@@ -18,7 +50,7 @@
     		<form action="./MemberRemoveAction.me" method="POST" >
       			<div class="formbold-email-subscription-form">
         			<input type="password" name="mem_repw" id="mem_repw" placeholder="비밀번호를 재입력해주세요." class="formbold-form-input"/>
-       				<button class="submit"> 탈퇴하기 </button>
+       				<button class="submit" onclick="remove()"> 탈퇴하기 </button>
        			</div>
     			<input type="hidden" name="mem_id" id="mem_id" value="${sessionScope.mem_id}" />
     		</form>
@@ -103,6 +135,29 @@ body {
 	display: block;
 	text-align: center;
 }
+
+.swal2-title {
+    position: relative;
+    max-width: 100%;
+    margin: 0;
+    padding: 0.8em 1em 0;
+    color: inherit;
+    font-size: 20PX;
+    font-weight: 600;
+    text-align: center;
+    text-transform: none;
+    word-wrap: break-word;
+}
+
+.swal2-styled.swal2-confirm {
+    border: 0;
+    border-radius: 0.25em;
+    background: initial;
+    background-color: #1089FF;
+    color: #fff;
+    font-size: 1em;
+}
+  
 </style>
 
 </body>
