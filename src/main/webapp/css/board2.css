@@ -69,8 +69,16 @@ a {
 
 .board_list > div.top {
     border-bottom: 1px solid #999;
+    border-right: 1px solid #ddd;
+}
+.board_list > div.top2 {
+    border-bottom: 1px solid #999;
 }
 .board_list2 > div.top {
+    border-bottom: 1px solid #999;
+    border-right: 1px solid #ddd;
+}
+.board_list2 > div.top2 {
     border-bottom: 1px solid #999;
 }
 

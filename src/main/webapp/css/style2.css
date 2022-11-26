@@ -9184,12 +9184,35 @@ h1, h2, h3, h4, h5,
   background: #fff !important;
   color: #000000 !important;
   border: 1px solid #ced4da;
-  font-size: 18px;
+  font-size: 15px;
+  padding : 0.375rem 0.75rem;
   border-radius: 5px;
   -webkit-box-shadow: none !important;
   box-shadow: none !important; }
   .form-control:focus, .form-control:active {
     border-color: #000000; }
+
+ .form-control3 {
+  height: 40px !important;
+  width: 600px;
+  background: #fff !important;
+  color: #000000 !important;
+  border: 1px solid #ced4da;
+  font-size: 15px;
+  padding : 0.375rem 0.75rem;
+  border-radius: 5px;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important; }
+  .form-control:focus, .form-control:active {
+    border-color: #000000; }
+
+.form-control4{
+   position: absolute; left: 40%; transform: translateX(-50%);
+}
+
+.form-control5{
+   position: absolute; left: 60%; transform: translateX(-50%);
+}
 
 textarea.form-control {
   height: inherit !important; }

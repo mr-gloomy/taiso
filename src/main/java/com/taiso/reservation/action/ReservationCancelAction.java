@@ -50,9 +50,8 @@ public class ReservationCancelAction implements Action {
 
 
       // DAO - 예약취소 정보저장 메서드 호출 (이유, 일시,수수료) 
-      rezDTO.setRez_uqNum(Integer.parseInt(request.getParameter("rez_uqNum"))); //ReservationCancel.jsp에서 주소줄로 보낸 후 파람으로 가져오기
-      rezDTO.setMem_id(request.getParameter("mem_id"));
-      rezDTO.setPay_uqNum(request.getParameter("pay_uqNum"));
+      rezDTO.setRez_uqNum(rez_uqNum); //ReservationCancel.jsp에서 주소줄로 보낸 후 파람으로 가져오기
+      rezDTO.setMem_id(mem_id);
       rezDTO.setCancel_reason(request.getParameter("cancel_reason"));
       rezDTO.setCancel_commission(Integer.parseInt(request.getParameter("cancel_commission")));
       
@@ -61,7 +60,6 @@ public class ReservationCancelAction implements Action {
       System.out.println("@@@@@@@rez_uqNum : " + rezDTO.getRez_uqNum());
       System.out.println("@@@@@@@mem_id : " + rezDTO.getMem_id());
       System.out.println("@@@@@@@mem_pw : " + mem_pw);
-      System.out.println("@@@@@@@pay_uqNum : " + rezDTO.getPay_uqNum());
       System.out.println("@@@@@@@cancel_reason : " + rezDTO.getCancel_reason());
       
       // DAO - 취소이유저장, 예약상태 변경메서드
