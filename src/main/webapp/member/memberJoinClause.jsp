@@ -32,6 +32,10 @@
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
+<!-- sweetalert -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+
 <script type="text/javascript">
 
 function chk(){
@@ -39,7 +43,10 @@ function chk(){
     var f = document.thisForm;
     
     if(f.mem_accept_sns.checked !== true) {
-        alert('약관동의에 체크해주세요.');
+		 Swal.fire({
+			   title: '약관동의에 체크해주세요.',
+			   icon: 'warning'
+			 });
     	return false;    
     }
     
@@ -84,7 +91,7 @@ function chk(){
 						<h3>회원가입</h3>
 					</div>
 
-				<form>
+				<form action="./MemberJoin.me" method="POST">
 				
 					<div class="formbold-event-details">
 					<h5> <i class='fas fa-exclamation-triangle' style='font-size: 20px; color: red'></i> 
@@ -641,6 +648,30 @@ body {
  white-space:pre-wrap;
  line-height: 1.4;
 }
+
+
+.swal2-title {
+    position: relative;
+    max-width: 100%;
+    margin: 0;
+    padding: 0.8em 1em 0;
+    color: inherit;
+    font-size: 20PX;
+    font-weight: 600;
+    text-align: center;
+    text-transform: none;
+    word-wrap: break-word;
+}
+
+.swal2-styled.swal2-confirm {
+    border: 0;
+    border-radius: 0.25em;
+    background: initial;
+    background-color: #1089FF;
+    color: #fff;
+    font-size: 1em;
+}
+  
 
 </style>
 <!-- 본문 css -->

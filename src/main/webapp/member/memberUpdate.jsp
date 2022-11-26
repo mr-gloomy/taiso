@@ -32,12 +32,21 @@
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
+<!-- sweetalert -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script type="text/javascript">
 function nick(){ // 닉네임 중복 체크
 	 
 	 // 닉네임창에 닉네임 입력여부 확인
 	 if(document.fr.mem_newNickName.value == ""){
-		 alert('닉네임을 입력하세요.');
+		 Swal.fire({
+			   title: '닉네임을 입력해주세요.',
+			   icon: 'warning'
+			 });
 		 document.fr.mem_newNickName.focus();
 		 return;
 	 }
@@ -75,7 +84,10 @@ $(document).ready(function(){
 	
     //  이름 공백 확인
     if (mem_name == "" || mem_name == null) {
-         alert('이름을 입력해주세요.');
+		 Swal.fire({
+			   title: '이름을 입력해주세요.',
+			   icon: 'warning'
+			 });
          $('#mem_name').focus();
          return false;
      }	
@@ -90,7 +102,10 @@ $(document).ready(function(){
     
     //  닉네임 공백 확인
     if (mem_newNickName == "" || mem_newNickName == null) {
-         alert('닉네임을 입력해주세요.');
+		 Swal.fire({
+			   title: '닉네임을 입력해주세요.',
+			   icon: 'warning'
+			 });
          $('#mem_newNickName').focus();
          return false;
      }	
@@ -107,7 +122,10 @@ $(document).ready(function(){
     
     //  전화번호 공백 확인
     if (mem_phone == "" || mem_phone == null) {
-         alert('전화번호를 입력해주세요.');
+		 Swal.fire({
+			   title: '전화번호를 입력해주세요.',
+			   icon: 'warning'
+			 });
          $('#mem_phone').focus();
          return false;
      }	
@@ -124,7 +142,10 @@ $(document).ready(function(){
     
     //  이메일 공백 확인
     if (mem_email == "" || mem_email == null) {
-         alert('이메일을 입력해주세요.');
+		 Swal.fire({
+			   title: '이메일을 입력해주세요.',
+			   icon: 'warning'
+			 });
          $('#mem_email').focus();
          return false;
      }	
@@ -502,6 +523,32 @@ body {
 	text-align: center;
 	margin-bottom: 60p
 }
+
+
+
+.swal2-title {
+    position: relative;
+    max-width: 100%;
+    margin: 0;
+    padding: 0.8em 1em 0;
+    color: inherit;
+    font-size: 20PX;
+    font-weight: 600;
+    text-align: center;
+    text-transform: none;
+    word-wrap: break-word;
+}
+
+.swal2-styled.swal2-confirm {
+    border: 0;
+    border-radius: 0.25em;
+    background: initial;
+    background-color: #1089FF;
+    color: #fff;
+    font-size: 1em;
+}
+  
+
 </style>
 <!-- 본문 css -->
 
