@@ -123,6 +123,7 @@
                      rez_totalDate:document.fr.rez_totalDate.value,
                      rez_rentTime:document.fr.rez_pick_time.value,
                      rez_site:document.fr.rez_site.value,
+                     car_name:document.fr.car_name.value,
                      car_code:${carDTO.car_code},
                      car_insurance:document.fr.car_insurance.value,
                      mem_id:document.fr.mem_id.value,
