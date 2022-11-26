@@ -10,7 +10,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.taiso.review.db.ReviewDAO;
 import com.taiso.review.db.ReviewDTO;
 
-public class ReviewWriteAction implements Action {
+public class ReviewWriteProAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {

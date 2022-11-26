@@ -96,7 +96,7 @@
 					</div></a>
 				</div>
 				<div class="col-md-3">
-					<a href='./ReservationListAction.rez?mem_id=${sessionScope.mem_id}'>
+					<a href='./ReservationList.rez?mem_id=${sessionScope.mem_id}'>
 					
 					<div class="services services-2 w-100 text-center">
 						<div class="icon d-flex align-items-center justify-content-center">

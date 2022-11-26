@@ -31,14 +31,7 @@ public class ReviewController extends HttpServlet {
 		ActionForward forward = null;
 		
 		// 2. 가상주소 매핑(패턴 1, 2, 3)
-		if(command.equals("/ReviewList.rev")){
-			System.out.println("C : /ReviewList.rev 호출");
-			
-			forward = new ActionForward();
-			forward.setPath("./review/reviewList.jsp");
-			forward.setRedirect(false);
-		}
-		else if(command.equals("/ReviewWrite.rev")) {
+		if(command.equals("/ReviewWrite.rev")) {
 			System.out.println("C : /ReviewWrite.rev 호출");
 			
 			forward = new ActionForward();
@@ -48,7 +41,7 @@ public class ReviewController extends HttpServlet {
 		else if(command.equals("/ReviewWriteProAction.rev")) {
 			System.out.println("C : /ReviewWriteProAction.rev 호출");
 			
-			action = new ReviewWriteAction();
+			action = new ReviewWriteProAction();
 			
 			try {
 				forward = action.execute(request, response);
