@@ -145,7 +145,7 @@
 									<span class="cat"></span>
 								</div>
 								<div class="d-flex mb-3" style="display: flex; justify-content: center;">
-									<input type = "button" class="btn btn-primary2 py-2 mr-1" value = "예약 상세 조회" onclick="location.href='./ReservationInfoAction.rez?rez_uqNum=${rez.rez_uqNum }';" >ㅤ
+									<input type = "button" class="btn btn-primary2 py-2 mr-1" value = "예약 상세 조회" onclick="location.href='./ReservationInfo.rez?rez_uqNum=${rez.rez_uqNum }';" >ㅤ
 									<c:set var="loop_flag" value="false"/>
 									<c:set var="check" value ="0"/>
 									<c:forEach var="rev" items="${reviewList }" varStatus="status">

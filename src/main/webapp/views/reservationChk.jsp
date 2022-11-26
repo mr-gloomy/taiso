@@ -108,7 +108,7 @@
 					</div></a>
 				</div>
 				<div class="col-md-3">
-					<a href='./ReservationToMail.rez?mem_id=${sessionScope.mem_id}&payNum=${param.pay_uqNum }'>
+					<a href='./ReservationToMail.rez?mem_id=${sessionScope.mem_id}&pay_uqNum=${param.pay_uqNum }'>
 					<div class="services services-2 w-100 text-center">
 						<div class="icon d-flex align-items-center justify-content-center">
 							<div class="mailicon"></div>

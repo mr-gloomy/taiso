@@ -148,95 +148,73 @@ public class ReservationDAO {
             rez_uqNum = rs.getInt(1) + 1;
          }
 
-//         * [v] rez_uqNum
-//         * [v] rez_rentalDate
-//         * [v] rez_returnDate
-//         * [v] rez_totalDate
-//         * [v] rez_site
-//         * [v] rez_status
-//         * [v] car_code
-//         * [v] car_insurance
-//         * [v] mem_id
-//         * [v] license_num
-
          // 주문정보 저장
-         
          sql = "insert into rez_reservation "
                + "(rez_uqNum,rez_rentalDate,rez_returnDate,rez_totalDate,rez_site,rez_status, "
                + "car_code,car_insurance,mem_id,license_num,car_name) " + "values(?,?,?,?,?,?,?,?,?,?,?)";
 
-         if (rs.next()) {
-         } else {
-         PreparedStatement pstmt2 = con.prepareStatement(sql);
-//         pstmt.setInt(1, Integer.parseInt(sdf.format(cal.getTime()))+rez_uqNum);
-         pstmt2.setInt(1, rez_uqNum);
-         pstmt2.setString(2, rezDTO.getRez_rentalDate());
-         pstmt2.setString(3, rezDTO.getRez_returnDate());
-         pstmt2.setString(4, rezDTO.getRez_totalDate());
-         pstmt2.setString(5, rezDTO.getRez_site());
-         pstmt2.setInt(6, 1);
-         pstmt2.setInt(7, rezDTO.getCar_code());
-         pstmt2.setString(8, rezDTO.getCar_insurance());
-         pstmt2.setString(9, rezDTO.getMem_id());
-         pstmt2.setString(10, rezDTO.getLicense_num());
-         pstmt2.setString(11, rezDTO.getCar_name());
-         pstmt2.executeUpdate();
-         }
-         System.out.println(" dao - 예약정보 저장 완료");
-
+         PreparedStatement pstmt1 = con.prepareStatement(sql);
+         pstmt1.setInt(1, rez_uqNum);
+         pstmt1.setString(2, rezDTO.getRez_rentalDate());
+         pstmt1.setString(3, rezDTO.getRez_returnDate());
+         pstmt1.setString(4, rezDTO.getRez_totalDate());
+         pstmt1.setString(5, rezDTO.getRez_site());
+         pstmt1.setInt(6, 1);
+         pstmt1.setInt(7, rezDTO.getCar_code());
+         pstmt1.setString(8, rezDTO.getCar_insurance());
+         pstmt1.setString(9, rezDTO.getMem_id());
+         pstmt1.setString(10, rezDTO.getLicense_num());
+         pstmt1.setString(11, rezDTO.getCar_name());
+         pstmt1.executeUpdate();
          
-         // 면허정보 추가
-//         * [v] license_num
-//         * [v] mem_id
-//         * [v] license_issueDate
-//          * [v] license_type
-         if (rs.next()) {
-         } else {
-         sql = "insert into rez_driverlicense(license_num,mem_id,license_issueDate,license_type) "
-               + "values(?,?,?,?)";
-         PreparedStatement pstmt3 = con.prepareStatement(sql);
-         pstmt3.setString(1, rezDTO.getLicense_num());
-         pstmt3.setString(2, rezDTO.getMem_id());
-         pstmt3.setString(3, rezDTO.getLicense_issueDate());
-         pstmt3.setString(4, rezDTO.getLicense_type());
+         System.out.println(" 1) 예약정보 저장 완료");
 
-         pstmt3.executeUpdate();
-         System.out.println(" dao - 면허정보 저장 완료");
-         }
+         var chkLicense = rezDTO.getLicense_num();
          
-         // 결제정보 추가
-//         * [v] pay_uqNum
-//         * [v] rez_uqNum
-//         * [v] pay_method
-//         * [ ] pay_date      // 현재시간 기본값         
-//         * [v] pay_status               
-//         * [v] pay_total               
+         // 면허정보 기존 존재 여부 확인
+         sql = "select license_num from rez_driverlicense where mem_id=?";
+         PreparedStatement pstmt = con.prepareStatement(sql);
+         pstmt.setString(1, rezDTO.getMem_id());
+         rs = pstmt.executeQuery();
+         
+         if(!rs.next()) {
+        	 // 면허 정보 저장
+        	 sql = "insert into rez_driverlicense(license_num,mem_id,license_issueDate,license_type) "
+        			 + "values(?,?,?,?)";
+        	 PreparedStatement pstmt2 = con.prepareStatement(sql);
+        	 pstmt2.setString(1, rezDTO.getLicense_num());
+        	 pstmt2.setString(2, rezDTO.getMem_id());
+        	 pstmt2.setString(3, rezDTO.getLicense_issueDate());
+        	 pstmt2.setString(4, rezDTO.getLicense_type());
+        	 pstmt2.executeUpdate();
+        	 System.out.println(" 2-1) 면허정보 저장 완료");
+         } else {
+        	 System.out.println(" 2-2) 이전에 입력한 정보 있으므로 면허정보 저장하지 않음");
+         }
+        		 
          sql = "insert into rez_payment (pay_uqNum, rez_uqNum, pay_total, pay_method, pay_status) values(?, ?, ?, ?, ?)";
-         PreparedStatement pstmt4 = con.prepareStatement(sql);
-         pstmt4.setString(1, payDTO.getPay_uqNum());
-         pstmt4.setInt(2, rez_uqNum);
-         pstmt4.setInt(3, payDTO.getPay_total());
-         pstmt4.setString(4, payDTO.getPay_method());
-         pstmt4.setString(5, payDTO.getPay_status());
-         pstmt4.executeUpdate();
+         PreparedStatement pstmt3 = con.prepareStatement(sql);
+         pstmt3.setString(1, payDTO.getPay_uqNum());
+         pstmt3.setInt(2, rez_uqNum);
+         pstmt3.setInt(3, payDTO.getPay_total());
+         pstmt3.setString(4, payDTO.getPay_method());
+         pstmt3.setString(5, payDTO.getPay_status());
+         pstmt3.executeUpdate();
 
+         System.out.println(" 3) 결제정보 저장 완료");
          
          // 차량 테이블에 렌트 시작2날짜, 반납일자 추가
          sql = "update car set rez_rentalDate=?, rez_returnDate=? where car_code=?";
-         PreparedStatement pstmt5 = con.prepareStatement(sql);
-         pstmt5.setString(1, rezDTO.getRez_rentalDate());
-         pstmt5.setString(2, rezDTO.getRez_returnDate());
-         pstmt5.setInt(3, rezDTO.getCar_code());
-         pstmt5.executeUpdate();
+         PreparedStatement pstmt4 = con.prepareStatement(sql);
+         pstmt4.setString(1, rezDTO.getRez_rentalDate());
+         pstmt4.setString(2, rezDTO.getRez_returnDate());
+         pstmt4.setInt(3, rezDTO.getCar_code());
+         pstmt4.executeUpdate();
          
+         System.out.println(" 4) 차량 - 렌트 날짜 정보 저장 완료");
          
          // 예약취소테이블에 미리 아이디, 예약번호 저장해놓기
          
-
-         System.out.println("carDB - 렌트 날짜 정보 저장 완료");
-
-         System.out.println(" 결제정보 저장 완료"); // *** 제대로 값이 들어갔는지 확인용. 나중에 삭제할 것
-
       } catch (Exception e) {
          e.printStackTrace();
       } finally {

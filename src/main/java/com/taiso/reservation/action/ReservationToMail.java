@@ -1,5 +1,6 @@
 package com.taiso.reservation.action;
 
+import java.io.PrintWriter;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Properties;
@@ -49,12 +50,11 @@ public class ReservationToMail implements Action {
 		String mem_name = mDTO.getMem_name();
 		String mem_email = mDTO.getMem_email();
 		String mem_phone = mDTO.getMem_phone();
-		System.out.println("@@@@@@@@@"+mDTO);
-		System.out.println("@@@@@@@@@"+mem_email);
+		System.out.println(" mem_email : "+mem_email);
 		
 		// 2. 예약정보 가져오기
 		String pay_uqNum = request.getParameter("pay_uqNum");
-		System.out.println("@@@@@@@@@@@@@@~@@@@@@@@"+pay_uqNum);
+		System.out.println(" pay_uqNum : "+pay_uqNum);
 		ReservationDTO rezDTO = rezDAO.getReservationMailInfo(pay_uqNum);
 		String rental_date = rezDTO.getRez_rentalDate();
 		String return_date = rezDTO.getRez_returnDate();
@@ -112,18 +112,27 @@ public class ReservationToMail implements Action {
             // ======== javax.mail.Message ========
             // 작성한 메시지 전송
             Transport.send(message);
-            System.out.println("메일 발송 완료");
+            System.out.println(" 메일 발송 완료");
+            
+    		response.setContentType("text/html; charset=UTF-8");
+    		PrintWriter out = response.getWriter();
+			out.print("<script>");
+			out.print("alert(' 메일이 발송되었습니다.');");
+			out.print("history.back();");
+//			out.print("location.href='./ReservationList.rez?mem_id="+mem_id+"';");
+			out.print("</script>");
+			out.close();
 
         } catch (AddressException e) {
             e.printStackTrace();
         } catch (MessagingException e) {
             e.printStackTrace();
         }
-		
+        
 //		페이지 이동
-		forward.setPath("./ReservationList.rez?mem_id="+mem_id);
-		forward.setRedirect(true);
-		return forward;
+        forward.setPath("./ReservationList.rez?mem_id="+mem_id);
+        forward.setRedirect(true);
+        return forward;
 	}
 
 }
