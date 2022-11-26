@@ -29,7 +29,6 @@
     <link rel="stylesheet" href="./css/style.css">
     
     <style>
-
 .site-table {
   border: 1px #a39485 solid;
   font-size: .9em;
@@ -39,7 +38,6 @@
   border-radius: 5px;
   overflow: hidden;
 }
-
 .site-th {
   padding: 1em .5em;
 /*   padding: */
@@ -60,7 +58,6 @@
   border-bottom: 1px solid rgba(0,0,0,.1);
   background: #fff;
 }
-
 @media all and (max-width: 768px) {
     
 .site-table, site-thead, tbody, th, td, tr {
@@ -103,7 +100,6 @@
   border-bottom: 1px solid #e5e5e5;
 }
 </style>
-
   </head>
   <body>
     
@@ -124,7 +120,6 @@
       </div>
     </section>
 		
-
 <!-- 		<section class="ftco-section ftco-car-details"> -->
       <div class="container">
       	<div class="row">
@@ -132,7 +127,6 @@
 						<div class="bd-example bd-example-tabs">
 							<div class="d-flex justify-content-center">
 							  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-
 							    <li class="nav-item">
 							      <a class="nav-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-expanded="true">지점안내</a>
 							    </li>
@@ -144,7 +138,6 @@
 							    </li>
 							  </ul>
 							</div>
-
 						  <div class="tab-content" id="pills-tabContent">
 						    <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
 						    	<div class="site-infobox">
@@ -188,7 +181,6 @@
 						    		</div>
 						    	</div>
 						    </div>
-
 						    <div class="tab-pane fade" id="pills-manufacturer" role="tabpanel" aria-labelledby="pills-manufacturer-tab">
 						    	<h3>대여자격</h3>
 								<li>소/중형/7/9인승 승합차 - 만 21세 이상, 운전경력 1년 이상</li>
@@ -201,7 +193,6 @@
 								<p>운전면허증(차량인수시 필히 지참) 없으면 안빌려줌</p>
 								<p>도로교통법상 유효한 운전면허소지자</p>
 						    </div>
-
 						    <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
 								<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
 								<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
@@ -212,20 +203,15 @@
 		</div>
       </div>
     </section>
-
     <section class="ftco-section ftco-no-pt">
     </section>
     
-
     <!-- footer -->
     <jsp:include page="../inc/bottom.jsp"/>
     <!-- footer -->
   
-
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
@@ -248,7 +234,6 @@
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4f2b3314b4b648f582b93600574cd923"></script>
   <script src="http://code.jquery.com/jquery-latest.js"></script> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 	<script type="text/javascript">
 	$(function() {
 		$("#sido_select").change(function(){
@@ -301,7 +286,6 @@
 		    content : iwContent 
 		});
 		infowindow.open(map, marker);
-
  	</script>
  	
  	<script type="text/javascript">
