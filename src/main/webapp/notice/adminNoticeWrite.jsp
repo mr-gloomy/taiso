@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="./css/icomoon.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/board.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+
  
 <script type="text/javascript">
     <!-- input에 오늘날짜 기본값으로 넣기 -->
@@ -33,31 +35,78 @@
 		bir.value = today;
 	}
 	<!-- alert -->
-	function noticeWrite() {
-		if(document.fr.bo_title.value==""){
-			alert("제목을 입력하세요");
-			document.fr.bo_title.focus();
-			return;
-		}
-		if(document.fr.bo_pass.value==""){
-			alert("비밀번호를 입력하세요");
-			document.fr.bo_pass.focus();
-			return;
-		}
-		if(document.fr.bo_content.value==""){
-			alert("내용을 입력하세요");
-			document.fr.bo_content.focus();
-			return;
-		}
-		
-		document.fr.submit();
+	function insertBoard(seq) {
+		Swal.fire({
+		  title: '글을 등록하시겠습니까?',
+		  // text: "삭제하시면 다시 복구시킬 수 없습니다.",
+		  icon: 'info',
+		  showCancelButton: true,
+		  confirmButtonColor: '#3085d6',
+		  cancelButtonColor: 'grey',
+		  confirmButtonText: '등록',
+		  cancelButtonText: '취소'
+		}).then((result) => {
+		  if (result.value) {
+	          //"등록" 버튼을 눌렀을 때 작업할 내용을 이곳에 넣어주면 된다. 
+		 		if(document.fr.bo_title.value == ""){
+		 		    Swal.fire({
+		 		    	icon: 'error',
+						text: '제목을 입력해주세요'
+					})
+		 			document.fr.bo_title.focus();
+		 			return;
+		 		}
+		 		if(document.fr.bo_pass.value == ""){
+		 		    Swal.fire({
+		 		    	icon: 'error',
+						text: '비밀번호를 입력해주세요'
+					})
+		 			document.fr.bo_pass.focus();
+		 			return;
+		 		}
+		 		if(document.fr.bo_content.value == ""){
+		 			Swal.fire({
+		 		    	icon: 'error',
+						text: '내용을 입력해주세요'
+					})
+		 			document.fr.bo_content.focus();
+		 			return;
+		 		}
+				
+			    document.fr.submit();
+		        self.close();
+		  }
+	
+		})
+
+	}
+	
+	function backBoard(){
+		Swal.fire({
+		  title: '이전페이지로 돌아가시겠습니까?',
+		  // text: "삭제하시면 다시 복구시킬 수 없습니다.",
+		  icon: 'info',
+		  showCancelButton: true,
+		  confirmButtonColor: '#3085d6',
+		  cancelButtonColor: 'grey',
+		  confirmButtonText: '네',
+		  cancelButtonText: '아니오'
+		}).then((result) => {
+		  if (result.value) {
+	          //"등록" 버튼을 눌렀을 때 작업할 내용을 이곳에 넣어주면 된다. 
+			  document.fr.submit();
+		      self.close();
+		  }
+		  
+		})
+	}
+	
+	function back(){
+		history.back();
 	}
 	
 	
 </script>  
-
-
-    
     
   </head>
   <body>
@@ -102,7 +151,7 @@
 							</dd>
 							<dt>작성자</dt>
 							<dd>
-								<input type="text" value="${sessionScope.mem_id }"name="mem_id"">
+								<input type="text" value="${sessionScope.mem_id }" name="mem_id" read>
 							</dd>
 							<dt>비밀번호</dt>
 							<dd>
@@ -110,7 +159,7 @@
 							</dd>
 							</dl>
 							<hr>
-					</div>
+						</div>
 							<div class="cont">
 								<textarea name="bo_content" placeholder="내용을 입력해주세요"></textarea>
 							</div><br>
@@ -122,9 +171,8 @@
 						<br>
 					<!-- 버튼 -->
 					<div class="form-group" align="center">
-						<input type="button" value="작성완료" class="btn btn-primary py-2 px-3" onclick="noticeWrite()">
-						<input type="button" value="작성취소" class="btn btn-primary py-2 px-3" onclick="location.href='./AdminNoticeList.nb';">
-		                <input type="reset" value="초기화" class="btn btn-primary py-2 px-3">
+						<input type="button" value="작성완료" class="btn btn-primary py-2 px-3" onclick="return insertBoard()">
+						<input type="button" value="작성취소" class="btn btn-primary py-2 px-3" onclick="backBoard();" >
 					</div>
 	              </div>
 			    </div>
@@ -142,7 +190,7 @@
 	</div>
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="20px" height="20px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="./js/jquery.min.js"></script>
   <script src="./js/jquery-migrate-3.0.1.min.js"></script>
   <script src="./js/popper.min.js"></script>
@@ -160,6 +208,6 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="./js/google-map.js"></script>
   <script src="./js/main.js"></script>
-    
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
   </body>
 </html>

@@ -1,7 +1,9 @@
 package com.taiso.admin.member.action;
 
 import javax.servlet.http.HttpServletRequest;
+
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.taiso.admin.member.db.AdminMemberDAO;
 import com.taiso.admin.member.db.MemberDTO;
@@ -12,6 +14,17 @@ public class AdminMemberInfoAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		System.out.println(" M : AdminMemberInfoAction_execute 호출");
+		
+		// 세션제어(admin)
+		HttpSession session = request.getSession();
+		String mem_id = (String) session.getAttribute("mem_id");
+		
+		ActionForward forward = new ActionForward();
+		if(mem_id == null || !mem_id.equals("admin")) {
+			forward.setPath("./MemberLogin.me");
+			forward.setRedirect(true);
+		}
+						
 		
 		// 전달정보 저장
 		int mem_num = Integer.parseInt(request.getParameter("mem_num"));
@@ -28,7 +41,6 @@ public class AdminMemberInfoAction implements Action {
 		request.setAttribute("pageNum", pageNum);
 		
 		// 페이지 이동
-		ActionForward forward = new ActionForward();
 		forward.setPath("./adminMember/adminMemberInfo.jsp");
 		forward.setRedirect(false);
 		

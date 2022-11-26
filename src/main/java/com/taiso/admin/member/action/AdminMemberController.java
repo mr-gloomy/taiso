@@ -53,18 +53,6 @@ public class AdminMemberController extends HttpServlet{
 			}
 			
 		}
-		else if(command.equals("/AdminMemberBlackList.mb")) {
-			System.out.println(" C : /AdminMemberBlackList.mb 호출");
-			
-			action = new AdminMemberBlackListAction();
-			
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-		}
 		else if(command.equals("/AdminMemberInfo.mb")) {
 			System.out.println(" C : /AdminMemberInfo.mb 호출");
 			
@@ -99,19 +87,7 @@ public class AdminMemberController extends HttpServlet{
 				e.printStackTrace();
 			}
 		}
-		else if(command.equals("/AdminBlacklistUpdate.mb")) {
-			System.out.println(" C : /AdminBlacklistUpdate.mb ");
-			
-			action = new AdminMemberBlackListAction();
-			
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			
-			}
-			
-		}
+		
 			
 			
 		

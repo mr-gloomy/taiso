@@ -37,28 +37,32 @@
 
 <style type="text/css">
 .mb-5, .my-5 {
-    margin-bottom: 16rem;
+    margin-bottom: 4rem;
 }
 .card-title {
     margin-bottom: 0.7rem;
 }
-.th {
-}
 .calendar {
-  width: 270px;
-  margin: 10px;
+  position: absolute;
+  width: 210px;
+  margin: 20px;
+  top: 9%
+  
 }
 .calendar_main {
-	position: absolute;
-	top: 80px;
+	position: static;
 	right: 200px;
+	top: 40px;
 }
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.year-month {
+.year-month{
+  font-size: 15px;
+}
+.h5 {
   font-size: 20px;
   color: black;
 }
@@ -68,22 +72,22 @@
   border-radius: 4px;
 }
 .nav-btn {
-  width: 25px;
+  width: 20px;
   height: 25px;
   border: none;
-  font-size: 13px;
-  line-height: 30px;
+  font-size: 10px;
+  line-height: 20px;
   background-color: transparent;
   cursor: pointer;
 }
 .go-today {
-  width: 75px;
+  width: 60px;
   border-left: 1px solid #333333;
   border-right: 1px solid #333333;
 }
 .days {
   display: flex;
-  margin: 25px 0 10px;
+  margin: 8px 0 10px;
 }
 .day {
   width: calc(100% / 7);
@@ -92,7 +96,7 @@
 .dates {
   display: flex;
   flex-flow: row wrap;
-  height: 300px;
+  height: 210px;
   border-top: 1px solid #333333;
   border-right: 1px solid #333333;
 }
@@ -141,7 +145,6 @@
 /* 월별현황 */
 .list {
 	width: 450px;
-	height: 1000px;
 
 }
 table {
@@ -213,8 +216,8 @@ tr:nth-child(even) {
 										class="menubtn"><i class="fa fa-cog"></i> 회원관리</a>
 										<div class="smenu">
 											<a href="./AdminMemberList.mb">전체회원조회</a> 
-											<a href="./AdminMemberBlackList.mb">블랙리스트 회원조회</a> 
-										</div></li>
+										</div>
+									</li>
 									<li class="buttonitem" id="settings"><a href="#settings"
 										class="menubtn"><i class="fa fa-cog"></i> 차량관리</a>
 										<div class="smenu">
@@ -236,7 +239,6 @@ tr:nth-child(even) {
 											<a href="./FaqList.bo">FAQ</a> 
 										</div>
 									</li>
-										
 								</ul>
 							</div>
 						</div>
@@ -289,7 +291,10 @@ tr:nth-child(even) {
 								<div class="tdl-holder">
 									<div class="tdl-content" align="left">
 										<label> <input type="checkbox" class="ti-close"><i></i>
-											<span>22/11/28 강진석님 장기렌트 상담예약</span> 
+											<span>22/11/28 10:00 장기렌트 고객 방문예정</span> 
+										</label>
+										<label> <input type="checkbox" class="ti-close"><i></i>
+											<span>22/11/29 휴가보고서 결재올리기 </span> 
 										</label>
 										<span></span>
 										<div id="todo-list"></div>

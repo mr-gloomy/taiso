@@ -2,7 +2,6 @@ package com.taiso.admin.member.action;
 
 import java.util.ArrayList;
 
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -17,6 +16,15 @@ public class AdminMemberListAction implements Action {
 
 		System.out.println(" M : AdminMemberListAction_execute 호출");
 		
+		// 세션제어(admin)
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("id");
+		
+		ActionForward forward = new ActionForward();
+		if(id == null || !id.equals("admin")) {
+			forward.setPath("./MemberLogin.me");
+			forward.setRedirect(true);
+		}
 		
 		// DAO 객체 생성
 		AdminMemberDAO dao = new AdminMemberDAO();
@@ -49,6 +57,8 @@ public class AdminMemberListAction implements Action {
 
 		// 디비에 전체 글 리스트 가져오기
 		ArrayList memberListAll = dao.getMemberList(startRow,pageSize); 
+		ArrayList blackListAll = dao.getMem_blackList(startRow,pageSize); 
+
 
 		/////////////////////////////////////////////////////////////////
 		// 페이징 처리 (2)
@@ -77,6 +87,7 @@ public class AdminMemberListAction implements Action {
 
 		// Action -> jsp 페이지 정보 전달(request 영역객체 저장)
 		request.setAttribute("memberListAll", memberListAll);
+		request.setAttribute("blackListAll", blackListAll);
 		
 		// 페이징 처리
 		request.setAttribute("pageNum", pageNum);
@@ -87,7 +98,6 @@ public class AdminMemberListAction implements Action {
 		request.setAttribute("endPage", endPage);
 		
 		// 페이지 이동
-		ActionForward forward = new ActionForward();
 		forward.setPath("./adminMember/adminMemberList.jsp");
 		forward.setRedirect(false);
 		

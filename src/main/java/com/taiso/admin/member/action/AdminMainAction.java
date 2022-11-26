@@ -2,9 +2,10 @@ package com.taiso.admin.member.action;
 
 import java.util.ArrayList;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 import com.taiso.admin.member.db.AdminMemberDAO;
 import com.taiso.board.db.BoardDAO;
 import com.taiso.car.db.CarDAO;
@@ -19,6 +20,17 @@ public class AdminMainAction implements Action {
 		
 		System.out.println(" M : AdminMain_execute 호출 ");
 
+		// 세션제어(admin)
+		HttpSession session = request.getSession();
+		String mem_id = (String) session.getAttribute("mem_id");
+		
+		ActionForward forward = new ActionForward();
+		if(mem_id == null || !mem_id.equals("admin")) {
+			forward.setPath("./MemberLogin.me");
+			forward.setRedirect(true);
+		}
+				
+		
 		// DAO 객체 생성
 		AdminMemberDAO aDAO = new AdminMemberDAO();
 		BoardDAO bDAO = new BoardDAO();
@@ -47,7 +59,6 @@ public class AdminMainAction implements Action {
 		request.setAttribute("totalCnt6", cnt6);
 		
 		// 페이지 이동
-		ActionForward forward = new ActionForward();
 		forward.setPath("./adminMember/adminMain.jsp");
 		forward.setRedirect(false);
 		

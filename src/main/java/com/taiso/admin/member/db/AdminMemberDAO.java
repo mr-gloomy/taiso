@@ -241,8 +241,8 @@ public class AdminMemberDAO {
 		// 회원정보 조회 - getMemberInfo(mem_num)
 		
 		
-		// 관리자 회원탈퇴 - adminMemberDelete(mem_num)
-		public void adminMemberDelete(int mem_num) {
+		// 관리자 회원탈퇴 - adminMemberDelete(mem_id)
+		public void adminMemberDelete(String mem_id) {
 			
 			try {
 				
@@ -250,11 +250,11 @@ public class AdminMemberDAO {
 				con = getConnection();
 				
 				// 3. sql 작성 & pstmt 객체 생성
-				sql = "delete from member where mem_num=?";
+				sql = "delete from member where mem_id=?";
 				pstmt = con.prepareStatement(sql);
 				
 				// ???
-				pstmt.setInt(1, mem_num);
+				pstmt.setString(1, mem_id);
 				
 				// sql 실행
 				pstmt.executeUpdate();
@@ -268,7 +268,7 @@ public class AdminMemberDAO {
 			}
 			
 		}
-		// 관리자 회원탈퇴 - adminMemberDelete(mem_num)
+		// 관리자 회원탈퇴 - adminMemberDelete(mem_id)
 		
 		// 블랙리스트 정보수정 - updateBlacklist
 		public void updateBlacklist(MemberDTO mDTO) {

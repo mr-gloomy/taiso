@@ -43,7 +43,7 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-/* task list */
+/* list */
 #inputFiled {
 	width: 350px;
 	height: 46px;

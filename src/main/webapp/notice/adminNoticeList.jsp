@@ -22,6 +22,13 @@
     <link rel="stylesheet" href="./css/icomoon.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/board.css">
+    
+<style type="text/css">
+.board_list .title3 {
+    width: 40%;
+}
+</style>
+
   </head>
   <body>
   <div id="wrap">
@@ -75,8 +82,8 @@
                     <div class="date3">${boDTO.bo_sysdate }</div>
                     <div class="count">${boDTO.bo_readcount }</div>
                     <div class="count">
-                    	<a href="./AdminNoticeUpdate.nb?bo_num=${boDTO.bo_num }&pageNum=${pageNum }">수정 | </a>
-                    	<a href="./AdminNoticeDelete.nb?bo_num=${boDTO.bo_num }&pageNum=${pageNum }">삭제</a>
+						<input type="button" value="수정" class="btn btn-primary py-1 px-2" onclick="location.href='./AdminNoticeUpdate.nb?bo_num=${boDTO.bo_num }&pageNum=${pageNum }';">
+						<input type="button" value="삭제" class="btn btn-primary py-1 px-2" onclick="location.href='./AdminNoticeDelete.nb?bo_num=${boDTO.bo_num }&pageNum=${pageNum }';">
                     </div>
                 </div>
               </c:forEach>

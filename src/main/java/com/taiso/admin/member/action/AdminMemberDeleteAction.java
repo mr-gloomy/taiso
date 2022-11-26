@@ -16,11 +16,11 @@ public class AdminMemberDeleteAction implements Action {
 		System.out.println(" M : AdminMemberDeleteAction_execute 호출 ");
 		
 		// 전달정보 저장(삭제할 사용자)
-		int mem_num = Integer.parseInt(request.getParameter("mem_num"));
+		String mem_id1 = request.getParameter("mem_id");
 		
 		// DAO - adminMemberDelete
 		AdminMemberDAO dao = new AdminMemberDAO();
-		dao.adminMemberDelete(mem_num);
+		dao.adminMemberDelete(mem_id1);
 		
 		// 페이지 이동		
 		ActionForward forward = new ActionForward();
