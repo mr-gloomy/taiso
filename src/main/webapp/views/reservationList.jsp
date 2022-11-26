@@ -118,7 +118,7 @@
 							<div class="text">
 								<div class="d-flex mb-3">
 									<span class="cat">단기렌트</span>
-									<span class="cat" style="text-align:right;width:90%;">${rez.rez_uqNum }</span>
+									<span class="cat" style="text-align:right;width:90%;">예약번호 : ${rez.rez_uqNum }</span>
 			
 								</div>
 								<div class="d-flex mb-3">
@@ -161,7 +161,7 @@
 										</c:if>
 									</c:forEach>
 										<c:if test="${check != 1}">
-											<input type = "button" class="btn btn-primary py-2 mr-1" value = "리뷰작성" onclick="writeOpen(${rez.car_code}+','+${rez.rez_uqNum});">
+											<input type = "button" class="btn btn-primary py-2 mr-1" value = "리뷰작성" onclick="writeOpen(${rez.car_code},${rez.rez_uqNum});">
 											<c:set var="loop_flag" value="true"/>
 										</c:if>
 								</div>
@@ -173,22 +173,55 @@
 		</section>
 
 	
-	  <c:if test="${totalCnt != 0 }">
-	      <!-- 이전 -->
-	      <c:if test="${startPage > pageBlock }">
-	         <a href="./ReservationList.rez?pageNum=${startPage - pageBlock  }">[이전]</a>
-	      </c:if>   
+<%-- 	  <c:if test="${totalCnt != 0 }"> --%>
+<!-- 	      이전 -->
+<%-- 	      <c:if test="${startPage > pageBlock }"> --%>
+<%-- 	         <a href="./ReservationList.rez?pageNum=${startPage - pageBlock  }">[이전]</a> --%>
+<%-- 	      </c:if>    --%>
 	         
-	      <!-- 페이지 번호(1,2,3) -->
-	      <c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
-	         <a href="./ReservationList.rez?pageNum=${i }">${i }</a>
-	      </c:forEach>   
+<!-- 	      페이지 번호(1,2,3) -->
+<%-- 	      <c:forEach var="i" begin="${startPage }" end="${endPage }" step="1"> --%>
+<%-- 	         <a href="./ReservationList.rez?pageNum=${i }">${i }</a> --%>
+<%-- 	      </c:forEach>    --%>
 	         
-	      <!-- 다음 -->
-	      <c:if test="${endPage < pageCount }">
-	         <a href="./ReservationList.rez?pageNum=${startPage+pageBlock }">[다음]</a>
-	      </c:if>
-	   </c:if>
+<!-- 	      다음 -->
+<%-- 	      <c:if test="${endPage < pageCount }"> --%>
+<%-- 	         <a href="./ReservationList.rez?pageNum=${startPage+pageBlock }">[다음]</a> --%>
+<%-- 	      </c:if> --%>
+<%-- 	   </c:if> --%>
+
+
+
+
+        <c:if test="${totalCnt != 0 }">
+            <div class="col text-center">
+               <div class="block-27">
+                  <ul>
+                  <!-- 이전 -->
+                 	 <c:if test="${startPage > pageBlock }">
+               			<a href="./ReservationList.rez?pageNum=${startPage - pageBlock  }">[이전]</a>
+            		 </c:if>
+            		 
+                  <!-- 페이지 번호(1,2,3...) -->
+                     <c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
+                           <li <c:if test="${pageNum == i }">class="active" </c:if>>
+                        <span>
+                       	 	<a href="./ReservationList.rez?pageNum=${i }">${i }</a>
+                        </span>
+                        </li>
+                     </c:forEach>
+                     
+                  <!-- 다음 -->
+                     <c:if test="${endPage < pageCount }">
+               			<a href="./ReservationList.rez?pageNum=${startPage+pageBlock }">[다음]</a>
+            		 </c:if>
+                  </ul>
+               </div>
+            </div>
+
+         </c:if>
+
+
 
 
 	<!-- 푸터들어가는 곳 -->
