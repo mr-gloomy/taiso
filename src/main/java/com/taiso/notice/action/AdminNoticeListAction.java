@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.taiso.notice.db.noticeDAO;
 
@@ -16,6 +17,15 @@ public class AdminNoticeListAction implements Action {
 		
 		System.out.println(" M : AdminNoticeListAction_execute() 호출 ");
 		
+		// 세션제어(admin)
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("id");
+		
+		ActionForward forward = new ActionForward();
+		if(id == null || !id.equals("admin")) {
+			forward.setPath("./MemberLogin.me");
+			forward.setRedirect(true);
+		}
 		
 		// DAO 객체 생성
 		noticeDAO dao = new noticeDAO();
@@ -85,7 +95,6 @@ public class AdminNoticeListAction implements Action {
 		request.setAttribute("endPage", endPage);
 		
 		// 페이지 이동
-		ActionForward forward = new ActionForward();
 		forward.setPath("./notice/adminNoticeList.jsp");
 		forward.setRedirect(false);
 

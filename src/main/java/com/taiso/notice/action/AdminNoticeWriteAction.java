@@ -24,13 +24,13 @@ public class AdminNoticeWriteAction implements Action {
 		
 		// 파일업로드 -> 파일업로드 객체 생성(MultipartRequest)
 		MultipartRequest multi 
-		        = new MultipartRequest(
-		        		request,
-		        		realPath,
-		        		maxSize,
-		        		"UTF-8",
-		        		new DefaultFileRenamePolicy()
-		        		);
+					        = new MultipartRequest(
+					        		request,
+					        		realPath,
+					        		maxSize,
+					        		"UTF-8",
+					        		new DefaultFileRenamePolicy()
+					        		);
 		
 		System.out.println(" M : 첨부파일 업로드 성공! "); 
 		

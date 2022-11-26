@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="./css/icomoon.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/board.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
     
 <script type="text/javascript">
 	<!-- input에 오늘날짜 기본값으로 넣기 -->
@@ -34,27 +35,79 @@
 	}
 	
 	<!-- alert -->
-	function noticeUpdate() {
-		if(document.fr.bo_title.value==""){
-			alert("제목을 입력하세요");
-			document.fr. bo_title.focus();
-			return;
-		}
-		if(document.fr.bo_pass.value==""){
-			alert("비밀번호를 입력하세요");
-			document.fr.bo_pass.focus();
-			return;
-		}
-		if(document.fr.bo_content.value==""){
-			alert("내용을 입력하세요");
-			document.fr.name.focus();
-			return;
-		}
-		
-		document.fr.submit();
-	}
+	function insertBoard() {
+		Swal.fire({
+		  title: '글을 등록하시겠습니까?',
+		  // text: "삭제하시면 다시 복구시킬 수 없습니다.",
+		  icon: 'info',
+		  showCancelButton: true,
+		  confirmButtonColor: '#3085d6',
+		  cancelButtonColor: 'grey',
+		  confirmButtonText: '등록',
+		  cancelButtonText: '취소'
+		}).then((result) => {
+		  if (result.value) {
+	          //"등록" 버튼을 눌렀을 때 작업할 내용을 이곳에 넣어주면 된다. 
+		 		if(document.fr.bo_title.value == ""){
+		 		    Swal.fire({
+		 		    	icon: 'error',
+						text: '제목을 입력해주세요'
+					})
+		 			document.fr.bo_title.focus();
+		 			return;
+		 		}
+		 		if(document.fr.bo_pass.value == ""){
+		 		    Swal.fire({
+		 		    	icon: 'error',
+						text: '비밀번호를 입력해주세요'
+					})
+		 			document.fr.bo_pass.focus();
+		 			return;
+		 		}
+		 		if(document.fr.bo_content.value == ""){
+		 			Swal.fire({
+		 		    	icon: 'error',
+						text: '내용을 입력해주세요'
+					})
+		 			document.fr.bo_content.focus();
+		 			return;
+		 		}
+				
+			    document.fr.submit();
+		        self.close();
+		  }
+	
+		})
 
-</script>    
+	}
+	
+	function backBoard(){
+		Swal.fire({
+		  title: '이전페이지로 돌아가시겠습니까?',
+		  // text: "삭제하시면 다시 복구시킬 수 없습니다.",
+		  icon: 'info',
+		  showCancelButton: true,
+		  confirmButtonColor: '#3085d6',
+		  cancelButtonColor: 'grey',
+		  confirmButtonText: '네',
+		  cancelButtonText: '아니오'
+		}).then((result) => {
+		  if (result.value) {
+	          //"등록" 버튼을 눌렀을 때 작업할 내용을 이곳에 넣어주면 된다. 
+		      history.back();
+	          self.close();
+		  }
+		  
+		})
+	}
+	
+	function back(){
+		history.back();
+	}
+	
+	
+</script>  
+
  
   </head>
   <body>
@@ -118,8 +171,8 @@
 					
 					<!-- 버튼 -->
 					<div class="form-group" align="center">
-						<input type="button" value="수정완료" class="btn btn-primary py-2 px-3" onclick="noticeUpdate()">
-						<input type="button" value="수정취소" class="btn btn-primary py-2 px-3" onclick="location.href='./AdminNoticeList.nb?bo_num=${boDTO.bo_num }&pageNum=${pageNum }';">
+						<input type="button" value="수정완료" class="btn btn-primary py-2 px-3" onclick="return insertBoard()">
+						<input type="button" value="수정취소" class="btn btn-primary py-2 px-3" onclick="backBoard();">
 					</div>
 				 </div>
 			 </div>
@@ -154,6 +207,6 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="./js/google-map.js"></script>
   <script src="./js/main.js"></script>
-    
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>  
   </body>
 </html>

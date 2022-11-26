@@ -43,7 +43,7 @@
 	<!-- 헤더들어가는 곳 -->
 	
 	<!-- 메인 -->
-  	<div class="board_wrap" align="center">
+  	<div class="board_wrap3">
         <div class="board_title">
             <strong>공지사항 글 삭제하기</strong>
             <p>비밀번호 입력 후 [삭제하기] 버튼 클릭 시 해당 게시물이 삭제됩니다.</p>
