@@ -19,7 +19,7 @@ public class ReservationController extends HttpServlet{
 		
 				// 1. 가상주소 계산
 				String requestURI = request.getRequestURI();
-			    System.out.println(" C : requestURI : " + requestURI);
+			    System.out.println("\n C : requestURI : " + requestURI);
 			    String ctxPath = request.getContextPath();
 			    System.out.println(" C : ctxPath : " + ctxPath);
 			    String command = requestURI.substring(ctxPath.length());
