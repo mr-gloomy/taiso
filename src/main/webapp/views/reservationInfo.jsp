@@ -34,32 +34,21 @@
     <link rel="stylesheet" href="./css/board2.css">
     
         <script type="text/javascript">
-    
-     function cancelRez(seq){ 
-       
-//         var totalCharge = parseInt(document.fr.pay_total.value); // 최종결제금액 
-//         var cName = document.fr.car_name.value; // 차량이름 
-//         var rezDate = document.fr.rez_totalDate.value; // 총예약일시 
-        var mem_id = document.fr.mem_id.value; // 회원아이디
-//         var rezSite = document.fr.rez_site.value; // 이용지점
-       
-        Swal.fire({ 
-               title: '결제 확인 창', 
-               icon: 'success', 
-//                text: '결제확인',
-               html: mem_id+'님 결제를 취소하시겠습니까?',
-               showCancelButton: true,         
-               confirmButtonColor: '#3085d6', 
-               cancelButtonColor: 'grey', 
-               confirmButtonText: '결제취소', 
-               cancelButtonText: '돌아가기' 
-             }).then((result) => { 
-               if (result.isConfirmed) {           
-                    //"예약" 버튼을 눌렀을 때 호출할 함수
-                  location.href="./ReservationCancelCheck.rez?mem_id="+mem_id;
-               } 
-             }) 
-    } 
+     
+ 	// 예약 취소 여는 팝업창
+ 	function cancelOpen(rez_uqNum){
+
+ 	    var _width = '500';
+ 	    var _height = '700';
+ 	 
+ 	    // 팝업을 가운데 위치시키기 위해 아래와 같이 값 구하기
+ 	    var _left = Math.ceil(( window.screen.width - _width )/2);
+ 	    var _top = Math.ceil(( window.screen.height - _height )/2); 
+
+  		// 새 창 열기
+  		document.domain = "localhost"; //document.domain 값이 팝업과 부모창 동일해야 합니다.
+  		window.open("./ReservationCancelCheck.rez?rez_uqNum="+rez_uqNum,"",'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top);
+ 	}
    
 
    </script>
@@ -100,7 +89,12 @@
 								<span class="cat"></span>
 							</div>
 							<h2 class="mb-0">
-								<a href="car-single.html">${rezDTO.car_name }</a>ㅤ<input type = "button" class="btn btn-primary py-1 mr-1" value="${rezDTO.rez_status }">
+									<c:if test="${rezDTO.rez_status == 1}">
+										<a href="car-single.html">${rez.car_name }</a>ㅤ<input type = "button" class="btn btn-primary py-1 mr-1" value="예약 완료">
+									</c:if>
+									<c:if test="${rezDTO.rez_status == 0}">
+										<a href="car-single.html">${rez.car_name }</a>ㅤ<input type = "button" class="btn btn-primary3 py-1 mr-1" value="예약 취소">
+									</c:if>	
 							</h2>
 							<br><br>
 							
@@ -109,7 +103,7 @@
 					            <div class="board_list">
 					            	
 					            	<h4>예약 정보</h4>
-					                <div class="top">
+					                <div class="top2">
 					                    <div class="title"></div>
 					                    <div class="title"></div>
 					                    <div class="title"></div>
@@ -177,7 +171,7 @@
 					      	<div class="board_list_wrap">
 					            <div class="board_list2">
 					            	<h4>운전자 정보</h4>
-					                <div class="top">
+					                <div class="top2">
 					                    <div class="title"></div>
 					                    <div class="title"></div>
 					                    <div class="title"></div>
@@ -218,7 +212,12 @@
 							   					  <input type="hidden" name="pay_uqNum" value="${payDTO.pay_uqNum }" >   
 											 </form>
 											 <input type = "button" class="btn btn-primary py-1 mr-1" value = "예약 조회로 돌아가기" onclick="location.href='./ReservationList.rez';">ㅤ
-											 <input type = "button" class="btn btn-primary py-2 mr-1" value = "예약 취소" onclick="location.href='./ReservationCancelCheck.rez?mem_id=${mDTO.mem_id}&rez_uqNum=${rezDTO.rez_uqNum }&pay_uqNum=${payDTO.pay_uqNum }';">
+											 
+											 <c:if test="${rezDTO.rez_status == 1}">
+											 	<input type = "button" class="btn btn-primary py-2 mr-1" value = "예약 취소" onclick="cancelOpen(${rezDTO.rez_uqNum });">
+											 </c:if>
+											 <c:if test="${rezDTO.rez_status == 0}">
+											 </c:if>	
 											
 										</div>
 									</div>
@@ -270,6 +269,7 @@
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="./js/google-map.js"></script>
 	<script src="./js/main.js"></script>
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 	
 	
   </body>
