@@ -139,7 +139,7 @@
                     <a href="#profile" class="menubtn" ><i class="fa fa-cog"></i> 렌트 내역</a>
                     <div class="smenu" >
                         <a href="./ReservationList.rez">예약/취소 조회</a>
-                        <a href="">2</a>
+<!--                         <a href="./FaqList2.bo">2</a> -->
                     </div>
                 </li>
 
@@ -147,15 +147,15 @@
                     <a href="#messages" class="menubtn"><i class="fa fa-user"></i> 나의 게시글 모음 </a>
                     <div class="smenu" style="display:block;">
                         <a href="./MyQuestionList.bo" id="smenu">1:1 문의 내역</a>
-<!--                         <a href="./ProposalList.bo">수정제안</a> -->
+                        <a href="./ProposaList.bo">수정제안</a>
                     </div>
                 </li>
 
                 <li class="buttonitem" id="settings">
                     <a href="#settings" class="menubtn"><i class="fa fa-cog"></i> 회원정보 관리</a>
                     <div class="smenu">
-                        <a href="./MemberUpdate.me">회원정보 변경(탈퇴)</a>
-<!--                         <a href="">비밀번호 변경</a> -->
+                        <a href="./MemberUpdate.me">개인정보 수정</a>
+                        <a href="./MemberRemove.me">회원 탈퇴</a>
                     </div>
                 </li>
                 

@@ -98,19 +98,23 @@ function Login() {
 					<div class="col-md-8 block-9 mb-md-5">
 							<div class="board_wrap">
 								<div class="board_title">
-								   <strong>내가 쓴 문의</strong>
+								   <strong>나의 문의 내역</strong>
 								 	<div align="right">
 											<input type="submit" value="작성하기" class="btn btn-primary" onclick=" location.href='./QuestionWritePre.bo'; " >
 									</div>
 
 									<!--  검색 폼 -->
-									<div class="n_search" border="1" width="90%">
-									<p>나의 글 개수 : ${requestScope.cnt } 개</p>	
-										<div align="right">
-											<input type="text" name="search"> 
+									<div class="n_search" border="1" width="90%" >
+									<p>전체 글 개수 : ${requestScope.cnt } 개</p>	
+										<div class="n_search" border="1" width="90%">
+											<div align="right">
+												<input type="text" name="search"> 
+												<input type="submit" value="Search" class="btn btn-outline-primary">
+											</div>
 										</div>
 									</div>
 								</div>
+
 		
 						  <!-- 옵션정보 -->
 						  <div class="tab-content" id="pills-tabContent">

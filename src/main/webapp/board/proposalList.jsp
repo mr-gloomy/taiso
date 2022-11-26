@@ -72,63 +72,15 @@
 <%--	${requestScope.QuestionList } --%>
 	
 	<!-- left -->
-    <section class="ftco-section contact-section">
-      <div class="container">
-        <div class="row d-flex mb-5 contact-info">
-    	<div class="col-md-4">
-        	
-     	<!-- 프로필 -->
-     	<div class="row mb-5">
-			<div class="membercard">
-			  <div align="right">			
-				<button type="button" class="btn btn-secondary btn-sm" id="minibtn" onclick="location.href='./MemberUpdatePw.me' ">내 정보</button>
-			  </div>
-				<div class="text">
-					<img src="./images/user.png">
-					<h5>${mDTO.mem_nickName}</h5>
-					<p>문의사항　　|　　나의 리뷰</p>
-					<div align="center">${myqnacnt }　　　　|　　　　 ${myreviewcnt }</div>	　　　
-						
-				</div>
-			</div>
-     	<!-- 프로필 -->
-		
-		<!-- 메뉴바 -->
+		<section class="ftco-section contact-section">
+			<div class="container">
+				<div class="row d-flex mb-5 contact-info">
 
-    <div class="middle-md-12">
-        <div class="menu">
-            <ul id="noul">
-                <li class="buttonitem" id="profile" >
-                    <a href="#profile" class="menubtn" ><i class="fa fa-cog"></i> 렌트 내역</a>
-                    <div class="smenu" >
-                        <a href="./ReservationListAction.rez">예약/취소 조회</a>
-                        <a href="">2</a>
-                    </div>
-                </li>
+			<!-- @@@@@@@@@@@@여기부터 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
+					<jsp:include page="../inc/mysidebar.jsp" />
+				<!-- @@@@@@@@@@@@여기까지 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
 
-                <li class="buttonitem" id="messages">
-                    <a href="#messages" class="menubtn"><i class="fa fa-user"></i> 나의 게시글 모음 </a>
-                    <div class="smenu" style="display:block;">
-                        <a href="./MyQuestionList.bo" id="smenu">1:1 문의 내역</a>
-                        <a href="./ProposalList.bo">수정제안</a>
-                    </div>
-                </li>
 
-                <li class="buttonitem" id="settings">
-                    <a href="#settings" class="menubtn"><i class="fa fa-cog"></i> 회원정보 관리</a>
-                    <div class="smenu">
-                        <a href="./MemberUpdate.me">회원정보 변경(탈퇴)</a>
-<!--                         <a href="">비밀번호 변경</a> -->
-                    </div>
-                </li>
-                
-               </ul>
-             </div>
-            </div>
-		<!-- 메뉴바 -->
-  		</div> 
-   	 </div> 
-				
 		<!-- @@@@@@@@@@@@@@@@@우측@@@@@@@@@@@@@@@@ -->
 					<div class="col-md-8 block-9 mb-md-5">
 							<div class="board_wrap">
@@ -170,26 +122,39 @@
 									</div>
 								</div>
 							</div>
-						</div>								
+		<!-- 이 안이 변동사항 아래는 외부 틀이라서 필수 -->			
+
+								<!-- 아에 tabcontent 끝 -->
+						
+
+						   	<div class="n_page" align="center" id="wrapper"> 
+						   		<c:if test="${requestScope.cnt != 0}">
+					  
+								    <!-- 이전 -->
+								    <c:if test="${startPage > pageBlock }">
+								    	<a href="./QuestionList.bo?pageNum=${startPage-pageBlock }" class="btn btn-outline-primary" ><<</a>
+								    </c:if>
+								    <!-- 페이지 번호(1,2,3....) -->	  
+								    <c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
+								          <a href="./QuestionList.bo?pageNum=${i }" class="btn btn-outline-primary" >${i }</a> 
+								    </c:forEach>  
+								    
+								    <!-- 다음 -->	
+								    <c:if test="${endPage < pageCount }">
+								        <a href="./QuestionList.bo?pageNum=${startPage+pageBlock }" class="btn btn-outline-primary">>></a>
+								    </c:if>
+								</c:if>
+						   	</div>
+		 					  	<!-- 페이지처리 이전,다음 -->
+		   	
+		   		</div>
+			</div>								
 		<!-- 이 안이 변동사항 아래는 외부 틀이라서 필수 -->			
 			</div>
+			</div>
+			</div>
 <!-- 				<div class="row justify-content-center"></div> -->
-		</div>
-
 		</section>
-			
-		<!-- @@@@@@@@@@@@@@@@@우측@@@@@@@@@@@@@@@@ -->
-	            
-	 		<!-- 페이지처리 -->
-            <div class="n_page"> 
-	  		 <c:if test="${cnt != 0}">
-                <!-- 페이지번호 -->
-                <c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
-		         	 <a href="./QuestionList.bo?pageNum=${i }" class="btn btn-outline-primary" >${i }</a> 
-		    	</c:forEach>  
-			  </c:if>
-		  	 </div>	
-		   	<!-- 페이지처리 -->
 		   
 		<div class="clear"></div>
 		<!-- 푸터들어가는 곳 -->

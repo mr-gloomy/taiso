@@ -64,6 +64,7 @@ public class BoardFrontController extends HttpServlet{
 		forward.setRedirect(false);
 		System.out.println("mypage.jsp 호출");
 		}
+		
 		else if(command.equals("/QuestionWritePre.bo")) {
 			System.out.println(" C : QuestionWritePreAction.bo 호출 ");
 			System.out.println(" C : [패턴3] ");
