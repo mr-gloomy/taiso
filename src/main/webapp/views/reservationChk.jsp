@@ -73,6 +73,7 @@
 <body>
 	<c:set var="mDTO" value="${mDTO }"/>
 	<c:set var="rezDTO" value="${rezDTO }"/>
+<%-- 	${mDTO} --%>
 	<div class="test"></div>
 	<section class="ftco-section">
 		<div class="container">
@@ -180,7 +181,7 @@
 				  container: '#kakaotalk-sharing-btn',
 				  templateId: ${86235},
 				  templateArgs: {
-					"mem_id":'${sessionScope.mem_id}',
+					"mem_name":'${mDTO.mem_name}',
 					"rental_date":'${rezDTO.rez_rentalDate}',
 					"return_date":'${rezDTO.rez_returnDate}',
 					"rentTime":'${rezDTO.rez_rentTime}',

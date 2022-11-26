@@ -42,9 +42,10 @@ public class ReservationChk implements Action {
 		request.setAttribute("mDTO", mDTO);
 		request.setAttribute("rezDTO", rezDTO);
 		request.setAttribute("pay_uqNum", pay_uqNum);
+		System.out.println("@@"+mDTO);
+		System.out.println("@@"+rezDTO);
 		
-		////////////////////// 카카오 공유	//////////////////////
-		
+		// 카카오 공유하러 가기
 		forward.setPath("./views/reservationChk.jsp");
 		forward.setRedirect(false);
 		return forward;

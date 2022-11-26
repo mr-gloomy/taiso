@@ -29,7 +29,27 @@
 	<link rel="stylesheet" href="./css/flaticon.css">
 	<link rel="stylesheet" href="./css/icomoon.css">
 	<link rel="stylesheet" href="./css/style.css">
-	
+
+
+   <style type="text/css">
+    .sls {border:1px solid #fff;
+    padding:5px; 
+    font-size:12px ;
+    font-weight:600; 
+    font-family: "Poppins", Arial, sans-serif;
+    }
+    
+    .submitbtn {
+    color:#F8F9FA;
+    font-size:20px ;
+    font-weight:600; 
+    font-family: "Poppins", Arial, sans-serif;
+    background-color: #1089FF;
+    text-align: center;
+    border:0;
+            margin:auto;
+    }
+   </style>	
 	
 </head>
   <body>
@@ -60,14 +80,15 @@
 					<form action="./ReservationDate.rez" method="post" name="fr" class="request-form ftco-animate bg-primary" onSubmit="return checkForm()">
 					
 		          		<h2>예약하기</h2>
+		          		<hr style="background-color:#F8F9FA;"> 
     					<div class="d-flex">
 							<div class="form-group mr-2">
 						        <label for="" class="label">대여일</label><br>
-						        <input type="text" class="form-control" name="rez_pick_date" id="start_date" placeholder="Date">
+						        <input type="text" class="sls" name="rez_pick_date" id="start_date" placeholder="Date">
 							</div>
-							<div class="form-group mr-3">
+							<div class="form-group mr-2">
 						        <label for="" class="label">반납일</label><br>
-						        <input type="text" class="form-control" name="rez_off_date" id="off_date" placeholder="Date">
+						        <input type="text" class="sls" name="rez_off_date" id="off_date" placeholder="Date">
 								<input type="hidden" name="totalDate" value="">
 							</div>
 						</div>	       		
@@ -76,20 +97,17 @@
 						</label><br>
 						<div class="d-flex">
 							<div class="form-group mr-2">
-								<label for="" class="label">대여시간</label>
-								<input type="text" class="form-control" name="rez_pick_time" id="time_pick" placeholder="픽업시간을 선택하세요">
-<!-- 								<input type="time" name="rez_pick_time" placeholder="대여시간을 선택하세요"> -->
+								<label for="" class="label">대여시간</label><br>
+								<input type="text" class="sls" name="rez_pick_time" id="time_pick" placeholder="픽업시간을 선택하세요">
 							</div>
 							<div class="form-group mr-2">
-								<label for="" class="label">반납시간</label>
-<!-- 								<input type="text" class="form-control" name="rez_off_time" id="time_off" placeholder="반납시간을 선택하세요"> -->
-									<input type="text" class="form-control" name="rez_off_time" id="time_off" placeholder="대여시간과 동일하게 설정됩니다" readonly>
-<!-- 								<input type="time" name="rez_off_time" placeholder="대여시간을 선택하세요"> -->
+								<label for="" class="label">반납시간</label><br>
+									<input type="text" class="sls" name="rez_off_time" id="time_off" placeholder="대여시간과 동일하게 설정됩니다" readonly>
 							</div>
 						</div>
 			    		<div class="form-group">
-							<label for="" class="label">이용지점</label>
-							<select id="sido_select">
+							<label for="" class="label">이용지점</label><br>
+							<select id="sido_select" class="sls">
 						          <option value="" selected disabled hidden>==지역을 선택하세요==</option>	
 						          <option value="제주">제주</option>
 						          <option value="서울">서울</option>
@@ -99,12 +117,12 @@
 						          <option value="전라/광주">전라/광주</option>
 						          <option value="경상/부산/대구/울산">경상/부산/대구/울산</option>
 							</select>
-							<select id="site_select" name="rez_site">
+							<select id="site_select" name="rez_site" class="sls">
 						          <option value="" selected disabled hidden>==지점을 선택하세요==</option>	
 							</select>
-						</div>           
-						<div class="form-group">
-							<input type="submit" value="차량 검색" class="btn btn-secondary py-3 px-4">
+						</div>
+						<div style="text-align: center;">
+							<input type="submit" value="차량 검색" class="submitbtn">
 						</div>
 		    		</form>
 	  				</div>
@@ -294,10 +312,6 @@ $(function() {
 		$('#off_date').datepicker({
 			  format: "yyyy-mm-dd",
 			  autoclose : true,	
-// 			  calendarWeeks : false,
-// 			  clearBtn : false, 
-// 			  showWeekDays : true ,
-// 			  todayHighlight : true ,
 			  language : "ko",
 		}).on("changeDate", function(){
 			var off_date2 = new Date($("#off_date").val());
@@ -307,8 +321,6 @@ $(function() {
 			var roff_d = new Date(document.fr.rez_off_date.value);
 			var ch = roff_d.getTime()-rpick_d.getTime();
 			var totalDate = ch/(1000*60*60*24);
-// 			$('#datealert').append("<h7>대여기간 : "+charDay+"일</h7>");
-// 			$('#datealert').remove();
 			if(totalDate <= 28){
 // 		 		alert("단기렌트는 28일까지만 가능합니다.");
 				$('#datealert').empty();
@@ -317,35 +329,9 @@ $(function() {
 				document.fr.totalDate.value = totalDate;
 // 				return false;
 				return;
-// 			} else {
-// 				$('#datealert').remove();
-				
-// 				return false;
-// 				return;
 			}
 		});
 		
-// 		$('#off_date').change(function(){
-// // 			console.log(a);
-// 			alert('성공');
-// 			var rpick_d = new Date(document.fr.rez_pick_date.value);
-// 			var roff_d = new Date(document.fr.rez_off_date.value);
-// 			var ch = roff_d.getTime()-rpick_d.getTime();
-// 			var charDay = ch/(1000*60*60*24);
-// // 			if(charDay > 28){
-// // 		 		alert("단기렌트는 28일까지만 가능합니다.");
-// // 				$('#datealert').remove();
-// // 				$('#datealert').append("<h7>단기렌트는 28일까지만 가능합니다.</h7>");
-// // 				return false;
-// 				return;
-// // 			} else {
-// // 				$('#datealert').remove();
-// // 				$('#datealert').append("<h7>대여기간 : 총 "+charDay+"일</h7>");
-// // 				return false;
-// // 				return;
-// // 			}
-// 		});
-
 		$('#time_pick').timepicker({
 			minTime: '9:00 am',
 		    maxTime: '9:00 pm',

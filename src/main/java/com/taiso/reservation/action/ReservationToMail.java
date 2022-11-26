@@ -61,7 +61,7 @@ public class ReservationToMail implements Action {
 		String rentTime = rezDTO.getRez_rentTime();
 		String rez_site = rezDTO.getRez_site();
 		String car_name = rezDTO.getCar_name();
-		
+		System.out.println(rentTime);
 		////////////////////// 메일전송 //////////////////////
 		
 //    	String recipient = mem_email;
@@ -102,12 +102,12 @@ public class ReservationToMail implements Action {
             // Text
 //            message.setText("타이소를 이용해주셔서 감사합니다. ㅇㅇ님의 예약 내역을 알려드립니다.["+code+"]");
 //            message.setContent("<h1>타이소를 이용해주셔서 감사합니다.</h1><h2>ㅇㅇ님의 예약 내역을 알려드립니다.</h2><br>["+code+"]", "text/html;charset=euc-kr");
-            message.setContent("<h2>타이소를 이용해주셔서 감사합니다.</h2><h2>"+mem_id+"님의 예약 내역을 알려드립니다.</h2>"
+            message.setContent("<h2>"+mem_name+"님, TAISO를 이용해주셔서 감사합니다.</h2>"
             		+ "<table><tr><th colspan=\"8\" align=\"left\">"
             		+ "<h3>주문 상세내역</h3></th></tr>"
             		+ "<tr><th>상품명</th><td>"+car_name+"</td></tr>"
-    				+ "<tr><th>대여일시</th><td>"+rental_date+" "+rentTime+"</td></tr>"
-					+ "<tr><th>반납일시</th><td>"+return_date+" "+rentTime+"</td></tr>", "text/html;charset=euc-kr");
+    				+ "<tr><th>대여일시</th><td>"+rental_date+"&nbsp;"+rentTime+"</td></tr>"
+					+ "<tr><th>반납일시</th><td>"+return_date+"&nbsp;"+rentTime+"</td></tr>", "text/html;charset=euc-kr");
 //            message.setContent("<h2>타이소를 이용해주셔서 감사합니다. "+mem_id+"님의 예약 내역을 알려드립니다.", "text/html;charset=euc-kr");
             
             // ======== javax.mail.Message ========

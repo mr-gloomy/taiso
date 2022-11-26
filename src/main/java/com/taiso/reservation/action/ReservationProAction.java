@@ -30,19 +30,9 @@ public class ReservationProAction implements Action {
 		rezDTO.setMem_id(request.getParameter("mem_id"));
 		rezDTO.setCar_name(request.getParameter("car_name"));
 		
-		// 2-2. driverliscenseDTO에서 면허 정보 업데이트
 		rezDTO.setLicense_num(request.getParameter("license_num"));
 		rezDTO.setLicense_issueDate(request.getParameter("license_issueDate"));
 		rezDTO.setLicense_type(request.getParameter("license_type"));
-		
-       /* 3. payDTO - 결제 정보 업데이트
-        * [] pay_uqNum			=> pk
-        * [] rez_uqNum			=> fk
-        * [] pay_method
-        * [] pay_date
-        * [] pay_status
-        * [] pay_total
-        */
 		  
 		PaymentDTO payDTO = new PaymentDTO();
 		payDTO.setPay_uqNum(request.getParameter("pay_uqNum"));
@@ -55,7 +45,6 @@ public class ReservationProAction implements Action {
 		
 		String merchant_uid = request.getParameter("merchant_uid");
 		System.out.println(" merchant_uid : "+merchant_uid);
-//		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@2pay_uqNum : "+request.getParameter("pay_uqNum"));
 		System.out.println(" M : 결제정보 저장 완료");
 		
 		return null;
