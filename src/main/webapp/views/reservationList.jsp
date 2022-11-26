@@ -161,7 +161,7 @@
 										</c:if>
 									</c:forEach>
 										<c:if test="${check != 1}">
-											<input type = "button" class="btn btn-primary py-2 mr-1" value = "리뷰작성" onclick="writeOpen(${rez.car_code},${rez.rez_uqNum});">
+											<input type = "button" class="btn btn-primary py-2 mr-1" value = "리뷰작성" onclick="writeOpen(${rez.car_code}+','+${rez.rez_uqNum});">
 											<c:set var="loop_flag" value="true"/>
 										</c:if>
 								</div>
