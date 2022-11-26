@@ -138,7 +138,7 @@
                 <li class="buttonitem" id="profile" >
                     <a href="#profile" class="menubtn" ><i class="fa fa-cog"></i> 렌트 내역</a>
                     <div class="smenu" >
-                        <a href="./ReservationListAction.rez">예약/취소 조회</a>
+                        <a href="./ReservationList.rez">예약/취소 조회</a>
                         <a href="">2</a>
                     </div>
                 </li>
