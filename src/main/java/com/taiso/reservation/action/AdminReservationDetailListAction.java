@@ -18,15 +18,15 @@ public class AdminReservationDetailListAction implements Action {
 System.out.println(" M : AdminReservationDetailListAction_execute() 호출 ");
       
       //관리자여부 로그인 제어
-//      HttpSession session = request.getSession();
-//      String mem_id = (String) session.getAttribute("mem_id");
-//      
+      HttpSession session = request.getSession();
+      String mem_id = (String) session.getAttribute("mem_id");
+      
       ActionForward forward = new ActionForward();
-//      if(mem_id == null || !mem_id.equals("admin")) {
-//         forward.setPath("./Main.me");
-//         forward.setRedirect(true);
-//         return forward;   
-//      }
+      if(mem_id == null || !mem_id.equals("admin")) {
+         forward.setPath("./Main.me");
+         forward.setRedirect(true);
+         return forward;   
+      }
       
       
       

@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -29,6 +30,7 @@
 	<link rel="stylesheet" href="./css/flaticon.css">
 	<link rel="stylesheet" href="./css/icomoon.css">
 	<link rel="stylesheet" href="./css/style.css">
+	
 
 
    <style type="text/css">
@@ -84,6 +86,9 @@
     					<div class="d-flex">
 							<div class="form-group mr-2">
 						        <label for="" class="label">대여일</label><br>
+						        <c:if test="">
+						        	
+						        </c:if>
 						        <input type="text" class="sls" name="rez_pick_date" id="start_date" placeholder="Date">
 							</div>
 							<div class="form-group mr-2">
