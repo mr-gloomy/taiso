@@ -62,35 +62,17 @@ public class AdminReservationDAO {
 
          
          //  관리자 예약 조회 리스트 - getAdminReservationList(int startRow,int pageSize)
-         public Vector getAdminReservationList(int startRow,int pageSize) {
+         public List getAdminReservationList(int startRow,int pageSize) {
             System.out.println(" DAO : getAdminReservationList() 호출 ");
             
-            Vector adminTotalList = new Vector();
             List adminRezList = new ArrayList();
-            List adminPayList = new ArrayList(); 
-            List adminMemList = new ArrayList(); 
-            List adminCarList = new ArrayList(); 
-            
+            ReservationDTO rezDTO = null ;
             
             try {
                // 1.2. 디비연결
                con = getConnection();
                // 3. sql 작성 &  pstmt객체
-               sql = "select * "
-                     + "from rez_reservation rezr "
-                     + "join rez_payment rezp "
-                     + "on rezp.rez_uqNum = rezr.rez_uqNum "
-                     + "join (select mem_id, mem_pw, mem_name, mem_nickName, "
-                     + "          mem_phone, mem_birthday, mem_email from member) mem "
-                     + "on mem.mem_id = rezr.mem_id "
-                     + "join rez_driverlicense rezd "
-                     + "on rezd.license_num = rezr.license_num "
-                     + "join car "
-                     + "on car.car_code = rezr.car_code "
-                     + "left join (select cancel_date, cancel_reason, cancel_commission, rez_uqNum " // 값이 안 담겨 있음 NN아님
-                     + "         from rez_cancellation ) rezc "
-                     + "on rezc.rez_uqNum = rezp.rez_uqNum "
-                     + "order by rezr.rez_uqNum desc limit ?,?";
+               sql = "select * from rez_reservation order by rez_uqNum desc limit ?,?";
                
                pstmt = con.prepareStatement(sql); 
                
@@ -102,10 +84,7 @@ public class AdminReservationDAO {
                // 5. 데이터 처리
                while(rs.next()) {
                   // DB(테이블) -> DTO -> List 
-                  ReservationDTO rezDTO = new ReservationDTO();
-                  PaymentDTO payDTO = new PaymentDTO();
-                  MemberDTO mDTO = new MemberDTO();
-                  CarDTO carDTO = new CarDTO();
+                  rezDTO = new ReservationDTO();
                   
                   // 예약정보 dto에 담기
                   rezDTO.setMem_id(rs.getString("mem_id"));
@@ -118,70 +97,14 @@ public class AdminReservationDAO {
                   rezDTO.setCar_code(rs.getInt("car_code"));
                   rezDTO.setCar_insurance(rs.getString("car_insurance"));
                   
-                  // 면허정보 dto에 담기
-                  rezDTO.setLicense_num(rs.getString("license_num"));
-                  rezDTO.setLicense_issueDate(rs.getString("license_issueDate"));
-                  rezDTO.setLicense_type(rs.getString("license_type"));
-                  
-                  
-                  // 예약취소정보 dto에 담기
-                  rezDTO.setCancel_date(rs.getTimestamp("cancel_date"));
-                  rezDTO.setCancel_reason(rs.getString("cancel_reason"));
-                  rezDTO.setCancel_commission(rs.getInt("cancel_commission"));
-                  
-                                    
-                  
-                  // 결제정보 dto에 담기
-                  payDTO.setPay_uqNum(rs.getString("pay_uqNum"));
-                  payDTO.setPay_method(rs.getString("pay_method"));
-                  payDTO.setPay_date(rs.getTimestamp("pay_date"));
-                  payDTO.setPay_status(rs.getString("pay_status"));
-                  payDTO.setPay_total(rs.getInt("pay_total"));
-                  
-                  
-                              
-                  // 멤버 dto에 담기
-                  mDTO.setMem_id(rs.getString("mem_id"));
-                  mDTO.setMem_pw(rs.getString("mem_pw"));
-                  mDTO.setMem_name(rs.getString("mem_name"));
-                  mDTO.setMem_nickName(rs.getString("mem_nickName"));
-                  mDTO.setMem_phone(rs.getString("mem_phone"));
-                  mDTO.setMem_birthday(rs.getString("mem_birthday"));
-                  mDTO.setMem_email(rs.getString("mem_email"));
-                  
-                  
-                  
-                  // 차 dto에 담기
-                  carDTO.setCar_code(rs.getInt("car_code"));
-                  carDTO.setCar_brand(rs.getString("car_brand"));
-                  carDTO.setCar_name(rs.getString("car_name"));
-                  carDTO.setCar_site(rs.getString("car_site"));
-                  carDTO.setCar_price(rs.getInt("car_price"));
-                  carDTO.setCar_op(rs.getString("car_op"));
-                  carDTO.setCar_category(rs.getString("car_category"));
-                  carDTO.setCar_year(rs.getInt("car_year"));
-                  carDTO.setCar_fuel(rs.getString("car_fuel"));
-                        
-                  
                   // DTO -> List
                   adminRezList.add(rezDTO);
-                  adminPayList.add(payDTO);
-                  adminMemList.add(mDTO);
-                  adminCarList.add(carDTO);
                                  
                   
                } // while() 끝
                
-               
-               // adminTotalList에 모든 List 저장
-               adminTotalList.add(adminRezList);
-               adminTotalList.add(adminPayList);
-               adminTotalList.add(adminMemList);
-               adminTotalList.add(adminCarList);
-               
-               
                System.out.println(" DAO : 관리자 예약 + 결제 + 면허 + 차량 + 회원 리트스 저장완료!");
-               System.out.println(" DAO : " + adminTotalList.size());
+               System.out.println(" DAO : " + adminRezList.size());
                
             } catch (Exception e) {
                e.printStackTrace();
@@ -189,7 +112,7 @@ public class AdminReservationDAO {
                closeDB();
             }
             
-            return adminTotalList; // totalList를 리턴해야 가져다 쓸 수 있다.
+            return adminRezList; // totalList를 리턴해야 가져다 쓸 수 있다.
          }
          //  관리자 예약 조회 리스트 - getAdminReservationList(int startRow,int pageSize)
          
