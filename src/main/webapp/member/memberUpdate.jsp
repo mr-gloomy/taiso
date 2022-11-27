@@ -190,6 +190,16 @@ $(document).ready(function(){
 	</section>
 	<!-- 중간제목 끝 -->
 	
+	<!-- 로그인제어 -->
+<%
+	String mem_id = (String) session.getAttribute("mem_id");
+	if(mem_id == null){
+		response.sendRedirect("./MemberLogin.me");
+		System.out.println(" 비정상적 접근 발생! IP : "+request.getRemoteAddr());
+	}
+%>
+	<!-- 로그인제어 -->
+	
 	<!-- 본문 시작 -->
 		<section class="ftco-section contact-section">
 		<div class="formbold-main-wrapper">

@@ -30,6 +30,17 @@ function mem_userNewName(){
 </head>
 
 <body>
+
+	<!-- 로그인제어 -->
+<%
+	String mem_id = (String) session.getAttribute("mem_id");
+	if(mem_id == null){
+		response.sendRedirect("./MemberLogin.me");
+		System.out.println(" 비정상적 접근 발생! IP : "+request.getRemoteAddr());
+	}
+%>
+	<!-- 로그인제어 -->
+
 	<!-- 본문 -->
 	<div class="formbold-main-wrapper">
  	<!-- Author: FormBold Team -->
