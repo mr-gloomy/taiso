@@ -203,5 +203,8 @@
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <script src="https://kit.fontawesome.com/595b26ba61.js" crossorigin="anonymous"></script>
+  
+  
   </body>
 </html>

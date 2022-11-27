@@ -26,6 +26,9 @@
     <link rel="stylesheet" href="./css/icomoon.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/admin_my.css">
+    
+    
+    
     <script src="sweetalert2.all.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -83,6 +86,11 @@
 // 		})
     </script>
     
+    <style>
+    .bg-light {
+    background: #f8f9fa !important;
+}
+    </style>
   </head>
   <body>
   
@@ -95,7 +103,7 @@
 
 	    
     <!--  -->
-    <section class="hero-wrap hero-wrap-2 js-fullheight" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2 js-fullheight " data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
@@ -121,10 +129,10 @@
 	<!-- 로그인 제어 -->
 	
 	 
-	<!-- left -->
-    <section class="ftco-section contact-section">
+    <section class="ftco-section contact-section bg-light" >
       <div class="container">
         <div class="row d-flex mb-5 contact-info">
+	<!-- left -->
     	<div class="col-md-4">
         	
      	<!-- 프로필 -->
@@ -180,8 +188,9 @@
    	 </div> 
    	 <!-- 우측 -->
    	 <div class="col-md-8 block-9 mb-md-5">
-     <section class="ftco-section2 bg-light">
-			<h2>예약정보 조회</h2>
+   	 
+ 		<section class="ftco-section2 bg-light">
+			<h1>예약정보 조회</h1>
 <!-- 			<div class="row"> -->
 				<div class="col-md-4-2">
 					<div class="car-wrap rounded ftco-animate">
@@ -190,15 +199,10 @@
 							<div class="text">
 								<div class="d-flex mb-3">
 									<span class="cat">단기렌트</span>
-									<span class="cat" style="text-align:right;width:90%;">${rez.rez_uqNum }</span>
+									<span class="cat" style="text-align:right;width:90%;">예약번호 : ${rez.rez_uqNum }</span>
 			
 								</div>
-								<div class="d-flex mb-3">
-									<span class="cat"></span>
-								</div>
-								<div class="d-flex mb-3">
-									<span class="cat"></span>
-								</div>
+
 								<h2 class="mb-0">
 									<c:if test="${rez.rez_status == 1}">
 										<a href="car-single.html">${rez.car_name }</a>ㅤ<input type = "button" class="btn btn-primary py-1 mr-1" value="예약 완료">
@@ -210,14 +214,9 @@
 								<div class="d-flex mb-3">
 									<span class="cat">${rez.rez_rentalDate} ~ ${rez.rez_returnDate}</span>
 								</div>
-								<div class="d-flex mb-3">
-									<span class="cat"></span>
-								</div>
-								<div class="d-flex mb-3">
-									<span class="cat"></span>
-								</div>
+
 								<div class="d-flex mb-3" style="display: flex; justify-content: center;">
-									<input type = "button" class="btn btn-primary2 py-2 mr-1" value = "예약 상세 조회" onclick="location.href='./ReservationInfoAction.rez?rez_uqNum=${rez.rez_uqNum }';" >ㅤ
+									<input type = "button" class="btn btn-primary2 py-2 mr-1" value = "예약 상세 조회" onclick="location.href='./ReservationInfo.rez?rez_uqNum=${rez.rez_uqNum }';" >ㅤ
 									<c:set var="loop_flag" value="false"/>
 									<c:set var="check" value ="0"/>
 									<c:forEach var="rev" items="${reviewList }" varStatus="status">
@@ -241,9 +240,11 @@
 						</c:forEach>
 				</div>
 			</div>
+<!-- 			</div> -->
 		</section>
 		
 			</div>
+	</div>
 	</div>
 	</section>
 	 <!-- 우측 -->
@@ -281,6 +282,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
        <script src="sweetalert2.all.min.js"></script>
        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+   <script src="https://kit.fontawesome.com/595b26ba61.js" crossorigin="anonymous"></script>
+      <script src="https://kit.fontawesome.com/595b26ba61.js" crossorigin="anonymous"></script>
    
   </body>
 </html>

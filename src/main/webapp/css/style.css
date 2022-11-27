@@ -8801,7 +8801,7 @@ h1, h2, h3, h4, h5,
         color: #000000; }
     .car-wrap .text span.cat {
       font-weight: 400;
-      color: rgba(0, 0, 0, 0.2);
+/*       color: rgba(0, 0, 0, 0.2); */
       display: block;
       margin-bottom: 0; }
     .car-wrap .text p.d-block {

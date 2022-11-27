@@ -122,6 +122,14 @@
 
 /* 좌측메뉴  */
 
+.btn-primary2 {
+    background: #1089ff !important;
+    border: 1px solid #1089ff !important;
+/*     width: 500px; */
+    color: #fff !important;
+}
+
+
 /* 게시판 */
  
 @media (max-width: 1000px) {

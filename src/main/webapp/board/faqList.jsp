@@ -431,5 +431,7 @@
 	<script src="./js/main.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
     <script src="https://kit.fontawesome.com/595b26ba61.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/595b26ba61.js" crossorigin="anonymous"></script>
+    
   </body>
 </html>
