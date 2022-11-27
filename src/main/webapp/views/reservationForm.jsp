@@ -240,15 +240,31 @@
          showCancelButton: true,         
          confirmButtonColor: '#3085d6', 
          cancelButtonColor: 'grey', 
-         confirmButtonText: '예약', 
-         cancelButtonText: '취소' 
+         confirmButtonText: '예약하기', 
+         cancelButtonText: '취소하기' 
        }).then((result) => { 
          if (result.isConfirmed) {           
               //"예약" 버튼을 눌렀을 때 호출할 함수
-            requestPay();
+            bfd();
          } 
        }) 
     } 
+     
+       
+    function bfd(){
+    	Swal.fire({   		 
+    		  imageUrl: './images/BFD.png',
+    		  imageWidth: 700,
+    		  imageHeight: 700,
+    		  imageAlt: 'Custom image',
+    		  confirmButtonText: '결제하기'
+    		}).then((result) => { 
+    	         if (result.isConfirmed) {           
+    	              //"결제하기" 버튼을 눌렀을 때 호출할 함수
+    	        	 requestPay();
+    	         }
+    		}) 
+    }   
     
    </script>
 
