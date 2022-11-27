@@ -180,7 +180,7 @@ tr:nth-child(even) {
 				class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
 				<div class="col-md-9 ftco-animate pb-5">
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="./AdminMain.mb">Home <i class="ion-ios-arrow-forward"></i></a></span> 
+						<span class="mr-2"><a href="AdminMain.mb">Home <i class="ion-ios-arrow-forward"></i></a></span> 
 						<span> admin <i class="ion-ios-arrow-forward"></i></span>
 					</p>
 				</div>
@@ -188,7 +188,21 @@ tr:nth-child(even) {
 		</div>
 	</section>
 	<!-- 상단 -->
+	
+	
+	<!-- 로그인 제어 -->
+	
+	<%
+		String mem_id = (String) session.getAttribute("mem_id");
+		if(mem_id==null || !mem_id.equals("admin")){
+			response.sendRedirect("./ReservationMain.rez");
+			System.out.println(" 비정상적 접근 발생! IP : "+request.getRemoteAddr());
+		}
+	%>
 
+	<!-- 로그인 제어 -->
+
+	
 	<!-- left -->
 	<section class="ftco-section contact-section">
 		<div class="container">
@@ -215,7 +229,7 @@ tr:nth-child(even) {
 									<li class="buttonitem" id="profile"><a href="#profile"
 										class="menubtn"><i class="fa fa-cog"></i> 회원관리</a>
 										<div class="smenu">
-											<a href="./AdminMemberList.mb">전체회원조회</a> 
+											<a href="./AdminMemberList.mb">회원조회</a> 
 										</div>
 									</li>
 									<li class="buttonitem" id="settings"><a href="#settings"
@@ -338,11 +352,14 @@ tr:nth-child(even) {
 				</div>
 			</div>
 		</div>
-
-		<!--  -->
 	</section>
 	<!-- 우측 -->
-
+	
+	<!-- 로그아웃 -->
+	
+	
+	
+	
 	<!-- 푸터 시작 -->
 	<jsp:include page="../inc/bottom.jsp"></jsp:include>
 	<!-- 푸터 끝 -->
@@ -353,6 +370,7 @@ tr:nth-child(even) {
     <circle class="path-bg" cx="24" cy="24" r="22" fill="none"stroke-width="4" stroke="#eeeeee" />
     <circle class="path" cx="24" cy="24" r="22" fill="none"stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
+	<script src="https://kit.fontawesome.com/595b26ba61.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script src="./js/jquery.min.js"></script>
 	<script src="./js/jquery-migrate-3.0.1.min.js"></script>
