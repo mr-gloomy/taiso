@@ -167,7 +167,7 @@
                 <li class="buttonitem" id="settings">
                     <a href="#settings" class="menubtn"><i class="fa fa-cog"></i> 회원정보 관리</a>
                     <div class="smenu">
-                        <a href="./MemberUpdate.me">개인정보 수정</a>
+                        <a href="./MemberUpdatePw.me">개인정보 수정</a>
                         <a href="./MemberRemove.me">회원 탈퇴</a>
                     </div>
                 </li>

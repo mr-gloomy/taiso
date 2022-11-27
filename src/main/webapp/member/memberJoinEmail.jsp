@@ -31,6 +31,13 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/admin_my.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+
+<script type="text/javascript">
+function javascript(){
+    self.close();  
+}
+</script>
 </head>
 
   <body>
@@ -65,6 +72,8 @@
 			<div class="alert alert-success mt-4" role="alert">
 				 이메일 주소 인증 메일이 전송되었습니다. 회원가입시 입력했던 이메일에 들어가셔서 인증해주세요.	
 			</div>
+			
+			<input type='button' onclick='javascript()' value='버튼'/>
 		</div>
 	</section>
 	<!-- 본문 끝 -->
