@@ -64,14 +64,15 @@
 
       <div class="container">
          <div>
-            <a href="./CarListAll.ca">전체</a>
-            <a href="./CarListAll.ca?item=small">소형</a>
-            <a href="./CarListAll.ca?item=compact">준중형</a>
-            <a href="./CarListAll.ca?item=middle">중형</a> 
-            <a href="./CarListAll.ca?item=large">대형</a> 
-            <a href="./CarListAll.ca?item=suv">suv</a>
-            <a href="./CarListAll.ca?item=foreign">수입차</a>
+            <a class="btn btn-primary" href="./CarListAll.ca">전체</a>
+            <a class="btn btn-primary" href="./CarListAll.ca?item=small">소형</a>
+            <a class="btn btn-primary" href="./CarListAll.ca?item=compact">준중형</a>
+            <a class="btn btn-primary" href="./CarListAll.ca?item=middle">중형</a> 
+            <a class="btn btn-primary" href="./CarListAll.ca?item=large">대형</a> 
+            <a class="btn btn-primary" href="./CarListAll.ca?item=suv">suv</a>
+            <a class="btn btn-primary" href="./CarListAll.ca?item=foreign">수입차</a>
          </div>
+         <div>ㅤ</div>
          <div class="row">
             <c:forEach var="cars" items="${carsList }">
                <div class="col-md-4">
