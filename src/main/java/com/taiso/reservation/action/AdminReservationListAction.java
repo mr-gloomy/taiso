@@ -1,5 +1,6 @@
 package com.taiso.reservation.action;
 
+import java.util.List;
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
@@ -64,7 +65,7 @@ public class AdminReservationListAction implements Action {
       
       // DAO - 회원들의 예약정보를 모두 가져오는 메서드
       AdminReservationDAO rezDAO = new AdminReservationDAO();
-      Vector adminTotalList = (Vector) rezDAO.getAdminReservationList(startRow, pageSize);// 상세조회메서드
+      List adminRezList = rezDAO.getAdminReservationList(startRow, pageSize);// 상세조회메서드
       
       
       
@@ -92,10 +93,8 @@ public class AdminReservationListAction implements Action {
       
       
       // 예약정보를 request 영역에 저장
-         request.setAttribute("adminRezList", adminTotalList.get(0));
-         request.setAttribute("adminPayList", adminTotalList.get(1));
-         request.setAttribute("adminMemList", adminTotalList.get(2));
-         request.setAttribute("adminCarList", adminTotalList.get(3));
+         request.setAttribute("adminRezList", adminRezList) ;
+
          
          
        // 페이징처리정보저장

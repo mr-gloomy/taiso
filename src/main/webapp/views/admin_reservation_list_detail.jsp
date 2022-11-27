@@ -47,13 +47,13 @@
     <section class="hero-wrap hero-wrap-2 js-fullheight" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-          <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="./AdminMain.nb">admin<i class="ion-ios-arrow-forward"></i></a></span> 
-          	<span>reservation <i class="ion-ios-arrow-forward"></i></span></p>
-         	 <h1 class="mb-3 bread">관리자 예약 조회 및 취소 상세 리스트</h1>
-          </div>
-        </div>
+<!--         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start"> -->
+<!--           <div class="col-md-9 ftco-animate pb-5"> -->
+<!--           	<p class="breadcrumbs"><span class="mr-2"><a href="./AdminMain.nb">admin<i class="ion-ios-arrow-forward"></i></a></span>  -->
+<!--           	<span>reservation <i class="ion-ios-arrow-forward"></i></span></p> -->
+<!--          	 <h1 class="mb-3 bread">관리자 예약 조회 및 취소 상세 리스트</h1> -->
+<!--           </div> -->
+<!--         </div> -->
       </div>
     </section>
 <!-- 헤더들어가는 곳 -->

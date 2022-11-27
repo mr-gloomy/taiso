@@ -91,10 +91,9 @@ function cancelRez(seq){
 
 </head>
 <body>
-	<form class="bg-light p-5 contact-form" method="post" id="rez"
+	<form action = "./ReservationCancel.rez" class="bg-light p-5 contact-form" method="post" id="rez"
 		name="fr">
 		<div class="col-md-8 block-9 mb-md-5">
-			<form action="./ReservationCancel.rez" method="post" name="fr">
 				<div class="form-group">
 					<h3>
 						<b>결제 취소 확인</b>
@@ -128,25 +127,19 @@ function cancelRez(seq){
 						<input type="password" name="mem_pw" value="" placeholder="비밀번호를 입력해주세요"><br>
 
 					
-					<div class="clear"></div>
-			</form>
+					<div class="clear">
+					</div>
 			</article>
+<!-- 			</article> -->
 　
 
 			<br>
-			<div class="form-group">
-				<input type="button" value="취소하기" class="btn btn-primary py-2 px-3"
-					onclick="return cancelRez();">
-			</div>
-
-			<div style="display: none">
-				<input type="file" id="input-file" name="rev_image" /> <br>
-				<br>
-			</div>
-		</div>
-	</form>
-	</form>
-	</div>
+			<div id="buttons">
+               <input type="button" value="취소하기" onclick="return cancelRez();">
+            </div>
+            </div>
+			</form>
+			
 	<div id="ftco-loader" class="show fullscreen">
 		<svg class="circular" width="48px" height="48px">
 			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
