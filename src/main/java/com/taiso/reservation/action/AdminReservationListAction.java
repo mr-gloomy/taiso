@@ -15,15 +15,15 @@ public class AdminReservationListAction implements Action {
       System.out.println(" M : AdminReservationListAction_execute() 호출 ");
       
       // 관리자여부 로그인 제어
-//      HttpSession session = request.getSession();
-//      String mem_id = (String) session.getAttribute("mem_id");
-//      
-//      ActionForward forward = new ActionForward();
-//      if(mem_id == null || !mem_id.equals("admin")) {
-//         forward.setPath("./Main.me");
-//         forward.setRedirect(true);
-//         return forward;   
-//      }
+      HttpSession session = request.getSession();
+      String mem_id = (String) session.getAttribute("mem_id");
+      
+      ActionForward forward = new ActionForward();
+      if(mem_id == null || !mem_id.equals("admin")) {
+         forward.setPath("./Main.me");
+         forward.setRedirect(true);
+         return forward;   
+      }
       
       
       
@@ -39,7 +39,7 @@ public class AdminReservationListAction implements Action {
       int cnt = dao.getReservationCount(); 
       
       // 한 페이지에 보여줄 글의 개수를 설정
-      int pageSize = 3;
+      int pageSize = 10;
       
       // http://localhost:8088/TAISO/views/admin_reservation_list.jsp?pageNum=2
       
@@ -108,7 +108,7 @@ public class AdminReservationListAction implements Action {
         
          
       // 페이지 이동 (./views/admin_reservation_list_detail.jsp)
-      ActionForward forward = new ActionForward();
+      forward = new ActionForward();
       forward.setPath("./views/admin_reservation_list.jsp");
       forward.setRedirect(false);
       
