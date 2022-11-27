@@ -76,7 +76,6 @@
 				<div class="num1">${rezDTO.rez_totalDate }</div>
 				<div class="count2">
 				 <a href="./AdminReservationDetailList.rez?rez_uqNum=${rezDTO.rez_uqNum }&pageNum=${pageNum }">예약정보상세조회</a>
-<%-- 				 <input type = "button" class="btn btn-primary py-2 mr-1" value = "삭제" onclick=" --%>
 				</div>
 			</div>
 		</c:forEach>
@@ -87,7 +86,6 @@
 			<!-- 페이징처리 -->
     			<c:if test="${totalCnt != 0 }">
 
-			<!--     	<div class="row mt-5"> -->
 			<div class="col text-center">
 				<div class="block-27">
 					<ul>
@@ -119,11 +117,10 @@
 				</div>
 			</div>
 
-
 		</c:if>
 		<div id="table_search">
 			<input type="button" value="관리자메인페이지로이동" class="btn btn-primary py-2 mr-1" 
-				onclick=" location.href='./여기에가상주소입력';"
+				onclick=" location.href='./AdminMain.mb';"
 			>
 		</div>
   

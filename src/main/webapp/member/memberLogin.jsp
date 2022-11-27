@@ -6,6 +6,11 @@
 
 <%
 	String referer = request.getHeader("referer");
+	System.out.println(referer);
+	String mem_id = (String)session.getAttribute("mem_id");
+	if(mem_id != null){
+		response.sendRedirect("./ReservationMain.rez");
+	}
 	
 %>
 

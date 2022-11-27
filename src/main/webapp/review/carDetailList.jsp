@@ -233,7 +233,7 @@
 							
 						  <!-- 옵션정보 -->
 						  <div class="tab-content" id="pills-tabContent">
-						    <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
+						    <div class="tab-pane fade show active" id="pills-manufacturer" role="tabpanel" aria-labelledby="pills-manufacturer-tab">
 						    	<div class="row">
 								<c:set var = "num" value="1"/>
 								<c:set var = "name" value = ""/>

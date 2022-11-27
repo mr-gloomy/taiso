@@ -132,6 +132,7 @@ tr:nth-child(even) {
 								<tr align="center">
 									<td><p>전화번호</p></td>
 									<td>${mDTO.mem_phone }</td>
+								</tr>
 								<tr align="center">
 									<td><p>이메일</p></td>
 									<td>${mDTO.mem_email }</td>
@@ -143,9 +144,6 @@ tr:nth-child(even) {
 								<tr align="center">
 									<td><p>회원등록일</p></td>
 									<td>${mDTO.mem_registDate }</td>
-								<tr align="center">
-									<td><p>프로필 이미지</p></td>
-									<td>${mDTO.mem_image }</td>
 								</tr>
 								<tr align="center">
 									<td><p>면허증번호</p></td>
@@ -154,6 +152,7 @@ tr:nth-child(even) {
 								<tr align="center">
 									<td><p>블랙리스트</p></td>
 									<td>
+								
 									<form action="./AdminBlacklistUpdate.mb?mem_num=${mDTO.mem_num }">
 										<input type="hidden" name="mem_num" value="${mDTO.mem_num }">
 										<div class="form-check form-check-inline" align="right">
@@ -229,7 +228,6 @@ tr:nth-child(even) {
 	<script src="./js/jquery.timepicker.min.js"></script>
 	<script src="./js/scrollax.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-	<script src="./js/google-map.js"></script>
 	<script src="./js/main.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
     <script src="./js/taskList.js"></script>

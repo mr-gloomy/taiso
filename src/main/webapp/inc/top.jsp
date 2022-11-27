@@ -65,9 +65,17 @@
 							        <a class="dropdown-item" href="./Mypage.bo">${mem_id }님의 info</a>
 						    	</c:when>
 						    </c:choose>
-					    	<c:if test="${mem_id!=null}">
-						        <a class="dropdown-item" href="./MemberLogout.me">logout</a>
-					    	</c:if>
+						    <c:choose>
+						    	<c:when test="${mem_id=='admin'}">
+							       <a class="dropdown-item" href="./AdminMemberLogout.mb">logout</a>
+						    	</c:when>
+						    	<c:when test="${mem_id!=null}">
+							        <a class="dropdown-item" href="./MemberLogout.me">logout</a>
+							    </c:when>
+						    </c:choose>
+<%-- 					    	<c:if test="${mem_id!=null | mem_id=='admin' }"> --%>
+<!-- 						        <a class="dropdown-item" href="./MemberLogout.me">logout</a> -->
+<%-- 					    	</c:if> --%>
 						</div>
 					</div>
 					</div>

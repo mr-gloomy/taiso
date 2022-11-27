@@ -107,6 +107,19 @@
       </div>
     </section>
 	<!--  -->
+	
+	<!-- 로그인 제어 -->
+	
+	<%
+		String mem_id = (String) session.getAttribute("mem_id");
+		if(mem_id==null || mem_id.equals("admin")){
+			response.sendRedirect("./ReservationMain.rez");
+			System.out.println(" 비정상적 접근 발생! IP : "+request.getRemoteAddr());
+		}
+	%>
+
+	<!-- 로그인 제어 -->
+	
 	 
 	<!-- left -->
     <section class="ftco-section contact-section">
