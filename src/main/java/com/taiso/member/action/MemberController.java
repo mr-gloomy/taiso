@@ -373,6 +373,20 @@ public class MemberController extends HttpServlet {
 			}
 			
 			
+//		}else if(command.equals("/MemberFindPwEmailAction.me")) {
+//			System.out.println(" C : /MemberFindPwEmailAction.me 호출");
+//			System.out.println(" C : [패턴 2]");
+//			
+//			// MemberFindPwEmailAction.me() 객체
+//			action = new MemberFindPwEmailAction();
+//			
+//			try {
+//				forward = action.execute(request, response);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+			
+			
 		}else if(command.equals("/MemberFindPwResult.me")) {
 			System.out.println(" C : /MemberFindPwResult.me 호출 ");
 			System.out.println(" C : [패턴 1]");

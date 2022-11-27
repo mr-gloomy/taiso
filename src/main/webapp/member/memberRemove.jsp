@@ -36,9 +36,31 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script type="text/javascript">
+// if ( ! $('input[name=qusOne]:checked').val()) {
+// 	 Swal.fire({
+// 		   title: '탈퇴사유를 선택해주세요.',
+// 		   icon: 'error'
+// 		 });
+// 	return false;
+// }
+
+
+</script>
+
 <script type="text/javascript">
 
 function chk(){
+
+	if ( ! $('input[name=qusOne]:checked').val()) {
+	 Swal.fire({
+		   title: '탈퇴사유를 선택해주세요.',
+		   icon: 'warning'
+		 });
+	return false;
+	}
 	
     var f = document.thisForm;
     
@@ -97,51 +119,62 @@ function chk(){
 						 &nbsp 회원탈퇴 전, 유의사항을 확인해주시기 바랍니다. </h5>
 
 						<ul>
-							<li>유의사항 입니다 유의사항 입니다 유의사항 입니다 유의사항 입니다 유의사항 입니다 유의사항 입니다
-								유의사항 입니다 유의사항 입니다 유의사항 입니다 유의사항 입니다 유의사항 입니다 유의사항 입니다 유의사항 입니다
-								유의사항 입니다 유의사항 입니다 유의사항 입니다 유의사항 입니다 유의사항 입니다 유의사항 입니다 유의사항 입니다
-							</li>
+							<li>ㆍ회원탈퇴 시 회원전용 웹 서비스 이용이 불가합니다.</li>
+
+							<li>ㆍ거래정보가 있는 경우, 전자상거래 등에서의 소비자 보호에 관한 법률에 따라 계약 또는 청약철회에 관한 기록, 대금결제 및 재화 등의 공급에
+관한 기록은 5년동안 보존됩니다.</l1>
+							<li>ㆍ회원탈퇴 후 타이소 서비스에 입력하신 1:1문의 및 이용후기, 댓글은 삭제되지 않으며, 회원정보 삭제로 인해 작성자 본인을 확인할 수 없어
+편집 및 삭제처리가 원천적으로 불가능 합니다.</l1>
+							
 						</ul>
 					</div>
 
 					<div class="formbold-event-details">
 						<h5> <i class='fas fa-edit' style='font-size: 20px; color: green'></i>
-							&nbsp 회원탈퇴 사유를 선택해 주시기 바랍니다. </h5>
+							&nbsp 타이소를 떠나시는 이유를 적어주세요. </h5>
+							<h6>소중한 의견을 참고하여 더욱 나은 타이소가 되겠습니다.</h6>
 								
 							<ol>
 								<div class="formbold-mb-5">
 								<div class="formbold-radio-flex">
 									<div class="formbold-radio-group">
 										<label class="formbold-radio-label"> 
-											<input class="formbold-input-radio" type="radio" name="qusOne" id="qusOne" /> 회원탈퇴 사유 1 
+											<input class="formbold-input-radio" type="radio" name="qusOne" id="qusOne" /> 개인정보 변경으로 인한 재가입/중복가입
 											<span class="formbold-radio-checkmark"></span>
 										</label>
 									</div>
 
 									<div class="formbold-radio-group">
 										<label class="formbold-radio-label"> 
-											<input class="formbold-input-radio" type="radio" name="qusOne" id="qusOne" /> 회원탈퇴 사유 2 
+											<input class="formbold-input-radio" type="radio" name="qusOne" id="qusOne" /> 찾고자 하는 정보가 없음 
 											<span class="formbold-radio-checkmark"></span>
 										</label>
 									</div>
 
 									<div class="formbold-radio-group">
 										<label class="formbold-radio-label"> 
-											<input class="formbold-input-radio" type="radio" name="qusOne" id="qusOne" /> 회원탈퇴 사유 3 
+											<input class="formbold-input-radio" type="radio" name="qusOne" id="qusOne" /> 사용이 불편함 
 											<span class="formbold-radio-checkmark"></span>
 										</label>
 									</div>
 
 									<div class="formbold-radio-group">
 										<label class="formbold-radio-label"> 
-											<input class="formbold-input-radio" type="radio" name="qusOne" id="qusOne" /> 회원탈퇴 사유 4 
+											<input class="formbold-input-radio" type="radio" name="qusOne" id="qusOne" /> 상품 구성 및 판매 정책에 대한 문제
 											<span class="formbold-radio-checkmark"></span>
 										</label>
 									</div>
 									
 									<div class="formbold-radio-group">
 										<label class="formbold-radio-label"> 
-											<input class="formbold-input-radio" type="radio" name="qusOne" id="qusOne" /> 회원탈퇴 사유 5 
+											<input class="formbold-input-radio" type="radio" name="qusOne" id="qusOne" /> 타 사이트의 유사서비스 이용
+											<span class="formbold-radio-checkmark"></span>
+										</label>
+									</div>
+									
+									<div class="formbold-radio-group">
+										<label class="formbold-radio-label"> 
+											<input class="formbold-input-radio" type="radio" name="qusOne" id="qusOne" /> 직접입력 <input type="text" name="remove" placeholder="  사유를 입력해주세요." class="formbold-form-input-small" />
 											<span class="formbold-radio-checkmark"></span>
 										</label>
 									</div>
@@ -193,6 +226,8 @@ function chk(){
 
 body {
 	font-family: 'Inter', sans-serif;
+	font-weight: 400;
+    color: #000000;
 }
 
 .formbold-main-wrapper {
@@ -488,7 +523,28 @@ body {
     color: #fff;
     font-size: 1em;
 }
-  
+
+.formbold-event-details h6 { 
+    font-size: 13px;
+    margin-left: 54px;
+    font-weight: bold;
+    color: #7a7a83;
+}
+
+.formbold-form-input-small {
+	border-radius: 5px;
+    border: 1px solid #dde3ec;
+    background: #ffffff;
+    font-weight: 500;
+    font-size: 12px;
+    color: #536387;
+    outline: none;
+    resize: none;
+    width: 600px;
+    margin-left: 15px;
+}
+
+
 
 </style>
 <!-- 본문 css -->
