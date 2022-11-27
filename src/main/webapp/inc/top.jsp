@@ -33,7 +33,7 @@
 								data-toggle="dropdown" style="color:white;">렌트하기</button>
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="./ReservationMain.rez">단기렌트</a>
-								<a class="dropdown-item" href="#">장기렌트</a>
+								<a class="dropdown-item" href="./LongTerm.rez">장기렌트</a>
 								<a class="dropdown-item" href="./CarListAll.ca">차량목록</a>
 							</div>
 						</div>
