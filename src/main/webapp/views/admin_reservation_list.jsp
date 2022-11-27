@@ -75,7 +75,7 @@
 			    <div class="date3">${rezDTO.rez_returnDate }</div>
 				<div class="num1">${rezDTO.rez_totalDate }</div>
 				<div class="count2">
-				 <a href="./AdminReservationDetailListAction.rez?rez_uqNum=${rezDTO.rez_uqNum }">예약정보상세조회</a>
+				 <a href="./AdminReservationDetailList.rez?rez_uqNum=${rezDTO.rez_uqNum }">예약정보상세조회</a>
 <%-- 				 <input type = "button" class="btn btn-primary py-2 mr-1" value = "삭제" onclick=" --%>
 				</div>
 			</div>
@@ -89,7 +89,7 @@
 
 			<!-- 이전 -->
 			<c:if test="${startPage > pageBlock }">
-				<a href="./AdminReservationListAction.rez?pageNum=${startPage-pageBlock }">[이전]</a>
+				<a href="./AdminReservationList.rez?pageNum=${startPage-pageBlock }">[이전]</a>
 			</c:if>
 			<!--     	<div class="row mt-5"> -->
 			<div class="col text-center">
@@ -104,7 +104,7 @@
 								
 							>
 						<span>
-						<a href="./AdminReservationListAction.rez?pageNum=${i }">${i }</a>
+						<a href="./AdminReservationList.rez?pageNum=${i }">${i }</a>
 						</span>
 						</li>
 						
@@ -116,13 +116,13 @@
 
 			<!-- 다음 -->
 			<c:if test="${endPage < pageCount }">
-				<a href="./AdminReservationListAction.rez?pageNum=${startPage+pageBlock }">[다음]</a>
+				<a href="./AdminReservationList.rez?pageNum=${startPage+pageBlock }">[다음]</a>
 			</c:if>
 
 		</c:if>
 		<div id="table_search">
 			<input type="button" value="관리자메인페이지로이동" class="btn btn-primary py-2 mr-1" 
-				onclick=" location.href='./여기에가상주소입력';"
+				onclick=" location.href='./AdminMain.mb';"
 			>
 		</div>
   
