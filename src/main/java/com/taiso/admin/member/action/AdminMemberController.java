@@ -87,6 +87,30 @@ public class AdminMemberController extends HttpServlet{
 				e.printStackTrace();
 			}
 		}
+		else if(command.equals("/AdminBlacklistUpdate.mb")) {
+			System.out.println(" C : /AdminBlacklistUpdate.mb 호출 ");
+			
+			action = new AdminBlacklistUpdateAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/AdminMemberLogout.mb")) {
+			System.out.println(" C : /AdminMemberLogout.mb 호출 ");
+			
+			action = new AdminMemberLogoutAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
 		
 			
 			

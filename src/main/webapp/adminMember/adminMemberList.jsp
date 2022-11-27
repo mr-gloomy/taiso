@@ -39,28 +39,25 @@
 }
 </style>
 <script type="text/javascript">
-function deleteBoard(){
+// function deleteBoard(){
+// 	Swal.fire({
+// 	  title: '회원삭제 하시겠습니까?',
+// 	  text: "주의! 삭제하시면 다시 복구시킬 수 없습니다.",
+// 	  icon: 'info',
+// 	  showCancelButton: true,
+// 	  confirmButtonColor: '#3085d6',
+// 	  cancelButtonColor: 'grey',
+// 	  confirmButtonText: '삭제',
+// 	  cancelButtonText: '취소'
+// 	}).then((result) => {
+// 	  if (result.value) {
+//           //"등록" 버튼을 눌렀을 때 작업할 내용을 이곳에 넣어주면 된다. 
+// 		  location.href='./AdminMemberDelete.mb?';
+// 	  }
+// 	})
+// }
 	
-	var mem_id = document.fr.mem_id.value; 
-	
-	Swal.fire({
-	  title: '회원삭제 하시겠습니까?',
-	  text: "주의! 삭제완료 후 복구 불가",
-	  icon: 'info',
-	  showCancelButton: true,
-	  confirmButtonColor: '#3085d6',
-	  cancelButtonColor: 'grey',
-	  confirmButtonText: '네',
-	  cancelButtonText: '아니오'
-	}).then((document.fr.mem_id.value) => {
-	  if (document.fr.mem_id.value) {
-          //"등록" 버튼을 눌렀을 때 작업할 내용을 이곳에 넣어주면 된다. 
-	      location.href='./AdminMemberDelete.mb?mem_id='+mem_id;
-	  }
-	  
-	})
-	
-}
+// }
 </script>
 
 </head>
@@ -77,7 +74,7 @@ function deleteBoard(){
 				class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
 				<div class="col-md-9 ftco-animate pb-5">
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="./admin/adminMain.jsp">admin<i class="ion-ios-arrow-forward"></i></a></span>
+						<span class="mr-2"><a href="./AdminMain.mb">admin<i class="ion-ios-arrow-forward"></i></a></span>
 						<span>member<i class="ion-ios-arrow-forward"></i></span>
 					</p>
 					<h1 class="mb-3 bread"> 관리자페이지 </h1>
@@ -140,7 +137,8 @@ function deleteBoard(){
 																	<td>${mDTO.mem_blacklist }</td>
 																	<td>
 																		<input type="button" value="상세정보" class="btn btn-primary py-0.5 px-1" onclick="location.href='./AdminMemberInfo.mb?mem_num=${mDTO.mem_num }&pageNum=${pageNum }';">
-																		<input type="button" value="회원삭제" class="btn btn-primary py-0.5 px-1" onclick="deleteBoard();">
+																		<input type="button" value="회원삭제" class="btn btn-primary py-0.5 px-1" onclick="location.href='./AdminMemberDelete.mb?mem_id=${mDTO.mem_id }&pageNum=${pageNum }';">
+								<%-- 									<input type="button" value="회원삭제" class="btn btn-primary py-0.5 px-1" onclick="deleteBoard(${mem_id});"> --%>
 																	</td>
 																</tr>
 															</c:forEach>
@@ -207,7 +205,7 @@ function deleteBoard(){
 																<td>${mDTO.mem_blacklist }</td>
 																<td>
 																	<input type="button" value="상세정보" class="btn btn-primary py-0.5 px-1" onclick="location.href='./AdminMemberInfo.mb?mem_num=${mDTO.mem_num }&pageNum=${pageNum }';">
-																	<input type="button" value="회원삭제" class="btn btn-primary py-0.5 px-1" onclick="location.href='./AdminMemberDelete.mb?mem_num=${mDTO.mem_num }&pageNum=${pageNum }';">
+																	<input type="button" value="회원삭제" class="btn btn-primary py-0.5 px-1" onclick="deleteBoard(${mem_id});">
 																</td>
 															</tr>
 														</c:forEach>

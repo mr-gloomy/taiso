@@ -37,7 +37,7 @@ public class AdminBlacklistUpdateAction implements Action {
 		dao.updateBlacklist(mDTO);
 	
 		// 페이지 이동
-		forward.setPath("./AdminMemberList.mb");
+		forward.setPath("./AdminMemberInfo.mb");
 		forward.setRedirect(true);
 		
 		return forward;
