@@ -238,6 +238,9 @@ public class ReservationDAO {
       PaymentDTO payDTO = null;
       MemberDTO mDTO = null;
 
+      System.out.println(mem_id);
+      System.out.println(rez_uqNum);
+      
       try {
          con = getConnection();
 //         sql = "select * from rez_reservation where rez_uqNum=?";
@@ -248,8 +251,10 @@ public class ReservationDAO {
          pstmt.setString(1, mem_id);
          pstmt.setInt(2, rez_uqNum);
          rs = pstmt.executeQuery();
-
+         
          if (rs.next()) {
+        	 
+        	 System.out.println("ㅗ");
             rezDTO = new ReservationDTO();
 
             // 예약 정보

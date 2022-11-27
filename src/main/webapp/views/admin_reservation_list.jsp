@@ -34,20 +34,12 @@
 	    
     <section class="hero-wrap hero-wrap-2 js-fullheight" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-          <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="./adminMain.nb">admin<i class="ion-ios-arrow-forward"></i></a></span> 
-          	<span>reservation <i class="ion-ios-arrow-forward"></i></span></p>
-          	<h1 class="mb-3 bread">관리자 예약 조회 리스트</h1>
-          </div>
-        </div>
-      </div>
+      <div class="container"></div>
     </section>
 	<!-- 헤더들어가는 곳 -->
 	
 	<!-- 메인 -->
-<!-- 메인 -->
+	
 	
   	<div class="adminReservation_wrap2">
         <div class="adminReservation_title">
@@ -75,8 +67,7 @@
 			    <div class="date3">${rezDTO.rez_returnDate }</div>
 				<div class="num1">${rezDTO.rez_totalDate }</div>
 				<div class="count2">
-				 <a href="./AdminReservationDetailList.rez?rez_uqNum=${rezDTO.rez_uqNum }">예약정보상세조회</a>
-<%-- 				 <input type = "button" class="btn btn-primary py-2 mr-1" value = "삭제" onclick=" --%>
+				 <a href="./AdminReservationDetailList.rez?rez_uqNum=${rezDTO.rez_uqNum }&pageNum=${pageNum }">예약정보상세조회</a>
 				</div>
 			</div>
 		</c:forEach>
@@ -87,14 +78,13 @@
 			<!-- 페이징처리 -->
     			<c:if test="${totalCnt != 0 }">
 
+			<div class="col text-center">
+				<div class="block-27">
+					<ul>
 			<!-- 이전 -->
 			<c:if test="${startPage > pageBlock }">
 				<a href="./AdminReservationList.rez?pageNum=${startPage-pageBlock }">[이전]</a>
 			</c:if>
-			<!--     	<div class="row mt-5"> -->
-			<div class="col text-center">
-				<div class="block-27">
-					<ul>
 						<!-- 페이지 번호(1,2,3...) -->
 					<c:forEach var="i" begin="${startPage }" end="${endPage }"
 						step="1">
@@ -110,14 +100,14 @@
 						
 
 						</c:forEach>
-					</ul>
-				</div>
-			</div>
-
-			<!-- 다음 -->
+					<!-- 다음 -->
 			<c:if test="${endPage < pageCount }">
 				<a href="./AdminReservationList.rez?pageNum=${startPage+pageBlock }">[다음]</a>
 			</c:if>
+					</ul>
+					
+				</div>
+			</div>
 
 		</c:if>
 		<div id="table_search">
@@ -133,5 +123,23 @@
 <div class="clear"></div>
 <div id="page_control">
 </div>
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="./js/popper.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="./js/jquery.easing.1.3.js"></script>
+	<script src="./js/jquery.waypoints.min.js"></script>
+	<script src="./js/jquery.stellar.min.js"></script>
+	<script src="./js/owl.carousel.min.js"></script>
+	<script src="./js/jquery.magnific-popup.min.js"></script>
+	<script src="./js/aos.js"></script>
+	<script src="./js/jquery.animateNumber.min.js"></script>
+	<script src="./js/bootstrap-datepicker.js"></script>
+	<script src="./js/jquery.timepicker.min.js"></script>
+	<script src="./js/scrollax.min.js"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="./js/google-map.js"></script>
+	<script src="./js/main.js"></script>
 </body>
 </html>
