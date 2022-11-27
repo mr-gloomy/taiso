@@ -332,7 +332,7 @@ $(document).ready(function(){
 					</div>
 						 
 					<div class="formbold-mb-3">
-						<label for="mem_name" class="formbold-form-label"> 이름 </label> 
+						<label for="mem_name" class="formbold-form-label"> 성 함 </label> 
 						<input type="text" name="mem_name" id="mem_name" placeholder="회원이름" class="formbold-form-input" required />
 						<div class="nameCheck" id="textstyle"> </div>
 					</div>
@@ -360,7 +360,7 @@ $(document).ready(function(){
 					
 					<div class="formbold-mb-3">
 						<label for="mem_email" class="formbold-form-label"> Email </label> 
-						<input type="email" name="mem_email" id="mem_email" placeholder="example@email.com" class="formbold-form-input" required />
+						<input type="email" name="mem_email" id="mem_email" placeholder="가입인증 메일이 발송되니 정확하게 입력해주세요." class="formbold-form-input" required />
 						<div class="emailCheck" id="textstyle"> </div>
 					</div>
 					

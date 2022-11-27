@@ -50,8 +50,7 @@ function mem_userId(){
 		<c:if test="${result == 0 }">
 			<div class=textstyle>
 				사용 가능한 아이디 입니다.
-<!-- 			<input type="button" value="사용하기" onclick="mem_userid();"> -->
-				<input type="button" value="사용하기" onclick="mem_userId();">
+				<input type="button" id="btn" value="사용하기" onclick="mem_userId()">
 			</div>
 		</c:if>
 
@@ -160,6 +159,20 @@ body {
     background-color: #1089FF;
     color: #fff;
     font-size: 1em;
+}
+
+.btn {
+	vdisplay: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 5px 5px;
+    border: none;
+    font-weight: 500;
+    background-color: #1089FF;
+    color: white;
+    cursor: pointer;
 }
   
 </style>

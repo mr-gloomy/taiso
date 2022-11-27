@@ -72,7 +72,7 @@ $(document).ready(function(){
 	$('#sbtn').click(function(){
 
     var mem_name = $('#mem_name').val();
-    var mem_nickName = $('#mem_newNickName').val();
+    var mem_newNickName = $('#mem_newNickName').val();
     var mem_phone = $('#mem_phone').val();
     var mem_email = $('#mem_email').val();
 
@@ -255,9 +255,9 @@ $(document).ready(function(){
 						</label>
 					</div>
 					
-					<div class="aforgot">
-						<a href="./MemberRemove.me" id="forgot" class="font-weight-bold">회원탈퇴</a>  
-					</div>
+<!-- 					<div class="aforgot"> -->
+<!-- 						<a href="./MemberRemove.me" id="forgot" class="font-weight-bold">회원탈퇴</a>   -->
+<!-- 					</div> -->
 						<button type="submit" class="submit2" id="sbtn">수정하기</button>
 						<input type="hidden" name="mem_pw" id="mem_pw" value="${mDTO.mem_pw }" />
 				</form>
