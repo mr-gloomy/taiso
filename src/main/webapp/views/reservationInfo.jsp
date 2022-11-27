@@ -36,7 +36,12 @@
         <script type="text/javascript">
      
  	// 예약 취소 여는 팝업창
- 	function cancelOpen(rez_uqNum){
+ 	function cancelOpen(value){
+ 		
+		var result = value.split(",");
+		
+		var rez_uqNum = result[0];
+		var pay_total = result[1];
 
  	    var _width = '500';
  	    var _height = '700';
@@ -47,7 +52,7 @@
 
   		// 새 창 열기
   		document.domain = "localhost"; //document.domain 값이 팝업과 부모창 동일해야 합니다.
-  		window.open("./ReservationCancelCheck.rez?rez_uqNum="+rez_uqNum,"",'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top);
+  		window.open("./ReservationCancelCheck.rez?rez_uqNum="+rez_uqNum+"&pay_total="+pay_total,"",'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top);
  	}
    
 
@@ -214,7 +219,7 @@
 											 <input type = "button" class="btn btn-primary py-1 mr-1" value = "예약 조회로 돌아가기" onclick="location.href='./ReservationList.rez';">ㅤ
 											 
 											 <c:if test="${rezDTO.rez_status == 1}">
-											 	<input type = "button" class="btn btn-primary py-2 mr-1" value = "예약 취소" onclick="cancelOpen(${rezDTO.rez_uqNum });">
+											 	<input type = "button" class="btn btn-primary py-2 mr-1" value = "예약 취소" onclick="cancelOpen(${rezDTO.rez_uqNum }+','+${payDTO.pay_total*0.9});">
 											 </c:if>
 											 <c:if test="${rezDTO.rez_status == 0}">
 											 </c:if>	
