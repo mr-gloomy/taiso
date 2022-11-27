@@ -170,25 +170,14 @@ tr:nth-child(even) {
 	<jsp:include page="../inc/top.jsp"></jsp:include>
 	<!-- 헤더 끝-->
 
-
 	<!-- 상단 -->
 	<section class="hero-wrap hero-wrap-2 js-fullheight"
 		data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
-			<div
-				class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-				<div class="col-md-9 ftco-animate pb-5">
-					<p class="breadcrumbs">
-						<span class="mr-2"><a href="AdminMain.mb">Home <i class="ion-ios-arrow-forward"></i></a></span> 
-						<span> admin <i class="ion-ios-arrow-forward"></i></span>
-					</p>
-				</div>
-			</div>
 		</div>
 	</section>
 	<!-- 상단 -->
-	
 	
 	<!-- 로그인 제어 -->
 	
