@@ -92,8 +92,9 @@ public class AdminReservationListAction implements Action {
       
       
       // 예약정보를 request 영역에 저장
-         request.setAttribute("adminRezList", adminRezList);
-         
+         request.setAttribute("adminRezList", adminRezList) ;
+
+        
          
        // 페이징처리정보저장
          request.setAttribute("pageNum", pageNum);

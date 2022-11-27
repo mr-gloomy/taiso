@@ -987,7 +987,7 @@ pre {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 66.66667%;
     flex: 0 0 66.66667%;
-    max-width: 66.66667%; }
+    max-width: 85%; }
   .col-md-9 {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 75%;
@@ -10126,4 +10126,15 @@ textarea.form-control {
     background: #dc143c !important;
     border: 1px solid #dc143c !important;
     color: #fff !important; }
+        
+
+.adminReservation_title strong { 
+	font-size: 2rem;
+    color: #1089FF;
+    width: 60%;
+    margin: 50px auto;
+}      
+        
+        
+        
         

@@ -34,7 +34,19 @@
 	    
     <section class="hero-wrap hero-wrap-2 js-fullheight" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
+<<<<<<< HEAD
+      <div class="container">
+<!--         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start"> -->
+<!--           <div class="col-md-9 ftco-animate pb-5"> -->
+<!--           	<p class="breadcrumbs"><span class="mr-2"><a href="./adminMain.nb">admin<i class="ion-ios-arrow-forward"></i></a></span>  -->
+<!--           	<span>reservation <i class="ion-ios-arrow-forward"></i></span></p> -->
+<!--           	<h1 class="mb-3 bread">관리자 예약 조회 리스트</h1> -->
+<!--           </div> -->
+<!--         </div> -->
+      </div>
+=======
       <div class="container"></div>
+>>>>>>> branch 'master' of https://github.com/mr-gloomy/taiso.git
     </section>
 	<!-- 헤더들어가는 곳 -->
 	
@@ -43,7 +55,7 @@
 	
   	<div class="adminReservation_wrap2">
         <div class="adminReservation_title">
-            <strong>예약 조회 리스트</strong>
+            <strong>관리자 예약 조회 리스트</strong>
             <p> 전체 글 개수 : ${requestScope.totalCnt } 개 </p>
         </div>
         <div class="adminReservation_list_wrap">
@@ -67,7 +79,12 @@
 			    <div class="date3">${rezDTO.rez_returnDate }</div>
 				<div class="num1">${rezDTO.rez_totalDate }</div>
 				<div class="count2">
+<<<<<<< HEAD
+				 <a href="./AdminReservationDetailList.rez?rez_uqNum=${rezDTO.rez_uqNum }&pageNum=${pageNum}">예약정보상세조회</a>
+<%-- 				 <input type = "button" class="btn btn-primary py-2 mr-1" value = "삭제" onclick=" --%>
+=======
 				 <a href="./AdminReservationDetailList.rez?rez_uqNum=${rezDTO.rez_uqNum }&pageNum=${pageNum }">예약정보상세조회</a>
+>>>>>>> branch 'master' of https://github.com/mr-gloomy/taiso.git
 				</div>
 			</div>
 		</c:forEach>
@@ -78,6 +95,14 @@
 			<!-- 페이징처리 -->
     			<c:if test="${totalCnt != 0 }">
 
+<<<<<<< HEAD
+			<!-- 이전 -->
+			<c:if test="${startPage > pageBlock }">
+				<a href="./AdminReservationList.rez?pageNum=${startPage-pageBlock }">[이전]</a>
+			</c:if>
+			<!--     	<div class="row mt-5"> -->
+=======
+>>>>>>> branch 'master' of https://github.com/mr-gloomy/taiso.git
 			<div class="col text-center">
 				<div class="block-27">
 					<ul>
@@ -88,8 +113,6 @@
 						<!-- 페이지 번호(1,2,3...) -->
 					<c:forEach var="i" begin="${startPage }" end="${endPage }"
 						step="1">
-					
-
 							<li <c:if test="${pageNum == i }">class="active" </c:if>
 								
 							>
@@ -109,6 +132,14 @@
 				</div>
 			</div>
 
+<<<<<<< HEAD
+			<!-- 다음 -->
+			<c:if test="${endPage < pageCount }">
+				<a href="./AdminReservationList.rez?pageNum=${startPage+pageBlock }">[다음]</a>
+			</c:if>
+
+=======
+>>>>>>> branch 'master' of https://github.com/mr-gloomy/taiso.git
 		</c:if>
 		<div id="table_search">
 			<input type="button" value="관리자메인페이지로이동" class="btn btn-primary py-2 mr-1" 
