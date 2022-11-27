@@ -72,6 +72,7 @@
             <a class="btn btn-primary" href="./CarList.ca?item=suv">suv</a>
             <a class="btn btn-primary" href="./CarList.ca?item=foreign">수입차</a>
          </div>
+         <div>ㅤ</div>
          <div class="row">
          	<c:choose>
          	<c:when test="${carsList.size() != 0 }">
