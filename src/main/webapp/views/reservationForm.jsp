@@ -123,7 +123,8 @@
                      rez_totalDate:document.fr.rez_totalDate.value,
                      rez_rentTime:document.fr.rez_pick_time.value,
                      rez_site:document.fr.rez_site.value,
-                     car_name:document.fr.car_name.value,
+
+
                      car_code:${carDTO.car_code},
                      car_insurance:document.fr.car_insurance.value,
                      mem_id:document.fr.mem_id.value,
@@ -332,21 +333,34 @@
              
 <!--           </div> -->
 <div class="col-md-12">
-            <div class="form-group">
+           <div class="form-group">
               <h3>운전자정보입력</h3>
               
               <input type="hidden" name="mem_id" value="${sessionScope.mem_id }">
         
-                이름 : <input type="text" name="mem_name" class="form-control" class="form-control2" value="${mDTO.mem_name }" readonly="readonly">
-          </div> 
+           이름 : <input type="text" name="mem_name" class="form-control" class="form-control2" value="${mDTO.mem_name }" readonly="readonly">
+           </div> 
           
-          <div class="form-group">           
-                전화번호 : <input type="text" name="mem_phone" class="form-control" class="form-control2" value="${mDTO.mem_phone }" readonly="readonly">
-          </div>  
-             
-        <div class="form-group">           
-                생년월일 : <input type="text" name="mem_birthday" class="form-control" class="form-control2" value="${mDTO.mem_birthday }" readonly="readonly">
-         </div>  
+          
+          <c:if test="${not empty mDTO.mem_phone}">>
+	          <div class="form-group">           
+	                전화번호 : <input type="text" name="mem_phone" class="form-control" class="form-control2" value="${mDTO.mem_phone }" readonly="readonly">
+	          </div> 
+	           <div class="form-group">           
+	                생년월일 : <input type="text" name="mem_birthday" class="form-control" class="form-control2" value="${mDTO.mem_birthday }" readonly="readonly">
+	          </div>  
+          </c:if>
+           
+           
+          <c:if test="${empty mDTO.mem_phone}">
+	          <div class="form-group">           
+	                전화번호 : <input type="text" name="mem_phone" class="form-control" class="form-control2" value="">
+	          </div>    
+	          <div class="form-group">           
+	                생년월일 : <input type="text" name="mem_birthday" class="form-control" class="form-control2" value="">
+	          </div>  
+          </c:if>   
+         
          
          <div class="form-group">      
                 이메일 : <input type="email" name="mem_email" class="form-control" class="form-control2" value="${mDTO.mem_email }" readonly="readonly">
