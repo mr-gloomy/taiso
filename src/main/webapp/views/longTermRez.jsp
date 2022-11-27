@@ -27,6 +27,49 @@
     <link rel="stylesheet" href="./css/flaticon.css">
     <link rel="stylesheet" href="./css/icomoon.css">
     <link rel="stylesheet" href="./css/style.css">
+    
+    <style>
+    .ftco-section3 {
+	  padding: 6em 0;
+	  padding-left: 25em;
+	  position: relative;
+    }
+    
+     .form-control2 {
+	  height: 40px !important;
+	  width: 200px;
+	  background: #fff !important;
+	  color: #000000 !important;
+	  border: 1px solid #ced4da;
+	  font-size: 15px;
+	  padding : 0.375rem 0.75rem;
+	  border-radius: 5px;
+	  -webkit-box-shadow: none !important;
+	  box-shadow: none !important;
+  	}
+  	
+  	     .form-control3 {
+	  height: 200px !important;
+	  width: 200px;
+	  background: #fff !important;
+	  color: #000000 !important;
+	  border: 1px solid #ced4da;
+	  font-size: 15px;
+	  padding : 0.375rem 0.75rem;
+	  border-radius: 5px;
+	  -webkit-box-shadow: none !important;
+	  box-shadow: none !important;
+  	}
+    
+/*     .one{ */
+/*     float:left; */
+/*     } */
+/*     .two{ */
+/*     float:right; */
+/*     } */
+    </style>
+    
+    
   </head>
   <body>
     
@@ -37,103 +80,51 @@
     <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
-<!--         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start"> -->
-<!--           <div class="col-md-9 ftco-animate pb-5"> -->
-<!--           	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Contact <i class="ion-ios-arrow-forward"></i></span></p> -->
-<!--             <h1 class="mb-3 bread">Contact Us</h1> -->
-<!--           </div> -->
-<!--         </div> -->
-      </div>
-    </section>
-
-    <section class="ftco-section contact-section">
-      <div class="container">
-   <body>
-          <div class="col-md-8 block-9 mb-md-5">
-					<div class="board_wrap">
-						<div class="board_title">
-							<strong>1:1 문의하기</strong>
-							<p>타이소에게 다 물어보세요!</p>
-						</div>
-						<div class="board_write_wrap">
-							<div class="board_write">
-								<div class="title">
-									<!-- 여기까지 위쪽 틀 아래는 변수 -->
-
-						               <input type="hidden" name="bo_num" value="${param.bo_num }">
-							           <input type="hidden" name="mem_id" value="${sessionScope.mem_id }">
-							           <input type="hidden" name="bo_re_ref" value="${param.bo_re_ref }">
-							           <input type="hidden" name="bo_re_seq" value="${param.bo_re_seq }">
-							           <input type="hidden" name="bo_re_lev" value="${param.bo_re_lev }">
-							           
-							           <dl>
-						               <dt>카테고리</dt> 
-						               		<dd><select class="form-select" aria-label="Default select example" name="bo_cate">
-												  <option selected value="">분류</option>
-												  <option value="1">이용안내</option>
-												  <option value="2">예약/결제</option>
-												  <option value="3">취소/환불</option>
-												  <option value="4">보험/사고</option>
-												  <option value="5">기타</option>
-											</select></dd>
-										<dt>작성일</dt>
-										<dd>
-											<input type="text" id="todaybirthday" readonly="readonly">
-										</dd>
-										<dt>제목</dt>
-										<dd>
-											<input type="text" name="bo_title"
-												placeholder="제목을 입력해주세요">
-										</dd>
-<!-- 										<dt>작성자</dt> -->
-<!-- 										<dd> -->
-<%-- 											<input type="text" value="${ }" --%>
-<!-- 												name="mem_id" readonly="readonly"> -->
-<!-- 										</dd> -->
-										<dt>비밀번호</dt>
-										<dd>
-											<input type="password" name="bo_pass"
-												placeholder="비밀번호를 입력해주세요">
-										</dd>
-									</dl>
-									<hr>
-								</div>
-								<div class="cont">
-									<textarea name="bo_content" placeholder="내용을 입력해주세요"></textarea>
-								</div>
-								<br>
-								<div class="input-group">
-									<input type="file" name="bo_file" id="inputGroupFile04"
-										value="첨부파일" aria-describedby="inputGroupFileAddon04"
-										aria-label="Upload">
-								</div>
-<!-- 									<div class="input-group mb-3"> -->
-<!-- 									  <div class="input-group-prepend"> -->
-<!-- 									    <span class="input-group-text">첨부파일</span> -->
-<!-- 									  </div> -->
-<!-- 									  <div class="custom-file"> -->
-<!-- 									    <input type="file" class="custom-file-input" id="inputGroupFile01"> -->
-<!-- 									    <label class="custom-file-label" for="inputGroupFile01">파일을 선택하세요</label> -->
-<!-- 									  </div> -->
-<!-- 									</div> -->
-							</div>
-							<br>
-							<!-- 버튼 -->
-							<div class="d-grid gap-8 col-8 formbtncenter">
-								<input type="button" value="작성완료" class="btn btn-primary2"
-									onclick="QuestionWrite()" > 
-								<input type="button" value="작성취소" class="btn btn-primary2"
-									onclick="location.href='./QuestionList.bo';">
-									</div>
-									
-									
-								</div>
-							</div>	
-						</form>
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+          <div class="col-md-9 ftco-animate pb-5">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="./ReservationMain.rez">Home <i class="ion-ios-arrow-forward"></i></a></span> <span><a href="./LongTerm.rez">렌트하기 <i class="ion-ios-arrow-forward"></i></a></span></p>
+            <h1 class="mb-3 bread">장기렌트 문의</h1>
           </div>
+        </div>
       </div>
     </section>
-	
+
+	<section class="ftco-section3">
+          <div class="col-md-8 block-9 mb-md-5">
+            <form action="./ReviewWriteProAction.rev" name = "fr" class="bg-light p-5 contact-form" method="post" enctype="multipart/form-data">
+           	 <h3><b>　　　　　　　　간편 견적 신청</b></h3><br>
+						<label>　　　　　이름　　　　　　　　　　　  　　<input type="text" name="rez_rentalDate" class="form-control2" value="" readonly="readonly"></label><br> <!-- rezDTO -->
+                        <label>　　　　　연락처　　　　　　　　　　  　　<input type="text" name="rez_returnDate" value="" class="form-control2" readonly="readonly"></label><br>
+                        <label>　　　　　지역　　　　　　　　　　　　　</label>
+                        <select id="sido_select" class="form-control2">
+                            <option value="" selected disabled hidden>지역을 선택하세요</option>   
+                            <option value="제주">제주</option>
+                            <option value="서울">서울</option>
+                            <option value="인천/경기">인천/경기</option>
+                            <option value="강원도">강원도</option>
+                            <option value="충청/대전">충청/대전</option>
+                            <option value="전라/광주">전라/광주</option>
+                            <option value="경상/부산/대구/울산">경상/부산/대구/울산</option>
+                     </select><br>
+                        <label>　　　　　관심차종　　　　　　　　　　　</label>
+                        <select id="sido_select" class="form-control2">
+                            <option value="" selected disabled hidden>차량을 선택하세요</option>   
+                            <option value="레이">레이</option>
+                            <option value="기아">기아</option>
+                            <option value="모델S">모델S</option>
+                            <option value="countryman">컨트리맨~</option>
+                            <option value="쏘나타">쏘나타</option>
+                            <option value="아이오닉">아이오닉</option>
+                     </select><br>
+                  <label>　　　　　구분　　　　　 　　　 　　　　　</label>
+                  <input type="radio" name="whoareyou" value="개인"> 개인 
+                  <input type="radio" name="whoareyou" value="개인사업자"> 개인사업자 
+                  <input type="radio" name="whoareyou" value="법인"> 법인
+                  <label>　　　　　문의사항　　　 　　 　　　  　 　</label>
+                  <textarea class="form-control3" rows="10" cols="50">문의사항을 적어주세요</textarea> <br><br>
+                  <div style="text-align: center;"><input type="submit" value="제출하기" class="btn btn-primary py-2 px-2"></div>
+            </form>  
+	</section>
 		<!-- 푸터들어가는 곳 -->
 		<jsp:include page="../inc/bottom.jsp" />
 		<!-- 푸터들어가는 곳 -->

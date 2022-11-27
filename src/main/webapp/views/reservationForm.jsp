@@ -367,7 +367,7 @@
                      <label>차량카테고리　:　<input type="text" name="car_category" value="${carDTO.car_category}" class="form-control2" readonly="readonly"></label> <br>
                      <label>차량브랜드　　:　<input type="text" name="car_brand" value="${carDTO.car_brand}" class="form-control2" readonly="readonly"></label><br><!-- 주소줄에서받아오기 -->
                      <label>차량이름　　　:　<input type="text" name="car_name" value="${carDTO.car_name}" class="form-control2" readonly="readonly"></label><br>
-                     <label>차량옵션　　　:　<input type="text" name="car_op" value="${carDTO.car_op}" class="form-control3" readonly="readonly"></label><br>
+                     <label>차량옵션　　　:　<input type="text" name="car_op" value="<c:forTokens var="op" items="${carDTO.car_op }" delims=",">${op } </c:forTokens>" class="form-control3" readonly="readonly"></label><br>
                      <label>차량연식　　　:　<input type="text" name="car_year" value="${carDTO.car_year}" class="form-control2" readonly="readonly"></label><br>
                      <label>차량연료　　　:　<input type="text" name="car_fuel" value="${carDTO.car_fuel}" class="form-control2" readonly="readonly"></label>
                      </div>
