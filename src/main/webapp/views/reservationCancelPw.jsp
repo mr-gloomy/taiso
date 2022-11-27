@@ -81,7 +81,7 @@ function cancelRez(seq){
                <label>취소수수료 <br>
                결제 금액에서 10% 차감된 금액으로 환불됩니다.            
                </label>
-               <input type="text" name="cancel_commission" value="10" readonly="readonly">%
+               <input type="text" name="cancel_commission" value="${param.pay_total}" readonly="readonly">원
                <!-- 나중에 (pay_total * 0.9) 해주기 / 아니면 그냥 환불해주기 -->
                <br>
                

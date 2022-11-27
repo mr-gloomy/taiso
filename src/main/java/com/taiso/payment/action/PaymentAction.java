@@ -32,6 +32,7 @@ public class PaymentAction implements Action {
 		 * [] rez_status			
 		 * [] car_code				
 		 * [] car_insurance			
+		 * [] car_name		
 		 * [] mem_id			=> fk
 		 * [] license_num		=> fk
 		 * 
