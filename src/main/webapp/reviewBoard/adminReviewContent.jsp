@@ -77,13 +77,14 @@
 															
                     </dl>
                 </div>
+                <div class="img rounded d-flex align-items-end"
+                        style="background-image: url(./upload/${adrDTO.rev_image.split(',')[0] });"> 
+<!--                 	<dt>첨부파일</dt> -->
+<%-- 					${adrDTO.rev_image } --%>
+                </div><br>
                 <div class="cont">
 					${adrDTO.rev_content }
                 </div>
-                <div class="file"> 
-                	<dt>첨부파일</dt>
-					${adrDTO.rev_image }
-                </div><br>
                 
             </div>
             <div align="center">
