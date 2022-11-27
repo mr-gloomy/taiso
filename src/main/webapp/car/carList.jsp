@@ -72,7 +72,7 @@
                         class="ion-ios-arrow-forward"></i></a></span> <span>Cars <i
                      class="ion-ios-arrow-forward"></i></span>
                </p>
-               <h1 class="mb-3 bread">Choose Your Car</h1>
+               <h1 class="mb-3 bread">차량 선택</h1>
             </div>
          </div>
       </div>
