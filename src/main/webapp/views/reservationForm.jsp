@@ -252,7 +252,26 @@
     
    </script>
 
-
+<!-- 예약취소하기 -->
+ <script type="text/javascript">
+ function cancleRez(){
+    Swal.fire({ 
+         title: '예약을 취소하시겠습니까?', 
+         icon: 'warning', 
+         html: "<h6>예약취소 시 해당 정보가 저장되지 않을 수 있습니다.</h6><h5>메인페이지로 이동합니다.</h5>",
+         showCancelButton: true,         
+         confirmButtonColor: '#3085d6', 
+         cancelButtonColor: 'grey', 
+         confirmButtonText: '취소하기', 
+         cancelButtonText: '머무르기' 
+       }).then((result) => { 
+         if (result.isConfirmed) {           
+              //"취소하기" 버튼을 눌렀을 때 호출할 함수
+            location.href="./ReservationMain.rez";
+         } 
+       }) 
+    }    
+ </script>
 
   </head>
 
@@ -332,34 +351,21 @@
              
 <!--           </div> -->
 <div class="col-md-12">
-           <div class="form-group">
+            <div class="form-group">
               <h3>운전자정보입력</h3>
               
               <input type="hidden" name="mem_id" value="${sessionScope.mem_id }">
         
-           이름 : <input type="text" name="mem_name" class="form-control" class="form-control2" value="${mDTO.mem_name }" readonly="readonly">
-           </div> 
+                이름 : <input type="text" name="mem_name" class="form-control" class="form-control2" value="${mDTO.mem_name }" readonly="readonly">
+          </div> 
           
-          
-          <c:if test="${not empty mDTO.mem_phone}">>
-	          <div class="form-group">           
-	                전화번호 : <input type="text" name="mem_phone" class="form-control" class="form-control2" value="${mDTO.mem_phone }" readonly="readonly">
-	          </div> 
-	           <div class="form-group">           
-	                생년월일 : <input type="text" name="mem_birthday" class="form-control" class="form-control2" value="${mDTO.mem_birthday }" readonly="readonly">
-	          </div>  
-          </c:if>
-           
-           
-          <c:if test="${empty mDTO.mem_phone}">
-	          <div class="form-group">           
-	                전화번호 : <input type="text" name="mem_phone" class="form-control" class="form-control2" value="">
-	          </div>    
-	          <div class="form-group">           
-	                생년월일 : <input type="text" name="mem_birthday" class="form-control" class="form-control2" value="">
-	          </div>  
-          </c:if>   
-         
+          <div class="form-group">           
+                전화번호 : <input type="text" name="mem_phone" class="form-control" class="form-control2" value="${mDTO.mem_phone }" readonly="readonly">
+          </div>  
+             
+        <div class="form-group">           
+                생년월일 : <input type="text" name="mem_birthday" class="form-control" class="form-control2" value="${mDTO.mem_birthday }" readonly="readonly">
+         </div>  
          
          <div class="form-group">      
                 이메일 : <input type="email" name="mem_email" class="form-control" class="form-control2" value="${mDTO.mem_email }" readonly="readonly">
@@ -448,13 +454,52 @@
 <div class="col-md-12">   
         <div class="form-group">     
          <h3>약관동의</h3>   
-            <textarea name="" id="" cols="30" rows="7" class="form-control" readonly="readonly">
-약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정
-약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정
-약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정
-약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정
-약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정
-약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정약관동의 긁어올 예정
+            <textarea name="" id="" cols="50" rows="9" class="form-control" readonly="readonly">
+제9조 (예약신청)
+이용자는 이하의 방법에 의하여 차량대여 예약을 신청합니다.
+1. 웹서비스 상에서 예약을 신청하는 방법
+가. 성명, 주소, 전화번호(이동전화번호), 이메일주소 입력
+나. 차량 대여일과 반납일을 입력
+다. 차량의 수령지와 반납지 선택
+라. 대여차량의 확인과 대여요금 및 휴차 손해 등의 비용 부담 확인
+마. 이 약관에 동의한다는 표시(예, 마우스 클릭)
+바. 예약사항 확인 또는 회사의 확인에 대한 동의
+2. 전화로 예약을 신청하는 방법
+
+제10조 (예약의 성립)
+① 회사는 제9조와 같은 예약신청에 대하여 다음 각 호에 해당하지 않는 한 승낙합니다.
+1. 신청 내용에 허위, 기재누락, 오기가 있는 경우
+2. 렌터카 대여자격 조건에 합당치 않은 경우
+가. 승용, 7~9인승 승합차 : 만 21세 이상, 2종 보통 이상 운전면허 취득 후 1년 이상 경과한 자
+나. 11인승 이상 승합차 : 만 21세 이상, 1종 보통 이상 운전면허 취득 후 1년 이상 경과한 자
+3. 기타 차량대여 예약신청에 승낙하는 것이 대여차량 예약마감, 차량 사양의 변경 등 사유로 인하여 현저히 지장이 있다고 판단하는 경우
+② 렌터카 예약은, 웹서비스 예약의 경우에는 렌터카 예약에 대하여 예약번호를 포함한 창의 형태로 이용자에게 도달한 시점에, 전화 예약의 경우에는 유선상 안내에 의하여 이용자에게 예약번호를 고지한 시점에, 각 성립한 것으로 봅니다.
+
+제11조 (대금결제)
+① 예약한 차량대여에 대한 대금지급방법은 다음 각호의 방법 중 가용한 방법으로 할 수 있습니다.
+1. 신용카드 결제
+2. 회사가 지급한 회원 포인트에 의한 결제
+3. 회사와 협의된 가상계좌 납부 (현장 현금 지급은 불가)
+4. 신용카드를 제외한 선불카드, 직불카드, 체크카드 등의 각종 카드 결제
+5. 회사와 계약을 맺었거나 회사가 인정한 상품권에 의한 결제
+6. L.POINT 결제
+7. 기타 회사와 계약을 맺었거나 회사가 인정한 제휴사 포인트 등에 의한 결제
+② 제1항 제3호부터 제7호까지의 방법으로 결제 시 회사는 이용자에게 신용정보조회 동의를 요청드릴 수 있고, 신용정보조회를 거부하거나 조회 결과 이용자의 신용이 회사가 정하는 기준에 부합하지 않을 경우(채무불이행, 신용불량 등) 회사는 차량대여를 취소, 거부할 수 있습니다.
+③ 차량대여에 대한 신용카드 결제가 연체되는 경우, 이용자가 지정하는 신용카드회사의 약관이 적용되며, 신용카드회사로부터 회사에 카드가 무효 또는 판매부인의 통지가 있는 경우 회사는 즉시 이용자의 회사 이용을 일단 정지하고(웹서비스의 ID 및 Password 사용 정지를 포함합니다), 이용자에 대해 대금결제 방법의 변경여부에 대한 확인 연락을 합니다.
+④ 이용자가 회사에 제출한 연락처로 연락이 되지 않을 경우 또는 지정일까지 확인 내지 대금결제 방법의 변경이 되지 않는 경우 회사는 당해 이용자와의 계약을 해제, 해지하고 회원인 경우 제7조 제4항 제3호에 따라 회원 자격상실 처리를 할 수 있습니다.
+
+제12조 (예약확인 통지 및 이용자의 예약 취소)
+① 회사는 이용자가 차량대여 예약을 완료한 경우 이용자에게 예약확인 통지를 합니다.
+② 예약확인 통지를 받은 이용자는 의사표시의 불일치 등이 있는 경우에는 예약확인 통지를 받은 후 예약한 차량대여 시점(이하 ‘예약시간’이라 합니다) 24시간 전까지 예약 취소를 요청할 수 있습니다.
+③ 회사는 예약시간의 24시간 전까지 이용자의 예약 취소 요청이 있는 때에는 지체 없이 그 요청에 따라 처리하며, 예약 취소 전에 대금을 받은 경우 지급받은 대금의 전액을 반환합니다.
+④ 회사가 예약 취소 전에 대금을 받고 이용자가 예약시간 직전 24시간 내에 예약을 취소하는 경우, 회사는 지급받은 대금의 10%를 제외한 나머지 금액만을 반환합니다.
+⑤ 예약시간을 1시간 이상 경과하여도 대여계약이 체결되지 아니한 경우에는 예약은 취소된 것으로 하며, 회사는 사전에 대금을 받은 경우 지급받은 대금의 10%를 제외한 나머지 금액을 반환하고, 이와 별도로 회원 포인트를 1,000포인트 차감할 수 있습니다. (단, 누적 보유 포인트가 없는 회원은 포인트가 차감되지 않습니다.)
+
+제13조 (회사의 예약 취소 및 환불)
+① 회사는 이용자가 차량예약완료 후, 차량의 이상 또는 전산상의 오류 등의 사유로 차량을 대여할 수 없을 때에는 지체 없이 그 사유를 이용자에게 통지하고, 사전에 차량 대여에 대한 대금을 받은 경우에는 대금을 받은 날부터 7일 이내에, 그렇지 않은 경우에는 그 사유발생일로부터 7일 이내에 계약해제 절차를 취합니다. 이 때 회사가 사전에 대금을 받은 경우에는 지급받은 대금과 지급받은 대금의 10%를 합한 금액을 환불합니다. ② 다음 각 호의 경우에는 회사는 대여된 차량일지라도 차량을 반납 받은 다음 1 영업일 이내에 이용자의 요구에 따라 즉시 환불, 반납 또는 교환 조치를 합니다. 다만 이용자의 요구 기한은 차량이 인도된 날로부터 차량 반납 예정일 이내로 합니다.
+1. 예약된 차량이 이용자 예약 내용과 상이하거나 회사가 제공한 정보와 상이할 경우
+2. 예약된 차량이 파손, 손상 되었을 경우. 단, 이용자의 책임 있는 사유로 차량이 훼손된 경우는 제외합니다.
+③ 차량대여 시 회사는 별도의 보증절차 대신 이용자의 개인신용정보 조회를 요청할 수 있으며, 이용자가 이에 동의하지 않거나 조회 결과 이용자의 신용이 회사가 정하는 기준에 부합하지 않을 경우(채무불이행, 신용불량 등) 차량 대여를 취소, 거부할 수 있습니다.
             </textarea><br>
             <label> <input type="checkbox" name="agreement" > 위 약관에 전체 동의합니다.</label>
         </div> 
@@ -463,7 +508,7 @@
    <br>   
           <div class="form-group" id="buttons">
            <input type="button" value="결제하기" onclick="checkRez();" class="btn btn-primary py-3 px-5">
-            <input type="button" value="예약취소" class="btn btn-primary py-3 px-5" onclick="location.href='./views/reservationCancel.jsp';"> 
+            <input type="button" value="예약취소" class="btn btn-primary py-3 px-5" onclick="cancleRez();"> 
           </div>
            
         </form>  

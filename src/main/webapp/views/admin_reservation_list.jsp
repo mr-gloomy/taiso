@@ -54,7 +54,7 @@
 <%--             <td>${rezDTO.rez_returnDate }</td> --%>
             <td>${rezDTO.rez_totalDate }</td>
             <td>
-             <a href="./AdminReservationDetailList.rez?rez_uqNum=${rezDTO.rez_uqNum }">예약정보상세조회</a>
+          	  <a href="./AdminReservationDetailList.rez?rez_uqNum=${rezDTO.rez_uqNum }&pageNum=${pageNum}">예약정보상세조회</a>
             </td>
          </tr>
       </c:forEach>
