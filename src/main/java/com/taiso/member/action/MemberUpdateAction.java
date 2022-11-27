@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.taiso.member.db.MemberDAO;
 import com.taiso.member.db.MemberDTO;
@@ -14,6 +15,18 @@ public class MemberUpdateAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		System.out.println(" M : MemberUpdateAction_execute() ");	
+		
+		// 세션제어
+		HttpSession session = request.getSession();
+		String mem_id = (String) session.getAttribute("mem_id");
+		
+		ActionForward forward = new ActionForward();
+		if(mem_id == null) {
+			forward.setPath("./MemberLogin.me");
+			forward.setRedirect(true);
+			
+			return forward;
+		}
 		
 		// 전달된 데이터 저장(수정정보)
 		// 아이디, 비밀번호, 이메일, 이름, 닉네임, 전화번호, 마케팅동의

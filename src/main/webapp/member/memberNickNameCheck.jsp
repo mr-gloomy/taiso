@@ -27,6 +27,7 @@ function mem_userNName(){
 </head>
 
 <body>
+
 	<!-- 본문 -->
 	<div class="formbold-main-wrapper">
  	<!-- Author: FormBold Team -->

@@ -48,10 +48,20 @@
 							</div>
 						</div>
 						<div class="dropdown">
-					<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" onclick="location.href='./Mypage.bo'">
-							<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-  							<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
-  					</button>
+						<c:choose>
+							<c:when test="${mem_id==null || mem_id=='admin' }">
+								<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" onclick="location.href='./AdminMain.mb'">
+										<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+			  							<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+			  					</button>
+		  					</c:when>
+							<c:when test="${mem_id==null || mem_id!='admin' }">
+								<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" onclick="location.href='./Mypage.bo'">
+										<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+			  							<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+			  					</button>
+		  					</c:when>
+	  					</c:choose>
 						<div class="dropdown-menu">
 						    <c:if test="${mem_id==null}">
 								<a class="dropdown-item" href="./MemberLogin.me">로그인</a>
@@ -65,9 +75,17 @@
 							        <a class="dropdown-item" href="./Mypage.bo">${mem_id }님의 info</a>
 						    	</c:when>
 						    </c:choose>
-					    	<c:if test="${mem_id!=null}">
-						        <a class="dropdown-item" href="./MemberLogout.me">logout</a>
-					    	</c:if>
+						    <c:choose>
+						    	<c:when test="${mem_id=='admin'}">
+							       <a class="dropdown-item" href="./AdminMemberLogout.mb">logout</a>
+						    	</c:when>
+						    	<c:when test="${mem_id!=null}">
+							        <a class="dropdown-item" href="./MemberLogout.me">logout</a>
+							    </c:when>
+						    </c:choose>
+<%-- 					    	<c:if test="${mem_id!=null | mem_id=='admin' }"> --%>
+<!-- 						        <a class="dropdown-item" href="./MemberLogout.me">logout</a> -->
+<%-- 					    	</c:if> --%>
 						</div>
 					</div>
 					</div>

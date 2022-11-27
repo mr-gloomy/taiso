@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.taiso.reservation.db.AdminReservationDAO;
+import com.taiso.reservation.db.ReservationDAO;
 import com.taiso.reservation.db.ReservationDTO;
 
 public class AdminReservationDetailListAction implements Action {
@@ -20,6 +21,7 @@ System.out.println(" M : AdminReservationDetailListAction_execute() 호출 ");
       //관리자여부 로그인 제어
       HttpSession session = request.getSession();
       String mem_id = (String) session.getAttribute("mem_id");
+      System.out.println(mem_id);
       
       ActionForward forward = new ActionForward();
       if(mem_id == null || !mem_id.equals("admin")) {
@@ -52,7 +54,7 @@ System.out.println(" M : AdminReservationDetailListAction_execute() 호출 ");
       request.setAttribute("rezDTO", adminTotalDTO.get(0));
       request.setAttribute("payDTO", adminTotalDTO.get(1));
       request.setAttribute("mDTO", adminTotalDTO.get(2));
-      request.setAttribute("carDTO", adminTotalDTO.get(3));
+     // request.setAttribute("carDTO", adminTotalDTO.get(3));
       request.setAttribute("pageNum", pageNum);
          
       // 페이지 이동 (./views/admin_reservation_list.jsp)

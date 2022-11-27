@@ -42,26 +42,14 @@
 	<div id="wrap">
 		<!-- 헤더들어가는 곳 -->
 		<jsp:include page="../inc/top.jsp" />
-		<!-- 헤더들어가는 곳 -->
-
-
-		<!--  -->
+		
 		<section class="hero-wrap hero-wrap-2 js-fullheight"
 			data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
-				<div
-					class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-					<div class="col-md-9 ftco-animate pb-5">
-						<p class="breadcrumbs">
-							<span class="mr-2"><a href="./ReservationMain.rez"">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>고객센터 <i class="ion-ios-arrow-forward"></i></span>
-						</p>
-						<h1 class="mb-3 bread">고객센터</h1>
-					</div>
-				</div>
 			</div>
 		</section>
-		<!--  -->
+		<!-- 헤더들어가는 곳 -->
 
 		<!-- left -->
 		<section class="ftco-section contact-section">

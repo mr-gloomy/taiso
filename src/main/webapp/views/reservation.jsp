@@ -30,7 +30,6 @@
 	<link rel="stylesheet" href="./css/flaticon.css">
 	<link rel="stylesheet" href="./css/icomoon.css">
 	<link rel="stylesheet" href="./css/style.css">
-	
 
 
    <style type="text/css">
@@ -338,8 +337,8 @@ $(function() {
 		});
 		
 		$('#time_pick').timepicker({
-			minTime: '9:00 am',
-		    maxTime: '9:00 pm',
+			minTime: '9:00am',
+		    maxTime: '9:00pm',
 // 		    format: "hh:mm:ss"
 		});
 		
@@ -396,6 +395,7 @@ function checkForm(){
 		document.fr.site_select.focus();
 		return false;
 	}
+
 }
 
 </script>  

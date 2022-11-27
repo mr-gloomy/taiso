@@ -34,25 +34,15 @@
 			data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
-				<div
-					class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-					<div class="col-md-5 ftco-animate pb-5">
-						<p class="breadcrumbs">
-							<span class="mr-2"><a href="./ReservationMain.rez"">Home <i
-									class="ion-ios-arrow-forward"></i></a></span> <span>notice <i
-								class="ion-ios-arrow-forward"></i></span>
-						</p>
-						<h1 class="mb-3 bread">고객센터</h1>
-					</div>
-				</div>
 			</div>
 		</section>
 		<!-- 헤더들어가는 곳 -->
 
 		<!-- 메인 -->
 		<div class="board_wrap2">
-			<div class="board_title">
-			</div>
+			 <div class="board_title">
+            <strong>공지사항 상세내역</strong>
+        </div>
 			<div class="board_view_wrap">
 				<div class="board_view">
 					<div class="title">${boDTO.bo_title }</div>

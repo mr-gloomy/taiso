@@ -104,11 +104,11 @@ function cancelRez(seq){
 					<label>취소사유　　　　 :　</label> 
 					<select name="cancel_reason">
 						<option value="0">취소사유를 선택하세요</option>
-						<option>다시 예약하기 위해서</option>
-						<option>가격이 비싸서</option>
-						<option>단순변심</option>
-						<option>그냥</option>
-						<option>그냥</option>
+						<option>취소 후 재예약</option>
+						<option>여행 일정 변경</option>
+						<option>이중 계약</option>
+						<option>가격 불만</option>
+						<option>기타 사유</option>
 					</select> 
 					
 					<br> 
@@ -135,11 +135,25 @@ function cancelRez(seq){
 
 			<br>
 			<div id="buttons">
+<<<<<<< HEAD
                <input type="button" value="취소하기" onclick="return cancelRez();">
             </div>
             </div>
 			</form>
 			
+=======
+               <input type="button" value="취소하기"  class="btn btn-primary py-2 px-3" onclick="return cancelRez();">
+            </div>
+
+			<div style="display: none">
+				<input type="file" id="input-file" name="rev_image" /> <br>
+				<br>
+			</div>
+		</div>
+	</form>
+	</form>
+	</div>
+>>>>>>> branch 'master' of https://github.com/mr-gloomy/taiso.git
 	<div id="ftco-loader" class="show fullscreen">
 		<svg class="circular" width="48px" height="48px">
 			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"

@@ -1,3 +1,4 @@
+<%@page import="java.sql.Timestamp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -33,8 +34,19 @@
     <link rel="stylesheet" href="./css/style2.css">
     <link rel="stylesheet" href="./css/board2.css">
     
-        <script type="text/javascript">
-     
+    
+	<fmt:parseDate value="${sessionScope.rez_date }" var="rez_date" pattern="yyyy-MM-dd"/>
+	<fmt:parseNumber value="${rez_date.time / (1000*60*60*24)}" integerOnly="true" var="rezDate"></fmt:parseNumber>
+	<fmt:parseDate value="${sessionScope.today }" var="today" pattern="yyyy-MM-dd"/>
+	<fmt:parseNumber value="${today.time / (1000*60*60*24)}" integerOnly="true" var="today"></fmt:parseNumber>
+    
+
+    
+    <script type="text/javascript">
+    
+    
+    
+    
  	// 예약 취소 여는 팝업창
  	function cancelOpen(value){
  		
@@ -55,6 +67,11 @@
   		window.open("./ReservationCancelCheck.rez?rez_uqNum="+rez_uqNum+"&pay_total="+pay_total,"",'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top);
  	}
    
+ 	
+ 	function checkForm(){
+ 			alert("예약일 기준 하루 전은 예약 취소가 불가능합니다.");
+ 			return false;
+ 		}
 
    </script>
     
@@ -215,12 +232,19 @@
 											 <form action="" name="fr" method="post">
 							   					  <input type="hidden" name="mem_id" value="${mDTO.mem_id }" >   
 							   					  <input type="hidden" name="pay_uqNum" value="${payDTO.pay_uqNum }" >   
+											 <input type = "button" class="btn btn-primary py-2 mr-1" value = "예약 조회로 돌아가기" onclick="location.href='./ReservationList.rez';">ㅤ
 											 </form>
-											 <input type = "button" class="btn btn-primary py-1 mr-1" value = "예약 조회로 돌아가기" onclick="location.href='./ReservationList.rez';">ㅤ
 											 
-											 <c:if test="${rezDTO.rez_status == 1}">
-											 	<input type = "button" class="btn btn-primary py-2 mr-1" value = "예약 취소" onclick="cancelOpen(${rezDTO.rez_uqNum }+','+${payDTO.pay_total*0.9});">
+											 <c:if test="${rezDTO.rez_status == 1 && rezDate-today < 2 }">
+												<input type = "button" class="btn btn-primary py-2 mr-1" value = "예약 취소"  onclick="checkForm()">
 											 </c:if>
+											 
+											 
+											 <c:if test="${rezDTO.rez_status == 1 && rezDate-today > 1 }">
+											 	<input type = "button" class="btn btn-primary py-2 mr-1" value = "예약 취소"  onclick="cancelOpen(${rezDTO.rez_uqNum }+','+${payDTO.pay_total*0.9});">
+											 </c:if>
+											 
+											 
 											 <c:if test="${rezDTO.rez_status == 0}">
 											 </c:if>	
 											
@@ -275,7 +299,6 @@
 	<script src="./js/google-map.js"></script>
 	<script src="./js/main.js"></script>
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-	
 	
   </body>
 </html>

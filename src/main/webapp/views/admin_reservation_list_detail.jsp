@@ -46,6 +46,7 @@
 	    
     <section class="hero-wrap hero-wrap-2 js-fullheight" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
+<<<<<<< HEAD
       <div class="container">
 <!--         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start"> -->
 <!--           <div class="col-md-9 ftco-animate pb-5"> -->
@@ -55,6 +56,9 @@
 <!--           </div> -->
 <!--         </div> -->
       </div>
+=======
+      <div class="container"></div>
+>>>>>>> branch 'master' of https://github.com/mr-gloomy/taiso.git
     </section>
 <!-- 헤더들어가는 곳 -->
 <!-- 메인 -->

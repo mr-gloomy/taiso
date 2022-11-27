@@ -57,7 +57,6 @@ public class AdminReservationListAction implements Action {
       // 끝행 번호 계산하기  10  20  30  40  50
       int endRow = currentPage*pageSize;
       
-
       
       /**
        *       디비에 전체 예약 정보 가져오기
@@ -95,7 +94,7 @@ public class AdminReservationListAction implements Action {
       // 예약정보를 request 영역에 저장
          request.setAttribute("adminRezList", adminRezList) ;
 
-         
+        
          
        // 페이징처리정보저장
          request.setAttribute("pageNum", pageNum);
@@ -104,7 +103,7 @@ public class AdminReservationListAction implements Action {
          request.setAttribute("pageBlock", pageBlock); 
          request.setAttribute("startPage", startPage);
          request.setAttribute("endPage", endPage);
-        
+        System.out.println(" M : pageNum : " + pageNum);
          
       // 페이지 이동 (./views/admin_reservation_list_detail.jsp)
       forward = new ActionForward();
