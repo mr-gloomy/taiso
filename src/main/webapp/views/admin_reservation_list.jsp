@@ -67,8 +67,7 @@
 			    <div class="date3">${rezDTO.rez_returnDate }</div>
 				<div class="num1">${rezDTO.rez_totalDate }</div>
 				<div class="count2">
-				 <a href="./AdminReservationDetailList.rez?rez_uqNum=${rezDTO.rez_uqNum }">예약정보상세조회</a>
-<%-- 				 <input type = "button" class="btn btn-primary py-2 mr-1" value = "삭제" onclick=" --%>
+				 <a href="./AdminReservationDetailList.rez?rez_uqNum=${rezDTO.rez_uqNum }&pageNum=${pageNum }">예약정보상세조회</a>
 				</div>
 			</div>
 		</c:forEach>
@@ -79,14 +78,13 @@
 			<!-- 페이징처리 -->
     			<c:if test="${totalCnt != 0 }">
 
+			<div class="col text-center">
+				<div class="block-27">
+					<ul>
 			<!-- 이전 -->
 			<c:if test="${startPage > pageBlock }">
 				<a href="./AdminReservationList.rez?pageNum=${startPage-pageBlock }">[이전]</a>
 			</c:if>
-			<!--     	<div class="row mt-5"> -->
-			<div class="col text-center">
-				<div class="block-27">
-					<ul>
 						<!-- 페이지 번호(1,2,3...) -->
 					<c:forEach var="i" begin="${startPage }" end="${endPage }"
 						step="1">
@@ -102,14 +100,14 @@
 						
 
 						</c:forEach>
-					</ul>
-				</div>
-			</div>
-
-			<!-- 다음 -->
+					<!-- 다음 -->
 			<c:if test="${endPage < pageCount }">
 				<a href="./AdminReservationList.rez?pageNum=${startPage+pageBlock }">[다음]</a>
 			</c:if>
+					</ul>
+					
+				</div>
+			</div>
 
 		</c:if>
 		<div id="table_search">
