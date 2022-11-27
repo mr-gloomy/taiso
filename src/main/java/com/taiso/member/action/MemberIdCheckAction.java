@@ -2,6 +2,7 @@ package com.taiso.member.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.taiso.member.db.MemberDAO;
 
@@ -32,7 +33,7 @@ public class MemberIdCheckAction implements Action {
 		// 페이지 이동
 		ActionForward forward = new ActionForward();
 		forward.setPath("./member/memberIdCheck.jsp?inputID="+mem_userId);	
-		forward.setRedirect(false);		
+		forward.setRedirect(false);	
 		
 		return forward;
 	}

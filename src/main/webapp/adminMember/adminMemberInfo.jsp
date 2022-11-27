@@ -69,12 +69,6 @@ tr:nth-child(even) {
     <section class="hero-wrap hero-wrap-2 js-fullheight" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-          <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="./AdminMain.mb">admin<i class="ion-ios-arrow-forward"></i></a></span> <span>Member Detail <i class="ion-ios-arrow-forward"></i></span></p>
-            <h1 class="mb-3 bread">관리자페이지</h1>
-          </div>
-        </div>
       </div>
     </section>
 	<!-- 헤더들어가는 곳 -->
@@ -132,6 +126,7 @@ tr:nth-child(even) {
 								<tr align="center">
 									<td><p>전화번호</p></td>
 									<td>${mDTO.mem_phone }</td>
+								</tr>
 								<tr align="center">
 									<td><p>이메일</p></td>
 									<td>${mDTO.mem_email }</td>
@@ -143,9 +138,6 @@ tr:nth-child(even) {
 								<tr align="center">
 									<td><p>회원등록일</p></td>
 									<td>${mDTO.mem_registDate }</td>
-								<tr align="center">
-									<td><p>프로필 이미지</p></td>
-									<td>${mDTO.mem_image }</td>
 								</tr>
 								<tr align="center">
 									<td><p>면허증번호</p></td>
@@ -154,22 +146,22 @@ tr:nth-child(even) {
 								<tr align="center">
 									<td><p>블랙리스트</p></td>
 									<td>
+								${mDTO.mem_num }
+								${mDTO.mem_blacklist }
+								${mDTO }
+								
 									<form action="./AdminBlacklistUpdate.mb?mem_num=${mDTO.mem_num }">
 										<input type="hidden" name="mem_num" value="${mDTO.mem_num }">
-										<div class="form-check form-check-inline" align="right">
-											<input class="form-check-input" type="radio" name="blacklist" value="Y"
+											<input type="radio" name="blacklist" value="Y"
 												<c:if test="${mDTO.mem_blacklist == 'Y'}">
 								     			checked
 								 				</c:if>
 								 			> Y
-								 		</div>
-										<div class="form-check form-check-inline" align="right">
-											<input class="form-check-input" type="radio" name="blacklist" value="N"
+											<input type="radio" name="blacklist" value="N"
 												<c:if test="${mDTO.mem_blacklist == 'N'}">
 				     			 				checked
 				 								</c:if>
 				 							> N
-										</div> 
 										<input type="submit" value="수정하기" class="btn btn-primary py-1 px-2">
 									 </form>
 									</td>
@@ -201,7 +193,10 @@ tr:nth-child(even) {
 		</section>
 
 		<!-- 우측 -->
-	
+		<div id="table_search">
+			<input type="button" value="관리자메인페이지로이동" class="btn btn-primary py-2 mr-1" 
+				onclick=" location.href='./AdminMain.mb';" >
+		</div>
 
 	<!-- 메인페이지  -->
 
@@ -229,7 +224,6 @@ tr:nth-child(even) {
 	<script src="./js/jquery.timepicker.min.js"></script>
 	<script src="./js/scrollax.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-	<script src="./js/google-map.js"></script>
 	<script src="./js/main.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
     <script src="./js/taskList.js"></script>

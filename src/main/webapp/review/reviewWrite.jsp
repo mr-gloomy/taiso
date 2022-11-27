@@ -51,7 +51,7 @@
 						text: '제목을 입력해주세요'
 					})
 		 			document.fr.rev_subject.focus();
-		 			return;
+		 			return;요
 		 		}
 		 		if(document.fr.rev_content.value == ""){
 		 		    Swal.fire({

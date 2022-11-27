@@ -18,10 +18,10 @@ public class AdminMemberListAction implements Action {
 		
 		// 세션제어(admin)
 		HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("id");
+		String mem_id = (String) session.getAttribute("mem_id");
 		
 		ActionForward forward = new ActionForward();
-		if(id == null || !id.equals("admin")) {
+		if(mem_id == null || !mem_id.equals("admin")) {
 			forward.setPath("./MemberLogin.me");
 			forward.setRedirect(true);
 		}

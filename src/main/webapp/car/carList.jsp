@@ -33,6 +33,25 @@
 <link rel="stylesheet" href="./css/icomoon.css">
 <link rel="stylesheet" href="./css/style.css">
 <link rel="stylesheet" href="./css/nav.css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+<style>
+   .caricon:before {
+       content: "\f057";
+       font-family: FontAwesome;
+       line-height: 1;
+       font-size:100px;
+       color: #007bff;
+   }
+   
+   .col-md-15 {
+	    -webkit-box-flex: 0;
+	    -ms-flex: 0 0 41.66667%;
+	    flex: 0 0 100%;
+	    max-width: 100%; 
+	    text-align: center;
+	    }
+ </style>
+
 </head>
 <body>
 
@@ -53,7 +72,7 @@
                         class="ion-ios-arrow-forward"></i></a></span> <span>Cars <i
                      class="ion-ios-arrow-forward"></i></span>
                </p>
-               <h1 class="mb-3 bread">Choose Your Car</h1>
+               <h1 class="mb-3 bread">차량 선택</h1>
             </div>
          </div>
       </div>
@@ -105,11 +124,12 @@
 	            </c:forEach>
 	            </c:when>
 	            <c:otherwise>
-	            	<div class="col-md-5">
-	            	<h2>
-	            	ㅤ
-	            	</h2>
-	            	<h2 style="text-align: center;">이용 가능한 차량이 없습니다.</h2>
+	            	<div class="col-md-15">
+	            	<h1>
+	            		<div class="caricon"></div>
+	            	</h1>
+	            		<br> <h5>이용 가능한 차량이 없습니다 지점을 다시 선택해주세요.</h5> <br>
+	            		<input class="btn btn-primary" type="button" value = "뒤로가기" onclick="javascript:history.back();">
 	            	</div>
 	            </c:otherwise>
             </c:choose>

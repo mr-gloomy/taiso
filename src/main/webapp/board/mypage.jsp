@@ -107,6 +107,19 @@
       </div>
     </section>
 	<!--  -->
+	
+	<!-- 로그인 제어 -->
+	
+	<%
+		String mem_id = (String) session.getAttribute("mem_id");
+		if(mem_id==null || mem_id.equals("admin")){
+			response.sendRedirect("./ReservationMain.rez");
+			System.out.println(" 비정상적 접근 발생! IP : "+request.getRemoteAddr());
+		}
+	%>
+
+	<!-- 로그인 제어 -->
+	
 	 
 	<!-- left -->
     <section class="ftco-section contact-section">
@@ -154,7 +167,7 @@
                 <li class="buttonitem" id="settings">
                     <a href="#settings" class="menubtn"><i class="fa fa-cog"></i> 회원정보 관리</a>
                     <div class="smenu">
-                        <a href="./MemberUpdate.me">개인정보 수정</a>
+                        <a href="./MemberUpdatePw.me">개인정보 수정</a>
                         <a href="./MemberRemove.me">회원 탈퇴</a>
                     </div>
                 </li>

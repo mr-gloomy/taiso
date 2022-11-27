@@ -16,9 +16,21 @@ public class MemberUpdatePwAction implements Action {
 		
 		System.out.println(" M : MemberUpdatePwAction_execute() 호출 ");
 		
-		// 전달 정보 저장(mem_id, mem_pw)
+		// 세션제어
 		HttpSession session = request.getSession();
 		String mem_id = (String) session.getAttribute("mem_id");
+		
+		ActionForward forward = new ActionForward();
+		if(mem_id == null) {
+			forward.setPath("./MemberLogin.me");
+			forward.setRedirect(true);
+			
+			return forward;
+		}
+		
+		// 전달 정보 저장(mem_id, mem_pw)
+		session = request.getSession();
+		mem_id = (String) session.getAttribute("mem_id");
 		String mem_pw = request.getParameter("mem_repw");
 		
 		// DAO 객체 생성 - 비밀번호 일치 체크
@@ -44,7 +56,6 @@ public class MemberUpdatePwAction implements Action {
 
 		
 		// 수정페이지로 이동
-		ActionForward forward = new ActionForward();
 		forward.setPath("/MemberUpdate.me");
 		forward.setRedirect(false);
 		
