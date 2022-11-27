@@ -22,7 +22,7 @@
 // 회원---------------------------------------------------------------
 
 
-response.sendRedirect("./MemberJoin.me");
+// response.sendRedirect("./MemberJoin.me");
 // response.sendRedirect("./MemberLogin.me");
 // response.sendRedirect("./MemberNaverLogin.me");
 // response.sendRedirect("./MemberUpdatePw.me");
