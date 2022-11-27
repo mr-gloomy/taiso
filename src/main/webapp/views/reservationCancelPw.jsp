@@ -135,13 +135,6 @@ function cancelRez(seq){
 
 			<br>
 			<div id="buttons">
-<<<<<<< HEAD
-               <input type="button" value="취소하기" onclick="return cancelRez();">
-            </div>
-            </div>
-			</form>
-			
-=======
                <input type="button" value="취소하기"  class="btn btn-primary py-2 px-3" onclick="return cancelRez();">
             </div>
 
@@ -151,9 +144,6 @@ function cancelRez(seq){
 			</div>
 		</div>
 	</form>
-	</form>
-	</div>
->>>>>>> branch 'master' of https://github.com/mr-gloomy/taiso.git
 	<div id="ftco-loader" class="show fullscreen">
 		<svg class="circular" width="48px" height="48px">
 			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
