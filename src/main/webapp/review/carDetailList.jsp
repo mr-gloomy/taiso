@@ -119,7 +119,7 @@
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
           <div class="col-md-9 ftco-animate pb-5">
           	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Car details <i class="ion-ios-arrow-forward"></i></span></p>
-            <h1 class="mb-3 bread">Car Details</h1>
+            <h1 class="mb-3 bread">차량 상세정보</h1>
           </div>
         </div>
       </div>
@@ -162,8 +162,27 @@
 	              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-pistons"></span></div>
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
-		                	차종 
-		                	<span>${carDTO.car_category }</span>
+		                	차종
+	                		<c:choose>
+	               			<c:when test="${carDTO.car_category.equals('suv') }">
+		                		<span>SUV</span>
+                			</c:when>	
+	               			<c:when test="${carDTO.car_category.equals('large') }">
+		                		<span>대형</span>
+                			</c:when>	
+	               			<c:when test="${carDTO.car_category.equals('middle') }">
+		                		<span>중형 </span>
+                			</c:when>	
+	               			<c:when test="${carDTO.car_category.equals('compact') }">
+		                		<span>준중형 </span>
+                			</c:when>	
+	               			<c:when test="${carDTO.car_category.equals('small') }">
+		                		<span>소형 </span>
+                			</c:when>	
+	               			<c:when test="${carDTO.car_category.equals('foreign') }">
+		                		<span>수입차 </span>
+                			</c:when>	
+		                	</c:choose> 
 		                </h3>
 	                </div>
                 </div>
@@ -177,8 +196,18 @@
 	              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-car-seat"></span></div>
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
-		                	Seats
-		                	<span>5 Adults</span>
+		               		탑승가능 인원
+		               		<c:choose>
+	               			<c:when test="${carDTO.car_category.equals('suv') || carDTO.car_category.equals('foreign')  }">
+		                		<span>6명</span>
+                			</c:when>	
+	               			<c:when test="${carDTO.car_category.equals('middle') || carDTO.car_category.equals('large')  }">
+		                		<span>5명</span>
+                			</c:when>	
+	               			<c:when test="${carDTO.car_category.equals('compact') || carDTO.car_category.equals('small')  }">
+		                		<span>4명</span>
+                			</c:when>	
+		                	</c:choose>
 		                </h3>
 	                </div>
                 </div>
@@ -192,8 +221,18 @@
 	              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-backpack"></span></div>
 	              	<div class="text">
 		                <h3 class="heading mb-0 pl-3">
-		                	Luggage
-		                	<span>4 Bags</span>
+		                	캐리어 수납  
+		                		<c:choose>
+	               			<c:when test="${carDTO.car_category.equals('suv') || carDTO.car_category.equals('foreign')  }">
+		                		<span>4개까지</span>
+                			</c:when>	
+	               			<c:when test="${carDTO.car_category.equals('middle') || carDTO.car_category.equals('large')  }">
+		                		<span>3개까지</span>
+                			</c:when>	
+	               			<c:when test="${carDTO.car_category.equals('compact') || carDTO.car_category.equals('small')  }">
+		                		<span>2개까지</span>
+                			</c:when>	
+		                	</c:choose>
 		                </h3>
 	                </div>
                 </div>
