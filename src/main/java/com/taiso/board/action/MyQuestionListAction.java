@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.taiso.board.db.BoardDAO;
+import com.taiso.board.db.BoardDTO;
+import com.taiso.member.db.MemberDAO;
 
 public class MyQuestionListAction implements Action {
 
@@ -75,7 +77,23 @@ public class MyQuestionListAction implements Action {
 
 		/////////////////////////////////////////////////////////////////
 		
+		// 전달정보저장(닉네임)
+		MemberDAO mDAO = new MemberDAO();
+		com.taiso.member.db.MemberDTO mDTO = new com.taiso.member.db.MemberDTO();
+		mDTO = mDAO.getMember(mem_id);
+		System.out.println(mDTO);
 		
+		request.setAttribute("mDTO",mDTO);
+		
+		//전달정보저장
+		BoardDTO bodto = new BoardDTO();
+		int myqnacnt = bodao.getMyqnacnt(mem_id);
+		int myreviewcnt = bodao.getMyreviewcnt(mem_id);
+		
+		System.out.println(myqnacnt);
+		System.out.println(myreviewcnt);
+		request.setAttribute("myqnacnt", myqnacnt);
+		request.setAttribute("myreviewcnt", myreviewcnt);
 		
 		// DB에 배열 저장
 		ArrayList MyQuestionList = bodao.getMyQuestionList(mem_id, startRow, pageSize);

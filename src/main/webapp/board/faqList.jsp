@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/admin_my.css">
     <link rel="stylesheet" href="./css/board.css">
+    <link rel="stylesheet" href="./css/acodian.css">
     
     
       <!-- 사이드바 --> 
@@ -137,7 +138,7 @@ h2 {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 33.33333%;
     flex: 0 0 33.33333%;
-    max-width: 27.33333%; 
+    max-width: 24.33333%; 
     margin-right: 35px;
 /*     margin-top: 30px; */
     border-radius: 22px;
@@ -209,8 +210,6 @@ float: right;
 <!--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
 <!-- </head> -->
 <!-- <body> -->
-
-      	
       	
       		<div class="col-md-12 pills">
 						<div class="bd-example bd-example-tabs">
@@ -245,33 +244,33 @@ float: right;
 								    <div class="parent-tab">
 								      <input type="radio" name="tab" id="tab-1" checked>
 								      <label for="tab-1">
-								        <span>Q1. 타이소가 뭐죠?</span>
+								        <span id="cate">Q. 질문합니다 </span> 
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								        <p>A. 답변입니다 </p>
 								      </div>
 								    </div>
 								    <!-- Accordion Heading Two -->
 								    <div class="parent-tab">
 								      <input type="radio" name="tab" id="tab-2">
 								      <label for="tab-2">
-								        <span>Q2. 웅애웅ㅇ?</span>
+								        <span>Q. 질문합니다</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								        <p>A. 답변입니다 </p>
 								      </div>
 								    </div>
 								    <!-- Accordion Heading Three -->
 								    <div class="parent-tab tab-3">
 								      <input type="radio" name="tab" id="tab-3">
 								      <label for="tab-3" class="tab-3">
-								        <span>Q3. ㅋㅋ</span>
+								        <span>Q. 질문합니다</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								        <p>A. 답변입니다 </p>
 								
 								      </div>
 								    </div>
@@ -279,74 +278,75 @@ float: right;
 								    <div class="parent-tab">
 								      <input type="radio" name="tab" id="tab-6">
 								      <label for="tab-6">
-								        <span>Q4. 몰라</span>
+								        <span>Q. 질문합니다</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								        <p>A. 답변입니다 </p>
 								      </div>
 								    </div>
 								  </div>
 								      	
 								      <!-- -------------아코디언 메뉴--------------- -->
 						    </div>
-						    
-						    
+						    								  
+							
 						    
 						    <div class="tab-pane fade show active" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
 								 <!-- -------------아코디언 메뉴--------------- -->
-								  
-								  <div class="wrapper">
+								  								  <div class="wrapper">
 								    <!-- Accordion Heading One -->
 								    <div class="parent-tab">
-								      <input type="radio" name="tab" id="tab-7" checked>
-								      <label for="tab-7">
-								        <span>Q1. 제 돈 다 드리고 싶네요 구라임</span>
+								      <input type="radio" name="tab" id="tab-555" checked>
+								      <label for="tab-555">
+								        <span>Q. 질문합니다</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								        <p>A. 답변입니다 </p>
 								      </div>
 								    </div>
 								    <!-- Accordion Heading Two -->
 								    <div class="parent-tab">
-								      <input type="radio" name="tab" id="tab-8">
-								      <label for="tab-8">
-								        <span>Q2. 웅애웅ㅇ?</span>
+								      <input type="radio" name="tab" id="tab-666">
+								      <label for="tab-666">
+								        <span>Q. 질문합니다</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								        <p>A. 답변입니다 </p>
 								      </div>
 								    </div>
 								    <!-- Accordion Heading Three -->
 								    <div class="parent-tab tab-3">
-								      <input type="radio" name="tab" id="tab-9">
-								      <label for="tab-9" class="tab-3">
-								        <span>Q3. ㅋㅋ</span>
+								      <input type="radio" name="tab" id="tab-777">
+								      <label for="tab-777" class="tab-3">
+								        <span>Q. 질문합니다</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								        <p>A. 답변입니다</p>
 								
 								      </div>
 								    </div>
 								    <!-- Accordion Heading Four -->
 								    <div class="parent-tab">
-								      <input type="radio" name="tab" id="tab-10">
-								      <label for="tab-10">
-								        <span>Q4. 몰라</span>
+								      <input type="radio" name="tab" id="tab-888">
+								      <label for="tab-888">
+								        <span>Q. 질문합니다</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								        <p>A. 답변입니다 </p>
 								      </div>
 								    </div>
 								  </div>
 								      	
-								      <!-- -------------아코디언 메뉴--------------- -->						   
+								      <!-- -------------아코디언 메뉴--------------- -->	
 							</div>
 						    
+						    
+
 						    
 						    <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab">
 								 <!-- -------------아코디언 메뉴--------------- -->
@@ -354,47 +354,47 @@ float: right;
 								  <div class="wrapper">
 								    <!-- Accordion Heading One -->
 								    <div class="parent-tab">
-								      <input type="radio" name="tab" id="tab-11" checked>
-								      <label for="tab-11">
-								        <span>Q. 결제하고 싶어요</span>
+								      <input type="radio" name="tab" id="tab-8888" checked>
+								      <label for="tab-8888">
+								        <span>Q. 질문합니다</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								        <p>A. 답변입니다 </p>
 								      </div>
 								    </div>
 								    <!-- Accordion Heading Two -->
 								    <div class="parent-tab">
-								      <input type="radio" name="tab" id="tab-12">
-								      <label for="tab-12">
-								        <span>Q2. 웅애웅ㅇ?</span>
+								      <input type="radio" name="tab" id="tab-9999">
+								      <label for="tab-9999">
+								        <span>Q. 질문합니다</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								        <p>A. 답변입니다 </p>
 								      </div>
 								    </div>
 								    <!-- Accordion Heading Three -->
 								    <div class="parent-tab tab-3">
-								      <input type="radio" name="tab" id="tab-13">
-								      <label for="tab-13" class="tab-3">
-								        <span>Q3. ㅋㅋ</span>
+								      <input type="radio" name="tab" id="tab-0000">
+								      <label for="tab-0000" class="tab-3">
+								        <span>Q. 질문합니다</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								        <p>A. 답변입니다 </p>
 								
 								      </div>
 								    </div>
 								    <!-- Accordion Heading Four -->
 								    <div class="parent-tab">
-								      <input type="radio" name="tab" id="tab-14">
+								      <input type="radio" name="tab" id="tab-141">
 								      <label for="tab-14">
-								        <span>Q4. 몰라</span>
+								        <span>Q. 질문합니다</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								        <p>A. 답변입니다 </p>
 								      </div>
 								    </div>
 								  </div>
@@ -412,33 +412,33 @@ float: right;
 								    <div class="parent-tab">
 								      <input type="radio" name="tab" id="tab-15" checked>
 								      <label for="tab-15">
-								        <span>Q1.예약 잘 되나요 </span>
+								        <span>Q. 질문합니다 </span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								        <p>A. 답변입니다 </p>
 								      </div>
 								    </div>
 								    <!-- Accordion Heading Two -->
 								    <div class="parent-tab">
 								      <input type="radio" name="tab" id="tab-20">
 								      <label for="tab-20">
-								        <span>Q2. 웅애웅ㅇ?</span>
+								        <span>Q. 질문합니다</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								        <p>A. 답변입니다 </p>
 								      </div>
 								    </div>
 								    <!-- Accordion Heading Three -->
 								    <div class="parent-tab tab-30">
 								      <input type="radio" name="tab" id="tab-30">
 								      <label for="tab-30" class="tab-3">
-								        <span>Q3. ㅋㅋ</span>
+								        <span>Q. 질문합니다</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								        <p>A. 답변입니다 </p>
 								
 								      </div>
 								    </div>
@@ -446,11 +446,11 @@ float: right;
 								    <div class="parent-tab">
 								      <input type="radio" name="tab" id="tab-60">
 								      <label for="tab-60">
-								        <span>Q4. 몰라</span>
+								        <span>Q. 질문합니다</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								        <p>A. 답변입니다 </p>
 								      </div>
 								    </div>
 								  </div>
@@ -468,35 +468,35 @@ float: right;
 								  <div class="wrapper">
 								    <!-- Accordion Heading One -->
 								    <div class="parent-tab">
-								      <input type="radio" name="tab" id="tab-19" checked>
-								      <label for="tab-1">
-								        <span>Q1. 내 돈 내놔요</span>
+								      <input type="radio" name="tab" id="tab-1908" checked>
+								      <label for="tab-1908">
+								        <span>Q. 질문합니다</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								        <p>A. 답변입니다 </p>
 								      </div>
 								    </div>
 								    <!-- Accordion Heading Two -->
 								    <div class="parent-tab">
 								      <input type="radio" name="tab" id="tab-29">
-								      <label for="tab-2">
-								        <span>Q2. 웅애웅ㅇ?</span>
+								      <label for="tab-29">
+								        <span>Q. 질문합니다</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								        <p>A. 답변입니다 </p>
 								      </div>
 								    </div>
 								    <!-- Accordion Heading Three -->
 								    <div class="parent-tab tab-3">
 								      <input type="radio" name="tab" id="tab-39">
-								      <label for="tab-3" class="tab-39">
-								        <span>Q3. ㅋㅋ</span>
+								      <label for="tab-39" class="tab-39">
+								        <span>Q. 질문합니다</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								        <p>A. 답변입니다 </p>
 								
 								      </div>
 								    </div>
@@ -504,11 +504,11 @@ float: right;
 								    <div class="parent-tab">
 								      <input type="radio" name="tab" id="tab-69">
 								      <label for="tab-69">
-								        <span>Q4. 몰라</span>
+								        <span>Q. 질문합니다</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 최고의 렌트카 업체 반박 불가 </p>
+								        <p>A. 답변입니다 </p>
 								      </div>
 								    </div>
 								  </div>

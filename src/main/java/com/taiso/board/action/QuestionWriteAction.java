@@ -25,6 +25,14 @@ public class QuestionWriteAction implements Action {
 		ActionForward forward = new ActionForward();
 		System.out.println(mem_id);
 		
+		
+		// 세션에 아이디 저장 
+		BoardDAO bodao = new BoardDAO();
+		int myqnacnt = bodao.getMyqnacnt(mem_id);
+		int myreviewcnt = bodao.getMyreviewcnt(mem_id);
+	
+		request.setAttribute("myqnacnt", myqnacnt);
+		request.setAttribute("myreviewcnt", myreviewcnt);
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		// 로그인제어(로그인화면으로)
@@ -76,7 +84,7 @@ public class QuestionWriteAction implements Action {
 //		bodto.setSysdate(null)
 		
 		// BoardDAO 객체
-		BoardDAO bodao = new BoardDAO();
+//		BoardDAO bodao = new BoardDAO();
 		
 		// insertBoard()
 		bodao.insertQuestion(bodto,mem_id);

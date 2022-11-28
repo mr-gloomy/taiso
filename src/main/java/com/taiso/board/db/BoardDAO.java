@@ -284,7 +284,7 @@ public class BoardDAO {
 				try {
 					con = getConnection();
 					
-					sql = "select * from member_board where (bo_cate between 1 and 5) && mem_id = ? order by bo_re_ref desc, bo_re_seq asc limit ?,?";
+					sql = "select * from member_board where bo_re_ref=(select bo_re_ref from member_board where (bo_cate between 1 and 5) && mem_id = ? order by bo_re_ref desc, bo_re_seq asc limit ?,?);";
 					pstmt = con.prepareStatement(sql);
 					
 					// ???
@@ -484,9 +484,10 @@ public class BoardDAO {
 		// 게시판 글 삭제 - DeleteQuestion(bo_num,bo_pass)
 		
 		//게시판 답글 쓰기 - reInsertQuestion(bodto)
-		public void reInsertQuestion(BoardDTO bodto) {
+		public void reInsertQuestion(BoardDTO bodto, String mem_id) {
 			int bo_num = 0;
-			String mem_nickName = null;			
+			String mem_nickName = null;		
+			System.out.println(mem_id+"**********************************");
 			try {
 				con = getConnection();
 				
@@ -525,17 +526,17 @@ public class BoardDAO {
 			//쿼리 작성 및 객체 생성(닉네임)
 			sql = "select member.mem_nickName from member_board join member on member_board.mem_id = member.mem_id where member.mem_id=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, bodto.getMem_id());
+			pstmt.setString(1, mem_id);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				mem_nickName = rs.getString("mem_nickName");
+				mem_nickName = rs.getString(1);
 			}
 			
 			System.out.println(" DAO : bo_num : "+bo_num);
 			System.out.println(" DAO : mem_nickName : "+mem_nickName);
 			
-			if(rs.next()) {
+		
 				//3. sql + pstmt
 				sql = "insert into member_board(bo_num,mem_id,bo_cate,bo_title,bo_pass,bo_content,"
 						+ "bo_file,bo_sysdate,bo_re_ref,bo_re_lev,bo_re_seq,mem_nickName) "
@@ -560,7 +561,7 @@ public class BoardDAO {
 				pstmt.executeUpdate();
 				
 				System.out.println(" DAO : 답글 쓰기 완료! ");
-			}
+			
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {

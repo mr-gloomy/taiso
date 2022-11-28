@@ -268,7 +268,7 @@ body {
 	font-weight: 700;
 	font-size: 28px;
 	line-height: 34px;
-	color: #07074d;
+	color: #000000;
 	width: 60%;
 	margin-bottom: 15px;
 }

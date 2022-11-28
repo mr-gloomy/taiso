@@ -48,35 +48,6 @@ public class MypageAction implements Action {
 		
 		
 		
-	/** -----------------JS----------------------------- */
-//		response.setContentType("text/html; charset=UTF-8");
-//		PrintWriter out = response.getWriter();
-//		
-//		if(mem_id==null) {
-//			out.print("<script>");
-//			out.print("alert('수정 완료!');");
-//			out.print(" location.href='./QuestionList.bo'; ");
-//			out.print("</script>");
-//			out.close();
-//			
-//			return null;				
-//		}
-	//		if(mem_id==null) {
-//			if(document.fr.bo_pass.value==""){
-//				Swal.fire({
-//	                icon: 'warning',
-//	                /* title: '내용을 입력하세요!', */
-//	                text: '내용을 입력하세요!',
-//	            });
-//				document.fr.bo_pass.focus();
-//				return;
-//			}
-//			forward.setPath("./MemberLogin.me");
-//			forward.setRedirect(true);
-//			
-//			return forward;
-//		}	
-	/** -----------------JS----------------------------- */		
 
 		// 전달정보저장(닉네임)
 		MemberDAO mDAO = new MemberDAO();

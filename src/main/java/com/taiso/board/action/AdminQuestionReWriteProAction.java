@@ -3,6 +3,7 @@ package com.taiso.board.action;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -13,8 +14,15 @@ public class AdminQuestionReWriteProAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println(" M : QuestionReWriteAction_execute 호출");
+		System.out.println(" M : QuestionReWriteProAction_execute 호출");
 	
+		// 세션에 아이디 저장 
+		HttpSession session = request.getSession();
+		String mem_id = (String) session.getAttribute("mem_id");
+//		
+		System.out.println(mem_id);
+		
+		
 		// 1) 파일 업로드 
 		
 		ServletContext CTX = request.getServletContext();
@@ -39,7 +47,6 @@ public class AdminQuestionReWriteProAction implements Action {
 		
 //		int bo_num = Integer.parseInt(multi.getParameter("bo_num"));
 		String pageNum = request.getParameter("pageNum");
-
 		
 		BoardDTO bodto = new BoardDTO();	
 //		System.out.println(bodto+"이전");
@@ -48,7 +55,7 @@ public class AdminQuestionReWriteProAction implements Action {
 		bodto.setBo_re_ref(Integer.parseInt(multi.getParameter("bo_re_ref")));
 		bodto.setBo_re_lev(Integer.parseInt(multi.getParameter("bo_re_lev")));
 		bodto.setBo_re_seq(Integer.parseInt(multi.getParameter("bo_re_seq")));
-		bodto.setMem_id(multi.getParameter("mem_id"));
+		bodto.setMem_id(mem_id);
 		bodto.setBo_cate(multi.getParameter("bo_cate"));
 		bodto.setBo_title(multi.getParameter("bo_title"));
 		bodto.setBo_pass(multi.getParameter("bo_pass"));
@@ -63,7 +70,7 @@ public class AdminQuestionReWriteProAction implements Action {
 
 		//DAO 객체 생성
 		BoardDAO bodao = new BoardDAO();
-		bodao.reInsertQuestion(bodto);
+		bodao.reInsertQuestion(bodto, mem_id);
 		System.out.println(bodto+"dao직후");
 
 		System.out.println(pageNum+"@@@@@@@@@@@@@@@@@@@@@@@@@@@");
