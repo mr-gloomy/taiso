@@ -6,7 +6,7 @@
 <html lang="en">
 <!-- 헤더들어가는곳 -->
 <head>
-<title>TAISO</title>
+<title>타이소-관리자</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="shortcut icon" type="image/x-icon" href="./images/logo.png">
@@ -384,7 +384,7 @@ float: right;
 							<th><a href="./QuestionList.bo">1:1문의사항</a></th>
 							<th><a href="./AdminReviewList.adr">차량리뷰</a></th>
 							<th><a href="./ProposalList.bo">수정/제안</a></th>
-							<th><a href="./QuestionList.bo">장기렌트</a></th>
+							<th>장기렌트</th>
 						</tr>
 						<tr>
 							<td>${requestScope.totalCnt2 }</td>

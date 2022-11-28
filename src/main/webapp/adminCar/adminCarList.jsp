@@ -6,8 +6,9 @@
 <html lang="ko">
 <head>
 <!-- 헤더 시작 -->
-<title>TAISO</title>
+<title>타이소-관리자</title>
 <meta charset="utf-8">
+<link rel="shortcut icon" type="image/x-icon" href="./images/logo.png">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" type="image/x-icon" href="./images/logo.png">
