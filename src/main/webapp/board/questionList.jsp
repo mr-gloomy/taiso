@@ -23,17 +23,43 @@
 <link rel="stylesheet" href="./css/style.css">
 <link rel="stylesheet" href="./css/board.css">
 <link rel="stylesheet" href="./css/admin_my.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script type="text/javascript">
-function Login() {
-// 	var mem_id = ${sessionScope.mem_id }
-// 	if(mem_id==null) {
-	alert("수정제안");
-// 	location.href="./MemberLogin.me";
-// 	return;
-	}
-}
+$(function() {
+	  var Accordion = function(el, multiple) {
+	    this.el = el || {};
+	    // more then one submenu open?
+	    this.multiple = multiple || false;
+	    
+	    var dropdownlink = this.el.find('.dropdownlink');
+	    dropdownlink.on('click',
+	                    { el: this.el, multiple: this.multiple },
+	                    this.dropdown);
+	  };
+	  
+	  Accordion.prototype.dropdown = function(e) {
+	    var $el = e.data.el,
+	        $this = $(this),
+	        //this is the ul.submenuItems
+	        $next = $this.next();
+	    
+	    $next.slideToggle();
+	    $this.parent().toggleClass('open');
+	    
+	    if(!e.data.multiple) {
+	      //show only one menu at the same time
+	      $el.find('.submenuItems').not($next).slideUp().parent().removeClass('open');
+	    }
+	  }
+	  
+	  var accordion = new Accordion($('.accordion-menu'), false);
+	})
+
 </script>
+
+
+
 
 <!-- input에 오늘날짜 기본값으로 넣기 -->
 <script type="text/javascript">
@@ -54,6 +80,137 @@ function Login() {
         padding: 30px;
     }
 </style>
+
+
+    <style> 
+    .bg-light {
+    background: #f8f9fa !important;
+}
+    </style>
+    
+<!-- 사이드바 --> 
+<style>
+
+
+ul {
+  list-style: none;
+}
+
+#a-menu{
+color: #fffff !important; 
+}
+
+h2 {
+  text-align: center;
+  margin: 20px auto;
+  color: #fff;
+}
+
+.accordion-menu {
+  width: 100%;
+  max-width: 350px;
+  margin: 27px auto 20px;
+  background: #fff;
+  border-radius: 4px;
+}
+.accordion-menu li.open .dropdownlink {
+  color: #1089FF;
+  .fa-chevron-down {
+    transform: rotate(180deg);
+  }
+}
+.accordion-menu li:last-child .dropdownlink {
+  border-bottom: 0;
+}
+.dropdownlink {
+  cursor: pointer;
+  display: block;
+  padding: 15px 15px 15px 45px;
+  font-size: 18px;
+  border-bottom: 1px solid #ccc;
+  color: #212121;
+  position: relative;
+  transition: all 0.4s ease-out;
+  i {
+    position: absolute;
+    top: 17px;
+    left: 16px;
+  }
+  .fa-chevron-down {
+    right: 12px;
+    left: auto;
+    padding: 10px;
+    top: 10px;
+    line-height: 1;
+  }
+}
+
+.dropdownlink2 {
+    cursor: pointer;
+    display: block;
+    padding: 15px 15px 20px 15px;
+    font-size: 18px;
+    border-bottom: 1px solid #ccc;
+    color: #ffffff !important;
+    position: relative;
+    background: #1089ff;
+    transition: all 0.4s ease-out;
+    border-radius: 10px;
+  i {
+    position: absolute;
+    top: 17px;
+    left: 16px;
+  }
+  .fa-chevron-down {
+    right: 12px;
+    left: auto;
+    padding: 10px;
+    top: 10px;
+    line-height: 1;
+  }
+}
+
+.submenuItems {
+  display: none;
+  background: #E5E5E5;
+  li {
+    border-bottom: 1px solid #B6B6B6;
+  }
+}
+
+.submenuItems a {
+  display: block;
+  color: #fffff !important;
+  padding: 12px 12px 12px 45px;
+  transition: all 0.4s ease-out;
+  &:hover {
+    background-color: #CDDC39;
+    color: #fff;
+  }
+}
+
+
+.m-col-md-4 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 33.33333%;
+    flex: 0 0 33.33333%;
+    max-width: 27.33333%; 
+    margin-right: 35px;
+/*     margin-top: 30px; */
+    border-radius: 22px;
+/*     box-shadow: rgb(0 0 0 / 20%) 0px 5px 15px 0px; */
+    }
+
+.fa{
+vertical-align:middle;
+padding: 5px;
+float: right;
+
+}
+
+</style>
+<!-- 사이드바 --> 
+
 </head>
 <body>
 	<div id="wrap">
@@ -87,16 +244,16 @@ function Login() {
 <%--	${requestScope.QuestionList } --%>
 	
 		<!-- left -->
-		<section class="ftco-section contact-section">
+		<section class="ftco-section contact-section bg-light">
 			<div class="container">
 				<div class="row d-flex mb-5 contact-info">
 
 				<!-- @@@@@@@@@@@@여기부터 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
-					<jsp:include page="../inc/sidebar.jsp" />
+		<jsp:include page="../inc/sidebar.jsp" />
 				<!-- @@@@@@@@@@@@여기까지 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
 		
 		<!-- @@@@@@@@@@@@@@@@@우측@@@@@@@@@@@@@@@@ -->
-					<div class="col-md-8 block-9 mb-md-5">
+					<div class="col-md-8 block-9 mb-md-5 bg-light">
 							<div class="board_wrap">
 								<div class="board_title">
 								   <strong>1:1 문의하기</strong> 
@@ -255,10 +412,11 @@ function Login() {
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/jquery.timepicker.min.js"></script>
 	<script src="js/scrollax.min.js"></script>
+
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="js/google-map.js"></script>
 	<script src="js/main.js"></script>
-
+<script src="https://kit.fontawesome.com/595b26ba61.js" crossorigin="anonymous"></script>
 </body>
 </html>

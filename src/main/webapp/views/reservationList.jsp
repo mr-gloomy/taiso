@@ -130,7 +130,7 @@
 										<a href="car-single.html">${rez.car_name }</a>ㅤ<input type = "button" class="btn btn-primary3 py-1 mr-1" value="예약 취소">
 									</c:if>	
 								</h2>
-								<div class="d-flex mb-3">
+								<div class="d-flex mb-3"> 
 									<span class="cat">${rez.rez_rentalDate} ~ ${rez.rez_returnDate}</span>
 								</div>
 								<div class="d-flex mb-3">
