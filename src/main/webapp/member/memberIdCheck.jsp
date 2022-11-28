@@ -30,6 +30,7 @@ function mem_userId(){
 </head>
 
 <body>
+
 	<div class="formbold-main-wrapper">
   	<!-- Author: FormBold Team -->
   	<!-- Learn More: https://formbold.com -->
@@ -72,7 +73,9 @@ function mem_userId(){
 }
 
 body {
-	font-family: "Inter", sans-serif;
+	font-family: 'InfinitySans-RegularA1';
+	font-weight: normal;
+    font-style: normal;
 }
 
 .formbold-main-wrapper {

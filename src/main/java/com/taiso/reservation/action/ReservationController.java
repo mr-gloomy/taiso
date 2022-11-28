@@ -301,12 +301,12 @@ public class ReservationController extends HttpServlet{
 				
 				
 				/**
-				 * InsuranceInfo
+				 * LongTermRez
 				 * 
 				 */
-				else if(command.equals("/RezCheck.rez")) {
+				else if(command.equals("/LongTerm.rez")) {
 					forward = new ActionForward();
-					forward.setPath("./views/reservationChk.jsp");
+					forward.setPath("./views/longTermRez.jsp");
 					forward.setRedirect(false);
 				}
 									

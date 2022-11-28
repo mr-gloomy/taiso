@@ -30,7 +30,6 @@
 	<link rel="stylesheet" href="./css/flaticon.css">
 	<link rel="stylesheet" href="./css/icomoon.css">
 	<link rel="stylesheet" href="./css/style.css">
-	
 
 
    <style type="text/css">
@@ -59,7 +58,11 @@
 	<!-- header -->
 	<jsp:include page="../inc/top.jsp"/>
 	<!-- header -->
+<<<<<<< HEAD
     <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/main-2.jpg');" data-stellar-background-ratio="0.5">
+=======
+    <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/bg_4.jpg');" data-stellar-background-ratio="0">
+>>>>>>> branch 'master' of https://github.com/mr-gloomy/taiso.git
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
@@ -337,8 +340,8 @@ $(function() {
 		});
 		
 		$('#time_pick').timepicker({
-			minTime: '9:00 am',
-		    maxTime: '9:00 pm',
+			minTime: '9:00am',
+		    maxTime: '9:00pm',
 // 		    format: "hh:mm:ss"
 		});
 		
@@ -395,6 +398,7 @@ function checkForm(){
 		document.fr.site_select.focus();
 		return false;
 	}
+
 }
 
 </script>  

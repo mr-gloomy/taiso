@@ -27,6 +27,7 @@ function mem_userNName(){
 </head>
 
 <body>
+
 	<!-- 본문 -->
 	<div class="formbold-main-wrapper">
  	<!-- Author: FormBold Team -->
@@ -71,7 +72,9 @@ function mem_userNName(){
 }
 
 body {
-	font-family: "Inter", sans-serif;
+	font-family: 'InfinitySans-RegularA1';
+	font-weight: normal;
+    font-style: normal;
 }
 
 .formbold-main-wrapper {

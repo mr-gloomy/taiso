@@ -248,21 +248,6 @@ a {
 			<input type="text" name="car_op" value="${dto.car_op }">
 		</td>
    </tr>
-   <tr>
-		<td>사용지역</td>
-		<td>
-			<input type="radio" name="car_location" value="1"
-				<c:if test="${dto.car_location == 1 }">
-					checked
-					</c:if>
-			> 내륙
-			<input type="radio" name="car_location" value="0"
-			<c:if test="${dto.car_location == 0 }">
-					checked
-					</c:if>
-			> 제주
-		</td>
-   </tr>
   
 
   </table>

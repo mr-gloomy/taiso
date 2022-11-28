@@ -91,10 +91,9 @@ function cancelRez(seq){
 
 </head>
 <body>
-	<form class="bg-light p-5 contact-form" method="post" id="rez"
+	<form action = "./ReservationCancel.rez" class="bg-light p-5 contact-form" method="post" id="rez"
 		name="fr">
 		<div class="col-md-8 block-9 mb-md-5">
-			<form action="./ReservationCancel.rez" method="post" name="fr">
 				<div class="form-group">
 					<h3>
 						<b>결제 취소 확인</b>
@@ -105,11 +104,11 @@ function cancelRez(seq){
 					<label>취소사유　　　　 :　</label> 
 					<select name="cancel_reason">
 						<option value="0">취소사유를 선택하세요</option>
-						<option>다시 예약하기 위해서</option>
-						<option>가격이 비싸서</option>
-						<option>단순변심</option>
-						<option>그냥</option>
-						<option>그냥</option>
+						<option>취소 후 재예약</option>
+						<option>여행 일정 변경</option>
+						<option>이중 계약</option>
+						<option>가격 불만</option>
+						<option>기타 사유</option>
 					</select> 
 					
 					<br> 
@@ -126,18 +125,18 @@ function cancelRez(seq){
 					<br> 
 					<label>비밀번호 　　　　:　</label>
 						<input type="password" name="mem_pw" value="" placeholder="비밀번호를 입력해주세요"><br>
-
-					
-					<div class="clear"></div>
-			</form>
+					<br>
+					<img src="./images/cancelpic.png" height="250" width="400" >
+					<div class="clear">
+					</div>
 			</article>
+<!-- 			</article> -->
 　
 
 			<br>
-			<div class="form-group">
-				<input type="button" value="취소하기" class="btn btn-primary py-2 px-3"
-					onclick="return cancelRez();">
-			</div>
+			<div id="buttons">
+               <input type="button" value="취소하기"  class="btn btn-primary py-2 px-3" onclick="return cancelRez();">
+            </div>
 
 			<div style="display: none">
 				<input type="file" id="input-file" name="rev_image" /> <br>
@@ -145,8 +144,6 @@ function cancelRez(seq){
 			</div>
 		</div>
 	</form>
-	</form>
-	</div>
 	<div id="ftco-loader" class="show fullscreen">
 		<svg class="circular" width="48px" height="48px">
 			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"

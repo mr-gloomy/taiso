@@ -20,6 +20,8 @@ public class ReservationDate implements Action {
         session.setAttribute("rez_site",request.getParameter("rez_site"));
         session.setAttribute("rez_totalDate",request.getParameter("totalDate"));
       
+        
+        System.out.println("rez_pick_time"+request.getParameter("rez_pick_time"));
 		//페이지 이동
 		ActionForward forward = new ActionForward();
 		forward.setPath("./CarList.ca");

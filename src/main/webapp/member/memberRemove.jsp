@@ -98,7 +98,17 @@ function chk(){
 		</div>
 	</section>
 	<!-- 중간제목 끝 -->
-
+	
+	<!-- 로그인제어 -->
+<%
+	String mem_id = (String) session.getAttribute("mem_id");
+	if(mem_id == null){
+		response.sendRedirect("./MemberLogin.me");
+		System.out.println(" 비정상적 접근 발생! IP : "+request.getRemoteAddr());
+	}
+%>
+	<!-- 로그인제어 -->
+	
 	<!-- 본문 시작 -->
 	<section class="ftco-section contact-section">
 		<div class="formbold-main-wrapper">
@@ -225,8 +235,9 @@ function chk(){
 }
 
 body {
-	font-family: 'Inter', sans-serif;
-	font-weight: 400;
+	font-family: 'InfinitySans-RegularA1';
+	font-weight: normal;
+    font-style: normal;
     color: #000000;
 }
 

@@ -74,12 +74,10 @@ $(document).ready(function(){
     var mem_name = $('#mem_name').val();
     var mem_newNickName = $('#mem_newNickName').val();
     var mem_phone = $('#mem_phone').val();
-    var mem_email = $('#mem_email').val();
 
     var check_name = /^[가-힣]{0,10}$/; // 이름 유효성 검사 (10글자 제한)
     var check_nickName = /^[a-zA-Z0-9ㄱ-ㅎ|ㅏ-ㅣ|가-힣]{2,10}$/; // 닉네임 유효성 검사 (한글/영어/숫자 2-10)
     var check_phone = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/; // 전화번호 유효성 검사
-    var check_email = /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/; // 이메일 양식 검사
 	
 	
     //  이름 공백 확인
@@ -140,25 +138,7 @@ $(document).ready(function(){
      	$('.phoneCheck').html('');
     }	
     
-    //  이메일 공백 확인
-    if (mem_email == "" || mem_email == null) {
-		 Swal.fire({
-			   title: '이메일을 입력해주세요.',
-			   icon: 'warning'
-			 });
-         $('#mem_email').focus();
-         return false;
-     }	
-        
-    // 이메일 유효성 체크
-    if (!check_email.test(mem_email)) {
-  		 $('.emailCheck').html('이메일 양식이 올바르지 않습니다.');
-   		 $('#mem_email').val("");
-  		 $('#mem_email').focus();
-   		 return false;
-	} else {
-     	$('.emailCheck').html('');
-    }
+
 	
 	});
 	
@@ -189,6 +169,16 @@ $(document).ready(function(){
 		</div>
 	</section>
 	<!-- 중간제목 끝 -->
+	
+	<!-- 로그인제어 -->
+<%
+	String mem_id = (String) session.getAttribute("mem_id");
+	if(mem_id == null){
+		response.sendRedirect("./MemberLogin.me");
+		System.out.println(" 비정상적 접근 발생! IP : "+request.getRemoteAddr());
+	}
+%>
+	<!-- 로그인제어 -->
 	
 	<!-- 본문 시작 -->
 		<section class="ftco-section contact-section">
@@ -279,7 +269,9 @@ $(document).ready(function(){
 }
 
 body {
-	font-family: 'Inter', sans-serif;
+	font-family: 'InfinitySans-RegularA1';
+	font-weight: normal;
+    font-style: normal;
 }
 
 .formbold-mb-3 {

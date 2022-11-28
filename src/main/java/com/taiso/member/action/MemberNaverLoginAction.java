@@ -17,7 +17,7 @@ public class MemberNaverLoginAction implements Action {
 		System.out.println(" M : MemberNaverLoginAction_execute() 호출 ");
 		
 		String id = request.getParameter("id");
-		String mem_id = "N_"+id;
+		String mem_id = "N_"+id.substring(0,8);
 		String mem_pw = "naver";
 		String mem_emailCheck = "0";
 		String mem_blacklist = "N";

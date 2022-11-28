@@ -8,7 +8,6 @@ public class CarDTO {
 	private int car_code;
 	private String car_brand;
 	private String car_name;
-	private int car_location;
 	private int car_price;
 	private String car_op;
 	private String car_category;

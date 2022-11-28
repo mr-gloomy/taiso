@@ -240,22 +240,38 @@
          showCancelButton: true,         
          confirmButtonColor: '#3085d6', 
          cancelButtonColor: 'grey', 
-         confirmButtonText: '예약', 
-         cancelButtonText: '취소' 
+         confirmButtonText: '예약하기', 
+         cancelButtonText: '취소하기' 
        }).then((result) => { 
          if (result.isConfirmed) {           
               //"예약" 버튼을 눌렀을 때 호출할 함수
-            requestPay();
+            bfd();
          } 
        }) 
     } 
+     
+       
+    function bfd(){
+    	Swal.fire({   		 
+    		  imageUrl: './images/BFD.png',
+    		  imageWidth: 700,
+    		  imageHeight: 700,
+    		  imageAlt: 'Custom image',
+    		  confirmButtonText: '결제하기'
+    		}).then((result) => { 
+    	         if (result.isConfirmed) {           
+    	              //"결제하기" 버튼을 눌렀을 때 호출할 함수
+    	        	 requestPay();
+    	         }
+    		}) 
+    }   
     
    </script>
 
 <!-- 예약취소하기 -->
  <script type="text/javascript">
  function cancleRez(){
-    Swal.fire({ 
+	 Swal.fire({ 
          title: '예약을 취소하시겠습니까?', 
          icon: 'warning', 
          html: "<h6>예약취소 시 해당 정보가 저장되지 않을 수 있습니다.</h6><h5>메인페이지로 이동합니다.</h5>",
@@ -267,11 +283,18 @@
        }).then((result) => { 
          if (result.isConfirmed) {           
               //"취소하기" 버튼을 눌렀을 때 호출할 함수
-            location.href="./ReservationMain.rez";
+        	 location.href="./ReservationMain.rez";
          } 
        }) 
-    }    
+    } 	
  </script>
+
+<style type="text/css">
+.adminReservation_wrap2 {
+	align-content: center;
+}
+</style>
+
 
   </head>
 
@@ -286,16 +309,15 @@
     <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-          <div class="col-md-9 ftco-animate pb-5">
-             <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>RESERVATION <i class="ion-ios-arrow-forward"></i></span></p>
-            <h1 class="mb-3 bread">예약하기</h1>
-          </div>
-        </div>
+<!--         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start"> -->
+<!--           <div class="col-md-9 ftco-animate pb-5"> -->
+<!--              <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>RESERVATION <i class="ion-ios-arrow-forward"></i></span></p> -->
+<!--             <h1 class="mb-3 bread">예약하기</h1> -->
+<!--           </div> -->
+<!--         </div> -->
       </div>
     </section>
 <!-- 헤더들어가는곳 -->
-
 
 
 
@@ -303,13 +325,20 @@
     <section class="ftco-section contact-section">
       <div class="container">
         <div class="row d-flex mb-5 contact-info">
-        
-        
+       
+ 
+    
+<div class="adminReservation_wrap2">
+        <div class="adminReservation_title">
+            <strong>예약 조회 리스트</strong>
+        </div>
         
         
         
 <!-- contact 작성Form -->
-   <div class="col-md-8 block-9 mb-md-5">
+
+        
+   <div class="col-md-12 block-9 mb-md-5">
          <form class="bg-light p-5 contact-form" method="post" id="rez" name="fr" >
                 
  <!-- Left Side 분리(section/div)-->
@@ -335,16 +364,15 @@
                <div class="form-group">  
                      <h3>선택차량정보</h3>  
                      <input type="hidden" name="car_code" value="${carDTO.car_code}">
-                     <label>차량카테고리　　:　<input type="text" name="car_category" value="${carDTO.car_category}" class="form-control2" readonly="readonly"></label> <br>
-                     <label>차량브랜드　　　:　<input type="text" name="car_brand" value="${carDTO.car_brand}" class="form-control2" readonly="readonly"></label><br><!-- 주소줄에서받아오기 -->
-                     <label>차량이름　　　　:　<input type="text" name="car_name" value="${carDTO.car_name}" class="form-control2" readonly="readonly"></label><br>
-                     <label>차량옵션　　　　:　<input type="text" name="car_op" value="${carDTO.car_op}" class="form-control3" readonly="readonly"></label><br>
-                     <label>차량연식　　　　:　<input type="text" name="car_year" value="${carDTO.car_year}" class="form-control2" readonly="readonly"></label><br>
-                     <label>차량연료　　　　:　<input type="text" name="car_fuel" value="${carDTO.car_fuel}" class="form-control2" readonly="readonly"></label>
+                     <label>차량카테고리　:　<input type="text" name="car_category" value="${carDTO.car_category}" class="form-control2" readonly="readonly"></label> <br>
+                     <label>차량브랜드　　:　<input type="text" name="car_brand" value="${carDTO.car_brand}" class="form-control2" readonly="readonly"></label><br><!-- 주소줄에서받아오기 -->
+                     <label>차량이름　　　:　<input type="text" name="car_name" value="${carDTO.car_name}" class="form-control2" readonly="readonly"></label><br>
+                     <label>차량옵션　　　:　<input type="text" name="car_op" value="<c:forTokens var="op" items="${carDTO.car_op }" delims=",">${op } </c:forTokens>" class="form-control3" readonly="readonly"></label><br>
+                     <label>차량연식　　　:　<input type="text" name="car_year" value="${carDTO.car_year}" class="form-control2" readonly="readonly"></label><br>
+                     <label>차량연료　　　:　<input type="text" name="car_fuel" value="${carDTO.car_fuel}" class="form-control2" readonly="readonly"></label>
                      </div>
                    </div>
-<!--                 </div> -->
-                
+<!--                 </div> -->          
 <!--               </div> -->
              <hr>
              <br>
@@ -506,19 +534,19 @@
  </div>  
    <br>
    <br>   
-          <div class="form-group" id="buttons">
+          <div class="form-group" id="buttons" align="center">
            <input type="button" value="결제하기" onclick="checkRez();" class="btn btn-primary py-3 px-5">
             <input type="button" value="예약취소" class="btn btn-primary py-3 px-5" onclick="cancleRez();"> 
           </div>
            
         </form>  
       </div>
-    </div>   
+    </div>
+    </div> </div>
 <!-- contact 작성Form -->
 
     </section>
-   
-   
+  
 <!-- 푸터들어가는곳 -->
     <jsp:include page="../inc/bottom.jsp"/>
 <!-- 푸터들어가는곳 -->    

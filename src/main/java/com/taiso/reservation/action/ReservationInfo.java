@@ -1,5 +1,9 @@
 package com.taiso.reservation.action;
 
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -11,6 +15,9 @@ import com.taiso.payment.db.PaymentDAO;
 import com.taiso.reservation.db.ReservationDAO;
 import com.taiso.reservation.db.ReservationDTO;
 
+
+
+
 public class ReservationInfo implements Action {
 
 	@Override
@@ -19,7 +26,6 @@ public class ReservationInfo implements Action {
 		/**
 		 * ReservationInfoAction
 		 * 
-		 * - 예약 취소를 하기위에 특정 id에 해당하는 예약+결제 정보 저장
 		 */
 		
 		// DAO - 해당고객에 해당하는 예약정보 다 가져오기
@@ -42,16 +48,44 @@ public class ReservationInfo implements Action {
 		
 		int rez_uqNum = Integer.parseInt(request.getParameter("rez_uqNum"));
 		
-		//***************************** 리스트로 불러와야하는지 특정 정보가 와야하는지 !!!!!!!!!!!!
 		// ReservationDAO - 예약 정보 => 로그인한 사용자의 예약 정보를 가져오기
 		// PaymentDAO - 결제 정보 => 로그인한 사용자의 결제 정보를 가져오기
 		ReservationDTO rezDTO = new ReservationDTO();
 		ReservationDAO rezDAO = new ReservationDAO();
 		
 		ArrayList totalDTO = rezDAO.getReservationInfo(mem_id, rez_uqNum);
+	
+		System.out.println(totalDTO);
+		
+	    // 현재시간 출력
+	    // 대여 시간 스트링 -> 데이터타입으로 변환
+		// 뒤에서 다시 스트링으로 변환해서 다른이름으로 저장하
+		// 세션에넣기
 		
 		
-//		System.out.println(" M :" + totalDTO); // ***** 잘들어갔는지 확인하는 용도, 나중에 주석처리할 것! 
+		LocalDate today = LocalDate.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		
+		rezDTO = (ReservationDTO) totalDTO.get(0);
+		String rez_rentalDate = rezDTO.getRez_rentalDate();
+		
+		
+		
+		System.out.println(rez_rentalDate);
+
+//		LocalDate rez_date = LocalDate.parse(rez_rentalDate, DateTimeFormatter.ISO_DATE);
+		LocalDate rez_date = LocalDate.parse(rez_rentalDate, formatter);
+		
+		
+        System.out.println("@#$%@#$%@#%@#%@#$%@#$%@#$%@#$%@%"+today);
+        System.out.println("@#$%@#$%@#%@#%@#$%@#$%@#$%@#$%@%"+rez_date);
+		
+		
+        session.setAttribute("today",today);
+        session.setAttribute("rez_date",rez_date);
+		
+		
+		
 		
 		
 		// request 영역에 저장
@@ -65,5 +99,18 @@ public class ReservationInfo implements Action {
 		forward.setRedirect(false);
 		return forward ;
 	}
+	
+	
+    // 현재시간 출력    -> 스트링으로 변환
+    // 대여 시간 스트링 -> 데이터타입으로 변환
+//    public boolean compareDate (String string) {
+//    	LocalDateTime rez_rentalDate2 =LocalDateTime.parse(string, DateTimeFormatter.ISO_DATE);
+//    	LocalDateTime today = LocalDateTime.now();
+//    	
+//    	if(rez_rentalDate2.isAfter(today))
+//    	return false;
+//    	
+//    }
+	
 
 }

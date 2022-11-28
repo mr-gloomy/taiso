@@ -31,6 +31,13 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/admin_my.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+
+<script type="text/javascript">
+function javascript(){
+    self.close();  
+}
+</script>
 </head>
 
   <body>
@@ -60,248 +67,105 @@
 	<!-- 중간제목 끝 -->
 
 	<!-- 본문 시작 -->
-	<section class="ftco-section contact-section">
-		<div class="formbold-main-wrapper">
-			<div class="alert alert-success mt-4" role="alert">
-				 이메일 주소 인증 메일이 전송되었습니다. 회원가입시 입력했던 이메일에 들어가셔서 인증해주세요.	
-			</div>
-		</div>
-	</section>
+	<div class="formbold-main-wrapper">
+	  <!-- Author: FormBold Team -->
+	  <!-- Learn More: https://formbold.com -->
+	  <div class="formbold-form-wrapper">
+	    <div class="formbold-form-title">
+	        <h3>회원가입 이메일</h3>
+	        <p>인증 메일이 전송되었습니다.</p>
+	         <p>회원가입시 입력하셨던 이메일에 들어가셔서 인증해주세요.</p>
+	    </div>
+	    <form>
+<!-- 	        <input type="text" name="mail" id="mail" placeholder="인증 메일이 전송되었습니다. 회원가입시 입력하셨던 이메일에 들어가셔서 인증해주세요." class="formbold-form-input"/> -->
+	        <button class="formbold-btn" onclick="javascript()"> 확 인 </button>
+		<div></div>
+	    </form>
+	  </div>
+	</div>
 	<!-- 본문 끝 -->
-	
-<!-- 본문 css -->
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
 body {
-	font-family: 'Inter', sans-serif;
+	font-family: 'InfinitySans-RegularA1';
+	font-weight: normal;
+    font-style: normal;
 }
-
-.formbold-mb-3 {
-	margin-bottom: 15px;
-}
-
-.formbold-relative {
-	position: relative;
-}
-
-.formbold-opacity-0 {
-	opacity: 0;
-}
-
-.formbold-stroke-current {
-	stroke: #ffffff;
-	z-index: 999;
-}
-
-#supportCheckbox:checked ~ div span {
-	opacity: 1;
-}
-
-#supportCheckbox:checked ~ div {
-	background: #1089FF;
-	border-color: #1089FF;
-}
-
 .formbold-main-wrapper {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 150px;
 }
 
 .formbold-form-wrapper {
-	margin: 0 auto;
-	max-width: 570px;
-	width: 100%;
-	background: white;
-	padding: 40px;
+  margin: 0 auto;
+  max-width: 550px;
+  width: 100%;
+  background: white;
 }
 
-.formbold-img {
-	display: block;
-	margin: 0 auto 45px;
+.formbold-form-title {
+  margin-bottom: 40px;
 }
-
-.formbold-input-wrapp>div {
-	display: flex;
-	gap: 20px;
+.formbold-form-title h3 {
+    color: #07074D;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 35px;
+    margin-bottom: 20px;
+    text-align: center;
 }
-
-.formbold-input-flex {
-	display: flex;
-	gap: 20px;
-	margin-bottom: 15px;
+.formbold-form-title p {
+    font-size: 16px;
+    line-height: 24px;
+    color: #9299a8;
+    text-align: center;
+    margin-bottom: 2px;
 }
-
-.formbold-input-flex>div {
-	width: 50%;
-}
-
 .formbold-form-input {
-	width: 100%;
-	padding: 13px 22px;
-	border-radius: 5px;
-	border: 1px solid #dde3ec;
-	background: #ffffff;
-	font-weight: 500;
-	font-size: 16px;
-	color: #536387;
-	outline: none;
-	resize: none;
+  text-align: center;
+  width: 100%;
+  padding: 14px 22px;
+  border-radius: 6px;
+  border: 1px solid #DDE3EC;
+  background: #FAFAFA;
+  font-weight: 500;
+  font-size: 12px;
+  color: #536387;
+  outline: none;
+  resize: none;
 }
-
-.formbold-form-input-small {
-	width: 80%;
-	padding: 13px 22px;
-	border-radius: 5px;
-	border: 1px solid #dde3ec;
-	background: #ffffff;
-	font-weight: 500;
-	font-size: 16px;
-	color: #536387;
-	outline: none;
-	resize: none;
-}
-
-.formbold-form-input::placeholder, select.formbold-form-input,
-	.formbold-form-input[type='date']::-webkit-datetime-edit-text,
-	.formbold-form-input[type='date']::-webkit-datetime-edit-month-field,
-	.formbold-form-input[type='date']::-webkit-datetime-edit-day-field,
-	.formbold-form-input[type='date']::-webkit-datetime-edit-year-field {
-	color: rgba(83, 99, 135, 0.5);
-}
-
 .formbold-form-input:focus {
-	border-color: #1089FF;
-	box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
-}
-
-.formbold-form-label {
-	color: #536387;
-	font-size: 14px;
-	line-height: 24px;
-	display: block;
-	margin-bottom: 10px;
-}
-
-.formbold-checkbox-label {
-	display: flex;
-	cursor: pointer;
-	user-select: none;
-	font-size: 16px;
-	line-height: 24px;
-	color: #536387;
-}
-
-.formbold-checkbox-label a {
-	margin-left: 5px;
-	color: #1089FF;
-}
-
-.formbold-input-checkbox {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	white-space: nowrap;
-	border-width: 0;
-}
-
-.formbold-checkbox-inner {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 20px;
-	height: 20px;
-	margin-right: 16px;
-	margin-top: 2px;
-	border: 0.7px solid #dde3ec;
-	border-radius: 3px;
-}
-
-.formbold-form-file {
-	padding: 12px;
-	font-size: 14px;
-	line-height: 24px;
-	color: rgba(83, 99, 135, 0.5);
-}
-
-.formbold-form-file::-webkit-file-upload-button {
-	display: none;
-}
-
-.formbold-form-file:before {
-	content: 'Upload';
-	display: inline-block;
-	background: #EEEEEE;
-	border: 0.5px solid #E7E7E7;
-	border-radius: 3px;
-	padding: 3px 12px;
-	outline: none;
-	white-space: nowrap;
-	-webkit-user-select: none;
-	cursor: pointer;
-	color: #637381;
-	font-weight: 500;
-	font-size: 12px;
-	line-height: 16px;
-	margin-right: 10px;
+  border-color: #1089FF;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
 }
 
 .formbold-btn {
-	font-size: 14px;
-	border-radius: 5px;
-	padding: 14px 10px;
-	border: none;
-	font-weight: 500;
-	background-color: #1089FF;
-	color: white;
-	cursor: pointer;
-}
-
- .submit {
     text-align: center;
     width: 100%;
-    font-size: 16px;
+    font-size: 20px;
     border-radius: 5px;
-    padding: 14px 25px;
+    padding: 10px 20px;
     border: none;
     font-weight: 500;
     background-color: #1089FF;
     color: white;
     cursor: pointer;
-    margin-top: 25px;
- }
-
+    margin-top: 15px;
+}
 .formbold-btn:hover {
-	box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
 }
-
-.formbold-w-45 {
-	width: 45%;
-}
-
-.textstyle {
-	color: #b1b3b6;
-	font-size: 10px;
-	line-height: 2px;
-	display: block;
-	margin-bottom: 20px;
-	margin-left: 5px;
-}
-
 
 </style>
+
 <!-- 본문 css -->
 
 <!-- 푸터 시작 -->
