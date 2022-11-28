@@ -39,7 +39,7 @@ public class ReservationListAction implements Action {
 	      AdminReservationDAO dao = new AdminReservationDAO();
 	      
 	      // 예약 전체 글 개수 확인
-	      int cnt = dao.getReservationCount(); 
+	      int cnt = dao.getReservationCount(mem_id); 
 	      
 	      // 한 페이지에 보여줄 글의 개수를 설정
 	      int pageSize = 3;

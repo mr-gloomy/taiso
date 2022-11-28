@@ -272,6 +272,33 @@ public class AdminReservationDAO {
          }
       // 예약 전체 개수 확인 - getReservationCount
          
+         // 예약 전체 개수 확인 - getReservationCount
+         public int getReservationCount(String mem_id) {
+            int cnt = 0;
+            
+
+            try {
+               //1.2. 디비연결
+               con = getConnection();
+               // 3. sql
+               sql = "select count(*) from rez_reservation where mem_id=?";
+               pstmt = con.prepareStatement(sql);
+               pstmt.setString(1, mem_id);
+               // 4. sql 실행
+               rs = pstmt.executeQuery();
+               // 5. 데이터 처리
+               if(rs.next()) {
+                  cnt = rs.getInt("count(*)");
+               }
+               System.out.println(" DAO : 전체 예약 개수 : "+cnt+"개");
+            } catch (Exception e) {
+               e.printStackTrace();
+            } finally {
+               closeDB();
+            }
+            return cnt;   
+         }
+      // 예약 전체 개수 확인 - getReservationCount
          
          
          
