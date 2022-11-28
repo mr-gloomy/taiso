@@ -35,6 +35,43 @@
     <link rel="stylesheet" href="./css/board2.css">
     
     
+    <!-- 블로그 로딩 코드 start -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style type="text/css">
+#waiting {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    background: white;
+    z-index: 999;
+    opacity: 0.9;
+}
+#waiting > img {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+</style>
+<div id="waiting">
+   <img src="./img/loading.gif">
+</div>
+
+<script type="text/javascript">
+    $(window).on('load', function() {
+        setTimeout(function(){
+            $("#waiting").fadeOut();
+        }, 300);
+    });
+</script>
+<!-- 블로그 로딩 코드 end -->
+    
+    
+    
+    
 	<fmt:parseDate value="${sessionScope.rez_date }" var="rez_date" pattern="yyyy-MM-dd"/>
 	<fmt:parseNumber value="${rez_date.time / (1000*60*60*24)}" integerOnly="true" var="rezDate"></fmt:parseNumber>
 	<fmt:parseDate value="${sessionScope.today }" var="today" pattern="yyyy-MM-dd"/>
@@ -211,7 +248,24 @@
 							</div>
 					     </div>
 	
-									
+					   <br><br><br>
+	                
+				    </div>
+						<div class="d-flex mb-3" style="display: flex; justify-content: center;">
+							 <form action="" name="fr" method="post">
+			   					  <input type="hidden" name="mem_id" value="${mDTO.mem_id }" >   
+			   					  <input type="hidden" name="pay_uqNum" value="${payDTO.pay_uqNum }" >   
+							 </form>
+							 <input type = "button" class="btn btn-primary py-1 mr-1" value = "예약 조회로 돌아가기" onclick="location.href='./ReservationList.rez';">ㅤ
+							 
+							 <c:if test="${rezDTO.rez_status == 1}">
+							 	<input type = "button" class="btn btn-primary py-2 mr-1" value = "예약 취소" onclick="cancelOpen(${rezDTO.rez_uqNum }+','+${payDTO.pay_total*0.9});">
+							 </c:if>
+							 <c:if test="${rezDTO.rez_status == 0}">
+							 </c:if>	
+							
+						</div>
+					</div>
 					                <br><br><br>
 					                
 					                
