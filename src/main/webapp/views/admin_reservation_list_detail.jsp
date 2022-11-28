@@ -169,7 +169,7 @@
 					                    <div class="date3" style="color:white">총 결제 금액</div>
 					                    <div class="title">${payDTO.pay_total } 원</div>
 					                    <div class="date3" style="color:white">취소 시 수수료</div>
-					                    <div class="title">${payDTO.pay_total*0.1 } 원</div>
+					                    <div class="title"><fmt:formatNumber type="number" maxFractionDigits="0" value="${payDTO.pay_total*0.1 }" /> 원</div>
 					                </div>
 					               
 					                <br><br><br>

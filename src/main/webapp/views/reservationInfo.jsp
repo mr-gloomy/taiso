@@ -124,7 +124,7 @@
 										<a href="car-single.html">${rez.car_name }</a>ㅤ<input type = "button" class="btn btn-primary3 py-1 mr-1" value="예약 취소">
 									</c:if>	
 							</h2>
-							<br><br>
+							<br><br><br>
 							
 							
 							<div class="board_list_wrap">
@@ -150,7 +150,7 @@
 					                    <div class="title">${rezDTO.rez_returnDate }</div>
 					                </div>
 					               
-					                <br><br>
+					                <br><br><br>
 					            </div>
 					            
 					            <div class="board_list">
@@ -170,12 +170,12 @@
 					                </div>
 					                <div class="top">
 					                    <div class="date3" style="color:white">취소 시 수수료</div>
-					                    <div class="title">${payDTO.pay_total*0.1 }</div>
+					                    <div class="title"><fmt:formatNumber type="number" maxFractionDigits="0" value="${payDTO.pay_total*0.1 }" /> 원</div>
 					                    <div class="date3" style="color:white">총 결제 금액</div>
-					                    <div class="title">${payDTO.pay_total }</div>
+					                    <div class="title">${payDTO.pay_total } 원</div>
 					                </div>
 					               
-					                <br><br>
+					                <br><br><br>
 					            </div>
 					            
 					            <div class="board_list">

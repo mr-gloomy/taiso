@@ -23,6 +23,137 @@
 <link rel="stylesheet" href="./css/style.css">
 <link rel="stylesheet" href="./css/board.css">
 <link rel="stylesheet" href="./css/admin_my.css">
+    <!-- 사이드바 --> 
+<style>
+
+
+ul {
+  list-style: none;
+}
+
+#a-menu{
+color: #fffff !important; 
+}
+
+h2 {
+  text-align: center;
+  margin: 20px auto;
+  color: #fff;
+}
+
+.accordion-menu {
+  width: 100%;
+  max-width: 350px;
+  margin: 27px auto 20px;
+  background: #fff;
+  border-radius: 4px;
+}
+.accordion-menu li.open .dropdownlink {
+  color: #1089FF;
+  .fa-chevron-down {
+    transform: rotate(180deg);
+  }
+}
+.accordion-menu li:last-child .dropdownlink {
+  border-bottom: 0;
+}
+.dropdownlink {
+  cursor: pointer;
+  display: block;
+  padding: 15px 15px 15px 45px;
+  font-size: 18px;
+  border-bottom: 1px solid #ccc;
+  color: #212121;
+  position: relative;
+  transition: all 0.4s ease-out;
+  i {
+    position: absolute;
+    top: 17px;
+    left: 16px;
+  }
+  .fa-chevron-down {
+    right: 12px;
+    left: auto;
+    padding: 10px;
+    top: 10px;
+    line-height: 1;
+  }
+}
+
+.dropdownlink2 {
+    cursor: pointer;
+    display: block;
+    padding: 15px 15px 20px 15px;
+    font-size: 18px;
+    border-bottom: 1px solid #ccc;
+    color: #ffffff;
+    position: relative;
+    background: #1089ff;
+    transition: all 0.4s ease-out;
+    border-radius: 10px;
+  i {
+    position: absolute;
+    top: 17px;
+    left: 16px;
+  }
+  .fa-chevron-down {
+    right: 12px;
+    left: auto;
+    padding: 10px;
+    top: 10px;
+    line-height: 1;
+  }
+}
+
+.submenuItems {
+  display: none;
+  background: #E5E5E5;
+  li {
+    border-bottom: 1px solid #B6B6B6;
+  }
+}
+
+.submenuItems a {
+  display: block;
+  color: #fffff !important;
+  padding: 12px 12px 12px 45px;
+  transition: all 0.4s ease-out;
+  &:hover {
+    background-color: #CDDC39;
+    color: #fff;
+  }
+}
+
+
+.m-col-md-4 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 33.33333%;
+    flex: 0 0 33.33333%;
+    max-width: 27.33333%; 
+    margin-right: 35px;
+/*     margin-top: 30px; */
+    border-radius: 22px;
+/*     box-shadow: rgb(0 0 0 / 20%) 0px 5px 15px 0px; */
+    }
+
+.fa{
+vertical-align:middle;
+padding: 5px;
+float: right;
+
+}
+
+</style>
+<!-- 사이드바 --> 
+
+
+    <!-- 배경색 -->
+    <style> 
+    .bg-light {
+    background: #f8f9fa !important;
+}
+    </style>
+	<!-- 배경색 -->
 
 </head>
 <body>
@@ -50,7 +181,7 @@
 		<!-- 헤더들어가는 곳 -->
 
 		<!-- 아래 컨테이너 틀 -->
-		<section class="ftco-section contact-section">
+		<section class="ftco-section contact-section bg-light">
 			<div class="container">
 				<div class="row d-flex mb-5 contact-info">
 					<div class="col-md-4">
@@ -189,6 +320,6 @@
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="./js/google-map.js"></script>
 	<script src="./js/main.js"></script>
-
+<script src="https://kit.fontawesome.com/595b26ba61.js" crossorigin="anonymous"></script>
 </body>
 </html>

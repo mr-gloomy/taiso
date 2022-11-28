@@ -299,7 +299,11 @@ $(document).ready(function(){
 	<!-- 중간제목 끝 -->
 
 	<!-- 본문 시작 -->
+<<<<<<< HEAD
 	<section class="bg-light">
+=======
+	<section class="ftco-section contact-section bg-light">
+>>>>>>> branch 'master' of https://github.com/mr-gloomy/taiso.git
 		<div class="formbold-main-wrapper">
 		<!-- Author: FormBold Team -->
 		<!-- Learn More: https://formbold.com -->

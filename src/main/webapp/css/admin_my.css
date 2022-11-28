@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+
+
+
 /* 프로필 */
 .membercard {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
@@ -9,6 +12,7 @@
     align-items: center;
     width: 300px;
     height:280px;
+    background: #fff;
 }
 
 .membercard .text{
@@ -121,6 +125,14 @@
 }
 
 /* 좌측메뉴  */
+
+.btn-primary2 {
+    background: #1089ff !important;
+    border: 1px solid #1089ff !important;
+/*     width: 500px; */
+    color: #fff !important;
+}
+
 
 /* 게시판 */
  

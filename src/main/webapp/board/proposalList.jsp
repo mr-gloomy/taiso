@@ -36,7 +36,13 @@
 		bir.value = today;
 	}
 </script>
-
+    <!-- 배경색 -->
+    <style> 
+    .bg-light {
+    background: #f8f9fa !important;
+}
+    </style>
+	<!-- 배경색 -->
 
 </head>
 <body>
@@ -72,7 +78,7 @@
 <%--	${requestScope.QuestionList } --%>
 	
 	<!-- left -->
-		<section class="ftco-section contact-section">
+		<section class="ftco-section contact-section bg-lighta">
 			<div class="container">
 				<div class="row d-flex mb-5 contact-info">
 
@@ -151,8 +157,6 @@
 			</div>								
 		<!-- 이 안이 변동사항 아래는 외부 틀이라서 필수 -->			
 			</div>
-			</div>
-			</div>
 <!-- 				<div class="row justify-content-center"></div> -->
 		</section>
 		   
@@ -190,6 +194,6 @@
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="js/google-map.js"></script>
 	<script src="js/main.js"></script>
-
+<script src="https://kit.fontawesome.com/595b26ba61.js" crossorigin="anonymous"></script>
 </body>
 </html>
