@@ -92,7 +92,7 @@
         <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
           <div class="col-lg-8 ftco-animate">
           	<div class="text w-100 text-center mb-md-5 pb-md-5">
-	            <h1 class="mb-4">세계 최고의 렌터카 TAISO</h1>
+	            <h1 class="mb-4">압도적 1등, TAISO</h1>
 	            <p style="font-size: 18px;">행복한 여행에 TAISO가 함께합니다<br>고객의 행복을 최우선으로하는 TAISO의 서비스를 만나보세요!</p>
             </div>
           </div>

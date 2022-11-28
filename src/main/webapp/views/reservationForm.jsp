@@ -39,89 +39,48 @@
    
 <style>
 .rezform-1{
-  border: none;
-  background: transparent;
-  color: #212121;
-  font-family: 'InfinitySans-RegularA1';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
+border: none;
+background: transparent;
+ 	  color: #212121;
+    font-family: 'InfinitySans-RegularA1';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
 }
 .rezform-2{
 border: none;
-  height: 40px;
-  width: 200px;
-  background: #fff !important;
-  color: #212121;
-  border: 1px solid #ced4da;
-  margin:10px;
-  font-size: 15px;
-  padding : 0.375rem 0.75rem;
-  border-radius: 5px;
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-  font-family: 'InfinitySans-RegularA1';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
+ 	  height: 40px;
+	  width: 200px;
+	  background: #fff !important;
+ 	  color: #212121;
+	  border: 1px solid #ced4da;
+	  margin:10px;
+	  font-size: 15px;
+	  padding : 0.375rem 0.75rem;
+	  border-radius: 5px;
+	  -webkit-box-shadow: none !important;
+	  box-shadow: none !important;
+    font-family: 'InfinitySans-RegularA1';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
 }
 .form-group,label{
-  margin:0;
+margin:0;
 }
 .form-group2{
-  line-height:40px;
+/* margin-bottom: 30px; */
+line-height:40px;
 }
-.submitbtn {
-  color:#fff;
-  font-weight:600; 
-  background-color: #1089FF;
-  text-align: center;
-  border:none;
-  margin:5px;
-  border-radius:3px;
-  font-size:18px;
-  width:100px; height:40px;
-}
-.adminReservation_wrap2 {
-	align-content: center;
-}
-.adminReservation_title {
-	align-content: center;
-	margin-bottom: 20px;
-}
+    .submitbtn {
+    color:#fff;
+    font-weight:600; 
+    background-color: #1089FF;
+    text-align: center;
+    border:none;
+    margin:5px;
+    border-radius:3px;
+    font-size:18px;
+    width:100px; height:40px;
+    }
 </style>
 
-
-<!-- 블로그 로딩 코드 start -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<style type="text/css">
-#waiting {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    display: flex;
-    background: white;
-    z-index: 999;
-    opacity: 0.9;
-}
-#waiting > img {
-    display: flex;
-    width: fit-content;
-    height: fit-content;
-    margin: auto;
-}
-</style>
-
-<div id="waiting">
-   <img src="./img/loading.gif">
-</div>
-
-<script type="text/javascript">
-    $(window).on('load', function() {
-        setTimeout(function(){
-            $("#waiting").fadeOut();
-        }, 300);
-    });
-</script>
-<!-- 블로그 로딩 코드 end -->
 
  <script type="text/javascript">
     
@@ -368,6 +327,17 @@ border: none;
     } 	
  </script>
 
+<style type="text/css">
+.adminReservation_wrap2 {
+	align-content: center;
+}
+.adminReservation_title {
+	align-content: center;
+	margin-bottom: 20px;
+}
+</style>
+
+
   </head>
 
 <!-- ------------------------------------------------------------------------------------------------------- -->
@@ -478,7 +448,7 @@ border: none;
 <div class="col-md-12">
          <div class="form-group">
               <h3>면허정보입력</h3>    
-                면허발급일자&nbsp;:&nbsp;<input type="date" name="license_issueDate" class="rezform-2" value="${rezDTO.license_issueDate }" placeholder="면허발급일자를 정확하게 입력해주세요." readonly="readonly">
+                면허발급일자&nbsp;:&nbsp;<input type="date" name="license_issueDate" class="rezform-2" value="${rezDTO.license_issueDate }" placeholder="면허발급일자를 정확하게 입력해주세요.">
           </div>
 
               <div class="form-group">
