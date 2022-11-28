@@ -6,7 +6,7 @@
 <html lang="en">
 <!-- 헤더들어가는곳 -->
 <head>
-<title>타이소-관리자</title>
+<title>관리자</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="shortcut icon" type="image/x-icon" href="./images/logo.png">
@@ -264,6 +264,7 @@ float: right;
 
 	<!-- 상단 -->
 	<section class="hero-wrap hero-wrap-2 js-fullheight"
+		style="background-image: url('images/bg_6.jpg');"
 		data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
@@ -306,7 +307,7 @@ float: right;
 					<div class="row mb-5">
 						<div class="profile">
 							<div class="txt">
-								<img src="./images/person_4.jpg">
+								<img src="./images/admin.png">
 								<h5><p>${sessionScope.mem_id } 님</p></h5>
 								<h6>IT | 사원(2215953)</h6>
 							</div>

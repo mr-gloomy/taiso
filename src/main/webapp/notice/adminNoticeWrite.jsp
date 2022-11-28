@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>타이소-관리자</title>
+<title>관리자</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -149,6 +149,7 @@ function back(){
 		<jsp:include page="../inc/top.jsp" />
 
 		<section class="hero-wrap hero-wrap-2 js-fullheight"
+		    style="background-image: url('images/bg_6.jpg');"
 			data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
