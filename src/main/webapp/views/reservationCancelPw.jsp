@@ -42,16 +42,89 @@
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
+<<<<<<< HEAD
+  <!-- 블로그 로딩 코드 start -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style type="text/css">
+#waiting {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    background: white;
+    z-index: 999;
+    opacity: 0.9;
+}
+#waiting > img {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+</style>
+<div id="waiting">
+   <img src="./img/loading.gif">
+</div>
+
+<script type="text/javascript">
+    $(window).on('load', function() {
+        setTimeout(function(){
+            $("#waiting").fadeOut();
+        }, 300);
+    });
+</script>
+<!-- 블로그 로딩 코드 end -->
+
+
+=======
+
+<!-- 블로그 로딩 코드 start -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style type="text/css">
+#waiting {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    background: white;
+    z-index: 999;
+    opacity: 0.9;
+}
+#waiting > img {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+</style>
+<div id="waiting">
+   <img src="./img/loading.gif">
+</div>
+
+<script type="text/javascript">
+    $(window).on('load', function() {
+        setTimeout(function(){
+            $("#waiting").fadeOut();
+        }, 300);
+    });
+</script>
+<!-- 블로그 로딩 코드 end -->
+>>>>>>> branch 'master' of https://github.com/mr-gloomy/taiso.git
+
 <script type="text/javascript">
 
 function cancelRez(seq){ 
 	Swal.fire({
-	  title: '결제를 취소하시겠습니까?',
+	  title: '예약을 취소하시겠습니까?',
 	  icon: 'info',
 	  showCancelButton: true,
 	  confirmButtonColor: '#3085d6',
 	  cancelButtonColor: 'grey',
-	  confirmButtonText: '결제 취소',
+	  confirmButtonText: '예약 취소',
 	  cancelButtonText: '돌아가기'
 	}).then((result) => {
 	  if (result.value) {      
@@ -69,7 +142,7 @@ function cancelRez(seq){
 	  		      Swal.fire({         
 	  		            title : '비밀번호를 입력해주세요!',
 	  		             icon: 'warning',
-	  		            html: '결제 취소를 위해 고객님의 비밀번호가 필요합니다.',
+	  		            html: '예약 취소를 위해 고객님의 비밀번호가 필요합니다.',
 	  		            confirmButtonText: '확인'
 	  		         })          
 	  		          document.fr.mem_pw.focus();
@@ -96,7 +169,7 @@ function cancelRez(seq){
 		<div class="col-md-8 block-9 mb-md-5">
 				<div class="form-group">
 					<h3>
-						<b>결제 취소 확인</b>
+						<b>예약 취소 확인</b>
 					</h3>
 				</div>
 
@@ -113,15 +186,15 @@ function cancelRez(seq){
 					
 					<br> 
 					
-					<label>취소수수료 　　　:　</label> 
+					<label>환불금액　　　　 :　</label> 
 						<input type="text" name="cancel_commission" value="${param.pay_total}" readonly="readonly"> 원
 					<label>　　　　　　　　　　( 결제 금액에서 10% 차감된 금액으로 환불됩니다)　</label> 
 					<br> 
 					<label>아이디 　　　　　:　</label> 
-						<input type="text" name="mem_id" value="${sessionScope.mem_id }"> 
+						<input type="text" name="mem_id" value="${sessionScope.mem_id }" readonly="readonly"> 
 					<br> 
 					<label>예약번호　　　　 :　</label>
-						<input type="text" name="rez_uqNum" value="${param.rez_uqNum }"> 
+						<input type="text" name="rez_uqNum" value="${param.rez_uqNum }" readonly="readonly"> 
 					<br> 
 					<label>비밀번호 　　　　:　</label>
 						<input type="password" name="mem_pw" value="" placeholder="비밀번호를 입력해주세요"><br>

@@ -34,6 +34,40 @@
 	<link rel="stylesheet" href="./css/style.css">
 
 
+<!-- 블로그 로딩 코드 start -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style type="text/css">
+#waiting {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    background: white;
+    z-index: 999;
+    opacity: 0.9;
+}
+#waiting > img {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+</style>
+<div id="waiting">
+   <img src="./img/loading.gif">
+</div>
+
+<script type="text/javascript">
+    $(window).on('load', function() {
+        setTimeout(function(){
+            $("#waiting").fadeOut();
+        }, 300);
+    });
+</script>
+<!-- 블로그 로딩 코드 end -->
+
    <style type="text/css">
     .sls {
     border:1px solid #fff;
@@ -403,26 +437,42 @@ $(function() {
 		});	// selectBox_test 끝
 });
 
+</script>
 
+<script src="sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
+<script>
 function checkForm(){
 	if(document.fr.rez_pick_date.value==""){
-		alert("대여일을 선택해주세요");
+		Swal.fire({
+            icon: 'warning',
+            text: '대여일을 선택하세요',
+        });
 		document.fr.rez_pick_date.focus();
 		return false;
 	}
 	if(document.fr.rez_off_date.value==""){
-		alert("반납일을 선택해주세요");
+		Swal.fire({
+            icon: 'warning',
+            text: '반납일을 선택하세요',
+        });
 		document.fr.rez_off_date.focus();
 		return false;
 	}
 	if(document.fr.rez_pick_time.value==""){
-		alert("대여시간을 선택해주세요");
+		Swal.fire({
+            icon: 'warning',
+            text: '이용시간을 선택하세요',
+        });
 		document.fr.rez_pick_time.focus();
 		return false;
 	}
 	if(document.fr.sido_select.value=="" || document.fr.site_select.value==""){
-		alert("이용지점을 선택해주세요");
+		Swal.fire({
+            icon: 'warning',
+            text: '이용지점을 선택하세요',
+        });
 		document.fr.site_select.focus();
 		return false;
 	}

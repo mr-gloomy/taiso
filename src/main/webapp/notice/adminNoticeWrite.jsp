@@ -27,6 +27,41 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
 
 
+<!-- 블로그 로딩 코드 start -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style type="text/css">
+#waiting {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    background: white;
+    z-index: 999;
+    opacity: 0.9;
+}
+#waiting > img {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+</style>
+<div id="waiting">
+   <img src="./img/loading.gif">
+</div>
+
+<script type="text/javascript">
+    $(window).on('load', function() {
+        setTimeout(function(){
+            $("#waiting").fadeOut();
+        }, 300);
+    });
+</script>
+<!-- 블로그 로딩 코드 end -->
+
+
 <script type="text/javascript">
    <!-- input에 오늘날짜 기본값으로 넣기 -->
 window.onload = function() {
@@ -118,7 +153,17 @@ function back(){
 		<section class="hero-wrap hero-wrap-2 js-fullheight"
 			data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
-			<div class="container"></div>
+			<div class="container">
+				<div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+				<div class="col-md-9 ftco-animate pb-5">
+					<p class="breadcrumbs">
+						<span class="mr-2"><a href="./AdminMain.mb">admin <i class="ion-ios-arrow-forward"></i></a></span> 
+						<span>관리자 메인 <i class="ion-ios-arrow-forward"></i></span>
+					</p>
+					<h1 class="mb-3 bread">관리자 글쓰기</h1>
+				</div>
+			
+			</div>
 		</section>
 		<!-- 헤더들어가는 곳 -->
 

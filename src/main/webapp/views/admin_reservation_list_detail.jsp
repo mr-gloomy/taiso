@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="./css/icomoon.css">
     <link rel="stylesheet" href="./css/style2.css">
     <link rel="stylesheet" href="./css/board2.css">
-    
+    <link rel="stylesheet" href="./css/adminReservation.css">
     
     
     <!-- 블로그 로딩 코드 start -->
@@ -56,7 +56,15 @@
     height: fit-content;
     margin: auto;
 }
+
 </style>
+
+<style type="text/css">
+.btn btn-primary py-1 mr-1 {
+	font-size: 20px;
+}
+</style>
+
 <div id="waiting">
    <img src="./img/loading.gif">
 </div>
@@ -70,7 +78,22 @@
 </script>
 <!-- 블로그 로딩 코드 end -->
     
-    
+ <style type="text/css">
+ .adminReservation_title {
+    margin-bottom: 10px;
+}
+
+.adminReservation_title strong {
+    font-size: 2rem;
+    color: #1089FF;
+}
+
+.adminReservation_title h2 {
+    font-size: 2rem;
+    color: #6c757d;
+}
+
+ </style>   
     
     
     
@@ -93,7 +116,10 @@
 <!-- 헤더들어가는 곳 -->
 <!-- 메인 -->
   	<section class="ftco-section2 bg-light">
-           <h1>예약정보 조회</h1>
+  	<div class="adminReservation_title" >
+<%--            <h1>[예약번호 : ${rezDTO.rez_uqNum }] ${rezDTO.mem_id }님의 예약 상세정보</h1> --%>
+           <h2>[예약번호 : ${rezDTO.rez_uqNum }] <strong>${rezDTO.mem_id }님의 예약 상세정보</strong></h2>
+    </div>
         <div class="row">
 				<div class="col-md-4-2">
 					<div class="car-wrap rounded ftco-animate">
@@ -111,7 +137,7 @@
 <!-- 							</h2> -->
 <!-- 							<br><br> -->
 							
-							<br><br><br><br>
+							<br><br>
 							<div class="board_list_wrap">
 					            <div class="board_list">
 					            	
@@ -216,23 +242,25 @@
 					                <br><br><br>
 					            </div>
 							</div>
-					     </div>
+<!-- 					     </div> -->
                 
-					                <br><br><br>
+					               
 					                
 								    </div>
-										<div class="d-flex mb-3" style="display: flex; justify-content: center;">
+<!-- 										<div class="d-flex mb-3" style="display: flex; justify-content: center;" > -->
+											<div id="table_search" align="center">
 											 <form action="" name="fr" method="post">
 							   					  <input type="hidden" name="mem_id" value="${mDTO.mem_id }" >   
 							   					  <input type="hidden" name="pay_uqNum" value="${payDTO.pay_uqNum }" >   
 											 </form>
-											 <input type = "button" class="btn btn-primary py-1 mr-1" value = "목록페이지로 돌아가기" onclick="goBack();" />
+											 <input type = "button" class="btn btn-primary py-2 mr-1" value = "목록페이지로 돌아가기" onclick="goBack();" />
 											
+											<br><br><br>
 										</div>
 									</div>
 									
 					                <br><br><br>
-					                
+					               </div>  
 					                
 					            </div>
 							</div>

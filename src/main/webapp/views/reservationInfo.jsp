@@ -125,7 +125,7 @@
 	<jsp:include page="../inc/top.jsp" />
 	<!-- 헤더들어가는 곳 -->
     
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_6.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
 <!--         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start"> -->
@@ -251,20 +251,28 @@
 					   <br><br><br>
 	                
 				    </div>
-						<div class="d-flex mb-3" style="display: flex; justify-content: center;">
-							 <form action="" name="fr" method="post">
-			   					  <input type="hidden" name="mem_id" value="${mDTO.mem_id }" >   
-			   					  <input type="hidden" name="pay_uqNum" value="${payDTO.pay_uqNum }" >   
-							 </form>
-							 <input type = "button" class="btn btn-primary py-1 mr-1" value = "예약 조회로 돌아가기" onclick="location.href='./ReservationList.rez';">ㅤ
-							 
-							 <c:if test="${rezDTO.rez_status == 1}">
-							 	<input type = "button" class="btn btn-primary py-2 mr-1" value = "예약 취소" onclick="cancelOpen(${rezDTO.rez_uqNum }+','+${payDTO.pay_total*0.9});">
-							 </c:if>
-							 <c:if test="${rezDTO.rez_status == 0}">
-							 </c:if>	
-							
-						</div>
+                              <div class="d-flex mb-3" style="display: flex; justify-content: center;">
+                                  <form action="" name="fr" method="post">
+                                         <input type="hidden" name="mem_id" value="${mDTO.mem_id }" >   
+                                         <input type="hidden" name="pay_uqNum" value="${payDTO.pay_uqNum }" >   
+                                  <input type = "button" class="btn btn-primary py-2 mr-1" value = "예약 조회로 돌아가기" onclick="location.href='./ReservationList.rez';">ㅤ
+                                  </form>
+                                  
+                                  <c:if test="${rezDTO.rez_status == 1 && rezDate-today < 2 }">
+                                    <input type = "button" class="btn btn-primary py-2 mr-1" value = "예약 취소"  onclick="checkForm()">
+                                  </c:if>
+                                  
+                                  
+                                  <c:if test="${rezDTO.rez_status == 1 && rezDate-today > 1 }">
+                                     <input type = "button" class="btn btn-primary py-2 mr-1" value = "예약 취소"  onclick="cancelOpen(${rezDTO.rez_uqNum }+','+${payDTO.pay_total*0.9});">
+                                  </c:if>
+                                  
+                                  
+                                  <c:if test="${rezDTO.rez_status == 0}">
+                                  </c:if>   
+                                 
+                              </div>
+                           </div>
 					</div>
 					                <br><br><br>
 					                

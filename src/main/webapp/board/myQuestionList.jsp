@@ -275,7 +275,7 @@ function Login() {
 									class="ion-ios-arrow-forward"></i></a></span> <span>고객센터 <i
 								class="ion-ios-arrow-forward"></i></span>
 						</p>
-						<h1 class="mb-3 bread">고객센터</h1>
+						<h1 class="mb-3 bread">1:1 문의하기</h1>
 					</div>
 				</div>
 			</div>

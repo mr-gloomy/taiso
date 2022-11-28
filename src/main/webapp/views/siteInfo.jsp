@@ -32,6 +32,41 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.dcom/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
+
+<!-- 블로그 로딩 코드 start -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style type="text/css">
+#waiting {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    background: white;
+    z-index: 999;
+    opacity: 0.9;
+}
+#waiting > img {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+</style>
+<div id="waiting">
+   <img src="./img/loading.gif">
+</div>
+
+<script type="text/javascript">
+    $(window).on('load', function() {
+        setTimeout(function(){
+            $("#waiting").fadeOut();
+        }, 300);
+    });
+</script>
+<!-- 블로그 로딩 코드 end -->
+
     <style>
 	.site-table {
 	  font-size: 1.2em;
@@ -125,11 +160,13 @@
 		margin-left:2%;
 		color:#2e2e2e; !important
 	}
-    .sls {border:1px solid;
-	    padding:5px; 
-	    font-size:18px ;
-	    font-weight:600; 
-	    font-family: "Poppins", Arial, sans-serif;
+    .sls {
+    border:1px solid #2E2E2E;
+    padding:5px; 
+    font-size:20px;
+    font-weight:600; 
+    color:#2E2E2E;
+    width:200px;
     }
 	</style>
 	
@@ -166,7 +203,7 @@
 	<jsp:include page="../inc/top.jsp"/>
 	<!-- header -->
     
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_6.jpg'); data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
@@ -214,10 +251,9 @@
 								<select id="site_select" class="sls">
 							          <option value="" selected disabled hidden>지점을 선택하세요</option>	
 								</select>
-<!-- 										<input type="submit" value="검색" class="btn btn-secondary" id="site_search"> -->
-								<button type="button" class="btn btn-secondary" id="site_search">검색</button>
+								<button type="button" class="btn btn-secondary" id="site_search" style="height:45px;">검색</button>
 								<div class="site-list" style="padding-top: 20px";>
-									<table class="site-table" border="1">
+									<table class="site-table" style="border:1 solid;">
 										<thead class="site-thead">
 											<tr class="site-tr">
 												<th class="site-th">지역</th>
