@@ -45,7 +45,6 @@ public class AdminCarInsertAction implements Action {
 			CarDTO carDTO = new CarDTO();
 		
 			carDTO.setCar_category(multi.getParameter("car_category"));
-			carDTO.setCar_location(0); // 0 제주 , 1 내륙
 			carDTO.setCar_name(multi.getParameter("car_name"));
 			carDTO.setCar_op(multi.getParameter("car_op"));
 			carDTO.setCar_price(Integer.parseInt(multi.getParameter("car_price")));
