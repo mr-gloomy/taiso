@@ -5,9 +5,9 @@
 <html lang="en">
 
 <head>
-<title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
+<title>Carbook - Free Bootstrap 4 Template by Colorlib</title> 
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
 
 <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
 
@@ -31,6 +31,7 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
 
 </head>
 
@@ -57,7 +58,7 @@
 	<!-- 중간제목 끝 -->
 
 	<!-- 본문 시작 -->
-	<section class="ftco-section contact-section">
+	<section class="bg-light">
 		<div class="formbold-main-wrapper">
 		<!-- Author: FormBold Team -->
 		<!-- Learn More: https://formbold.com -->
@@ -138,10 +139,12 @@ body {
 
 .formbold-form-wrapper {
 	margin: 0 auto;
-	max-width: 570px;
-	width: 100%;
-	background: white;
-	padding: 40px;
+    max-width: 570px;
+    width: 100%;
+    background: white;
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 20px 20px 80px rgb(218 218 218 / 47%)
 }
 
 .formbold-input-wrapp>div {
@@ -325,7 +328,9 @@ body {
     text-align: center;
     margin-bottom: 20px;
   }
-
+   .bg-light {
+    background: #f8f9fa !important;
+}
 </style>
 <!-- 본문 css -->
 

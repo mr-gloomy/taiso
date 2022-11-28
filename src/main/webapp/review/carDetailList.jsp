@@ -131,7 +131,7 @@
       	<div class="row justify-content-center">
       		<div class="col-md-12">
       			<div class="car-details">
-      				<div class="img rounded" style="background-image: url(images/bg_1.jpg);"></div>
+      				<div class="img rounded" style="background-image: url(./upload/${carDTO.car_file.split('-')[0] });"></div>
       				<div class="text text-center">
       					<span class="subheading">${carDTO.car_brand }</span>
       					<h2>${carDTO.car_name }</h2>
@@ -276,7 +276,7 @@
 						    	<div class="row">
 								<c:set var = "num" value="1"/>
 								<c:set var = "name" value = ""/>
-									<c:forEach var="option" items="${carDTO.car_op.split(',') }">
+									<c:forEach var="option" items="${carDTO.car_op.split('-') }">
 										<div class="col-md-4">
 											<ul class="features">
 												<c:if test="${not empty option }">

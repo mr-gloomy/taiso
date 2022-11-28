@@ -11,6 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+    
 
 	<link rel="stylesheet" href="./css/open-iconic-bootstrap.min.css">
 	<link rel="stylesheet" href="./css/animate.css">
@@ -33,23 +35,49 @@
 
 
    <style type="text/css">
-    .sls {border:1px solid #fff;
+    .sls {
+    border:1px solid #fff;
     padding:5px; 
-    font-size:12px ;
+    font-size:15px;
     font-weight:600; 
-    font-family: "Poppins", Arial, sans-serif;
+    color:#757575;
+    width:400px;
     }
     
     .submitbtn {
     color:#F8F9FA;
     font-size:20px ;
     font-weight:600; 
-    font-family: "Poppins", Arial, sans-serif;
     background-color: #1089FF;
     text-align: center;
     border:0;
-            margin:auto;
+    margin:auto;
     }
+    
+    .main-label{
+    font-size:17px;
+    color:#F8F9FA;
+    }
+    
+    .mainicon:before {
+    content: "\f1b9";
+    font-family: FontAwesome;
+    line-height: 1;
+    font-size:27px;
+    color:#F8F9FA;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	}
+	
+    .renticon:before {
+    content: "\f0e7";
+    font-family: FontAwesome;
+    line-height: 1;
+    font-size:20px;
+    color:#F8F9FA;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	}
    </style>	
 	
 </head>
@@ -58,14 +86,14 @@
 	<!-- header -->
 	<jsp:include page="../inc/top.jsp"/>
 	<!-- header -->
-    <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/bg_4.jpg');" data-stellar-background-ratio="0">
+    <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/hobo1.jpg');" data-stellar-background-ratio="0">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
           <div class="col-lg-8 ftco-animate">
           	<div class="text w-100 text-center mb-md-5 pb-md-5">
-	            <h1 class="mb-4">TAISO</h1>
-	            <p style="font-size: 18px;">타이소타이소타이소타이소</p>
+	            <h1 class="mb-4">세계 최고의 렌터카 TAISO</h1>
+	            <p style="font-size: 18px;">행복한 여행에 TAISO가 함께합니다<br>고객의 행복을 최우선으로하는 TAISO의 서비스를 만나보세요!</p>
             </div>
           </div>
         </div>
@@ -78,54 +106,57 @@
     	<div class="container">
     		<div class="row no-gutters">
     			<div class="col-md-12 featured-top">
-					<form action="./ReservationDate.rez" method="post" name="fr" class="request-form ftco-animate bg-primary" onSubmit="return checkForm()">
+					<form action="./ReservationDate.rez" method="post" name="fr" class="request-form ftco-animate bg-primary" onSubmit="return checkForm()" style="padding: 30px 0;">
 					
-		          		<h2>예약하기</h2>
-		          		<hr style="background-color:#F8F9FA;"> 
-    					<div class="d-flex">
+		          		<h2 style="padding-left: 100px;"><div class="mainicon">&nbsp;&nbsp;예약하기</div></h2>
+		          		<hr style="background-color:#F8F9FA; height: 1.2px;"> 
+    					<div class="d-flex" style="padding-left: 100px;">
 							<div class="form-group mr-2">
-						        <label for="" class="label">대여일</label><br>
+						        <label for="" class="main-label" style="padding-top: 10px;">대여일</label><br>
 						        <c:if test="">
 						        	
 						        </c:if>
-						        <input type="text" class="sls" name="rez_pick_date" id="start_date" placeholder="Date">
+						        <input type="text" class="sls" name="rez_pick_date" id="start_date" placeholder="&nbsp;&nbsp;대여일을 선택하세요">
 							</div>
 							<div class="form-group mr-2">
-						        <label for="" class="label">반납일</label><br>
-						        <input type="text" class="sls" name="rez_off_date" id="off_date" placeholder="Date">
+						        <label for="" class="main-label" style="padding-top: 10px;">반납일</label><br>
+						        <input type="text" class="sls" name="rez_off_date" id="off_date" placeholder="&nbsp;&nbsp;반납일을 선택하세요">
 								<input type="hidden" name="totalDate" value="">
 							</div>
 						</div>	       		
-						<label for="" class="label" id="datealert">
-							<h7>단기렌트는 28일까지만 가능합니다.</h7>
+						<label for="" class="main-label" id="datealert" style="font-size:15px; padding-left: 100px;">
+							<div class="renticon"><h7>&nbsp;&nbsp;&nbsp;단기렌트는 최대 28일까지 가능합니다.</h7></div>
 						</label><br>
-						<div class="d-flex">
+						<div class="d-flex" style="padding-left: 100px;">
 							<div class="form-group mr-2">
-								<label for="" class="label">대여시간</label><br>
-								<input type="text" class="sls" name="rez_pick_time" id="time_pick" placeholder="픽업시간을 선택하세요">
+								<label for="" class="main-label" style="padding-top: 15px;">대여시간</label><br>
+								<input type="text" class="sls" name="rez_pick_time" id="time_pick" placeholder="&nbsp;&nbsp;픽업시간을 선택하세요">
 							</div>
 							<div class="form-group mr-2">
-								<label for="" class="label">반납시간</label><br>
-									<input type="text" class="sls" name="rez_off_time" id="time_off" placeholder="대여시간과 동일하게 설정됩니다" readonly>
+								<label for="" class="main-label" style="padding-top: 15px;">반납시간</label><br>
+									<input type="text" class="sls" name="rez_off_time" id="time_off" placeholder="&nbsp;&nbsp;대여시간과 동일하게 설정됩니다" readonly>
 							</div>
 						</div>
-			    		<div class="form-group">
-							<label for="" class="label">이용지점</label><br>
-							<select id="sido_select" class="sls">
-						          <option value="" selected disabled hidden>==지역을 선택하세요==</option>	
+						<label for="" class="main-label" id="datealert" style="font-size:15px; padding-left: 100px;">
+							<div class="renticon"><h7>&nbsp;&nbsp;&nbsp;대여시간과 반납시간은 동일하게 설정됩니다.</h7></div>
+						</label><br>
+			    		<div class="form-group" style="padding-left: 100px;">
+							<label for="" class="main-label" style="padding-top: 15px;">이용지점</label><br>
+							<select id="sido_select" class="sls" style="width:200px;">
+						          <option value="" selected disabled hidden>&nbsp;지역을 선택하세요</option>	
+						          <option value="부산/울산/경남/대구">부산/울산/경남/대구</option>
 						          <option value="제주">제주</option>
 						          <option value="서울">서울</option>
 						          <option value="인천/경기">인천/경기</option>
 						          <option value="강원도">강원도</option>
 						          <option value="충청/대전">충청/대전</option>
 						          <option value="전라/광주">전라/광주</option>
-						          <option value="경상/부산/대구/울산">경상/부산/대구/울산</option>
 							</select>
-							<select id="site_select" name="rez_site" class="sls">
-						          <option value="" selected disabled hidden>==지점을 선택하세요==</option>	
+							<select id="site_select" name="rez_site" class="sls" style="width:200px;">
+						          <option value="" selected disabled hidden>&nbsp;지점을 선택하세요</option>	
 							</select>
 						</div>
-						<div style="text-align: center;">
+						<div style="text-align: center; padding-top: 15px;">
 							<input type="submit" value="차량 검색" class="submitbtn">
 						</div>
 		    		</form>
@@ -133,13 +164,13 @@
 				</div>
 				</div>
     </section>
-
+<!--
     <section class="ftco-section ftco-no-pt bg-light">
     	<div class="container">
     		<div class="row justify-content-center">
           <div class="col-md-12 heading-section text-center ftco-animate mb-5">
-          	<span class="subheading">최고의 차</span>
-            <h2 class="mb-2">추천합니다</h2>
+          	<span class="subheading" style="font-size:15px;">어떤 차를 탈지 고민되신다면</span>
+            <h2 class="mb-2">추천합니다!</h2>
           </div>
         </div>
     		<div class="row">
@@ -157,9 +188,9 @@
 			    						<span class="cat">${rCar.car_name }</span>
 			    						<p class="price ml-auto">${rCar.car_price }원 <span>/day</span></p>
 		    						</div>
-		    						<p class="d-flex mb-0 d-block">
+		    						<p class="d-flex mb-0 d-block">-->
 <!-- 			    						<a href="#" class="btn btn-primary py-2 mr-1">Book now</a> -->
-			    						<a href="./ReviewList.rev?car_code=${rCar.car_code }"
+<!--			    						<a href="./ReviewList.rev?car_code=${rCar.car_code }"
 											class="btn btn-secondary py-2 ml-1">차량상세정보</a>
 									</p>
 		    					</div>
@@ -177,8 +208,8 @@
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center heading-section ftco-animate">
-          	<span class="subheading">최고의 후기</span>
-            <h2 class="mb-3">추천합니다</h2>
+          	<span class="subheading" style="font-size:15px;">5000만 국민이 선택한 타이소</span>
+            <h2 class="mb-3">생생한 이용 후기</h2>
           </div>
         </div>
         <div class="row ftco-animate">
@@ -203,7 +234,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section>-->
 
 
 
