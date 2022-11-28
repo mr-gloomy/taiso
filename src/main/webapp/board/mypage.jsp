@@ -147,10 +147,11 @@ h2 {
 .accordion-menu {
   
   width: 100%;
-  max-width: 350px;
-   margin: 27px auto 20px; 
+    max-width: 300px;
+    margin: 20px 0px 0px 0px;
   background: #fff;
   border-radius: 4px;
+  box-shadow: rgb(0 0 0 / 15%) 0px 5px 15px 0px;
 }
 .accordion-menu li.open .dropdownlink {
   color: #1089FF;
@@ -164,9 +165,9 @@ h2 {
 .dropdownlink {
   cursor: pointer;
   display: block;
-    padding: 17px 15px 15px 1px;
-  font-size: 18px;
-  border-bottom: 1px solid #ccc;
+    padding: 15px 20px 15px 0px;
+    font-size: 16px;
+/*   border-bottom: 1px solid #ccc; */
   color: #212121;
   position: relative;
   transition: all 0.4s ease-out;
@@ -187,9 +188,9 @@ h2 {
 .dropdownlink2 {
     cursor: pointer;
     display: block;
-    padding: 15px 15px 20px 15px;
-    font-size: 18px;
-    border-bottom: 1px solid #ccc;
+    padding: 15px 20px 15px 0px;
+    font-size: 16px;
+/*     border-bottom: 1px solid #ccc; */
     color: #ffffff !important;
     position: relative;
     background: #1089ff;
@@ -307,7 +308,7 @@ float: right;
    	 <div class="col-md-8 block-9 mb-md-5">
    	 
  		<section class="ftco-section2 bg-light">
-			<h1>예약정보 조회</h1>
+			<h3>예약정보 조회</h3>
 <!-- 			<div class="row"> -->
 				<div class="col-md-4-2">
 					<div class="car-wrap rounded ftco-animate">

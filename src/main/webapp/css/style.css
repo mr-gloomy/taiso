@@ -5633,7 +5633,9 @@ button.bg-dark:focus {
 .d-flex {
   display: -webkit-box !important;
   display: -ms-flexbox !important;
-  display: flex !important; }
+  display: flex !important; 
+
+  }
 
 .d-inline-flex {
   display: -webkit-inline-box !important;
@@ -9679,7 +9681,7 @@ textarea.form-control {
     color: #999999; }
 
 .contact-section .contact-info .icon {
-  margin-top: 10px; }
+/*   margin-top: 10px; */ }
   .contact-section .contact-info .icon span {
     font-size: 20px;
     color: #1089ff; }

@@ -27,7 +27,7 @@
       <i class="fa fa-chevron-down fa-pull-right" aria-hidden="true"></i>
     </div>
     <ul class="submenuItems">	
-      <li ><a href="#">예약/취소 조회</a></li>
+      <li ><a href="./ReservationList.rez">예약/취소 조회</a></li>
     </ul>
   </li>
   <li>
@@ -45,7 +45,7 @@
     </div>
     <ul class="submenuItems">
       <li><a href="./MemberUpdatePw.me">개인정보 수정</a></li>
-      <li><a href="./MemberRemove.me"">회원 탈퇴</a></li>
+      <li><a href="./MemberRemove.me">회원 탈퇴</a></li>
     </ul>
   </li>
 

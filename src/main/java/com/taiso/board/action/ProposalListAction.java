@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.taiso.board.db.BoardDAO;
+import com.taiso.board.db.BoardDTO;
 
 public class ProposalListAction implements Action {
 
@@ -21,6 +22,19 @@ public class ProposalListAction implements Action {
 //		
 		ActionForward forward = new ActionForward();
 		System.out.println(mem_id);
+
+
+		//전달정보저장
+		BoardDAO bodao = new BoardDAO();
+		BoardDTO bodto = new BoardDTO();
+		int myqnacnt = bodao.getMyqnacnt(mem_id);
+		int myreviewcnt = bodao.getMyreviewcnt(mem_id);
+	
+		request.setAttribute("myqnacnt", myqnacnt);
+		request.setAttribute("myreviewcnt", myreviewcnt);
+		
+		
+		
 		
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
@@ -37,8 +51,6 @@ public class ProposalListAction implements Action {
 		}
 		
 		
-		// BoardDAO 객체 생성 
-		BoardDAO bodao = new BoardDAO();
 		
 		// 게시판 전체 글 개수 확인
 		int cnt = bodao.getProposalCount();
