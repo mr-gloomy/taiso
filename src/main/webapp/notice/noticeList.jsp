@@ -43,8 +43,7 @@
 		<!-- 헤더들어가는 곳 -->
 		<jsp:include page="../inc/top.jsp" />
 		
-		<section class="hero-wrap hero-wrap-2 js-fullheight"
-			data-stellar-background-ratio="0.5">
+		<section class="hero-wrap hero-wrap-2 js-fullheight" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
 			</div>
@@ -80,7 +79,7 @@
 									<div class="top">
 										<div class="num">번호</div>
 										<div class="title">제목</div>
-										<div class="date">작성일</div>
+										<div class="count">작성일</div>
 										<div class="count">조회수</div>
 									</div>
 
@@ -90,7 +89,7 @@
 											<div class="title">
 												<a href="./NoticeDetail.nb?bo_num=${boDTO.bo_num }&pageNum=${pageNum}">${boDTO.bo_title }</a>
 											</div>
-											<div class="date">${boDTO.bo_sysdate }</div>
+											<div class="count">${boDTO.bo_sysdate }</div>
 											<div class="count">${boDTO.bo_readcount }</div>
 										</div>
 									</c:forEach>
@@ -101,7 +100,6 @@
 							<!-- 페이지처리 이전,다음 -->
 						   	<div class="n_page" align="center"> 
 						   		<c:if test="${requestScope.cnt != 0}">
-					  
 								    <!-- 이전 -->
 								    <c:if test="${startPage > pageBlock }">
 								    	<a href="./AdminNoticeList.nb?pageNum=${startPage-pageBlock }" class="btn btn-outline-primary"><<</a>
@@ -118,14 +116,10 @@
 								</c:if>
 						   	</div>
 						   	<!-- 페이지처리 이전,다음 -->
-  
-							
 							
 						</div>
 					</div>
 				</div>
-				<div class="row justify-content-center"></div>
-			</div>
 		</section>
 		<!-- 우측 -->
 

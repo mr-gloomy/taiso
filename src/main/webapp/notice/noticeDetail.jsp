@@ -6,9 +6,12 @@
 <head>
 <title>noticeDetail</title>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="shortcut icon" type="image/x-icon" href="./images/logo.png">
-<link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
+	rel="stylesheet">
 <link rel="stylesheet" href="./css/open-iconic-bootstrap.min.css">
 <link rel="stylesheet" href="./css/animate.css">
 <link rel="stylesheet" href="./css/owl.carousel.min.css">
@@ -33,59 +36,72 @@
 		<section class="hero-wrap hero-wrap-2 js-fullheight"
 			data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
-			<div class="container">
-			</div>
+			<div class="container"></div>
 		</section>
 		<!-- 헤더들어가는 곳 -->
 
-		<!-- 메인 -->
-		<div class="board_wrap2">
-			 <div class="board_title">
-            <strong>공지사항 상세내역</strong>
-        </div>
-			<div class="board_view_wrap">
-				<div class="board_view">
-					<div class="title">${boDTO.bo_title }</div>
-					<div class="info">
-						<dl>
-							<dt>번호</dt>
-							<dd>${boDTO.bo_num }</dd>
-						</dl>
-						<dl>
-							<dt>작성일</dt>
-							<dd>${boDTO.bo_sysdate }</dd>
-						</dl>
-						<dl>
-							<dt>조회</dt>
-							<dd>${boDTO.bo_readcount }</dd>
-						</dl>
-					</div>
-					<div class="cont">${boDTO.bo_content }</div>
-					<div class="file">${boDTO.bo_file }</div>
+		<!-- left -->
+		<section class="ftco-section contact-section">
+			<div class="container">
+				<div class="row d-flex mb-5 contact-info">
 
-				</div>
-				<br>
-				
-				<!-- 버튼 -->
-				<div align="center" >
-					<input type="button" value="목록이동" class="btn btn-primary py-2 px-3" onclick="location.href='./NoticeList.nb';">
+					<!-- @@@@@@@@@@@@여기부터 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
+					<jsp:include page="../inc/sidebar.jsp" />
+					<!-- @@@@@@@@@@@@여기까지 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
+
+					<!-- 우측 -->
+					<div class="board_wrap2">
+						<div class="board_title">
+							<strong>공지사항 상세내역</strong>
+						</div>
+						<div class="board_view_wrap">
+							<div class="board_view">
+								<div class="title">${boDTO.bo_title }</div>
+								<div class="info">
+									<dl>
+										<dt>번호</dt>
+										<dd>${boDTO.bo_num }</dd>
+									</dl>
+									<dl>
+										<dt>작성일</dt>
+										<dd>${boDTO.bo_sysdate }</dd>
+									</dl>
+									<dl>
+										<dt>조회</dt>
+										<dd>${boDTO.bo_readcount }</dd>
+									</dl>
+								</div>
+								<div class="cont">${boDTO.bo_content }</div>
+								<div class="file">${boDTO.bo_file }</div>
+
+							</div>
+							<br>
+
+							<!-- 버튼 -->
+							<div align="center">
+								<input type="button" value="목록이동"
+									class="btn btn-primary py-2 px-3" onclick="location.href='./NoticeList.nb';">
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-		<!-- 메인 -->
+	</section>
+	<!-- 우측 -->
 
 
-
-		<div class="clear"></div>
-		<!-- 푸터들어가는 곳 -->
-		<jsp:include page="../inc/bottom.jsp" />
-		<!-- 푸터들어가는 곳 -->
+	<div class="clear"></div>
+	<!-- 푸터들어가는 곳 -->
+	<jsp:include page="../inc/bottom.jsp" />
+	<!-- 푸터들어가는 곳 -->
 	</div>
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen">
 		<svg class="circular" width="20px" height="20px">
-			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
+				stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none"
+				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
 
 	<script src="./js/jquery.min.js"></script>

@@ -1,52 +1,68 @@
- document.addEventListener('DOMContentLoaded', () => {
-            const input = document.querySelector('#todo')
-            const addButton = document.querySelector('#add-button')
-            const todoList = document.querySelector('#todo-list')
-            const alert = document.querySelector('span')
-
-      		// '+' 버튼 익명 화살표 함수 
-            const addTodo = () => {
-                if (input.value !== '') {
-                    const item = document.createElement('div')
-      		    // 체크박스
-                    const checkbox = document.createElement('input')
-                    checkbox.type='checkbox'
-     		    // text
-                    const text = document.createElement('span');
-                
-                    item.appendChild(checkbox)
-                    item.appendChild(text)
-                    item.appendChild(deleteButton)
-                    todoList.appendChild(item)
-
-			// 체크박스 이벤트 리스너
-                    checkbox.addEventListener('change', (event) =>{ 
-                        if (event.currentTarget.checked)
-                        {
-                            text.style.textDecoration='line-through'
-                        }
-                        else {
-                            text.style.textDecoration='none'
-                        }
-                    })
-
-      		    // 제거하기 버튼 클릭 이벤트 리스너
-                    deleteButton.addEventListener('click', (event) => {
-                        todoList.removeChild(event.currentTarget.parentNode)
-                    })
-                    input.value =''
-                    alert.textContent = ''
-                }
-                else
-                    alert.textContent = '할 일을 입력하세요!'
+$( document ).ready(function() {
+    
+    "use strict";
+    
+    var todo = function() { 
+        $('.todo-list .todo-item input').click(function() {
+        if($(this).is(':checked')) {
+            $(this).parent().parent().parent().toggleClass('complete');
+        } else {
+            $(this).parent().parent().parent().toggleClass('complete');
+        }
+    });
+    
+    $('.todo-nav .all-task').click(function() {
+        $('.todo-list').removeClass('only-active');
+        $('.todo-list').removeClass('only-complete');
+        $('.todo-nav li.active').removeClass('active');
+        $(this).addClass('active');
+    });
+    
+    $('.todo-nav .active-task').click(function() {
+        $('.todo-list').removeClass('only-complete');
+        $('.todo-list').addClass('only-active');
+        $('.todo-nav li.active').removeClass('active');
+        $(this).addClass('active');
+    });
+    
+    $('.todo-nav .completed-task').click(function() {
+        $('.todo-list').removeClass('only-active');
+        $('.todo-list').addClass('only-complete');
+        $('.todo-nav li.active').removeClass('active');
+        $(this).addClass('active');
+    });
+    
+    $('#uniform-all-complete input').click(function() {
+        if($(this).is(':checked')) {
+            $('.todo-item .checker span:not(.checked) input').click();
+        } else {
+            $('.todo-item .checker span.checked input').click();
+        }
+    });
+    
+    $('.remove-todo-item').click(function() {
+        $(this).parent().remove();
+    });
+    };
+    
+    todo();
+    
+    $(".add-task").keypress(function (e) {
+        if ((e.which == 13)&&(!$(this).val().length == 0)) {
+            $('<div class="todo-item"><div class="checker"><span class=""><input type="checkbox"></span></div> <span>' + $(this).val() + '</span> <a href="javascript:void(0);" class="float-right remove-todo-item"><i class="icon-close"></i></a></div>').insertAfter('.todo-list .todo-item:last-child');
+            $(this).val('');
+        } else if(e.which == 13) {
+            alert('Please enter new task');
+        }
+        $(document).on('.todo-list .todo-item.added input').click(function() {
+            if($(this).is(':checked')) {
+                $(this).parent().parent().parent().toggleClass('complete');
+            } else {
+                $(this).parent().parent().parent().toggleClass('complete');
             }
-
-            addButton.addEventListener('click', addTodo)
-      
-      		// 할 일 입력창에서 enter key가 눌렸을 때
-            input.addEventListener('keypress', (event) => {
-                const ENTER = 13
-                if (event.keyCode === ENTER)
-                    addTodo();
-            })
-        })
+        });
+        $('.todo-list .todo-item.added .remove-todo-item').click(function() {
+            $(this).parent().remove();
+        });
+    });
+}); 

@@ -58,117 +58,6 @@
 /* 프로필 */
 
 
-/** 아코디언 */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-body{
-/*   display: flex; */
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-}
-::selection{
-  background: rgb(0,123,255,0.3);
-}
-.wrapper{
-  max-width: 600px;
-  padding: 0 20px;
-}
-.wrapper .parent-tab,
-.wrapper .child-tab{
-  margin-bottom: 8px;
-  border-radius: 3px;
-  box-shadow: 0px 0px 15px rgba(0,0,0,0.18);
-}
-.wrapper .parent-tab label,
-.wrapper .child-tab label{
-  background: #A9A9A9 ;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  border-radius: 3px;
-  position: relative;
-  z-index: 99;
-  transition: all 0.3s ease;
-}
-.wrapper .parent-tab label:hover{
-  background: #1089FF;
-}
-.parent-tab input:checked ~ label,
-.child-tab input:checked ~ label{
-  border-radius: 3px 3px 0 0;
-  background: #1089FF ;
-}
-.wrapper label span{
-  color: #fff;
-  font-size: 18px;
-  font-weight: 500;
-  text-shadow: 0 -1px 1px #000000;
-}
-.wrapper .child-tab label span{
-  font-size: 17px;
-}
-.parent-tab label .icon{
-  position: relative;
-  height: 30px;
-  width: 30px;
-  font-size: 15px;
-  color: #1089FF ;
-  display: block;
-  background: #fff;
-  border-radius: 50%;
-  text-shadow: 0 -1px 1px #1089FF ;
-}
-.wrapper .child-tab label .icon{
-  height: 27px;
-  width: 27px;
-}
-.parent-tab label .icon i{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.parent-tab input:checked ~ label .icon i:before,
-.child-tab input:checked ~ label .icon i:before{
-  content: 		'\f068';
-}
-.wrapper .parent-tab .content,
-.wrapper .child-tab .sub-content{
-  max-height: 0px;
-  overflow: hidden;
-  background: #fff;
-  border-radius: 0 0 3px 3px;
-  transition: all 0.4s ease;
-}
-.parent-tab input:checked ~ .content,
-.child-tab input:checked ~ .sub-content{
-  max-height: 100vh;
-}
-.tab-3 input:checked ~ .content{
-  padding: 15px 20px;
-}
-.parent-tab .content p,
-.child-tab .sub-content p{
-  padding: 15px 20px;
-  font-size: 16px;
-}
-.child-tab .sub-content p{
-  font-size: 15px;
-}
-input[type="radio"],
-input[type="checkbox"]{
-  display: none;
-}
-
-/** 아코디언 */
 
 /* 좌측메뉴 */
 
@@ -677,6 +566,220 @@ a {
         width: 100%;
     }
 
+}
+/* todolist */
+.todo-nav {
+    margin-top: 10px
+}
+
+.todo-list {
+    margin: 5px 0
+}
+
+.todo-list .todo-item {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 0;
+    background: #f7f7f7
+}
+
+.todo-list.only-active .todo-item.complete {
+    display: none
+}
+
+.todo-list.only-active .todo-item:not(.complete) {
+    display: block
+}
+
+.todo-list.only-complete .todo-item:not(.complete) {
+    display: none
+}
+
+.todo-list.only-complete .todo-item.complete {
+    display: block
+}
+
+.todo-list .todo-item.complete span {
+    text-decoration: line-through
+}
+
+.remove-todo-item {
+    color: #ccc;
+    visibility: hidden
+}
+
+.remove-todo-item:hover {
+    color: #5f5f5f
+}
+
+.todo-item:hover .remove-todo-item {
+    visibility: visible
+}
+
+div.checker {
+    width: 18px;
+    height: 18px
+}
+
+div.checker input,
+div.checker span {
+    width: 18px;
+    height: 18px
+}
+
+div.checker span {
+    display: -moz-inline-box;
+    display: inline-block;
+    zoom: 1;
+    text-align: center;
+    background-position: 0 -260px;
+}
+
+div.checker, div.checker input, div.checker span {
+    width: 19px;
+    height: 19px;
+}
+
+div.checker, div.radio, div.uploader {
+    position: relative;
+}
+
+div.button, div.button *, div.checker, div.checker *, div.radio, div.radio *, div.selector, div.selector *, div.uploader, div.uploader * {
+    margin: 0;
+    padding: 0;
+}
+
+div.button, div.checker, div.radio, div.selector, div.uploader {
+    display: -moz-inline-box;
+    display: inline-block;
+    zoom: 1;
+    vertical-align: middle;
+}
+
+.card {
+	width: 28em;
+    padding: 3px;
+    border-radius: calc(.15rem - 1px);
+    position: left;
+}
+
+.card-body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+.container {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* 달력 */
+.mb-5, .my-5 {
+    margin-bottom: 4rem;
+}
+.card-title {
+    margin-bottom: 0.7rem;
+}
+.calendar {
+  position: absolute;
+  width: 210px;
+  margin: 20px;
+  top: 9%
+  
+}
+.calendar_main {
+	position: static;
+	right: 200px;
+	top: 40px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.year-month{
+  font-size: 15px;
+}
+.h5 {
+  font-size: 20px;
+  color: black;
+}
+.nav {
+  display: flex;
+  border: 1px solid #333333;
+  border-radius: 4px;
+}
+.nav-btn {
+  width: 20px;
+  height: 25px;
+  border: none;
+  font-size: 10px;
+  line-height: 20px;
+  background-color: transparent;
+  cursor: pointer;
+}
+.go-today {
+  width: 60px;
+  border-left: 1px solid #333333;
+  border-right: 1px solid #333333;
+}
+.days {
+  display: flex;
+  margin: 8px 0 10px;
+}
+.day {
+  width: calc(100% / 7);
+  text-align: center;
+}
+.dates {
+  display: flex;
+  flex-flow: row wrap;
+  height: 210px;
+  border-top: 1px solid #333333;
+  border-right: 1px solid #333333;
+}
+.date {
+  width: calc(100% / 7);
+  padding: 3px;
+  text-align: right;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #333333;
+}
+.day:nth-child(7n + 1),
+.date:nth-child(7n + 1) {
+  color: #D13E3E;
+}
+.day:nth-child(7n),
+.date:nth-child(7n) {
+  color: #396EE2;
+}
+.other {
+  opacity: .3;
+}
+.today {
+  position: relative;
+  color: #FFFFFF;
+}
+.today::before {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  width: 23px;
+  height: 23px;
+  display: block;
+  background-color: #1089FF;
+  border-radius: 50%;
+  content: '';
+}
+.block-9 h2 {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 40px;
 }
 
 

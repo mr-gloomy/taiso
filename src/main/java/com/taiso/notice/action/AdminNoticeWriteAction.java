@@ -41,7 +41,7 @@ public class AdminNoticeWriteAction implements Action {
 		boDTO.setBo_title(multi.getParameter("bo_title"));
 		boDTO.setBo_pass(multi.getParameter("bo_pass"));
 		boDTO.setBo_content(multi.getParameter("bo_content"));
-		boDTO.setBo_file(multi.getParameter("bo_file"));
+		boDTO.setBo_file(multi.getFilesystemName("bo_file"));
 		
 		// BoardDAO 객체
 		noticeDAO dao = new noticeDAO();

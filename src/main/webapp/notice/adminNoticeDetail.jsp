@@ -63,8 +63,7 @@
 					${boDTO.bo_content }
                 </div>
                 <div class="file"> 
-                	<dt>첨부파일</dt>
-					${boDTO.bo_file }
+                	<dt>첨부파일</dt> ${boDTO.bo_file }
                 </div><br>
                 
             </div>
