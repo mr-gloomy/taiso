@@ -103,9 +103,6 @@
             		name="fr" onsubmit="return carCheck();">
            <div class="form-group">
            	 <h3>[관리자]차량 정보 등록</h3>	 <br>
-                지역코드 : 
-	     				   <input type="radio" name="car_location" value="1" checked>내륙
-                        	<input type="radio" name="car_location" value="0">제주<br>
                 <div class="form-group">
 							<label for="" class="label">이용지점 : </label>
 							<select id="sido_select">

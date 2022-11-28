@@ -144,7 +144,11 @@
 <%-- 			<c:if test="${endPage < pageCount }" > --%>
 <%-- 				<a href="./AdminReviewList.adr?pageNum=${startPage+pageBlock }">[다음]</a> --%>
 <%-- 			</c:if> --%>
-
+<div id="table_search">
+			<input type="button" value="관리자메인페이지로이동" class="btn btn-primary py-2 mr-1" 
+				onclick=" location.href='./AdminMain.mb';"
+			>
+		</div>
 		</c:if>
   
       </div><br>

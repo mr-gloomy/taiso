@@ -409,7 +409,13 @@ $(document).ready(function(){
 }
 
 body {
-	font-family: 'Inter', sans-serif;
+	font-family: 'InfinitySans-RegularA1';
+	font-weight: normal;
+    font-style: normal;
+}
+
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
 }
 
 .formbold-mb-3 {

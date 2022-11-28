@@ -240,15 +240,31 @@
          showCancelButton: true,         
          confirmButtonColor: '#3085d6', 
          cancelButtonColor: 'grey', 
-         confirmButtonText: '예약', 
-         cancelButtonText: '취소' 
+         confirmButtonText: '예약하기', 
+         cancelButtonText: '취소하기' 
        }).then((result) => { 
          if (result.isConfirmed) {           
               //"예약" 버튼을 눌렀을 때 호출할 함수
-            requestPay();
+            bfd();
          } 
        }) 
     } 
+     
+       
+    function bfd(){
+    	Swal.fire({   		 
+    		  imageUrl: './images/BFD.png',
+    		  imageWidth: 700,
+    		  imageHeight: 700,
+    		  imageAlt: 'Custom image',
+    		  confirmButtonText: '결제하기'
+    		}).then((result) => { 
+    	         if (result.isConfirmed) {           
+    	              //"결제하기" 버튼을 눌렀을 때 호출할 함수
+    	        	 requestPay();
+    	         }
+    		}) 
+    }   
     
    </script>
 
@@ -322,7 +338,7 @@
 <!-- contact 작성Form -->
 
         
-   <div class="col-md-8 block-9 mb-md-5">
+   <div class="col-md-12 block-9 mb-md-5">
          <form class="bg-light p-5 contact-form" method="post" id="rez" name="fr" >
                 
  <!-- Left Side 분리(section/div)-->
@@ -351,7 +367,7 @@
                      <label>차량카테고리　:　<input type="text" name="car_category" value="${carDTO.car_category}" class="form-control2" readonly="readonly"></label> <br>
                      <label>차량브랜드　　:　<input type="text" name="car_brand" value="${carDTO.car_brand}" class="form-control2" readonly="readonly"></label><br><!-- 주소줄에서받아오기 -->
                      <label>차량이름　　　:　<input type="text" name="car_name" value="${carDTO.car_name}" class="form-control2" readonly="readonly"></label><br>
-                     <label>차량옵션　　　:　<input type="text" name="car_op" value="${carDTO.car_op}" class="form-control3" readonly="readonly"></label><br>
+                     <label>차량옵션　　　:　<input type="text" name="car_op" value="<c:forTokens var="op" items="${carDTO.car_op }" delims=",">${op } </c:forTokens>" class="form-control3" readonly="readonly"></label><br>
                      <label>차량연식　　　:　<input type="text" name="car_year" value="${carDTO.car_year}" class="form-control2" readonly="readonly"></label><br>
                      <label>차량연료　　　:　<input type="text" name="car_fuel" value="${carDTO.car_fuel}" class="form-control2" readonly="readonly"></label>
                      </div>
