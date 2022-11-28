@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 import com.taiso.review.db.ReviewDAO;
 import com.taiso.review.db.ReviewDTO;
 
-public class ReviewCommentAction implements Action {
+public class ReviewCommentProAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
