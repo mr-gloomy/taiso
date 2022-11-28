@@ -179,9 +179,9 @@
 		<!-- 본문 끝 -->
 
 <script type="text/javascript">
-	  	var naver_id_login = new naver_id_login("wmfagQjB6wykoV0oZUGH", "http://localhost:8088/project_taiso/MemberNaverLogin.me");
+	  	var naver_id_login = new naver_id_login("wmfagQjB6wykoV0oZUGH", "http://itwillbs2.cafe24.com/project_taiso/MemberNaverLogin.me");
 	  	var state = naver_id_login.getUniqState();
-	  	naver_id_login.setDomain("http://localhost:8088/");
+	  	naver_id_login.setDomain("http://itwillbs2.cafe24.com/");
 	  	naver_id_login.setButton("white",3,50);
 	  	naver_id_login.setState(state);
 	  	naver_id_login.init_naver_id_login();

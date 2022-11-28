@@ -119,7 +119,7 @@
 	<div id="naver_id_login"></div>
 			
 <script type="text/javascript">
-var naver_id_login = new naver_id_login("wmfagQjB6wykoV0oZUGH","http://localhost:8088/project_taiso/MemberNaverLoginAction.me");
+var naver_id_login = new naver_id_login("wmfagQjB6wykoV0oZUGH","http://itwillbs2.cafe24.com/project_taiso/MemberNaverLoginAction.me");
 //접근 토큰 값 출력
 // alert(naver_id_login.oauthParams.access_token);
 //네이버 사용자 프로필 조회
