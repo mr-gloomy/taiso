@@ -1,4 +1,3 @@
-<%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -33,41 +32,6 @@
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
-
-<!-- 블로그 로딩 코드 start -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<style type="text/css">
-#waiting {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    display: flex;
-    background: white;
-    z-index: 999;
-    opacity: 0.9;
-}
-#waiting > img {
-    display: flex;
-    width: fit-content;
-    height: fit-content;
-    margin: auto;
-}
-</style>
-<div id="waiting">
-   <img src="./img/loading.gif">
-</div>
-
-<script type="text/javascript">
-    $(window).on('load', function() {
-        setTimeout(function(){
-            $("#waiting").fadeOut();
-        }, 300);
-    });
-</script>
-<!-- 블로그 로딩 코드 end -->
-
 <!-- sweetalert -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
@@ -75,8 +39,7 @@
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
 <!-- <script src="https://code.jquery.com/jquery-3.5.0.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
+    
 <script type="text/javascript">
 function winopen(){ // 아이디 중복 체크
 	
@@ -96,7 +59,6 @@ function winopen(){ // 아이디 중복 체크
 	 // 새창열기
 	 window.open("./MemberIdCheck.me?inputID="+inputID,"","width=550,height=200,top=300,left=500");
 }
-
 function winopen2(){ // 닉네임 중복 체크
 	
 	 // 닉네임창에 닉네임 입력여부 확인
@@ -116,7 +78,6 @@ function winopen2(){ // 닉네임 중복 체크
 	 // 새창열기
 	 window.open("./MemberNickNameCheck.me?inputNName="+inputNName,"","width=550,height=200,top=300,left=500"); 
 }
-
 // 체크박스 값 (선택O : 1 / 선택X : 0 )
 if (document.getElementById("supportCheckbox").checked) { // 체크박스 
 		document.getElementById("supportCheckbox_hidden").disabled = true;
@@ -125,9 +86,9 @@ if (document.getElementById("supportCheckbox").checked) { // 체크박스
 
 <script type="text/javascript">
 $(document).ready(function(){
-
+	
 	$('#sbtn').click(function(){
-
+		
     var mem_id = $('#mem_id').val();
     var mem_pw = $('#mem_pw').val();
     var mem_name = $('#mem_name').val();
@@ -144,14 +105,7 @@ $(document).ready(function(){
     var check_phone = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/; // 전화번호 유효성 검사
     var check_email = /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/; // 이메일 양식 검사
     
-
-    if(id != null){
-    	alert("이미 로그인한 상태입니다.");
-    	history.back();
-    	return false;
-    }
-    
-    
+	
     // 아이디 공백 확인
     if (mem_id == "" || mem_id == null) {
 		 Swal.fire({
@@ -181,7 +135,6 @@ $(document).ready(function(){
         $('#mem_pw').focus();
         return false;
     }	    
-
     // 비밀번호 유효성 체크
     if (!check_pw.test(mem_pw)) {
         $('.pwCheck').html('영문 및 숫자 8-16자로 입력해주세요.');
@@ -221,7 +174,6 @@ $(document).ready(function(){
          $('#mem_name').focus();
          return false;
      }	
-
     // 이름 유효성 체크
     if (!check_name.test(mem_name)) {
         $('.nameCheck').html('한글 10자 이내로 입력해주세요.');
@@ -241,7 +193,6 @@ $(document).ready(function(){
          $('#mem_nickName').focus();
          return false;
      }	
-
     // 닉네임 유효성 체크
     if (!check_nickName.test(mem_nickName)) {
         $('.nickNameCheck').html('영문과 한글, 숫자로 2-10자로 입력해주세요.');
@@ -261,7 +212,6 @@ $(document).ready(function(){
          $('#mem_phone').focus();
          return false;
      }	
-
     // 전화번호 유효성 체크
     if (!check_phone.test(mem_phone)) {
         $('.phoneCheck').html('전화번호 양식이 올바르지 않습니다.');
@@ -321,12 +271,13 @@ $(document).ready(function(){
 </head>
 
   <body>
+  
   	<!-- 헤더 시작 -->
 	<jsp:include page="../inc/top.jsp"></jsp:include>
   	<!-- 헤더 끝-->
 	
 	<!-- 중간제목 시작 -->
-	<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_6.jpg');" data-stellar-background-ratio="0.5">
+	<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
@@ -355,6 +306,7 @@ $(document).ready(function(){
 %>
 	<!-- 로그인제어 -->
 	
+
 	<!-- 본문 시작 -->
 	<section class="bg-light">
 	<section class="ftco-section contact-section bg-light">
@@ -459,56 +411,45 @@ $(document).ready(function(){
 <style>
 @import
 	url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
-
 body {
 	font-family: 'InfinitySans-RegularA1';
 	font-weight: normal;
     font-style: normal;
 }
-
 .nanumgothic * {
  font-family: 'Nanum Gothic', sans-serif;
 }
-
 .formbold-mb-3 {
 	margin-bottom: 15px;
 }
-
 .formbold-relative {
 	position: relative;
 }
-
 .formbold-opacity-0 {
 	opacity: 0;
 }
-
 .formbold-stroke-current {
 	stroke: #ffffff;
 	z-index: 999;
 }
-
 #supportCheckbox:checked ~ div span {
 	opacity: 1;
 }
-
 #supportCheckbox:checked ~ div {
 	background: #1089FF;
 	border-color: #1089FF;
 }
-
 .formbold-main-wrapper {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	padding: 48px;
 }
-
 .formbold-form-wrapper {
 	margin: 0 auto;
     max-width: 570px;
@@ -518,27 +459,22 @@ body {
     border-radius: 14px;
     box-shadow: 20px 20px 80px rgb(218 218 218 / 47%)
 }
-
 .formbold-img {
 	display: block;
 	margin: 0 auto 45px;
 }
-
 .formbold-input-wrapp>div {
 	display: flex;
 	gap: 20px;
 }
-
 .formbold-input-flex {
 	display: flex;
 	gap: 20px;
 	margin-bottom: 15px;
 }
-
 .formbold-input-flex>div {
 	width: 50%;
 }
-
 .formbold-form-input {
 	width: 100%;
 	padding: 13px 22px;
@@ -551,7 +487,6 @@ body {
 	outline: none;
 	resize: none;
 }
-
 /* .formbold-form-input-small { */
 /* 	width: 80%; */
 /* 	padding: 13px 22px; */
@@ -564,7 +499,6 @@ body {
 /* 	outline: none; */
 /* 	resize: none; */
 /* } */
-
 .formbold-form-input::placeholder, select.formbold-form-input,
 	.formbold-form-input[type='date']::-webkit-datetime-edit-text,
 	.formbold-form-input[type='date']::-webkit-datetime-edit-month-field,
@@ -572,12 +506,10 @@ body {
 	.formbold-form-input[type='date']::-webkit-datetime-edit-year-field {
 	color: rgba(83, 99, 135, 0.5);
 }
-
 .formbold-form-input:focus {
 	border-color: #1089FF;
 	box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
 }
-
 .formbold-form-label {
 	color: #536387;
 	font-size: 14px;
@@ -585,7 +517,6 @@ body {
 	display: block;
 	margin-bottom: 10px;
 }
-
 .formbold-checkbox-label {
 	display: flex;
 	cursor: pointer;
@@ -594,12 +525,10 @@ body {
 	line-height: 24px;
 	color: #536387;
 }
-
 .formbold-checkbox-label a {
 	margin-left: 5px;
 	color: #1089FF;
 }
-
 .formbold-input-checkbox {
 	position: absolute;
 	width: 1px;
@@ -611,7 +540,6 @@ body {
 	white-space: nowrap;
 	border-width: 0;
 }
-
 .formbold-checkbox-inner {
 	display: flex;
 	align-items: center;
@@ -623,18 +551,15 @@ body {
 	border: 0.7px solid #dde3ec;
 	border-radius: 3px;
 }
-
 .formbold-form-file {
 	padding: 12px;
 	font-size: 14px;
 	line-height: 24px;
 	color: rgba(83, 99, 135, 0.5);
 }
-
 .formbold-form-file::-webkit-file-upload-button {
 	display: none;
 }
-
 .formbold-form-file:before {
 	content: 'Upload';
 	display: inline-block;
@@ -652,7 +577,6 @@ body {
 	line-height: 16px;
 	margin-right: 10px;
 }
-
 .formbold-btn {
 	font-size: 14px;
 	border-radius: 5px;
@@ -663,7 +587,6 @@ body {
 	color: white;
 	cursor: pointer;
 }
-
 .submit2 {
 	text-align: center;
 	width: 100%;
@@ -677,15 +600,12 @@ body {
 	cursor: pointer;
 	margin-top: 25px;
 }
-
 .formbold-btn:hover {
 	box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
 }
-
 .formbold-w-45 {
 	width: 45%;
 }
-
 #textstyle {
     color: #f53648ad;
     font-size: 12px;
@@ -695,11 +615,9 @@ body {
     margin-left: 5px;
     margin-bottom: 25px;
 }
-
 .formbold-form-title {
 	margin-bottom: 40px;
 }
-
 .formbold-form-title h3 {
 	color: #000000;
 	font-weight: 700;
@@ -708,9 +626,6 @@ body {
 	text-align: center;
 	margin-bottom: 90px;
 }
-
-
-
 .swal2-title {
     position: relative;
     max-width: 100%;
@@ -723,7 +638,6 @@ body {
     text-transform: none;
     word-wrap: break-word;
 }
-
 .swal2-styled.swal2-confirm {
     border: 0;
     border-radius: 0.25em;

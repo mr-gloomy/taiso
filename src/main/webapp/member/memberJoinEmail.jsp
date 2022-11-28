@@ -69,7 +69,7 @@
 
 <script type="text/javascript">
 function javascript(){
-    location.href='./EmailMain.me';
+    location.href='./EmailMainAction.me';
 }
 </script>
 
@@ -115,7 +115,6 @@ function javascript(){
 	         <p>회원가입시 입력하셨던 이메일에 들어가셔서 인증해주세요.</p>
 	    </div>
 	        <button class="formbold-btn" onclick="javascript()"> 확 인 </button>
-		<div></div>
 	    </div>
 	  </div>
 	</div>

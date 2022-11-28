@@ -7,8 +7,8 @@ import javax.servlet.http.HttpSession;
 public class EmailMainAction implements Action {
 
 	@Override
-	public ActionForward execute(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
 		System.out.println(" M : EmailMainAction_execute() 호출 ");
 		
 		HttpSession session = request.getSession();
