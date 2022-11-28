@@ -53,13 +53,13 @@ public class CarDAO {
 	}// 자원해제 메서드-closeDB()
 	
 	 // 차 전체 대수 확인 - getCarCount()
-	   public int getCarCount() {
+	   public int getCarCount(String rez_site) {
 		   int cnt = 0;
 		   try {
 			con = getConnection();
-			sql="select count(*) from car";
+			sql="select count(*) from car where car_site=?";
 			pstmt = con.prepareStatement(sql);
-			
+			pstmt.setString(1, rez_site);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
@@ -67,7 +67,6 @@ public class CarDAO {
 			}
 			System.out.println(" DAO : 전체 차 대수 : " + cnt + "대");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			closeDB();
@@ -75,7 +74,25 @@ public class CarDAO {
 		   return cnt;
 	   }
 	 // 차 전체 대수 확인 - getCarCount()
-	
+	   public int getCarCount() {
+		   int cnt = 0;
+		   try {
+			con = getConnection();
+			sql="select count(*) from car";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				cnt = rs.getInt("count(*)");
+			}
+			System.out.println(" DAO : 전체 차 대수 : " + cnt + "대");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+		   return cnt;
+	   }
 	
 	   
 	/**
@@ -83,7 +100,7 @@ public class CarDAO {
 	 *   차 목록 출력하는 메서드.
 	 */
 	// 차정보 가져오는 메서드
-	public List getCarList(int startRow,int pageSize,String item,String car_site, String rez_pick_date, String rez_off_date) {
+	public List getCarList(int startRow,int pageSize,String item,String rez_site, String rez_pick_date, String rez_off_date) {
 		List carsList = new ArrayList();
 		StringBuffer SQL = new StringBuffer();
 		
@@ -107,7 +124,7 @@ public class CarDAO {
 			pstmt = con.prepareStatement(SQL+"");
 			
 			if(item.equals("all")){
-				pstmt.setString(1, car_site);
+				pstmt.setString(1, rez_site);
 				pstmt.setString(2, rez_pick_date);
 				pstmt.setString(3, rez_off_date);
 				pstmt.setString(4, rez_pick_date);
@@ -117,7 +134,7 @@ public class CarDAO {
 			}
 			else {
 				pstmt.setString(1, item);
-				pstmt.setString(2, car_site);
+				pstmt.setString(2, rez_site);
 				pstmt.setString(3, rez_pick_date);
 				pstmt.setString(4, rez_off_date);
 				pstmt.setString(5, rez_pick_date);

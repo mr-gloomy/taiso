@@ -181,7 +181,7 @@ $(document).ready(function(){
 	<!-- 로그인제어 -->
 	
 	<!-- 본문 시작 -->
-		<section class="ftco-section contact-section">
+		<section class="bg-light">
 		<div class="formbold-main-wrapper">
 		<!-- Author: FormBold Team -->
 		<!-- Learn More: https://formbold.com -->
@@ -309,10 +309,12 @@ body {
 
 .formbold-form-wrapper {
 	margin: 0 auto;
-	max-width: 570px;
-	width: 100%;
-	background: white;
-	padding: 40px;
+    max-width: 570px;
+    width: 100%;
+    background: white;
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 20px 20px 80px rgb(218 218 218 / 47%)
 }
 
 .formbold-img {
@@ -540,7 +542,9 @@ body {
     font-size: 1em;
 }
   
-
+.bg-light {
+    background: #f8f9fa !important;
+}
 </style>
 <!-- 본문 css -->
 
