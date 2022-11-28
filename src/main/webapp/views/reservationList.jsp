@@ -39,6 +39,26 @@
 <link rel="stylesheet" href="./css/icomoon.css">
 <link rel="stylesheet" href="./css/style2.css">
 
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<style>
+   .caricon:before {
+       content: "\f057";
+       font-family: FontAwesome;
+       line-height: 1;
+       font-size:100px;
+       color: #007bff;
+   }
+   
+   .listtest {
+	    -webkit-box-flex: 0;
+	    -ms-flex: 0 0 41.66667%;
+	    flex: 0 0 100%;
+	    max-width: 100%; 
+	    text-align: center;
+	    box-shadow: none;
+	    }
+ </style>
 
 <!-- 블로그 로딩 코드 start -->
 <script
@@ -158,9 +178,10 @@
 				<div class="car-wrap rounded ftco-animate">
 					<c:choose>
 						<c:when test="${empty reservationList }">
-
-							<h3>예약내역이 없습니다.</h3>
-
+		            	<div class="listtest" style="background-color:#F8F9FA;">
+		            		<div class="caricon"></div>
+		            		<br> <h3>예약 내역이 없습니다.</h3> <br>
+		            	</div>
 						</c:when>
 						<c:when test="${not empty reservationList }">
 							<c:forEach var="rez" items="${reservationList }" step="1">
