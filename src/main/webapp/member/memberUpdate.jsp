@@ -207,7 +207,7 @@ $(document).ready(function(){
 					<div class="formbold-mb-3 formbold-input-wrapp">
 						<label for="mem_nickName" class="formbold-form-label"> 닉네임 </label>
 						<div>
-							<input type="text" name="mem_newNickName" id="mem_newNickName"  value="${mDTO.mem_nickName }" class="formbold-form-input-small" required />
+							<input type="text" name="mem_newNickName" id="mem_newNickName"  value="${mDTO.mem_nickName }" class="formbold-form-input" style="width:80%" required />
 						    <button type="button" class="formbold-btn" onclick="nick()"> 중복확인 </button>
 						</div>
 							<div class="nickNameCheck" id="textstyle"> </div>
@@ -339,19 +339,6 @@ body {
 
 .formbold-form-input {
 	width: 100%;
-	padding: 13px 22px;
-	border-radius: 5px;
-	border: 1px solid #dde3ec;
-	background: #ffffff;
-	font-weight: 500;
-	font-size: 12px;
-	color: #536387;
-	outline: none;
-	resize: none;
-}
-
-.formbold-form-input-small {
-	width: 80%;
 	padding: 13px 22px;
 	border-radius: 5px;
 	border: 1px solid #dde3ec;
@@ -510,7 +497,7 @@ body {
 }
 
 .formbold-form-title h3 {
-	color: #07074D;
+	color: #000000;
 	font-weight: 700;
 	font-size: 35px;
 	line-height: 35px;
