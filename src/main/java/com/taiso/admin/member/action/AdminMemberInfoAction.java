@@ -23,22 +23,24 @@ public class AdminMemberInfoAction implements Action {
 		if(mem_id == null || !mem_id.equals("admin")) {
 			forward.setPath("./MemberLogin.me");
 			forward.setRedirect(true);
+			
 		}
 						
 		
 		// 전달정보 저장
+		
 		int mem_num = Integer.parseInt(request.getParameter("mem_num"));
 		String pageNum =  request.getParameter("pageNum");
+		String mem_blacklist = request.getParameter("mem_blacklist");
 		
 		// DAO
 		AdminMemberDAO dao = new AdminMemberDAO();
 		
 		// DTO 정보 가져오기
-		MemberDTO mDTO = dao.getMemberInfo(mem_num);
+		MemberDTO mDTO = dao.getMemberInfo(mem_num,mem_blacklist);
 		
 		// 정보를 request 영역에 저장(view 전달)
 		request.setAttribute("mDTO", mDTO);
-		request.setAttribute("pageNum", pageNum);
 		
 		// 페이지 이동
 		forward.setPath("./adminMember/adminMemberInfo.jsp");

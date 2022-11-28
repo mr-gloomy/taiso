@@ -38,27 +38,6 @@
     position: relative;
 }
 </style>
-<script type="text/javascript">
-// function deleteBoard(){
-// 	Swal.fire({
-// 	  title: '회원삭제 하시겠습니까?',
-// 	  text: "주의! 삭제하시면 다시 복구시킬 수 없습니다.",
-// 	  icon: 'info',
-// 	  showCancelButton: true,
-// 	  confirmButtonColor: '#3085d6',
-// 	  cancelButtonColor: 'grey',
-// 	  confirmButtonText: '삭제',
-// 	  cancelButtonText: '취소'
-// 	}).then((result) => {
-// 	  if (result.value) {
-//           //"등록" 버튼을 눌렀을 때 작업할 내용을 이곳에 넣어주면 된다. 
-// 		  location.href='./AdminMemberDelete.mb?';
-// 	  }
-// 	})
-// }
-	
-// }
-</script>
 
 </head>
 <body>
@@ -125,9 +104,7 @@
 																	<td>${mDTO.mem_registDate }</td>
 																	<td>${mDTO.mem_blacklist }</td>
 																	<td>
-																		<input type="button" value="상세정보" class="btn btn-primary py-0.5 px-1" onclick="location.href='./AdminMemberInfo.mb?mem_num=${mDTO.mem_num }&pageNum=${pageNum }';">
-																		<input type="button" value="회원삭제" class="btn btn-primary py-0.5 px-1" onclick="location.href='./AdminMemberDelete.mb?mem_id=${mDTO.mem_id }&pageNum=${pageNum }';">
-								<%-- 									<input type="button" value="회원삭제" class="btn btn-primary py-0.5 px-1" onclick="deleteBoard(${mem_id});"> --%>
+																		<input type="button" value="회원상세정보" class="btn btn-primary py-0.5 px-1" onclick="location.href='./AdminMemberInfo.mb?mem_num=${mDTO.mem_num}&pageNum=${pageNum }';">
 																	</td>
 																</tr>
 															</c:forEach>
@@ -194,7 +171,7 @@
 																<td>${mDTO.mem_blacklist }</td>
 																<td>
 																	<input type="button" value="상세정보" class="btn btn-primary py-0.5 px-1" onclick="location.href='./AdminMemberInfo.mb?mem_num=${mDTO.mem_num }&pageNum=${pageNum }';">
-																	<input type="button" value="회원삭제" class="btn btn-primary py-0.5 px-1" onclick="deleteBoard(${mem_id});">
+																	<input type="button" value="회원삭제" class="btn btn-primary py-0.5 px-1" onclick="location.href='./AdminMemberDelete.mb?mem_id=${mDTO.mem_id }&pageNum=${pageNum }';">
 																</td>
 															</tr>
 														</c:forEach>
@@ -263,7 +240,6 @@
 	<script src="./js/bootstrap-datepicker.js"></script>
 	<script src="./js/jquery.timepicker.min.js"></script>
 	<script src="./js/scrollax.min.js"></script>
-	<script src="./js/google-map.js"></script>
 	<script src="./js/main.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 
