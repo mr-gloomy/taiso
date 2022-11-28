@@ -27,48 +27,85 @@
     <link rel="stylesheet" href="./css/flaticon.css">
     <link rel="stylesheet" href="./css/icomoon.css">
     <link rel="stylesheet" href="./css/style.css">
+
     
     <style>
     .ftco-section3 {
-	  padding: 6em 0;
-	  padding-left: 25em;
-	  position: relative;
+ 	  padding: 6em;
+/* 	  padding-left: 25em; */
+/* 	  position: relative; */
+	width: 700px ;
+	margin: 0 auto;
+	line-height: 20px ;
+	background: #f8f9fa;
     }
-    
-     .form-control2 {
-	  height: 40px !important;
-	  width: 200px;
+  	.long-input {
+ 	  height: 50px;
+	  width: 500px;
 	  background: #fff !important;
-	  color: #000000 !important;
+ 	  color: #757575;
 	  border: 1px solid #ced4da;
+	  margin:10px;
 	  font-size: 15px;
 	  padding : 0.375rem 0.75rem;
 	  border-radius: 5px;
 	  -webkit-box-shadow: none !important;
 	  box-shadow: none !important;
   	}
-  	
-  	     .form-control3 {
-	  height: 200px !important;
-	  width: 200px;
-	  background: #fff !important;
-	  color: #000000 !important;
-	  border: 1px solid #ced4da;
-	  font-size: 15px;
-	  padding : 0.375rem 0.75rem;
-	  border-radius: 5px;
-	  -webkit-box-shadow: none !important;
-	  box-shadow: none !important;
-  	}
-    
-/*     .one{ */
-/*     float:left; */
-/*     } */
-/*     .two{ */
-/*     float:right; */
-/*     } */
+    .submitbtn {
+    color:#1089FF;
+    font-size:20px ;
+    font-weight:600; 
+    background-color: #fff;
+    text-align: center;
+    border:0;
+    margin:auto;
+    }
     </style>
-    
+
+<script src="sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<script type="text/javascript">
+function fralert(){
+		if(document.fr.name.value==""){
+			Swal.fire({
+                icon: 'warning',
+                text: '이름을 입력하세요!',
+            });
+			document.fr.name.focus();
+			return;
+		}
+		if(document.fr.phone.value==""){
+			Swal.fire({
+                icon: 'warning',
+                text: '전화번호를 입력하세요!',
+            });
+			document.fr.phone.focus();
+			return;
+		}
+		if(document.fr.msg.value==""){
+			Swal.fire({
+                icon: 'warning',
+                text: '내용을 입력하세요!',
+            });
+			document.fr.msg.focus();
+			return;
+		}
+		if(document.fr.car.value==""){
+			Swal.fire({
+                icon: 'warning',
+                text: '차종을 입력하세요!',
+            });
+			document.fr.msg.focus();
+			return;
+		}
+		Swal.fire({
+            icon: 'success',
+            text: '제출되었습니다!',
+        });
+}
+</script>    
     
   </head>
   <body>
@@ -90,40 +127,32 @@
     </section>
 
 	<section class="ftco-section3">
-          <div class="col-md-8 block-9 mb-md-5">
-            <form action="./ReviewWriteProAction.rev" name = "fr" class="bg-light p-5 contact-form" method="post" enctype="multipart/form-data">
-           	 <h3><b>　　　　　　　　간편 견적 신청</b></h3><br>
-						<label>　　　　　이름　　　　　　　　　　　  　　<input type="text" name="rez_rentalDate" class="form-control2" value="" readonly="readonly"></label><br> <!-- rezDTO -->
-                        <label>　　　　　연락처　　　　　　　　　　  　　<input type="text" name="rez_returnDate" value="" class="form-control2" readonly="readonly"></label><br>
-                        <label>　　　　　지역　　　　　　　　　　　　　</label>
-                        <select id="sido_select" class="form-control2">
-                            <option value="" selected disabled hidden>지역을 선택하세요</option>   
-                            <option value="제주">제주</option>
-                            <option value="서울">서울</option>
-                            <option value="인천/경기">인천/경기</option>
-                            <option value="강원도">강원도</option>
-                            <option value="충청/대전">충청/대전</option>
-                            <option value="전라/광주">전라/광주</option>
-                            <option value="경상/부산/대구/울산">경상/부산/대구/울산</option>
+           	 <h3 style="color:#1089FF;"><b>&nbsp;&nbsp;간편 견적 신청</b></h3><br>
+		<form name="fr">
+		<input class="long-input" type="text" name="name" value="" placeholder="&nbsp;이름을 입력하세요"><br>
+		<input class="long-input" type="text" name="phone" value="" placeholder="&nbsp;연락처를 입력하세요"><br>
+                     <select id="sido_select" class="long-input">
+                          <option value="" selected disabled hidden>지역을 선택하세요</option>   
+				          <option value="부산/울산/경남/대구">부산/울산/경남/대구</option>
+				          <option value="제주">제주</option>
+				          <option value="서울">서울</option>
+				          <option value="인천/경기">인천/경기</option>
+				          <option value="강원도">강원도</option>
+				          <option value="충청/대전">충청/대전</option>
+				          <option value="전라/광주">전라/광주</option>
                      </select><br>
-                        <label>　　　　　관심차종　　　　　　　　　　　</label>
-                        <select id="sido_select" class="form-control2">
-                            <option value="" selected disabled hidden>차량을 선택하세요</option>   
-                            <option value="레이">레이</option>
-                            <option value="기아">기아</option>
-                            <option value="모델S">모델S</option>
-                            <option value="countryman">컨트리맨~</option>
-                            <option value="쏘나타">쏘나타</option>
-                            <option value="아이오닉">아이오닉</option>
+		<input class="long-input" type="text" name="car" value="" placeholder="&nbsp;관심있는 차종을 입력하세요"><br>
+                     <select id="whoareyou" class="long-input">
+                            <option value="" selected disabled hidden>문의자 유형</option>   
+                            <option value="개인">개인</option>
+                            <option value="개인사업자">개인사업자</option>
+                            <option value="법인">법인</option>
                      </select><br>
-                  <label>　　　　　구분　　　　　 　　　 　　　　　</label>
-                  <input type="radio" name="whoareyou" value="개인"> 개인 
-                  <input type="radio" name="whoareyou" value="개인사업자"> 개인사업자 
-                  <input type="radio" name="whoareyou" value="법인"> 법인
-                  <label>　　　　　문의사항　　　 　　 　　　  　 　</label>
-                  <textarea class="form-control3" rows="10" cols="50">문의사항을 적어주세요</textarea> <br><br>
-                  <div style="text-align: center;"><input type="submit" value="제출하기" class="btn btn-primary py-2 px-2"></div>
-            </form>  
+		<textarea class="long-input" name="msg" value="" style="height:200px; padding-top:13px;" placeholder="&nbsp;문의사항을 입력하세요"></textarea>
+							<div style="text-align: center; padding-top: 15px;">
+							<input type="button" value="제출하기" class="btn btn-primary" style="font-size:18px;" onclick="fralert();">
+						</div>
+		</form>
 	</section>
 		<!-- 푸터들어가는 곳 -->
 		<jsp:include page="../inc/bottom.jsp" />
