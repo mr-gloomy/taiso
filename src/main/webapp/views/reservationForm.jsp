@@ -37,6 +37,55 @@
     <link rel="stylesheet" href="./css/icomoon.css">
     <link rel="stylesheet" href="./css/style2.css">
    
+<style>
+.rezform-1{
+  border: none;
+  background: transparent;
+  color: #212121;
+  font-family: 'InfinitySans-RegularA1';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
+}
+.rezform-2{
+border: none;
+  height: 40px;
+  width: 200px;
+  background: #fff !important;
+  color: #212121;
+  border: 1px solid #ced4da;
+  margin:10px;
+  font-size: 15px;
+  padding : 0.375rem 0.75rem;
+  border-radius: 5px;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  font-family: 'InfinitySans-RegularA1';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
+}
+.form-group,label{
+  margin:0;
+}
+.form-group2{
+  line-height:40px;
+}
+.submitbtn {
+  color:#fff;
+  font-weight:600; 
+  background-color: #1089FF;
+  text-align: center;
+  border:none;
+  margin:5px;
+  border-radius:3px;
+  font-size:18px;
+  width:100px; height:40px;
+}
+.adminReservation_wrap2 {
+	align-content: center;
+}
+.adminReservation_title {
+	align-content: center;
+	margin-bottom: 20px;
+}
+</style>
 
 
 <!-- 블로그 로딩 코드 start -->
@@ -60,6 +109,7 @@
     margin: auto;
 }
 </style>
+
 <div id="waiting">
    <img src="./img/loading.gif">
 </div>
@@ -73,8 +123,6 @@
 </script>
 <!-- 블로그 로딩 코드 end -->
 
-
-    
  <script type="text/javascript">
     
    // 하이픈입력하기
@@ -106,16 +154,13 @@
       })
    }         
    
-   
    // 보험 요금 계산
    function insr1(){ // 일반자차 onclick 시 
-      var insr = document.fr.insuranceCharge.value="10000";
-      var insfee = parseInt(insr);
-      var rfee = parseInt(document.fr.car_price.value);
-      document.fr.pay_total.value=insfee+rfee;
-      
-    
-   }
+	      var insr = document.fr.insuranceCharge.value="10000";
+	      var insfee = parseInt(insr);
+	      var rfee = parseInt(document.fr.car_price.value);
+	      document.fr.pay_total.value=insfee+rfee;
+	   }
    
    function insr2(){ // 완전자차 onclick 시 
       var insr = document.fr.insuranceCharge.value="20000";
@@ -137,16 +182,14 @@
 
        var IMP = window.IMP; // 생략 가능
        IMP.init("imp46187616");
-//        alert(IMP);
        IMP.request_pay({ 
           pg: "html5_inicis",
-//           pay_method: "card",
           merchant_uid: "${mDTO.mem_num}"+new Date().getTime(),   // 예약번호+시간날짜정보
-         name: "${mDTO.mem_num}"+"_"+"${carDTO.car_name}"+" "+"${sessionScope.rez_totalDate }"+"일",
+          name: "${mDTO.mem_num}"+"_"+"${carDTO.car_name}"+" "+"${sessionScope.rez_totalDate }"+"일",
           buyer_email: "${mDTO.mem_email }",
           buyer_name: "${mDTO.mem_name }",
           buyer_tel: "${mDTO.mem_phone }",
-            amount: 100                  // 숫자타입
+          amount: 100                  // 숫자타입
        }, function(rsp) {
            if (rsp.success) {
               $.ajax({
@@ -154,23 +197,23 @@
                  type: 'POST',
                  dataType: 'json',
                  data:{
-                  rez_rentalDate:document.fr.rez_rentalDate.value,
-                   rez_returnDate:document.fr.rez_returnDate.value,
-                     rez_totalDate:document.fr.rez_totalDate.value,
-                     rez_rentTime:document.fr.rez_pick_time.value,
-                     rez_site:document.fr.rez_site.value,
-                     car_name:document.fr.car_name.value,
-                     car_code:${carDTO.car_code},
-                     car_insurance:document.fr.car_insurance.value,
-                     mem_id:document.fr.mem_id.value,
-                     license_num:document.fr.license_num.value,
-                     license_issueDate:document.fr.license_issueDate.value,
-                  license_type:document.fr.license_type.value,
-                    merchant_uid : rsp.merchant_uid,   // 회원번호+시간날짜정보
-                    pay_uqNum : rsp.imp_uid,         // 거래고유번호(주문번호)
-                    pay_total : rsp.paid_amount,      // 총 결제금액
-                    pay_method : rsp.pay_method,      // 결제방식
-                    pay_status : rsp.status         // 결제상황
+					rez_rentalDate:document.fr.rez_rentalDate.value,
+					rez_returnDate:document.fr.rez_returnDate.value,
+					rez_totalDate:document.fr.rez_totalDate.value,
+					rez_rentTime:document.fr.rez_pick_time.value,
+					rez_site:document.fr.rez_site.value,
+					car_name:document.fr.car_name.value,
+					car_code:${carDTO.car_code},
+					car_insurance:document.fr.car_insurance.value,
+					mem_id:document.fr.mem_id.value,
+					license_num:document.fr.license_num.value,
+					license_issueDate:document.fr.license_issueDate.value,
+					license_type:document.fr.license_type.value,
+					merchant_uid : rsp.merchant_uid,   // 회원번호+시간날짜정보
+					pay_uqNum : rsp.imp_uid,         // 거래고유번호(주문번호)
+					pay_total : rsp.paid_amount,      // 총 결제금액
+					pay_method : rsp.pay_method,      // 결제방식
+					pay_status : rsp.status         // 결제상황
                  }
               });
                    location.href="./ReservationChk.rez?pay_uqNum="+rsp.imp_uid;
@@ -204,7 +247,7 @@
           
        }   
           
-       if(document.fr.license_type.selectedIndex==0){
+       if(document.fr.license_type.value == ""){
           
           Swal.fire({   
               title : '면허 종류를 입력하세요!',
@@ -325,13 +368,6 @@
     } 	
  </script>
 
-<style type="text/css">
-.adminReservation_wrap2 {
-	align-content: center;
-}
-</style>
-
-
   </head>
 
 <!-- ------------------------------------------------------------------------------------------------------- -->
@@ -382,14 +418,14 @@
 <!--               <div class="row mb-5"> -->
                 <div class="col-md-12">
                   <!-- <div class="border w-100 p-4 rounded mb-2 d-flex"> -->
-                    <div class="form-group">  
+                    <div class="form-group2">  
                           <h3>예약정보</h3>  
-                        <label>대여일시 　　　: 　<input type="text" name="rez_rentalDate" class="form-control2" value="${sessionScope.rez_pick_date }" readonly="readonly"></label><br> <!-- rezDTO -->
-                        <label>반납일시 　　　: 　<input type="text" name="rez_returnDate" value="${sessionScope.rez_off_date }" class="form-control2" readonly="readonly"></label><br>
-                        <label>대여시간 　　　: 　<input type="text" name="rez_pick_time" value="${sessionScope.rez_pick_time }" class="form-control2" readonly="readonly"></label><br> <!-- rezDTO -->
-                        <label>반납시간 　　　: 　<input type="text" name="rez_off_time" value="${sessionScope.rez_off_time }" class="form-control2" readonly="readonly"> </label><br>
-                        <label>총예약일 　　　: 　<input type="text" name="rez_totalDate" value="${sessionScope.rez_totalDate }" class="form-control2" readonly="readonly">&nbsp일</label><br>
-                        <label>대여/반납장소　: 　<input type="text" name="rez_site" value="${sessionScope.rez_site }" class="form-control2" readonly="readonly"></label>         
+                        <label>대여일시 　　　: 　<input type="text" name="rez_rentalDate" class="rezform-1" value="${sessionScope.rez_pick_date }" readonly="readonly"></label><br> <!-- rezDTO -->
+                        <label>반납일시 　　　: 　<input type="text" name="rez_returnDate" value="${sessionScope.rez_off_date }" class="rezform-1" readonly="readonly"></label><br>
+                        <label>대여시간 　　　: 　<input type="text" name="rez_pick_time" value="${sessionScope.rez_pick_time }" class="rezform-1" readonly="readonly"></label><br> <!-- rezDTO -->
+                        <label>반납시간 　　　: 　<input type="text" name="rez_off_time" value="${sessionScope.rez_off_time }" class="rezform-1" readonly="readonly"> </label><br>
+                        <label>총예약일 　　　: 　<input type="text" name="rez_totalDate" value="${sessionScope.rez_totalDate }" class="rezform-1" readonly="readonly" style="width:30px; text-align:right;">&nbsp;<span style="color:black;">일</span></label><br>
+                        <label>대여/반납장소　: 　<input type="text" name="rez_site" value="${sessionScope.rez_site }" class="rezform-1" readonly="readonly"></label>         
                      </div>
                   <!-- </div> -->
 <hr>
@@ -397,15 +433,16 @@
                 </div>
                 <div class="col-md-12">
 <!--                    <div class="border w-100 p-4 rounded mb-2 d-flex"> -->
-               <div class="form-group">  
+               <div class="form-group2">  
                      <h3>선택차량정보</h3>  
                      <input type="hidden" name="car_code" value="${carDTO.car_code}">
-                     <label>차량카테고리　:　<input type="text" name="car_category" value="${carDTO.car_category}" class="form-control2" readonly="readonly"></label> <br>
-                     <label>차량브랜드　　:　<input type="text" name="car_brand" value="${carDTO.car_brand}" class="form-control2" readonly="readonly"></label><br><!-- 주소줄에서받아오기 -->
-                     <label>차량이름　　　:　<input type="text" name="car_name" value="${carDTO.car_name}" class="form-control2" readonly="readonly"></label><br>
-                     <label>차량옵션　　　:　<input type="text" name="car_op" value="<c:forTokens var="op" items="${carDTO.car_op }" delims="-">${op } </c:forTokens>" class="form-control3" readonly="readonly"></label><br>
-                     <label>차량연식　　　:　<input type="text" name="car_year" value="${carDTO.car_year}" class="form-control2" readonly="readonly"></label><br>
-                     <label>차량연료　　　:　<input type="text" name="car_fuel" value="${carDTO.car_fuel}" class="form-control2" readonly="readonly"></label>
+                     <label>차량카테고리　:　<input type="text" name="car_category" value="${carDTO.car_category}" class="rezform-1" readonly="readonly"></label> <br>
+                     <label>차량브랜드　　:　<input type="text" name="car_brand" value="${carDTO.car_brand}" class="rezform-1" readonly="readonly"></label><br><!-- 주소줄에서받아오기 -->
+                     <label>차량이름　　　:　<input type="text" name="car_name" value="${carDTO.car_name}" class="rezform-1" readonly="readonly"></label><br>
+                     <label>차량옵션　　　:　<input type="text" name="car_op" value="<c:forTokens var="op" items="${carDTO.car_op }" delims="-">${op }, </c:forTokens>" 
+                     class="rezform-1" style="width:500px;" readonly="readonly"></label><br>
+                     <label>차량연식　　　:　<input type="text" name="car_year" value="${carDTO.car_year}" class="rezform-1" readonly="readonly"></label><br>
+                     <label>차량연료　　　:　<input type="text" name="car_fuel" value="${carDTO.car_fuel}" class="rezform-1" readonly="readonly"></label>
                      </div>
                    </div>
 <!--                 </div> -->          
@@ -420,19 +457,19 @@
               
               <input type="hidden" name="mem_id" value="${sessionScope.mem_id }">
         
-                이름 : <input type="text" name="mem_name" class="form-control" class="form-control2" value="${mDTO.mem_name }" readonly="readonly">
+                이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type="text" name="mem_name" class="rezform-2" value="${mDTO.mem_name }" readonly="readonly">
           </div> 
           
           <div class="form-group">           
-                전화번호 : <input type="text" name="mem_phone" class="form-control" class="form-control2" value="${mDTO.mem_phone }" readonly="readonly">
+                전화번호&nbsp;:&nbsp;<input type="text" name="mem_phone" class="rezform-2" value="${mDTO.mem_phone }" readonly="readonly">
           </div>  
              
         <div class="form-group">           
-                생년월일 : <input type="text" name="mem_birthday" class="form-control" class="form-control2" value="${mDTO.mem_birthday }" readonly="readonly">
+                생년월일 :&nbsp;<input type="text" name="mem_birthday" class="rezform-2" value="${mDTO.mem_birthday }" readonly="readonly">
          </div>  
          
          <div class="form-group">      
-                이메일 : <input type="email" name="mem_email" class="form-control" class="form-control2" value="${mDTO.mem_email }" readonly="readonly">
+                이메일&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type="email" name="mem_email" class="rezform-2" value="${mDTO.mem_email }" readonly="readonly">
           </div>
  </div>        
               <br>   
@@ -441,13 +478,13 @@
 <div class="col-md-12">
          <div class="form-group">
               <h3>면허정보입력</h3>    
-                면허발급일자 : <input type="date" class="form-control" name="license_issueDate" class="form-control2" value="${rezDTO.license_issueDate }" placeholder="면허발급일자를 정확하게 입력해주세요.">
+                면허발급일자&nbsp;:&nbsp;<input type="date" name="license_issueDate" class="rezform-2" value="${rezDTO.license_issueDate }" placeholder="면허발급일자를 정확하게 입력해주세요.">
           </div>
 
               <div class="form-group">
-                  면허종류 : 
-                    <select class="form-control" name="license_type" class="form-control">
-                          <option value="0">면허종류를 선택하세요</option>
+                  면허종류&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;
+                    <select class="rezform-2" name="license_type">
+						          <option value="" selected disabled hidden>&nbsp;면허 종류를 선택하세요</option>	
                        <optgroup label="1종">
                            <option value="1종대형" 
                                  <c:if test="${rezDTO.license_type.equals('1종대형') }">
@@ -485,8 +522,7 @@
                    </div>
                    
           <div class="form-group"> <!-- 면허증번호 12자리 그리고 패턴 설정하기 -->
-                 면허증번호 : <input type="text" id="license_num" name="license_num" class="form-control" oninput="autoHyphen(this)" maxlength="15" value="${rezDTO.license_num }" placeholder="00-00-000000-00">
-<%--                  면허증번호 : <input type="text" name="license_num" class="form-control" maxlength='12' pattern="[0-9]" value="${rezDTO.license_num }" placeholder="00-00-000000-00"> --%>
+                 면허증번호&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type="text" id="license_num" name="license_num" class="rezform-2" oninput="autoHyphen(this)" maxlength="15" value="${rezDTO.license_num }" placeholder="00-00-000000-00">
           </div>          
 </div>    
        <br>
@@ -507,18 +543,16 @@
         <div class="form-group">   
          <h3>결제정보</h3>      
             <input type="hidden" name="car_code" value="${param.car_code}">    
-            <label>대여요금 : <input type="text" name="car_price" class="form-control2" value="${carDTO.car_price*sessionScope.rez_totalDate }" readonly="readonly">원</label><br>
-            <label>보험요금 : <input type="text" name="insuranceCharge" class="form-control2" value="" readonly="readonly">원</label><br>
-
-<%--             <label>보험요금 : <input type="text" name="insuranceCharge" class="form-control2" value="<fmt:formatNumber type="number" value="" />" readonly="readonly"> 원</label><br> --%>
-            <label>결제금액 : <input type="text" name="pay_total" class="form-control2" value="" readonly="readonly">원</label>
+            <label>대여요금 : <input type="text" id="number" name="car_price" class="rezform-2" style="width:100px; text-align:right;" value="${carDTO.car_price*sessionScope.rez_totalDate }" readonly="readonly">원</label><br>
+            <label>보험요금 : <input type="text" id="number" name="insuranceCharge" class="rezform-2" style="width:100px; text-align:right;" value="" readonly="readonly">원</label><br>
+            <label>결제금액 : <input type="text" id="number" name="pay_total" class="rezform-2" style="width:100px; text-align:right;" value="" readonly="readonly">원</label>
         </div>         
 </div>
 <br>
 <div class="col-md-12">   
         <div class="form-group">     
          <h3>약관동의</h3>   
-            <textarea name="" id="" cols="50" rows="9" class="form-control" readonly="readonly">
+            <textarea name="" id="" cols="50" rows="9" class="rezform-2" readonly="readonly" style="width:600px; height:300px;">
 제9조 (예약신청)
 이용자는 이하의 방법에 의하여 차량대여 예약을 신청합니다.
 1. 웹서비스 상에서 예약을 신청하는 방법
@@ -568,11 +602,10 @@
             <label> <input type="checkbox" name="agreement" > 위 약관에 전체 동의합니다.</label>
         </div> 
  </div>  
-   <br>
    <br>   
           <div class="form-group" id="buttons" align="center">
-           <input type="button" value="결제하기" onclick="checkRez();" class="btn btn-primary py-3 px-5">
-            <input type="button" value="예약취소" class="btn btn-primary py-3 px-5" onclick="cancleRez();"> 
+           <input type="button" value="결제하기" class="submitbtn" onclick="checkRez();">
+            <input type="button" value="예약취소" class="submitbtn" onclick="cancleRez();"> 
           </div>
            
         </form>  
