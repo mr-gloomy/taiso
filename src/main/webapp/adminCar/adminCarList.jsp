@@ -6,7 +6,7 @@
 <html lang="ko">
 <head>
 <!-- 헤더 시작 -->
-<title>TAISO</title>
+<title>타이소</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">

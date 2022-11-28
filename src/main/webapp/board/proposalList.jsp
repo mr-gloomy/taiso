@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>TAISO</title>
+<title>타이소</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="shortcut icon" type="image/x-icon" href="./images/logo.png">
@@ -81,6 +81,7 @@ h2 {
     margin: 20px 0px 0px 0px;
   background: #fff;
   border-radius: 4px;
+  box-shadow: rgb(0 0 0 / 15%) 0px 5px 15px 0px;
 }
 .accordion-menu li.open .dropdownlink {
   color: #1089FF;
@@ -269,7 +270,7 @@ float: right;
 									<div class="num">번호</div>
 									<div class="title">제목</div>
 									<div class="mem_id">작성자</div>
-									<div class="date">작성일</div>
+									<div class="date3">작성일</div>
 								</div>
 										<c:forEach var="bodto" items="${ProposalList }">
 											<div>
@@ -278,7 +279,7 @@ float: right;
 													 <a href="./ProposalDetail.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}">${bodto.bo_title }</a>
 												</div>
 												<div class="mem_id">${bodto.mem_id }</div>
-												<div class="date">${bodto.bo_sysdate }</div>
+												<div class="date3">${bodto.bo_sysdate }</div>
 											</div>
 										</c:forEach>
 

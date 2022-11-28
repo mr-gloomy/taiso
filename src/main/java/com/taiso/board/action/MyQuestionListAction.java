@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import com.taiso.board.db.BoardDAO;
 import com.taiso.board.db.BoardDTO;
 import com.taiso.member.db.MemberDAO;
+import com.taiso.member.db.MemberDTO;
 
 public class MyQuestionListAction implements Action {
 
@@ -79,7 +80,7 @@ public class MyQuestionListAction implements Action {
 		
 		// 전달정보저장(닉네임)
 		MemberDAO mDAO = new MemberDAO();
-		com.taiso.member.db.MemberDTO mDTO = new com.taiso.member.db.MemberDTO();
+		MemberDTO mDTO = new MemberDTO();
 		mDTO = mDAO.getMember(mem_id);
 		System.out.println(mDTO);
 		
@@ -100,7 +101,7 @@ public class MyQuestionListAction implements Action {
 		System.out.println(" M : MyQuestionList 출력"+MyQuestionList);
 		
 		// request 객체에 정보 저장
-		request.setAttribute("QuestionList", MyQuestionList);
+		request.setAttribute("MyQuestionList", MyQuestionList);
 		request.setAttribute("cnt", cnt);		
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("pageCount", pageCount);
