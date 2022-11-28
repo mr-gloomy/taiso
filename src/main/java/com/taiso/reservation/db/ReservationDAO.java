@@ -409,10 +409,6 @@ public class ReservationDAO {
                   
                   if(result == 1) {
                   // 결제정보 삭제하기
-//                  sql = "delete rezp from rez_payment rezp "
-//                        + "join rez_reservation rezr "
-//                        + "on rezp.rez_uqNum = rezr.rez_uqNum "
-//                        + "where rezr.rez_uqNum = ?";
                   sql ="update rez_payment set pay_status=? where rez_uqNum=?";
                   PreparedStatement pstmt3 = con.prepareStatement(sql);
                   pstmt3.setString(1, "refunded");
