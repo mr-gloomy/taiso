@@ -152,6 +152,11 @@ float: right;
     .bg-light {
     background: #f8f9fa !important;
 }
+
+.board_title #Strong {
+    font-size: 2rem;
+    color: #1089FF;
+}
     </style>
 	<!-- 배경색 -->
 
@@ -184,18 +189,18 @@ float: right;
 		<section class="ftco-section contact-section bg-light">
 			<div class="container">
 				<div class="row d-flex mb-5 contact-info">
-					<div class="col-md-4">
+<!-- 					<div class="col-md-4"> -->
 					
 					
 				<!-- @@@@@@@@@@@@여기부터 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
 					<jsp:include page="../inc/sidebar.jsp" />
 				<!-- @@@@@@@@@@@@여기까지 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
 		
-				</div>
+<!-- 				</div> -->
 		<!-- @@@@@@@@@@@@@@@@@우측@@@@@@@@@@@@@@@@ -->
 		<div class="col-md-8 block-9 mb-md-5">
 		<div class="board_wrap">
-			<div class="board_title">
+			<div class="board_title" id="strong">
             <strong>1:1 문의하기</strong>
         	</div>
 			<div class="board_view_wrap">

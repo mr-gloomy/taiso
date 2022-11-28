@@ -2,6 +2,7 @@ package com.taiso.board.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.taiso.board.db.BoardDAO;
 import com.taiso.board.db.BoardDTO;
@@ -25,6 +26,15 @@ public class QuestionUpdateAction implements Action {
 		// request 영역에 저장
 		request.setAttribute("bodto", bodto);
 		request.setAttribute("pageNum", pageNum);
+		
+		// 세션에 아이디 저장 
+		HttpSession session = request.getSession();
+		String mem_id = (String) session.getAttribute("mem_id");
+		int myqnacnt = bodao.getMyqnacnt(mem_id);
+		int myreviewcnt = bodao.getMyreviewcnt(mem_id);
+	
+		request.setAttribute("myqnacnt", myqnacnt);
+		request.setAttribute("myreviewcnt", myreviewcnt);
 		
 		// view 출력 (./board/UpdateForm.jsp) 
 		// 페이지 이동(티켓)
