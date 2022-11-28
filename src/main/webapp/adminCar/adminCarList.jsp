@@ -130,15 +130,6 @@ a {
 		  }
 		})
 	}
-	
-// 	function test(car_code) {
-//         if (!confirm("확인(예) 또는 취소(아니오)를 선택해주세요.")) {
-//             alert("취소(아니오)를 누르셨습니다.");
-//         } else {
-//             alert("확인(예)을 누르셨습니다.");
-//             location.href='./AdminCarDelete.ad?car_code='+car_code;
-//         }
-//     }
 	</script>
 </head>
 <body>
@@ -174,15 +165,15 @@ a {
             <strong>[관리자] 차량리스트</strong>
   			<p> 전체 차량 대수 : ${requestScope.totalCnt } 개 </p>          
   </div>
-<div class="btn">
-	<a href="./AdminCarList.ad">전체</a>
-	<a href="./AdminCarList.ad?item=small">소형</a>
-	<a href="./AdminCarList.ad?item=compact">준중형</a>
-	<a href="./AdminCarList.ad?item=middle">중형</a> 
-	<a href="./AdminCarList.ad?item=large">대형</a> 
-	<a href="./AdminCarList.ad?item=suv">suv</a>
-	<a href="./AdminCarList.ad?item=foreign">수입차</a>
-</div>
+	<div>
+		  <a class="btn btn-primary" href="./AdminCarList.ad">전체</a>
+	      <a class="btn btn-primary" href="./AdminCarList.ad?item=small">소형</a>
+	      <a class="btn btn-primary" href="./AdminCarList.ad?item=compact">준중형</a>
+	      <a class="btn btn-primary" href="./AdminCarList.ad?item=middle">중형</a> 
+	      <a class="btn btn-primary" href="./AdminCarList.ad?item=large">대형</a> 
+	      <a class="btn btn-primary" href="./AdminCarList.ad?item=suv">suv</a>
+	      <a class="btn btn-primary" href="./AdminCarList.ad?item=foreign">수입차</a>
+	</div>
  <div class="adminCar_list_wrap">
             <div class="adminCar_list">
                <div class="top">
@@ -219,12 +210,7 @@ a {
     </div>
 	</c:forEach>
 </div>
-<div id="table_search">
-	<input type="button" value="상품등록" class="btn"
-		onclick="location.href='./AdminCarAdd.ad';">
-</div>
-</div>
-</div>
+
 <!-- 게시판 -->
 					
 
@@ -234,6 +220,7 @@ a {
 			<!--     	<div class="row mt-5"> -->
 			<div class="col text-center">
 				<div class="block-27">
+			 <div>
 					<ul>
 			<!-- 이전 -->
 			<c:if test="${startPage > pageBlock }">
@@ -261,9 +248,20 @@ a {
 					</ul>
 				</div>
 			</div>
-
-
+			</div>
+			<div id="table_search">
+	<input type="button" value="상품등록" class="btn btn-primary py-2 mr-1" 
+		onclick="location.href='./AdminCarAdd.ad';">
+		<input type="button" value="관리자메인페이지로이동" class="btn btn-primary py-2 mr-1" 
+			onclick=" location.href='./AdminMain.mb';" >
+			</div>
+			
 		</c:if>
+</div>
+</div>
+			
+
+
 
 <!-- 푸터들어가는 곳 -->
 	<jsp:include page="../inc/bottom.jsp" />

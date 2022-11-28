@@ -126,7 +126,7 @@ function cancelRez(seq){
 					<label>비밀번호 　　　　:　</label>
 						<input type="password" name="mem_pw" value="" placeholder="비밀번호를 입력해주세요"><br>
 
-					
+					<img src="./images/cancelpic.png">
 					<div class="clear">
 					</div>
 			</article>

@@ -137,7 +137,6 @@ public class CarDAO {
 				cDTO.setCar_code(rs.getInt("car_code"));
 				cDTO.setCar_file(rs.getString("car_file"));
 				cDTO.setCar_fuel(rs.getString("car_fuel"));
-				cDTO.setCar_location(rs.getInt("car_location"));
 				cDTO.setCar_name(rs.getString("car_name"));
 				cDTO.setCar_op(rs.getString("car_op"));
 				cDTO.setCar_price(rs.getInt("car_price"));
@@ -206,7 +205,6 @@ public class CarDAO {
 				cDTO.setCar_code(rs.getInt("car_code"));
 				cDTO.setCar_file(rs.getString("car_file"));
 				cDTO.setCar_fuel(rs.getString("car_fuel"));
-				cDTO.setCar_location(rs.getInt("car_location"));
 				cDTO.setCar_name(rs.getString("car_name"));
 				cDTO.setCar_op(rs.getString("car_op"));
 				cDTO.setCar_price(rs.getInt("car_price"));
@@ -251,7 +249,6 @@ public class CarDAO {
 				cDTO.setCar_code(rs.getInt("car_code"));
 				cDTO.setCar_file(rs.getString("car_file"));
 				cDTO.setCar_fuel(rs.getString("car_fuel"));
-				cDTO.setCar_location(rs.getInt("car_location"));
 				cDTO.setCar_name(rs.getString("car_name"));
 				cDTO.setCar_op(rs.getString("car_op"));
 				cDTO.setCar_price(rs.getInt("car_price"));
