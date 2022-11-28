@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>noticeDetail</title>
+<title>타이소</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="shortcut icon" type="image/x-icon" href="./images/logo.png">
@@ -175,7 +175,7 @@ float: right;
 					<div class="col-md-5 ftco-animate pb-5">
 						<p class="breadcrumbs">
 							<span class="mr-2"><a href="./ReservationMain.rez"">Home <i
-									class="ion-ios-arrow-forward"></i></a></span> <span>notice <i
+									class="ion-ios-arrow-forward"></i></a></span> <span>고객센터 <i
 								class="ion-ios-arrow-forward"></i></span>
 						</p>
 						<h1 class="mb-3 bread">고객센터</h1>
