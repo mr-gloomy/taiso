@@ -338,7 +338,7 @@
 <!-- contact 작성Form -->
 
         
-   <div class="col-md-8 block-9 mb-md-5">
+   <div class="col-md-12 block-9 mb-md-5">
          <form class="bg-light p-5 contact-form" method="post" id="rez" name="fr" >
                 
  <!-- Left Side 분리(section/div)-->

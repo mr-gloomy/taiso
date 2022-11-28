@@ -5,9 +5,9 @@
 <html lang="en">
 
 <head>
-<title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
+<title>Carbook - Free Bootstrap 4 Template by Colorlib</title> 
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
 
 <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
 
@@ -98,7 +98,9 @@
 }
 
 body {
-	font-family: 'Inter', sans-serif;
+	font-family: 'InfinitySans-RegularA1';
+	font-weight: normal;
+    font-style: normal;
 }
 
 .formbold-mb-3 {

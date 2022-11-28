@@ -49,6 +49,12 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <!-- SNS로그인 관련 -->
 
+
+    <style> 
+    .bg-light {
+    background: #f8f9fa !important;
+}
+    </style>
 </head>
 
   <body>
@@ -100,7 +106,7 @@
 										<a href="./MemberFindId.me" id="forgot" class="font-weight-bold">아이디 찾기</a>
 										<a href="./MemberFindPw.me" id="forgot" class="font-weight-bold">비밀번호 찾기</a>
 									</div>
-								<div class=textstyle> 회원이 아니신가요? <a href="./MemberJoin.me" class="font-weight-bold">가입하기</a></div>
+								<div class=textstyle> 회원이 아니신가요? <a href="./MemberJoinClause.me"  class="font-weight-bold">가입하기</a></div>
 							</form>
 						</div>
 						
@@ -145,7 +151,9 @@
 }
 
 body {
-	font-family: 'Inter', sans-serif;
+	font-family: 'InfinitySans-RegularA1';
+	font-weight: normal;
+    font-style: normal;
 }
 
 

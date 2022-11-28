@@ -130,15 +130,6 @@ a {
 		  }
 		})
 	}
-	
-// 	function test(car_code) {
-//         if (!confirm("확인(예) 또는 취소(아니오)를 선택해주세요.")) {
-//             alert("취소(아니오)를 누르셨습니다.");
-//         } else {
-//             alert("확인(예)을 누르셨습니다.");
-//             location.href='./AdminCarDelete.ad?car_code='+car_code;
-//         }
-//     }
 	</script>
 </head>
 <body>
@@ -219,12 +210,7 @@ a {
     </div>
 	</c:forEach>
 </div>
-<div id="table_search">
-	<input type="button" value="상품등록" class="btn"
-		onclick="location.href='./AdminCarAdd.ad';">
-</div>
-</div>
-</div>
+
 <!-- 게시판 -->
 					
 
@@ -234,6 +220,7 @@ a {
 			<!--     	<div class="row mt-5"> -->
 			<div class="col text-center">
 				<div class="block-27">
+			 <div>
 					<ul>
 			<!-- 이전 -->
 			<c:if test="${startPage > pageBlock }">
@@ -261,9 +248,20 @@ a {
 					</ul>
 				</div>
 			</div>
-
-
+			</div>
+			<div id="table_search">
+	<input type="button" value="상품등록" class="btn btn-primary py-2 mr-1" 
+		onclick="location.href='./AdminCarAdd.ad';">
+		<input type="button" value="관리자메인페이지로이동" class="btn btn-primary py-2 mr-1" 
+			onclick=" location.href='./AdminMain.mb';" >
+			</div>
+			
 		</c:if>
+</div>
+</div>
+			
+
+
 
 <!-- 푸터들어가는 곳 -->
 	<jsp:include page="../inc/bottom.jsp" />

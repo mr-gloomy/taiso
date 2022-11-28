@@ -299,7 +299,7 @@ $(document).ready(function(){
 	<!-- 중간제목 끝 -->
 
 	<!-- 본문 시작 -->
-	<section class="ftco-section contact-section">
+	<section class="ftco-section contact-section bg-light">
 		<div class="formbold-main-wrapper">
 		<!-- Author: FormBold Team -->
 		<!-- Learn More: https://formbold.com -->
@@ -409,7 +409,13 @@ $(document).ready(function(){
 }
 
 body {
-	font-family: 'Inter', sans-serif;
+	font-family: 'InfinitySans-RegularA1';
+	font-weight: normal;
+    font-style: normal;
+}
+
+.nanumgothic * {
+ font-family: 'Nanum Gothic', sans-serif;
 }
 
 .formbold-mb-3 {

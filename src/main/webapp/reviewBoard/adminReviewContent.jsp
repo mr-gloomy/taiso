@@ -77,14 +77,16 @@
 															
                     </dl>
                 </div>
-                <div class="img rounded d-flex align-items-end"
-                        style="background-image: url(./upload/${adrDTO.rev_image.split(',')[0] });"> 
-<!--                 	<dt>첨부파일</dt> -->
-<%-- 					${adrDTO.rev_image } --%>
-                </div><br>
+                <dt>내용</dt>
                 <div class="cont">
 					${adrDTO.rev_content }
                 </div>
+<!--                 <div class="img rounded d-flex align-items-end" -->
+<%--                         style="background-image: url(./upload/${adrDTO.rev_image.split(',')[0] });">  --%>
+                	<dt>첨부파일</dt>
+	    	    <img src="./upload/${adrDTO.rev_image.split(',')[0] }" width="500" height="500">
+<%-- 	    	    <img src="./upload/${adrDTO.rev_image.split(',')[0] }" width="50" height="50"> --%>
+                </div><br>
                 
             </div>
             <div align="center">
