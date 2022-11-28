@@ -269,7 +269,9 @@ $(document).ready(function(){
 }
 
 body {
-	font-family: 'Inter', sans-serif;
+	font-family: 'InfinitySans-RegularA1';
+	font-weight: normal;
+    font-style: normal;
 }
 
 .formbold-mb-3 {
