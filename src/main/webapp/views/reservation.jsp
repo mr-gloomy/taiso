@@ -78,6 +78,12 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 	}
+	.mb-4{
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+	}
    </style>	
 	
 </head>
@@ -93,7 +99,7 @@
           <div class="col-lg-8 ftco-animate">
           	<div class="text w-100 text-center mb-md-5 pb-md-5">
 	            <h1 class="mb-4">TAISO</h1>
-	            <p style="font-size: 18px;">타이소타이소타이소타이소</p>
+	            <p style="font-size: 18px;">행복한 여행에 TAISO가 함께합니다<br>고객의 행복을 최우선으로하는 TAISO의 서비스를 만나보세요!</p>
             </div>
           </div>
         </div>
@@ -125,7 +131,7 @@
 							</div>
 						</div>	       		
 						<label for="" class="main-label" id="datealert" style="font-size:15px; padding-left: 50px;">
-							<div class="renticon""><h7>&nbsp;&nbsp;&nbsp;단기렌트는 최대 28일까지 가능합니다.</h7></div>
+							<div class="renticon"><h7>&nbsp;&nbsp;&nbsp;단기렌트는 최대 28일까지 가능합니다.</h7></div>
 						</label><br>
 						<div class="d-flex" style="padding-left: 50px;">
 							<div class="form-group mr-2">
@@ -138,7 +144,7 @@
 							</div>
 						</div>
 						<label for="" class="main-label" id="datealert" style="font-size:15px; padding-left: 50px;">
-							<div class="renticon""><h7>&nbsp;&nbsp;&nbsp;대여시간과 반납시간은 동일하게 설정됩니다.</h7></div>
+							<div class="renticon"><h7>&nbsp;&nbsp;&nbsp;대여시간과 반납시간은 동일하게 설정됩니다.</h7></div>
 						</label><br>
 			    		<div class="form-group" style="padding-left: 50px;">
 							<label for="" class="main-label" style="padding-top: 15px;">이용지점</label><br>
@@ -164,7 +170,7 @@
 				</div>
 				</div>
     </section>
-
+<!--
     <section class="ftco-section ftco-no-pt bg-light">
     	<div class="container">
     		<div class="row justify-content-center">
@@ -188,9 +194,9 @@
 			    						<span class="cat">${rCar.car_name }</span>
 			    						<p class="price ml-auto">${rCar.car_price }원 <span>/day</span></p>
 		    						</div>
-		    						<p class="d-flex mb-0 d-block">
+		    						<p class="d-flex mb-0 d-block">-->
 <!-- 			    						<a href="#" class="btn btn-primary py-2 mr-1">Book now</a> -->
-			    						<a href="./ReviewList.rev?car_code=${rCar.car_code }"
+<!--			    						<a href="./ReviewList.rev?car_code=${rCar.car_code }"
 											class="btn btn-secondary py-2 ml-1">차량상세정보</a>
 									</p>
 		    					</div>
@@ -234,7 +240,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section>-->
 
 
 
