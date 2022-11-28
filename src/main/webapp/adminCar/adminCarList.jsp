@@ -174,15 +174,15 @@ a {
             <strong>[관리자] 차량리스트</strong>
   			<p> 전체 차량 대수 : ${requestScope.totalCnt } 개 </p>          
   </div>
-<div class="btn">
-	<a href="./AdminCarList.ad">전체</a>
-	<a href="./AdminCarList.ad?item=small">소형</a>
-	<a href="./AdminCarList.ad?item=compact">준중형</a>
-	<a href="./AdminCarList.ad?item=middle">중형</a> 
-	<a href="./AdminCarList.ad?item=large">대형</a> 
-	<a href="./AdminCarList.ad?item=suv">suv</a>
-	<a href="./AdminCarList.ad?item=foreign">수입차</a>
-</div>
+	<div>
+		  <a class="btn btn-primary" href="./AdminCarList.ad">전체</a>
+	      <a class="btn btn-primary" href="./AdminCarList.ad?item=small">소형</a>
+	      <a class="btn btn-primary" href="./AdminCarList.ad?item=compact">준중형</a>
+	      <a class="btn btn-primary" href="./AdminCarList.ad?item=middle">중형</a> 
+	      <a class="btn btn-primary" href="./AdminCarList.ad?item=large">대형</a> 
+	      <a class="btn btn-primary" href="./AdminCarList.ad?item=suv">suv</a>
+	      <a class="btn btn-primary" href="./AdminCarList.ad?item=foreign">수입차</a>
+	</div>
  <div class="adminCar_list_wrap">
             <div class="adminCar_list">
                <div class="top">

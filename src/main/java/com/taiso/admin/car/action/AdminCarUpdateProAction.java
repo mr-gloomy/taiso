@@ -21,7 +21,6 @@ public class AdminCarUpdateProAction implements Action {
 		carDTO.setCar_category(request.getParameter("car_category"));
 		carDTO.setCar_code(Integer.parseInt(request.getParameter("car_code")));
 		carDTO.setCar_fuel(request.getParameter("car_fuel"));
-		carDTO.setCar_location(Integer.parseInt(request.getParameter("car_location")));
 		carDTO.setCar_name(request.getParameter("car_name"));
 		carDTO.setCar_op(request.getParameter("car_op"));
 		carDTO.setCar_price(Integer.parseInt(request.getParameter("car_price")));
