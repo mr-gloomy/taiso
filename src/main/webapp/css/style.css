@@ -9153,7 +9153,7 @@ h1, h2, h3, h4, h5,
   position: relative; }
   .ftco-degree-bg:after {
     content: '';
-    position: absolute;
+    position: inherit;
     left: 0;
     bottom: -50px;
     overflow: visible;

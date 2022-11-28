@@ -170,7 +170,7 @@
 				</div>
 				</div>
     </section>
-<!--
+
     <section class="ftco-section ftco-no-pt bg-light">
     	<div class="container">
     		<div class="row justify-content-center">
@@ -194,9 +194,9 @@
 			    						<span class="cat">${rCar.car_name }</span>
 			    						<p class="price ml-auto">${rCar.car_price }원 <span>/day</span></p>
 		    						</div>
-		    						<p class="d-flex mb-0 d-block">-->
+		    						<p class="d-flex mb-0 d-block">
 <!-- 			    						<a href="#" class="btn btn-primary py-2 mr-1">Book now</a> -->
-<!--			    						<a href="./ReviewList.rev?car_code=${rCar.car_code }"
+		    						<a href="./ReviewList.rev?car_code=${rCar.car_code }"
 											class="btn btn-secondary py-2 ml-1">차량상세정보</a>
 									</p>
 		    					</div>
@@ -240,7 +240,7 @@
           </div>
         </div>
       </div>
-    </section>-->
+    </section> 
 
 
 
