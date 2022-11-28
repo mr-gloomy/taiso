@@ -238,11 +238,11 @@ float: right;
 					class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
 					<div class="col-md-9 ftco-animate pb-5">
 						<p class="breadcrumbs">
-							<span class="mr-2"><a href="index.html">Home <i
-									class="ion-ios-arrow-forward"></i></a></span> <span>Contact <i
+							<span class="mr-2"><a href="./ReservationMain.rez">Home <i
+									class="ion-ios-arrow-forward"></i></a></span> <span>고객센터 <i
 								class="ion-ios-arrow-forward"></i></span>
 						</p>
-						<h1 class="mb-3 bread">마이페이지</h1>
+						<h1 class="mb-3 bread">수정제안</h1>
 					</div>
 				</div>
 			</div>
