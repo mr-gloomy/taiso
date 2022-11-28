@@ -163,10 +163,6 @@ body{
 .child-tab .sub-content p{
   font-size: 15px;
 }
-input[type="radio"],
-input[type="checkbox"]{
-  display: none;
-}
 
 /** 아코디언 */
 

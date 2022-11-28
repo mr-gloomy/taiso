@@ -68,6 +68,17 @@ tr:nth-child(even) {
     <section class="hero-wrap hero-wrap-2 js-fullheight" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
+      	<div
+			class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+			<div class="col-md-9 ftco-animate pb-5">
+				<p class="breadcrumbs">
+					<span class="mr-2"><a href="./AdminMain.mb">admin <i
+							class="ion-ios-arrow-forward"></i></a></span> <span>admin member<i
+						class="ion-ios-arrow-forward"></i></span>
+				</p>
+				<h1 class="mb-3 bread">관리자 회원상세내역</h1>
+			</div>
+		</div>
       </div>
     </section>
 	<!-- 헤더들어가는 곳 -->
@@ -98,7 +109,6 @@ tr:nth-child(even) {
 					<!-- 우측 -->
 					<div class="col-md-3 block-1 mb-md-1" align="center">
 					  <form action="./AdminBlacklistUpdate.mb?mem_num=${mDTO.mem_num }" method="post">	
-					  					
 					  	<table class="table">
 							<tbody class="tbody">
 								<tr align="center">
@@ -149,14 +159,14 @@ tr:nth-child(even) {
 									<td>
 										<div class="form-check form-check-inline" align="right">
 											<input class="form-check-input" type="radio" name="mem_blacklist" value="Y"
-												<c:if test="${mDTO.mem_blacklist == Y}">
+												<c:if test="${mDTO.mem_blacklist == 'Y'}">
 								     			checked
 								 				</c:if>
 								 			> Y
 								 		</div>
 										<div class="form-check form-check-inline" align="right">
 											<input class="form-check-input" type="radio" name="mem_blacklist" value="N"
-												<c:if test="${mDTO.mem_blacklist == N}">
+												<c:if test="${mDTO.mem_blacklist == 'N'}">
 				     			 				checked
 				 								</c:if>
 				 							> N
@@ -179,7 +189,7 @@ tr:nth-child(even) {
 									                            <div class="checker"><span class=""><input type="checkbox"/></span></div>
 									                            <span>특이사항1</span>
 									                            <a href="javascript:void(0);" class="float-right remove-todo-item"><i class="icon-close"></i></a>
-									                        </div>
+								;	                        </div>
 									                        <div class="todo-item">
 									                            <div class="checker"><span class=""><input type="checkbox"/></span></div>
 									                            <span>특이사항2</span>

@@ -1,5 +1,7 @@
 package com.taiso.admin.member.action;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 
 import javax.servlet.http.HttpServletResponse;
@@ -18,17 +20,26 @@ public class AdminBlacklistUpdateAction implements Action {
 		
 		//전달정보(DTO)
 		MemberDTO mDTO = new MemberDTO();
-		mDTO.setMem_num(Integer.parseInt(request.getParameter("mem_num")));
+		int mem_num =Integer.parseInt(request.getParameter("mem_num"));
+		String pageNum = request.getParameter("pageNum");
+		
+		mDTO.setMem_num(mem_num);
 		mDTO.setMem_blacklist(request.getParameter("mem_blacklist"));
+		
+		System.out.println("mDTO"+mDTO);
 		
 		// DAO 
 		AdminMemberDAO dao = new AdminMemberDAO();
 		dao.updateBlacklist(mDTO);
-	
+		
+		// request
+		request.setAttribute("mem_num", mem_num);
+		request.setAttribute("mDTO", dao.getMemberInfo(mem_num, pageNum));
+		
 		// 페이지 이동
 		ActionForward forward = new ActionForward();
-		forward.setPath("./AdminMemberInfo.mb?mem_nem=${mDTO.mem_num}&pageNum=${pageNum}&mem_blacklist=${mDTO.mem_blacklist}");
-		forward.setRedirect(true);
+		forward.setPath("./adminMember/adminMemberInfo.jsp");
+		forward.setRedirect(false);
 		
 		return forward;
 		

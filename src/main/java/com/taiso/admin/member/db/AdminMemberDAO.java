@@ -227,7 +227,7 @@ public class AdminMemberDAO {
 					mDTO.setMem_registDate(rs.getTimestamp("mem_registDate"));
 					mDTO.setLicense_num(rs.getString("license_num"));
 					mDTO.setMem_birthday(rs.getString("mem_birthday"));
-					mDTO.setMem_blacklist(mem_blacklist);
+					mDTO.setMem_blacklist(rs.getString("mem_blacklist"));
 					
 				}
 				System.out.println(" DAO : 회원 정보 조회완료! ");
@@ -279,7 +279,6 @@ public class AdminMemberDAO {
 				con = getConnection();
 				sql = "update member set mem_blacklist=? where mem_num=?";
 				pstmt = con.prepareStatement(sql);
-				
 				pstmt.setString(1, mDTO.getMem_blacklist());
 				pstmt.setInt(2, mDTO.getMem_num());
 				
@@ -299,7 +298,6 @@ public class AdminMemberDAO {
 		// 예약 전체 개수 확인 - getReservationCancelCount
         public int getReservationCancelCount() {
            int cnt = 0;
-           
 
            try {
               //1.2. 디비연결
