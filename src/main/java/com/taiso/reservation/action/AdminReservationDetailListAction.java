@@ -54,7 +54,7 @@ System.out.println(" M : AdminReservationDetailListAction_execute() 호출 ");
       request.setAttribute("rezDTO", adminTotalDTO.get(0));
       request.setAttribute("payDTO", adminTotalDTO.get(1));
       request.setAttribute("mDTO", adminTotalDTO.get(2));
-     // request.setAttribute("carDTO", adminTotalDTO.get(3));
+      request.setAttribute("carDTO", adminTotalDTO.get(3));
       request.setAttribute("pageNum", pageNum);
          
       // 페이지 이동 (./views/admin_reservation_list.jsp)

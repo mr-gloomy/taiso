@@ -70,7 +70,7 @@
 <!-- 							</h2> -->
 <!-- 							<br><br> -->
 							
-							
+							<br><br><br><br>
 							<div class="board_list_wrap">
 					            <div class="board_list">
 					            	
@@ -88,7 +88,7 @@
 					                    <div class="title">${carDTO.car_name }</div>
 					                </div>
 					               
-					                <br>
+					                <br><br><br>
 					            </div>
 					            <div class="board_list">
 					            	
@@ -106,88 +106,77 @@
 					                    <div class="title">${rezDTO.rez_returnDate }</div>
 					                </div>
 					               
-					                <br>
+					                <br><br><br>
 					            </div>
-							</div>
-					     </div>
-					      	
-					      	<div class="board_list_wrap">
-					            <div class="board_list2">
-					            	<h4>결제 정보</h4>
-					                <div class="top2">
-					                    <div class="title"></div>
-					                    <div class="title"></div>
-					                    <div class="title"></div>
-					                    <div class="title"></div>
-					                </div>
+					             <div class="board_list">
 					            	
+					            	<h4>선택 차량 정보</h4>
 					                <div class="top">
-					                    <div class="date3" style="color:white">결제수단</div>
-					                    <div class="title2"></div>
-					                    <div class="title" style="text-align: center;">${payDTO.pay_method }</div>
+					                    <div class="date3" style="color:white">차량브랜드</div>
+					                    <div class="title">${carDTO.car_brand }</div>
+					                    <div class="date3" style="color:white">차량연식</div>
+					                    <div class="title">${carDTO.car_year } 년</div>
 					                </div>
 					                <div class="top">
-					                    <div class="date3" style="color:white">대여요금</div>
-					                    <div class="title2"></div>
-					                    <div class="title" style="text-align: center;">${payDTO.pay_total }</div>
+					                    <div class="date3" style="color:white">차량연료</div>
+					                    <div class="title">${carDTO.car_fuel }</div>
+					                    <div class="date3" style="color:white">차량가격</div>
+					                    <div class="title">${carDTO.car_price } 원</div>
 					                </div>
-					                <div class="top">
-					                    <div class="date3" style="color:white">할인적용</div>
-					                    <div class="title2"></div>
-					                    <div class="title" style="text-align: center;">없음</div>
-					                </div>
-					                <div class="top">
-					                    <div class="date3" style="color:white">수수료</div>
-					                    <div class="title2"></div>
-					                    <div class="title" style="text-align: center;">20,000원</div>
-					                </div>
-					                <div class="top">
-					                    <div class="date3" style="color:white">총 결제 금액</div>
-					                    <div class="title2"></div>
-					                    <div class="title" style="text-align: center;">${payDTO.pay_total }</div>
-					                </div>
-					                
-					                <br>
-					                
+					               
+					                <br><br><br>
 					            </div>
-							</div>
-							
-					      	<div class="board_list_wrap">
-					            <div class="board_list2">
-					              <div class="title2"></div>
+					            <div class="board_list">
+					            	
 					            	<h4>운전자 정보</h4>
 					                <div class="top">
-					                    <div class="title"></div>
-					                    <div class="title"></div>
-					                    <div class="title"></div>
-					                    <div class="title"></div>
-					                </div>
-					                <div class="top">
 					                    <div class="date3" style="color:white">이름</div>
-					                    <div class="title2"></div>
-					                    <div class="title" style="text-align: center;">${mDTO.mem_name }</div>
-					                </div>
-					                <div class="top">
-					                    <div class="date3" style="color:white">법정생년월일</div>
-					                    <div class="title2"></div>
-					                    <div class="title" style="text-align: center;">${mDTO.mem_birthday }</div>
+					                    <div class="title">${mDTO.mem_name }</div>
+					                    <div class="date3" style="color:white">생년월일</div>
+					                    <div class="title">${mDTO.mem_birthday }</div>
 					                </div>
 					                <div class="top">
 					                    <div class="date3" style="color:white">휴대폰번호</div>
-					                    <div class="title2"></div>
-					                    <div class="title3" style="text-align: center;">${mDTO.mem_phone }</div>
+					                    <div class="title">${mDTO.mem_phone }</div>
+					                    <div class="date3" style="color:white">면허종류</div>
+					                    <div class="title">${rezDTO.license_type }</div>
 					                </div>
 					                <div class="top">
-					                    <div class="date3" style="color:white">면허 종류</div>
-					                    <div class="title2"></div>
-					                    <div class="title" style="text-align: center;">${rezDTO.license_type }</div>
+					                    <div class="date3" style="color:white">면허증번호</div>
+					                    <div class="title">${rezDTO.license_num }</div>
+					                    <div class="date3" style="color:white">면허발급일자</div>
+					                    <div class="title">${rezDTO.license_issueDate }</div>
+					                </div>
+					               
+					                <br><br><br>
+					            </div>
+					            <div class="board_list">
+					            	
+					            	<h4>결제 정보</h4>
+					                <div class="top">
+					                    <div class="date3" style="color:white">결제수단</div>
+					                    <div class="title">${payDTO.pay_method }</div>
+					                    <div class="date3" style="color:white">결제상태</div>
+					                    <div class="title">${payDTO.pay_status }</div>
 					                </div>
 					                <div class="top">
-					                    <div class="date3" style="color:white">면허증 번호</div>
-					                    <div class="title2"></div>
-					                    <div class="title" style="text-align: center;">${rezDTO.license_num }</div>
+					                    <div class="date3" style="color:white">결제번호</div>
+					                    <div class="title">${payDTO.pay_uqNum }</div>
+					                    <div class="date3" style="color:white">결제일자</div>
+					                    <div class="title">${payDTO.pay_date }</div>
 					                </div>
-					                
+					                <div class="top">
+					                    <div class="date3" style="color:white">총 결제 금액</div>
+					                    <div class="title">${payDTO.pay_total } 원</div>
+					                    <div class="date3" style="color:white">취소 시 수수료</div>
+					                    <div class="title">${payDTO.pay_total*0.1 } 원</div>
+					                </div>
+					               
+					                <br><br><br>
+					            </div>
+							</div>
+					     </div>
+                
 					                <br><br><br>
 					                
 								    </div>
