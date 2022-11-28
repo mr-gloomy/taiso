@@ -6,11 +6,11 @@
 <html lang="ko">
 <head>
 <!-- 헤더 시작 -->
-<title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
+<title>타이소-관리자</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+<link rel="shortcut icon" type="image/x-icon" href="./images/logo.png">
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
 	rel="stylesheet">
