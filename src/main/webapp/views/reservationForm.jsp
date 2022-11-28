@@ -447,52 +447,88 @@ line-height:40px;
               <br>
 <div class="col-md-12">
          <div class="form-group">
+         <c:set var="licenseChk" value="${rezDTO.license_num }"/>
+<%--          ${licenseChk } --%>
               <h3>면허정보입력</h3>    
-                면허발급일자&nbsp;:&nbsp;<input type="date" name="license_issueDate" class="rezform-2" value="${rezDTO.license_issueDate }" placeholder="면허발급일자를 정확하게 입력해주세요.">
+                면허발급일자&nbsp;:&nbsp;<input type="date" name="license_issueDate" class="rezform-2"
+                <c:choose>
+                	<c:when test="${licenseChk!=null }">
+                	value="${rezDTO.license_issueDate }" readonly="readonly"
+                	</c:when>
+                	<c:when test="${licenseChk==null }">
+                	value="" placeholder="면허발급일자를 정확하게 입력해주세요."
+                	</c:when>
+                </c:choose>
+                >
           </div>
 
               <div class="form-group">
                   면허종류&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;
                     <select class="rezform-2" name="license_type">
-						          <option value="" selected disabled hidden>&nbsp;면허 종류를 선택하세요</option>	
+                <c:choose>
+                	<c:when test="${licenseChk!=null }">
+						<option value="" selected disabled hidden>&nbsp;면허 종류를 선택하세요</option>	
                        <optgroup label="1종">
-                           <option value="1종대형" 
-                                 <c:if test="${rezDTO.license_type.equals('1종대형') }">
+                        <option value="1종대형" disabled="disabled"
+                        <c:if test="${rezDTO.license_type.equals('1종대형') }">
                         selected="selected"
                         </c:if>
-                           >1종대형</option>
+                        >1종대형</option>
                            
-                        <option value="1종보통" 
-                                <c:if test="${rezDTO.license_type.equals('1종보통') }">
+                        <option value="1종보통" disabled="disabled"
+                        <c:if test="${rezDTO.license_type.equals('1종보통') }">
                         selected="selected"
-                                </c:if>
+                        </c:if>
                         >1종보통</option>
                         
-                        <option value="1종소형" 
-                                <c:if test="${rezDTO.license_type.equals('1종소형') }">
+                        <option value="1종소형" disabled="disabled"
+                        <c:if test="${rezDTO.license_type.equals('1종소형') }">
                         selected="selected"
-                                </c:if>               
+                        </c:if>               
                         >1종소형</option>
                      </optgroup>
                      
                      <optgroup label="2종">   
-                        <option value="2종보통" 
-                                <c:if test="${rezDTO.license_type.equals('2종보통') }">
+                        <option value="2종보통" disabled="disabled"
+                        <c:if test="${rezDTO.license_type.equals('2종보통') }">
                         selected="selected"
-                                </c:if>                         
+                        </c:if>                         
                         >2종보통</option>
                         
-                        <option value="2종소형" 
-                                <c:if test="${rezDTO.license_type.equals('2종소형') }">
+                        <option value="2종소형" disabled="disabled"
+                        <c:if test="${rezDTO.license_type.equals('2종소형') }">
                         selected="selected"
-                                </c:if>                       
+                        </c:if>                       
                         >2종소형</option>
                    </optgroup>
+                	</c:when>
+                	<c:when test="${licenseChk==null }">
+                       <optgroup label="1종">
+                        <option value="1종대형">1종대형</option>
+                        <option value="1종보통">1종보통</option>
+                        <option value="1종소형">1종소형</option>
+                     </optgroup>
+                     <optgroup label="2종">   
+                        <option value="2종보통">2종보통</option>
+                        <option value="2종소형">2종소형</option>
+                   </optgroup>
+                	</c:when>
+                </c:choose>
                    </select>
                    </div>
                    
           <div class="form-group"> <!-- 면허증번호 12자리 그리고 패턴 설정하기 -->
-                 면허증번호&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<input type="text" id="license_num" name="license_num" class="rezform-2" oninput="autoHyphen(this)" maxlength="15" value="${rezDTO.license_num }" placeholder="00-00-000000-00">
+                 면허증번호&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;
+                 <input type="text" id="license_num" name="license_num" class="rezform-2" oninput="autoHyphen(this)"
+                <c:choose>
+                	<c:when test="${licenseChk!=null }">
+                	value="${rezDTO.license_num }" readonly="readonly"
+                	</c:when>
+                	<c:when test="${licenseChk==null }">
+                	value="" placeholder="00-00-000000-00" maxlength="15"
+                	</c:when>
+                </c:choose>
+				>                 
           </div>          
 </div>    
        <br>
