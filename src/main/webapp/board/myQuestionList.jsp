@@ -53,6 +53,14 @@ function Login() {
         padding: 30px;
     }
 </style>
+    <!-- 배경색 -->
+    <style> 
+    .bg-light {
+    background: #f8f9fa !important;
+}
+    </style>
+	<!-- 배경색 -->
+
 </head>
 <body>
 	<div id="wrap">
@@ -86,7 +94,7 @@ function Login() {
 <%--	${requestScope.QuestionList } --%>
 	
 		<!-- left -->
-		<section class="ftco-section contact-section">
+		<section class="ftco-section contact-section bg-light">
 			<div class="container">
 				<div class="row d-flex mb-5 contact-info">
 				
@@ -249,6 +257,6 @@ function Login() {
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="js/google-map.js"></script>
 	<script src="js/main.js"></script>
-
+<script src="https://kit.fontawesome.com/595b26ba61.js" crossorigin="anonymous"></script>
 </body>
 </html>

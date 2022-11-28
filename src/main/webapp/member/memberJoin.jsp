@@ -299,7 +299,7 @@ $(document).ready(function(){
 	<!-- 중간제목 끝 -->
 
 	<!-- 본문 시작 -->
-	<section class="ftco-section contact-section">
+	<section class="ftco-section contact-section bg-light">
 		<div class="formbold-main-wrapper">
 		<!-- Author: FormBold Team -->
 		<!-- Learn More: https://formbold.com -->

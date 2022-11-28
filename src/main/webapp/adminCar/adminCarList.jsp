@@ -115,7 +115,7 @@ a {
 <script type="text/javascript">
 	function deleteCar(seq){
 		Swal.fire({
-		  title: '글을 삭제 하시겠습니까?',
+		  title: '상품을 삭제 하시겠습니까?',
 		  text: "삭제하시면 다시 복구시킬 수 없습니다.",
 		  icon: 'info',
 		  showCancelButton: true,
