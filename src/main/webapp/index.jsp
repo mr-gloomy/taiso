@@ -22,14 +22,14 @@
 // 회원---------------------------------------------------------------
 
 
-response.sendRedirect("./MemberJoinEmail.me");
+// response.sendRedirect("./MemberJoinEmail.me");
 // response.sendRedirect("./MemberLogin.me");
 // response.sendRedirect("./MemberNaverLogin.me");
 // response.sendRedirect("./MemberUpdatePw.me");
 // response.sendRedirect("./MemberRemove.me");
 // response.sendRedirect("./MemberFindId.me");
 // response.sendRedirect("./MemberFindIdResult.me");
-// response.sendRedirect("./MemberJoinClause.me");
+response.sendRedirect("./MemberJoinClause.me");
 // response.sendRedirect("./AdminMain.mb");
 
 		

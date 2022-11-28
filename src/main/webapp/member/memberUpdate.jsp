@@ -5,7 +5,7 @@
 <html lang="en">
 
 <head>
-<title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
+<title>개인정보 수정</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -188,7 +188,7 @@ $(document).ready(function(){
 		<div class="formbold-form-wrapper">
 		
 			<div class="formbold-form-title">
-				<h3>회원정보 수정</h3>
+				<h3>개인정보 수정</h3>
 			</div>
 				
 				<form action="./MemberUpdateAction.me" method="post" name="fr">
