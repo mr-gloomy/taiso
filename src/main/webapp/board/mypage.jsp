@@ -26,75 +26,239 @@
     <link rel="stylesheet" href="./css/icomoon.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/admin_my.css">
-    
-    
-    
+
     <script src="sweetalert2.all.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="sweetalert2.all.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>	
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="jquery.loading.js"></script> <!-- 저장된 loading.js 경로 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-	<script type="text/javascript">
-	
-	function QuestionWrite() {
-		var bo_cate = $('.form-select').val();
-		if(bo_cate==""){
-			Swal.fire({
-                icon: 'warning',
-                /* title: '내용을 입력하세요!', */
-                text: '카테고리를 선택하세요!',
-            });
-			document.fr.bo_cate.focus();
-			return;
-		}
-		
-	function Login() {
-		var mem_id = sessionStorage.getItem('mem_id'); // -> tang 반환
-		
-		if(mem_id==null) {
-			Swal.fire({
-				text : "텍스트",
-				closeOnClickOutside : false // 백그라운드 클릭해도 안꺼짐
-			})
-			.then(function(result){ //  창 꺼질때 실행할 함수
-				console.log(result);
-				// background 클릭 => null
-				// 확인버튼 클릭 => true
-			    
-			    if(result) {
-			    	location.href = "./MemberLogin.me";
-			    }
-			})
-			}
-	};
-	
-	Login();
-// 		swal({
-// 			text : "텍스트",
-// 			closeOnClickOutside : false // 백그라운드 클릭해도 안꺼짐
-// 		})
-// 		.then(function(result){ //  창 꺼질때 실행할 함수
-// 			console.log(result);
-// 			// background 클릭 => null
-// 			// 확인버튼 클릭 => true
-		    
-// 		    if(result) {
-// 		    	location.href = "/";
-// 		    }
-		    
-// 		})
-    </script>
+
+
+<script type="text/javascript">
+$(function() {
+	  var Accordion = function(el, multiple) {
+	    this.el = el || {};
+	    // more then one submenu open?
+	    this.multiple = multiple || false;
+	    
+	    var dropdownlink = this.el.find('.dropdownlink');
+	    dropdownlink.on('click',
+	                    { el: this.el, multiple: this.multiple },
+	                    this.dropdown);
+	  };
+	  
+	  Accordion.prototype.dropdown = function(e) {
+	    var $el = e.data.el,
+	        $this = $(this),
+	        //this is the ul.submenuItems
+	        $next = $this.next();
+	    
+	    $next.slideToggle();
+	    $this.parent().toggleClass('open');
+	    
+	    if(!e.data.multiple) {
+	      //show only one menu at the same time
+	      $el.find('.submenuItems').not($next).slideUp().parent().removeClass('open');
+	    }
+	  }
+	  
+	  var accordion = new Accordion($('.accordion-menu'), false);
+	})
+
+</script>
+
+
+
+<!-- 블로그 로딩 코드 start -->
+<style type="text/css">
+#waiting {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    background: white;
+    z-index: 999;
+    opacity: 0.9;
+}
+#waiting > img {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+</style>
+<div id="waiting">
+	<img src="./img/loading.gif">
+</div>
+
+<script type="text/javascript">
+    $(window).on('load', function() {
+        setTimeout(function(){
+            $("#waiting").fadeOut();
+        }, 300);
+    });
+</script>
+<!-- 블로그 로딩 코드 end -->
     
-    <style>
+    
+    <!-- css 초기화 -->
+    
+
+    
+    <!-- css 초기화 -->
+
+
+    <!-- 배경색 -->
+    <style> 
     .bg-light {
     background: #f8f9fa !important;
 }
     </style>
+	<!-- 배경색 -->
+	
+	
+	   
+<!-- 사이드바 --> 
+<style>
+
+
+ul {
+  list-style: none;
+  padding-inline-start: -40px;
+}
+
+#a-menu{
+color: #fffff !important; 
+}
+
+h2 {
+/*   text-align: center; */
+/*   margin: 20px auto; */
+  color: #fff;
+}
+
+.accordion-menu {
+  
+  width: 100%;
+  max-width: 350px;
+   margin: 27px auto 20px; 
+  background: #fff;
+  border-radius: 4px;
+}
+.accordion-menu li.open .dropdownlink {
+  color: #1089FF;
+  .fa-chevron-down {
+    transform: rotate(180deg);
+  }
+}
+.accordion-menu li:last-child .dropdownlink {
+  border-bottom: 0;
+}
+.dropdownlink {
+  cursor: pointer;
+  display: block;
+    padding: 17px 15px 15px 1px;
+  font-size: 18px;
+  border-bottom: 1px solid #ccc;
+  color: #212121;
+  position: relative;
+  transition: all 0.4s ease-out;
+  i {
+    position: absolute;
+    top: 17px;
+    left: 16px;
+  }
+  .fa-chevron-down {
+    right: 12px;
+    left: auto;
+    padding: 10px;
+    top: 10px;
+    line-height: 1;
+  }
+}
+
+.dropdownlink2 {
+    cursor: pointer;
+    display: block;
+    padding: 15px 15px 20px 15px;
+    font-size: 18px;
+    border-bottom: 1px solid #ccc;
+    color: #ffffff !important;
+    position: relative;
+    background: #1089ff;
+    transition: all 0.4s ease-out;
+    border-radius: 10px;
+    
+  i {
+    position: absolute;
+    top: 17px;
+    left: 16px;
+  }
+  .fa-chevron-down {
+    right: 12px;
+    left: auto;
+    padding: 10px;
+    top: 10px;
+    line-height: 1;
+  }
+}
+
+.submenuItems {
+  display: none;
+  background: #E5E5E5;
+  li {
+    border-bottom: 1px solid #B6B6B6;
+  }
+}
+
+.submenuItems a {
+  display: block;
+  color: #fffff !important;
+  padding: 12px 12px 12px 45px;
+  transition: all 0.4s ease-out;
+  &:hover {
+    background-color: #CDDC39;
+    color: #fff;
+  }
+}
+
+
+.m-col-md-4 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 33.33333%;
+    flex: 0 0 33.33333%;
+    max-width: 27.33333%; 
+    margin-right: 35px;
+/*     margin-top: 30px; */
+    border-radius: 22px;
+/*     box-shadow: rgb(0 0 0 / 20%) 0px 5px 15px 0px; */
+    }
+
+.fa{
+vertical-align:middle;
+padding: 5px;
+float: right;
+
+}
+
+</style>
+<!-- 사이드바 --> 
+	
+	
   </head>
+ 
+  
+  
+  
   <body>
-  
-  
+
 <%--  ${sessionScope.mem_id} --%>
   <div id="wrap">
 	<!-- 헤더들어가는 곳 -->
@@ -132,60 +296,13 @@
     <section class="ftco-section contact-section bg-light" >
       <div class="container">
         <div class="row d-flex mb-5 contact-info">
+        
+        
 	<!-- left -->
-    	<div class="col-md-4">
-        	
-     	<!-- 프로필 -->
-     	<div class="row mb-5">
-			<div class="membercard">
-			  <div align="right">			
-				<button type="button" class="btn btn-secondary btn-sm" id="minibtn" onclick="location.href='./MemberUpdatePw.me' ">내 정보</button>
-			  </div>
-				<div class="text">
-					<img src="./images/user.png">
-					<h5>${mDTO.mem_nickName}</h5>
-					<p>문의사항　　|　　나의 리뷰</p>
-					<div align="center">${myqnacnt }　　　　|　　　　 ${myreviewcnt }</div>	　 　　
-						
-				</div>
-			</div>
-     	<!-- 프로필 -->
-		
-		<!-- 메뉴바 -->
+			<jsp:include page="../inc/mysidebar.jsp"/>
+	
+	<!-- left -->
 
-    <div class="middle-md-12">
-        <div class="menu">
-            <ul id="noul">
-                <li class="buttonitem" id="profile" >
-                    <a href="#profile" class="menubtn" ><i class="fa fa-cog"></i> 렌트 내역</a>
-                    <div class="smenu" >
-                        <a href="./ReservationList.rez">예약/취소 조회</a>
-<!--                         <a href="./FaqList2.bo">2</a> -->
-                    </div>
-                </li>
-
-                <li class="buttonitem" id="messages">
-                    <a href="#messages" class="menubtn"><i class="fa fa-user"></i> 나의 게시글 모음 </a>
-                    <div class="smenu" style="display:block;">
-                        <a href="./MyQuestionList.bo" id="smenu">1:1 문의 내역</a>
-                        <a href="./ProposaList.bo">수정제안</a>
-                    </div>
-                </li>
-
-                <li class="buttonitem" id="settings">
-                    <a href="#settings" class="menubtn"><i class="fa fa-cog"></i> 회원정보 관리</a>
-                    <div class="smenu">
-                        <a href="./MemberUpdatePw.me">개인정보 수정</a>
-                        <a href="./MemberRemove.me">회원 탈퇴</a>
-                    </div>
-                </li>
-                
-               </ul>
-             </div>
-            </div>
-  		</div> 
-		<!-- 메뉴바 -->
-   	 </div> 
    	 <!-- 우측 -->
    	 <div class="col-md-8 block-9 mb-md-5">
    	 
@@ -238,12 +355,14 @@
 								</div>
 							</div>
 						</c:forEach>
+						<hr>
 				</div>
 			</div>
 <!-- 			</div> -->
 		</section>
 		
 			</div>
+			<hr>
 	</div>
 	</div>
 	</section>
@@ -253,6 +372,8 @@
 	<!-- 푸터들어가는 곳 -->
 		<jsp:include page="../inc/bottom.jsp" />
 	<!-- 푸터들어가는 곳 -->
+	</div>
+	
 	</div>
 <!-- 	</div> -->
 <!-- 	</div> -->
@@ -284,6 +405,5 @@
        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
    <script src="https://kit.fontawesome.com/595b26ba61.js" crossorigin="anonymous"></script>
       <script src="https://kit.fontawesome.com/595b26ba61.js" crossorigin="anonymous"></script>
-   
   </body>
 </html>

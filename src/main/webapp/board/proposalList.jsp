@@ -36,7 +36,13 @@
 		bir.value = today;
 	}
 </script>
-
+    <!-- 배경색 -->
+    <style> 
+    .bg-light {
+    background: #f8f9fa !important;
+}
+    </style>
+	<!-- 배경색 -->
 
 </head>
 <body>
@@ -72,7 +78,7 @@
 <%--	${requestScope.QuestionList } --%>
 	
 	<!-- left -->
-		<section class="ftco-section contact-section">
+		<section class="ftco-section contact-section bg-lighta">
 			<div class="container">
 				<div class="row d-flex mb-5 contact-info">
 
@@ -150,8 +156,6 @@
 		   		</div>
 			</div>								
 		<!-- 이 안이 변동사항 아래는 외부 틀이라서 필수 -->			
-			</div>
-			</div>
 			</div>
 <!-- 				<div class="row justify-content-center"></div> -->
 		</section>
