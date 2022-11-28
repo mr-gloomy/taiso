@@ -41,7 +41,8 @@
 
 
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>타이소</title>
+<link rel="shortcut icon" type="image/x-icon" href="./images/logo.png">
 	<script type="text/javascript">
 		function checkInfo(){
 			alert('결제진행하기버튼클릭했음');

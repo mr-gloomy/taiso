@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>마이페이지</title>
+<title>타이소</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="shortcut icon" type="image/x-icon" href="./images/logo.png">
@@ -264,6 +264,7 @@ function Login() {
 
 		<!--  -->  
 		<section class="hero-wrap hero-wrap-2 js-fullheight"
+			style="background-image: url('images/bg_6.jpg');"
 			data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
