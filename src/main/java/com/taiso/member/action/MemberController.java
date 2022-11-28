@@ -412,16 +412,21 @@ public class MemberController extends HttpServlet {
 			forward.setPath("./member/memberFindPwResult.jsp");
 			forward.setRedirect(false);
 			
-		}
-		else if(command.equals("/EmailMain.me")) {
-			System.out.println(" C : /EmailMain.me 호출");
+		
+		}else if(command.equals("/EmailMainAction.me")) {
+			System.out.println(" C : /EmailMainAction.me 호출");
+			System.out.println(" C : [패턴 2]");
 			
+			// EmailMainAction.me() 객체
 			action = new EmailMainAction();
 			
-		}
-		
-		
-		
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}	
 		
 		System.out.println(" C : [2단계  끝] 가상주소 매핑 완료 -----------------------------------------");
 		
