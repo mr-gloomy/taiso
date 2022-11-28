@@ -28,7 +28,6 @@ public class ReservationChk implements Action {
 			forward.setRedirect(true);
 			return forward;			
 		}
-		
 		ReservationDAO rezDAO = new ReservationDAO();
 		
 		// 1. 회원정보 가져오기
