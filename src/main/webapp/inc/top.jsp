@@ -20,8 +20,8 @@
 				<div class="btn-group">
 					<div class="collapse navbar-collapse" id="ftco-nav">
 						<div class="dropdown">
-							<button type="button" class="btn dropdown-toggle"
-								data-toggle="dropdown" style="color:white;">사이트소개</button>
+							<button type="button" class="btn dropdown-toggle topmenu"
+								data-toggle="dropdown">사이트소개</button>
 							<div class="dropdown-menu">
 								<a class="dropdown-item" href="./SiteInfo.rez">지점안내</a> 
 								<a class="dropdown-item" href="./UseInfo.rez">이용안내</a>

@@ -222,7 +222,7 @@ h2 {
 .submenuItems a {
   display: block;
   color: #fffff !important;
-  padding: 12px 12px 12px 45px;
+  padding: 12px 12px 12px 8px;
   transition: all 0.4s ease-out;
   &:hover {
     background-color: #CDDC39;
