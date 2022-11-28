@@ -35,6 +35,10 @@ public class MemberController extends HttpServlet {
 		
 		System.out.println(" C : [2단계 시작] 가상주소 매핑 시작 ----------------------------------------");
 		
+		
+
+		
+		
 		if(command.equals("/MemberJoinClause.me")) {
 			System.out.println(" C : /MemberJoinClause.me 호출 ");
 			System.out.println(" C : [패턴 1] ");
@@ -44,6 +48,7 @@ public class MemberController extends HttpServlet {
 			forward.setRedirect(false);
 			
 			
+
 		}else if(command.equals("/MemberJoin.me")) {
 			System.out.println(" C : /MemberJoin.me 호출 ");
 			System.out.println(" C : [패턴 1] ");
@@ -51,6 +56,7 @@ public class MemberController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("./member/memberJoin.jsp");
 			forward.setRedirect(false);	
+			
 			
 			
 		}else if(command.equals("/MemberJoinAction.me")) {
@@ -66,6 +72,7 @@ public class MemberController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
+		
 			
 		}else if(command.equals("/MemberIdCheck.me")) {
 			System.out.println(" C : /MemberIdCheck.me 호출");
@@ -74,6 +81,7 @@ public class MemberController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("./member/memberIdCheck.jsp");
 			forward.setRedirect(false);		
+			
 			
 			
 		}else if(command.equals("/MemberIdCheckAction.me")) {
@@ -90,6 +98,7 @@ public class MemberController extends HttpServlet {
 			}		
 			
 			
+			
 		}else if(command.equals("/MemberNickNameCheck.me")) {
 			System.out.println(" C : /MemberNickNameCheck.me 호출");
 			System.out.println(" C : [패턴 1] ");
@@ -97,6 +106,7 @@ public class MemberController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("./member/memberNickNameCheck.jsp");
 			forward.setRedirect(false);		
+			
 			
 			
 		}else if(command.equals("/MemberNickNameCheckAction.me")) {
@@ -113,6 +123,7 @@ public class MemberController extends HttpServlet {
 			}			
 				
 			
+			
 		}else if(command.equals("/MemberJoinEmailSendAction.me")) {
 			System.out.println(" C : /MemberJoinEmailSendAction.me 호출");
 			System.out.println(" C : [패턴 2] ");
@@ -127,6 +138,7 @@ public class MemberController extends HttpServlet {
 			}
 			
 			
+			
 		}else if(command.equals("/MemberJoinEmail.me")) {
 			System.out.println(" C : /MemberJoinEmail.me 호출 ");
 			System.out.println(" C : [패턴 1]");
@@ -134,6 +146,7 @@ public class MemberController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("./member/memberJoinEmail.jsp");
 			forward.setRedirect(false);	
+			
 			
 			
 		}else if(command.equals("/MemberJoinEmailCheckAction.me")) {
@@ -160,6 +173,7 @@ public class MemberController extends HttpServlet {
 			forward.setRedirect(false);	
 			
 			
+			
 		}else if(command.equals("/MemberLoginAction.me")) {
 			System.out.println(" C : /MemberLoginAction.me 호출 ");
 			System.out.println(" C : [패턴 2]");
@@ -172,6 +186,7 @@ public class MemberController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
 			
 			
 		}else if(command.equals("/MemberNaverLogin.me")) {
@@ -198,6 +213,7 @@ public class MemberController extends HttpServlet {
 			}	
 			
 			
+			
 		}else if(command.equals("/MemberUpdatePw.me")) {
 			System.out.println(" C : /MemberUpdatePw.me 호출 ");
 			System.out.println(" C : [패턴 1]");
@@ -205,6 +221,7 @@ public class MemberController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("./member/memberUpdatePw.jsp");
 			forward.setRedirect(false);		
+			
 			
 			
 		}else if(command.equals("/MemberUpdatePwAction.me")) {
@@ -221,6 +238,7 @@ public class MemberController extends HttpServlet {
 			}	
 			
 			
+			
 		}else if(command.equals("/MemberUpdate.me")) {
 			System.out.println(" C : /MemberUpdate.me 호출 ");
 			System.out.println(" C : [패턴 3]");
@@ -235,6 +253,7 @@ public class MemberController extends HttpServlet {
 			}
 			
 			
+			
 		}else if(command.equals("/MemberUpdateNickNameCheck.me")) {
 			System.out.println(" C : /MemberUpdateNickNameCheck.me 호출");
 			System.out.println(" C : [패턴 1] ");
@@ -242,6 +261,7 @@ public class MemberController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("./member/memberUpdateNickNameCheck.jsp");
 			forward.setRedirect(false);		
+			
 			
 			
 		}else if(command.equals("/MemberUpdateNickNameCheckAction.me")) {
@@ -258,6 +278,7 @@ public class MemberController extends HttpServlet {
 			}			
 			
 			
+			
 		}else if(command.equals("/MemberUpdateAction.me")) {
 			System.out.println(" C : /MemberUpdateAction.me 호출 ");
 			System.out.println(" C : [패턴 2]");
@@ -272,6 +293,7 @@ public class MemberController extends HttpServlet {
 			}
 			
 			
+			
 		}else if(command.equals("/MemberRemove.me")) {
 			System.out.println(" C : /MemberRemove.me 호출 ");
 			System.out.println(" C : [패턴 1] ");
@@ -281,6 +303,7 @@ public class MemberController extends HttpServlet {
 			forward.setRedirect(false);
 
 			
+			
 		}else if(command.equals("/MemberRemovePw.me")) {
 			System.out.println(" C : /MemberRemove.me 호출 ");
 			System.out.println(" C : [패턴 1] ");
@@ -288,6 +311,7 @@ public class MemberController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("./member/memberRemovePw.jsp");
 			forward.setRedirect(false);
+			
 			
 			
 		}else if(command.equals("/MemberRemoveAction.me")) {
@@ -304,6 +328,7 @@ public class MemberController extends HttpServlet {
 			}
 			
 			
+			
 		}else if(command.equals("/MemberLogout.me")) {
 			System.out.println(" C : /MemberLogout.me 호출 ");
 			System.out.println(" C : [패턴 2] ");
@@ -318,6 +343,7 @@ public class MemberController extends HttpServlet {
 			}
 			
 			
+			
 		}else if(command.equals("/MemberFindId.me")) {
 			System.out.println(" C : /MemberFindId.me 호출 ");
 			System.out.println(" C : [패턴 1]");
@@ -325,6 +351,7 @@ public class MemberController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("./member/memberFindId.jsp");
 			forward.setRedirect(false);
+			
 			
 			
 		}else if(command.equals("/MemberFindIdAction.me")) {
@@ -341,6 +368,7 @@ public class MemberController extends HttpServlet {
 			}
 			
 			
+			
 		}else if(command.equals("/MemberFindIdResult.me")) {
 			System.out.println(" C : /MemberFindIdResult.me 호출 ");
 			System.out.println(" C : [패턴 1]");
@@ -350,6 +378,7 @@ public class MemberController extends HttpServlet {
 			forward.setRedirect(false);
 			
 			
+			
 		}else if(command.equals("/MemberFindPw.me")) {
 			System.out.println(" C : /MemberFindPw.me 호출 ");
 			System.out.println(" C : [패턴 1]");
@@ -357,6 +386,7 @@ public class MemberController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("./member/memberFindPw.jsp");
 			forward.setRedirect(false);
+			
 			
 			
 		}else if(command.equals("/MemberFindPwAction.me")) {
@@ -372,20 +402,7 @@ public class MemberController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-			
-//		}else if(command.equals("/MemberFindPwEmailAction.me")) {
-//			System.out.println(" C : /MemberFindPwEmailAction.me 호출");
-//			System.out.println(" C : [패턴 2]");
-//			
-//			// MemberFindPwEmailAction.me() 객체
-//			action = new MemberFindPwEmailAction();
-//			
-//			try {
-//				forward = action.execute(request, response);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-			
+				
 			
 		}else if(command.equals("/MemberFindPwResult.me")) {
 			System.out.println(" C : /MemberFindPwResult.me 호출 ");
