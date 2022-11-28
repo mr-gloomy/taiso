@@ -20,7 +20,6 @@ import com.mysql.cj.protocol.Resultset;
 import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
 import com.taiso.car.db.CarDTO;
 import com.taiso.member.db.MemberDTO;
-import com.taiso.payment.db.PaymentDTO;
 
 public class ReservationDAO {
 

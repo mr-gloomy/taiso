@@ -5,7 +5,7 @@
 <html lang="en">
 
 <head>
-<title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
+<title>개인정보 수정</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -160,10 +160,10 @@ $(document).ready(function(){
 			<div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
 				<div class="col-md-9 ftco-animate pb-5">
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> 
-						<span>Contact <i class="ion-ios-arrow-forward"></i></span>
+						<span class="mr-2"><a href="./ReservationMain.rez">Home <i class="ion-ios-arrow-forward"></i></a></span> 
+						<span>개인정보 변경 <i class="ion-ios-arrow-forward"></i></span>
 					</p>
-					<h1 class="mb-3 bread">Contact Us</h1>
+					<h1 class="mb-3 bread">개인정보 수정</h1>
 				</div>
 			</div>
 		</div>
@@ -188,7 +188,7 @@ $(document).ready(function(){
 		<div class="formbold-form-wrapper">
 		
 			<div class="formbold-form-title">
-				<h3>회원정보 수정</h3>
+				<h3>개인정보 수정</h3>
 			</div>
 				
 				<form action="./MemberUpdateAction.me" method="post" name="fr">

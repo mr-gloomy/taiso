@@ -40,7 +40,7 @@
     padding:5px; 
     font-size:15px;
     font-weight:600; 
-    color:#000000CC;
+    color:#757575;
     width:400px;
     }
     
@@ -78,12 +78,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 	}
-	.mb-4{
-    font-family: 'GmarketSansMedium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-	}
    </style>	
 	
 </head>
@@ -92,13 +86,13 @@
 	<!-- header -->
 	<jsp:include page="../inc/top.jsp"/>
 	<!-- header -->
-    <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/bg_4.jpg');" data-stellar-background-ratio="0">
+    <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/hobo1.jpg');" data-stellar-background-ratio="0">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
           <div class="col-lg-8 ftco-animate">
           	<div class="text w-100 text-center mb-md-5 pb-md-5">
-	            <h1 class="mb-4">TAISO</h1>
+	            <h1 class="mb-4">세계 최고의 렌터카 TAISO</h1>
 	            <p style="font-size: 18px;">행복한 여행에 TAISO가 함께합니다<br>고객의 행복을 최우선으로하는 TAISO의 서비스를 만나보세요!</p>
             </div>
           </div>
@@ -112,44 +106,44 @@
     	<div class="container">
     		<div class="row no-gutters">
     			<div class="col-md-12 featured-top">
-					<form action="./ReservationDate.rez" method="post" name="fr" class="request-form ftco-animate bg-primary" onSubmit="return checkForm()" style="padding: 30px;">
+					<form action="./ReservationDate.rez" method="post" name="fr" class="request-form ftco-animate bg-primary" onSubmit="return checkForm()" style="padding: 30px 0;">
 					
-		          		<h2><div class="mainicon">&nbsp;&nbsp;예약하기</div></h2>
+		          		<h2 style="padding-left: 100px;"><div class="mainicon">&nbsp;&nbsp;예약하기</div></h2>
 		          		<hr style="background-color:#F8F9FA; height: 1.2px;"> 
-    					<div class="d-flex" style="padding-left: 50px;">
+    					<div class="d-flex" style="padding-left: 100px;">
 							<div class="form-group mr-2">
 						        <label for="" class="main-label" style="padding-top: 10px;">대여일</label><br>
 						        <c:if test="">
 						        	
 						        </c:if>
-						        <input type="text" class="sls" name="rez_pick_date" id="start_date" placeholder="대여일을 선택하세요">
+						        <input type="text" class="sls" name="rez_pick_date" id="start_date" placeholder="&nbsp;&nbsp;대여일을 선택하세요">
 							</div>
 							<div class="form-group mr-2">
 						        <label for="" class="main-label" style="padding-top: 10px;">반납일</label><br>
-						        <input type="text" class="sls" name="rez_off_date" id="off_date" placeholder="반납일을 선택하세요">
+						        <input type="text" class="sls" name="rez_off_date" id="off_date" placeholder="&nbsp;&nbsp;반납일을 선택하세요">
 								<input type="hidden" name="totalDate" value="">
 							</div>
 						</div>	       		
-						<label for="" class="main-label" id="datealert" style="font-size:15px; padding-left: 50px;">
+						<label for="" class="main-label" id="datealert" style="font-size:15px; padding-left: 100px;">
 							<div class="renticon"><h7>&nbsp;&nbsp;&nbsp;단기렌트는 최대 28일까지 가능합니다.</h7></div>
 						</label><br>
-						<div class="d-flex" style="padding-left: 50px;">
+						<div class="d-flex" style="padding-left: 100px;">
 							<div class="form-group mr-2">
 								<label for="" class="main-label" style="padding-top: 15px;">대여시간</label><br>
-								<input type="text" class="sls" name="rez_pick_time" id="time_pick" placeholder="픽업시간을 선택하세요">
+								<input type="text" class="sls" name="rez_pick_time" id="time_pick" placeholder="&nbsp;&nbsp;픽업시간을 선택하세요">
 							</div>
 							<div class="form-group mr-2">
 								<label for="" class="main-label" style="padding-top: 15px;">반납시간</label><br>
-									<input type="text" class="sls" name="rez_off_time" id="time_off" placeholder="대여시간과 동일하게 설정됩니다" readonly>
+									<input type="text" class="sls" name="rez_off_time" id="time_off" placeholder="&nbsp;&nbsp;대여시간과 동일하게 설정됩니다" readonly>
 							</div>
 						</div>
-						<label for="" class="main-label" id="datealert" style="font-size:15px; padding-left: 50px;">
+						<label for="" class="main-label" id="datealert" style="font-size:15px; padding-left: 100px;">
 							<div class="renticon"><h7>&nbsp;&nbsp;&nbsp;대여시간과 반납시간은 동일하게 설정됩니다.</h7></div>
 						</label><br>
-			    		<div class="form-group" style="padding-left: 50px;">
+			    		<div class="form-group" style="padding-left: 100px;">
 							<label for="" class="main-label" style="padding-top: 15px;">이용지점</label><br>
 							<select id="sido_select" class="sls" style="width:200px;">
-						          <option value="" selected disabled hidden>지역을 선택하세요</option>	
+						          <option value="" selected disabled hidden>&nbsp;지역을 선택하세요</option>	
 						          <option value="부산/울산/경남/대구">부산/울산/경남/대구</option>
 						          <option value="제주">제주</option>
 						          <option value="서울">서울</option>
@@ -159,7 +153,7 @@
 						          <option value="전라/광주">전라/광주</option>
 							</select>
 							<select id="site_select" name="rez_site" class="sls" style="width:200px;">
-						          <option value="" selected disabled hidden>지점을 선택하세요</option>	
+						          <option value="" selected disabled hidden>&nbsp;지점을 선택하세요</option>	
 							</select>
 						</div>
 						<div style="text-align: center; padding-top: 15px;">
@@ -170,7 +164,7 @@
 				</div>
 				</div>
     </section>
-
+<!--
     <section class="ftco-section ftco-no-pt bg-light">
     	<div class="container">
     		<div class="row justify-content-center">
@@ -194,9 +188,9 @@
 			    						<span class="cat">${rCar.car_brand }</span>
 			    						<p class="price ml-auto">${rCar.car_price }원 <span>/일</span></p>
 		    						</div>
-		    						<p class="d-flex mb-0 d-block">
+		    						<p class="d-flex mb-0 d-block">-->
 <!-- 			    						<a href="#" class="btn btn-primary py-2 mr-1">Book now</a> -->
-		    						<a href="./ReviewList.rev?car_code=${rCar.car_code }"
+<!--			    						<a href="./ReviewList.rev?car_code=${rCar.car_code }"
 											class="btn btn-secondary py-2 ml-1">차량상세정보</a>
 									</p>
 		    					</div>
@@ -240,7 +234,7 @@
           </div>
         </div>
       </div>
-    </section> 
+    </section>-->
 
 
 
