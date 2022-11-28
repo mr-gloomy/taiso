@@ -478,7 +478,7 @@ border: none;
 <div class="col-md-12">
          <div class="form-group">
               <h3>면허정보입력</h3>    
-                면허발급일자&nbsp;:&nbsp;<input type="date" name="license_issueDate" class="rezform-2" value="${rezDTO.license_issueDate }" placeholder="면허발급일자를 정확하게 입력해주세요.">
+                면허발급일자&nbsp;:&nbsp;<input type="date" name="license_issueDate" class="rezform-2" value="${rezDTO.license_issueDate }" placeholder="면허발급일자를 정확하게 입력해주세요." readonly="readonly">
           </div>
 
               <div class="form-group">
