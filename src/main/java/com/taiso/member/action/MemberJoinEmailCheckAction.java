@@ -37,7 +37,7 @@ public class MemberJoinEmailCheckAction implements Action {
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('인증에 성공했습니다.');");
-			out.println("location.href = './MemberLogin.me';");
+			out.println("location.href = './ReservationMain.rez';");
 			out.println("</script>");
 			out.close();
 			
@@ -54,6 +54,7 @@ public class MemberJoinEmailCheckAction implements Action {
 			out.println("</script>");
 			out.close();
 			
+			mDAO.memberRemove(mem_id, mem_email);
 			session.removeAttribute("mem_id");
 			
 			return null;

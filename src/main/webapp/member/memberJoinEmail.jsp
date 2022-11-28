@@ -69,12 +69,15 @@
 
 <script type="text/javascript">
 function javascript(){
-    self.close();  
+    location.href='./EmailMain.me';
 }
 </script>
+
+
 </head>
 
   <body>
+  
   	<!-- 헤더 시작 -->
 	<jsp:include page="../inc/top.jsp"></jsp:include>
   	<!-- 헤더 끝-->
@@ -111,11 +114,8 @@ function javascript(){
 	         <p>인증 메일이 전송되었습니다.</p>
 	         <p>회원가입시 입력하셨던 이메일에 들어가셔서 인증해주세요.</p>
 	    </div>
-	    <form>
-<!-- 	        <input type="text" name="mail" id="mail" placeholder="인증 메일이 전송되었습니다. 회원가입시 입력하셨던 이메일에 들어가셔서 인증해주세요." class="formbold-form-input"/> -->
 	        <button class="formbold-btn" onclick="javascript()"> 확 인 </button>
 		<div></div>
-	    </form>
 	    </div>
 	  </div>
 	</div>
