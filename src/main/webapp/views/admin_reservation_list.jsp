@@ -113,7 +113,7 @@
 		</c:forEach>
 	</div>
 	
-
+		<br>
 
 			<!-- 페이징처리 -->
     			<c:if test="${totalCnt != 0 }">
