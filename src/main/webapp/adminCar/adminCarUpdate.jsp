@@ -107,6 +107,11 @@ a {
 		border-bottom: 1px solid #e5e5e5;
 	}
 }
+
+.sls {
+padding:5px; 
+font-size:15px;
+}
 </style>
 </head>
 <body>
@@ -159,7 +164,7 @@ a {
 	<tr>
 		<td>카테고리</td>
 		<td>
-			<select name="car_category">
+			<select name="car_category" class="sls">
 				<option value="small"
 					<c:if test="${dto.car_category.equals('small') }">
 					selected="selected"
@@ -196,19 +201,19 @@ a {
 		<tr>
 			<td>이용지점 : </td>
 			<td>
-			<select id="sido_select">
-		          <option value="" selected disabled hidden>==지역을 선택하세요==</option>	
-		          <option value="서울" >서울</option>
-		          <option value="인천/경기" >인천/경기</option>
-		          <option value="제주" >제주</option>
-		          <option value="강원도" >강원도</option>
-		          <option value="충청/대전" >충청/대전</option>
-		          <option value="전라/광주" >전라/광주</option>
-		          <option value="경상/부산/대구/울산" >경상/부산/대구/울산</option>
-			</select>
-			<select id="site_select" name="car_site">
-		          <option value="" selected disabled hidden>==지점을 선택하세요==</option>	
-			</select>
+				<select id="sido_select" class="sls" style="width:200px;">
+			          <option value="" selected disabled hidden>&nbsp;지역을 선택하세요</option>	
+			          <option value="부산/울산/경남/대구">부산/울산/경남/대구</option>
+			          <option value="제주">제주</option>
+			          <option value="서울">서울</option>
+			          <option value="인천/경기">인천/경기</option>
+			          <option value="강원도">강원도</option>
+			          <option value="충청/대전">충청/대전</option>
+			          <option value="전라/광주">전라/광주</option>
+				</select>
+				<select id="site_select" name="rez_site" class="sls" style="width:200px;">
+			          <option value="" selected disabled hidden>&nbsp;지점을 선택하세요</option>	
+				</select>
 			</td>
    </tr>
    	<tr>
