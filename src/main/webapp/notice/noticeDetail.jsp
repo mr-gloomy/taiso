@@ -223,44 +223,6 @@ float: right;
 					<jsp:include page="../inc/sidebar.jsp" />
 				<!-- @@@@@@@@@@@@여기까지 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
 
-
-<<<<<<< HEAD
-		<!-- left -->
-		<section class="ftco-section contact-section">
-			<div class="container">
-				<div class="row d-flex mb-5 contact-info">
-=======
-		<!-- 메인 -->
-		<div class="board_wrap2 bg-light">
-			 <div class="board_title">
-            <strong>공지사항 상세내역</strong>
-        </div>
-        		<div class="col-md-8 block-9 mb-md-5">
-			<div class="board_view_wrap">
-				<div class="board_view">
-					<div class="title">${boDTO.bo_title }</div>
-					<div class="info">
-						<dl>
-							<dt>번호</dt>
-							<dd>${boDTO.bo_num }</dd>
-						</dl>
-						<dl>
-							<dt>작성일</dt>
-							<dd>${boDTO.bo_sysdate }</dd>
-						</dl>
-						<dl>
-							<dt>조회</dt>
-							<dd>${boDTO.bo_readcount }</dd>
-						</dl>
-					</div>
-					<div class="cont">${boDTO.bo_content }</div>
-					<div class="file">${boDTO.bo_file }</div>
->>>>>>> branch 'master' of https://github.com/mr-gloomy/taiso.git
-
-					<!-- @@@@@@@@@@@@여기부터 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
-					<jsp:include page="../inc/sidebar.jsp" />
-					<!-- @@@@@@@@@@@@여기까지 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
-
 					<!-- 우측 -->
 					<div class="board_wrap2">
 						<div class="board_title">
@@ -298,17 +260,8 @@ float: right;
 					</div>
 				</div>
 			</div>
-<<<<<<< HEAD
 	</section>
 	<!-- 우측 -->
-
-=======
-		</div>
-		<!-- 우측 -->
-		</div>
-	</div>
-</section>
->>>>>>> branch 'master' of https://github.com/mr-gloomy/taiso.git
 
 	<div class="clear"></div>
 	<!-- 푸터들어가는 곳 -->
