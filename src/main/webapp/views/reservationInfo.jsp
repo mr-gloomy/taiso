@@ -211,7 +211,24 @@
 							</div>
 					     </div>
 	
-									
+					   <br><br><br>
+	                
+				    </div>
+						<div class="d-flex mb-3" style="display: flex; justify-content: center;">
+							 <form action="" name="fr" method="post">
+			   					  <input type="hidden" name="mem_id" value="${mDTO.mem_id }" >   
+			   					  <input type="hidden" name="pay_uqNum" value="${payDTO.pay_uqNum }" >   
+							 </form>
+							 <input type = "button" class="btn btn-primary py-1 mr-1" value = "예약 조회로 돌아가기" onclick="location.href='./ReservationList.rez';">ㅤ
+							 
+							 <c:if test="${rezDTO.rez_status == 1}">
+							 	<input type = "button" class="btn btn-primary py-2 mr-1" value = "예약 취소" onclick="cancelOpen(${rezDTO.rez_uqNum }+','+${payDTO.pay_total*0.9});">
+							 </c:if>
+							 <c:if test="${rezDTO.rez_status == 0}">
+							 </c:if>	
+							
+						</div>
+					</div>
 					                <br><br><br>
 					                
 					                
