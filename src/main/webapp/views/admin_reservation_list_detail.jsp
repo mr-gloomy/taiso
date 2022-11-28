@@ -93,6 +93,10 @@
     color: #6c757d;
 }
 
+.adminReservation_title b {
+    font-size: 1rem;
+    color: #dc3545;
+}
  </style>   
     
     
@@ -118,6 +122,12 @@
   	<section class="ftco-section2 bg-light">
   	<div class="adminReservation_title" >
 <%--            <h1>[예약번호 : ${rezDTO.rez_uqNum }] ${rezDTO.mem_id }님의 예약 상세정보</h1> --%>
+			<c:if test="${rezDTO.rez_status == 1}">
+				<input type = "button" class="btn btn-primary py-1 mr-1" value="예약 완료">
+            </c:if>
+			<c:if test="${rezDTO.rez_status == 0}">
+				<input type = "button" class="btn btn-primary3 py-1 mr-1" value="예약 취소">
+            </c:if>
            <h2>[예약번호 : ${rezDTO.rez_uqNum }] <strong>${rezDTO.mem_id }님의 예약 상세정보</strong></h2>
     </div>
         <div class="row">
