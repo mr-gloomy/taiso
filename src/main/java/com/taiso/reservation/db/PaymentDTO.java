@@ -1,4 +1,4 @@
-package com.taiso.payment.db;
+package com.taiso.reservation.db;
 
 import java.sql.Timestamp;
 

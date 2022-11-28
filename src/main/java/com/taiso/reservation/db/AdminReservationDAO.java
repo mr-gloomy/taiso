@@ -15,7 +15,6 @@ import javax.sql.DataSource;
 import com.mysql.cj.x.protobuf.MysqlxPrepare.Prepare;
 import com.taiso.car.db.CarDTO;
 import com.taiso.member.db.MemberDTO;
-import com.taiso.payment.db.PaymentDTO;
 
 public class AdminReservationDAO {
    private Connection con = null;

@@ -15,7 +15,7 @@
 
 // response.sendRedirect("./AdminReviewList.adr");
 // response.sendRedirect("./AdminReviewList.adr");
-// response.sendRedirect("./ReservationMain.rez");
+response.sendRedirect("./ReservationMain.rez");
 
 
 
