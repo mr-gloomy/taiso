@@ -86,7 +86,7 @@
 	<!-- header -->
 	<jsp:include page="../inc/top.jsp"/>
 	<!-- header -->
-    <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/hobo1.jpg');" data-stellar-background-ratio="0">
+    <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/bg_5.jpg');" data-stellar-background-ratio="0">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
