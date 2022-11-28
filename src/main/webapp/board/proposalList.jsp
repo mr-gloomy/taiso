@@ -80,10 +80,11 @@ h2 {
 .accordion-menu {
   width: 100%;
     max-width: 300px; 
-    margin: 20px 0px 0px 0px;
+     padding: 15px 20px 15px 15px;
   background: #fff;
   border-radius: 4px;
   box-shadow: rgb(0 0 0 / 15%) 0px 5px 15px 0px;
+
 }
 .accordion-menu li.open .dropdownlink {
   color: #1089FF;
@@ -93,6 +94,7 @@ h2 {
 }
 .accordion-menu li:last-child .dropdownlink {
   border-bottom: 0;
+      padding: 15px 20px 15px 15px;
 }
 .dropdownlink {
   cursor: pointer;

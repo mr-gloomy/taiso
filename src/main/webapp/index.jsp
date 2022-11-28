@@ -15,7 +15,7 @@
 
 // response.sendRedirect("./AdminReviewList.adr");
 // response.sendRedirect("./AdminReviewList.adr");
-// response.sendRedirect("./ReservationMain.rez");
+response.sendRedirect("./ReservationMain.rez");
 
 
 
@@ -31,7 +31,7 @@
 // response.sendRedirect("./MemberFindIdResult.me");
 
 // response.sendRedirect("./MemberJoinClause.me");
-response.sendRedirect("./AdminMain.mb");
+// response.sendRedirect("./AdminMain.mb");
 
 
 		
