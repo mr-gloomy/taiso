@@ -108,14 +108,6 @@
 				</c:if>
 		   	</div>
 		   	<!-- 페이지처리 이전,다음 -->
-  			
-  			<!-- 우측 -->
-			<div id="table_search">
-				<input type="button" value="관리자메인페이지로이동" class="btn btn-primary py-2 mr-1" 
-					onclick=" location.href='./AdminMain.mb';" >
-			</div>
-  			
-      </div><br>
 	 </div>
       
   

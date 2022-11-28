@@ -16,20 +16,9 @@ public class AdminBlacklistUpdateAction implements Action {
 		
 		System.out.println(" M : BlacklistUpdateAction_execute 호출 ");
 		
-		// 세션제어(admin)
-		HttpSession session = request.getSession();
-		String mem_id = (String) session.getAttribute("mem_id");
-		
-		ActionForward forward = new ActionForward();
-		if(mem_id == null || !mem_id.equals("admin")) {
-			forward.setPath("./MemberLogin.me");
-			forward.setRedirect(true);
-		}
-		
-		
 		//전달정보(DTO)
 		MemberDTO mDTO = new MemberDTO();
-		
+		mDTO.setMem_num(Integer.parseInt(request.getParameter("mem_num")));
 		mDTO.setMem_blacklist(request.getParameter("mem_blacklist"));
 		
 		// DAO 
@@ -37,7 +26,8 @@ public class AdminBlacklistUpdateAction implements Action {
 		dao.updateBlacklist(mDTO);
 	
 		// 페이지 이동
-		forward.setPath("./AdminMemberInfo.mb");
+		ActionForward forward = new ActionForward();
+		forward.setPath("./AdminMemberInfo.mb?mem_nem=${mDTO.mem_num}&pageNum=${pageNum}&mem_blacklist=${mDTO.mem_blacklist}");
 		forward.setRedirect(true);
 		
 		return forward;

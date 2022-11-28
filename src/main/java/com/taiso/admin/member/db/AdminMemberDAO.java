@@ -198,8 +198,10 @@ public class AdminMemberDAO {
 		
 			
 		// 게시판 글 1개의 정보 조회 - getMemberInfo(mem_num)
-		public MemberDTO getMemberInfo(int mem_num){
-			
+		public MemberDTO getMemberInfo(int mem_num, String mem_blacklist){
+//			
+//			String mem_blacklist;
+		
 			MemberDTO mDTO = null;
 			
 			try {
@@ -225,7 +227,7 @@ public class AdminMemberDAO {
 					mDTO.setMem_registDate(rs.getTimestamp("mem_registDate"));
 					mDTO.setLicense_num(rs.getString("license_num"));
 					mDTO.setMem_birthday(rs.getString("mem_birthday"));
-					mDTO.setMem_blacklist(rs.getString("mem_blacklist"));
+					mDTO.setMem_blacklist(mem_blacklist);
 					
 				}
 				System.out.println(" DAO : 회원 정보 조회완료! ");
@@ -238,7 +240,7 @@ public class AdminMemberDAO {
 			
 			return mDTO;
 		}
-		// 회원정보 조회 - getMemberInfo(mem_num)
+		// 회원정보 조회 - getMemberInfo(mem_id)
 		
 		
 		// 관리자 회원탈퇴 - adminMemberDelete(delID)
@@ -292,9 +294,38 @@ public class AdminMemberDAO {
 			}
 			
 		}	
-		
 		// 블랙리스트 정보수정 - updateBlacklist
-						
+		
+		// 예약 전체 개수 확인 - getReservationCancelCount
+        public int getReservationCancelCount() {
+           int cnt = 0;
+           
+
+           try {
+              //1.2. 디비연결
+              con = getConnection();
+              // 3. sql
+              sql = "select count(*) from rez_reservation where rez_status = '0' ";
+              pstmt = con.prepareStatement(sql);
+              
+              // 4. sql 실행
+              rs = pstmt.executeQuery();
+              // 5. 데이터 처리
+              if(rs.next()) {
+                 cnt = rs.getInt("count(*)");
+              }
+              System.out.println(" DAO : 전체 예약취소 개수 : "+cnt+"개");
+           } catch (Exception e) {
+              e.printStackTrace();
+           } finally {
+              closeDB();
+           }
+           return cnt;   
+        }
+        // 예약 전체 개수 확인 - getReservationCancelCount
+        
+        
+        
 		
 
 		

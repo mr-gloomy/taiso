@@ -41,7 +41,7 @@
    <!-- 헤더들어가는 곳 -->
 
    <section class="hero-wrap hero-wrap-2 js-fullheight"
-      style="background-image: url('images/bg_3.jpg');"
+      style="background-image: url('images/main-3.png');"
       data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
@@ -53,7 +53,7 @@
                         class="ion-ios-arrow-forward"></i></a></span> <span>Cars <i
                      class="ion-ios-arrow-forward"></i></span>
                </p>
-               <h1 class="mb-3 bread">Choose Your Car</h1>
+               <h1 class="mb-3 bread">전체 차량 목록 </h1>
             </div>
          </div>
       </div>
@@ -82,7 +82,7 @@
                      </div>
                      <div class="text">
                         <h2 class="mb-0">
-                           <a href="car-single.html">${cars.car_name }</a>
+                         <a href="./ReviewList.rev?car_code=${cars.car_code }">${cars.car_name }</a>
                         </h2>
                         <div class="d-flex mb-3">
                            <span class="cat">${cars.car_brand }</span>
@@ -90,6 +90,7 @@
                               <fmt:formatNumber value="${cars.car_price }" />
                               원
                            </p>
+                           <span>/일</span>
                         </div>
                         <p class="d-flex mb-0 d-block">
 <%--                            <a href="./ReservationAction.rez?car_code=${cars.car_code }" --%>

@@ -27,7 +27,7 @@ public class CarListAction implements Action {
 		System.out.println(" M : item : " + item);
 
 		CarDAO cDAO = new CarDAO();
-		int cnt = cDAO.getCarCount();
+		int cnt = cDAO.getCarCount(rez_site);
 		System.out.println(" M : 전체 차 대수 : " + cnt + "개");
 
 		// 예약시간 정보 저장
@@ -65,13 +65,13 @@ public class CarListAction implements Action {
 		// 총 페이지 = 글 개수(총량) / 페이지당 출력
 		// => 만약에 나머지가 있을때 페이지 1개 추가
 		List carsList = cDAO.getCarList(startRow, pageSize, item, rez_site, rez_pick_date, rez_off_date);
-		cnt = carsList.size();
+//		cnt = carsList.size();
 		System.out.println("M : 예약가능한 차량 대수 : " + cnt);
 		// 전체 페이지수
 		int pageCount = (cnt / pageSize) + (cnt % pageSize == 0 ? 0 : 1); // 0이면 0을, 아니면 1을 더한다
 
 		// 한 화면에 보여줄 페이지수
-		int pageBlock = 2;
+		int pageBlock = 5;
 
 		// 페이지블럭의 시작번호 1~10 => 1, 11~20 => 11 21~30 => 21
 		int startPage = ((currentPage - 1) / pageBlock) * pageBlock + 1;

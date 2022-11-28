@@ -58,7 +58,6 @@ tr:nth-child(even) {
 }
 
 /* task list */
-
 </style>
 
   </head>
@@ -98,7 +97,9 @@ tr:nth-child(even) {
 					</div>
 					<!-- 우측 -->
 					<div class="col-md-3 block-1 mb-md-1" align="center">
-						<table class="table">
+					  <form action="./AdminBlacklistUpdate.mb?mem_num=${mDTO.mem_num }" method="post">	
+					  					
+					  	<table class="table">
 							<tbody class="tbody">
 								<tr align="center">
 									<td><p>회원번호</p></td>
@@ -146,57 +147,59 @@ tr:nth-child(even) {
 								<tr align="center">
 									<td><p>블랙리스트</p></td>
 									<td>
-								${mDTO.mem_num }
-								${mDTO.mem_blacklist }
-								${mDTO }
-								
-									<form action="./AdminBlacklistUpdate.mb?mem_num=${mDTO.mem_num }">
-										<input type="hidden" name="mem_num" value="${mDTO.mem_num }">
-											<input type="radio" name="blacklist" value="Y"
-												<c:if test="${mDTO.mem_blacklist == 'Y'}">
+										<div class="form-check form-check-inline" align="right">
+											<input class="form-check-input" type="radio" name="mem_blacklist" value="Y"
+												<c:if test="${mDTO.mem_blacklist == Y}">
 								     			checked
 								 				</c:if>
 								 			> Y
-											<input type="radio" name="blacklist" value="N"
-												<c:if test="${mDTO.mem_blacklist == 'N'}">
+								 		</div>
+										<div class="form-check form-check-inline" align="right">
+											<input class="form-check-input" type="radio" name="mem_blacklist" value="N"
+												<c:if test="${mDTO.mem_blacklist == N}">
 				     			 				checked
 				 								</c:if>
 				 							> N
+										</div> 
 										<input type="submit" value="수정하기" class="btn btn-primary py-1 px-2">
-									 </form>
 									</td>
 								</tr>
 								<tr>
 									<td align="center"><p>특이사항</p></td>
 									<td>
-										<div class="col-lg-18">
-											<div class="todo">
-												<div class="todo-title">
-													<div class="tdl-holder">
-														<div class="tdl-content" align="left">
-															<span></span>
-															<div id="todo-list"></div>
-														</div>
-														<input id="todo" class="tdl-new form-control" placeholder="입력해주세요."> 
-														<input type="hidden" id="add-button">
-													</div>
-												</div>
-											</div>
-										</div>
-									</td>
+									<div class="container">
+									    <div class="row-24">
+									        <div class="col-md-14">
+									                <div class="card-body">
+									                    <form action="javascript:void(0);">
+									                        <input type="text" class="form-control add-task" placeholder="내용을 입력해주세요">
+									                    </form>
+									                    <div class="todo-list">
+									                        <div class="todo-item">
+									                            <div class="checker"><span class=""><input type="checkbox"/></span></div>
+									                            <span>특이사항1</span>
+									                            <a href="javascript:void(0);" class="float-right remove-todo-item"><i class="icon-close"></i></a>
+									                        </div>
+									                        <div class="todo-item">
+									                            <div class="checker"><span class=""><input type="checkbox"/></span></div>
+									                            <span>특이사항2</span>
+									                            <a href="javascript:void(0);" class="float-right remove-todo-item"><i class="icon-close"></i></a>
+									                        </div>
+									                    </div>
+									                </div>
+									            </div>
+									        </div>
+									    </div>
+								    </td>
 								</tr>
 							</tbody>
 						</table>
+					  </form>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- 우측 -->
-		<div id="table_search">
-			<input type="button" value="관리자메인페이지로이동" class="btn btn-primary py-2 mr-1" 
-				onclick=" location.href='./AdminMain.mb';" >
-		</div>
 
 	<!-- 메인페이지  -->
 

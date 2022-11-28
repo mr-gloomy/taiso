@@ -44,6 +44,7 @@ public class AdminMainAction implements Action {
 		int cnt4 = rvDAO.getReviewCount(null);
 		int cnt5 = cDAO.getCarCount();
 		int cnt6 = reDAO.getReservationCount();
+		int cnt7 = aDAO.getReservationCancelCount();
 
 		System.out.println(" M : " + cnt1 + cnt2 + cnt3 + cnt4 +cnt5  );
 
@@ -56,6 +57,7 @@ public class AdminMainAction implements Action {
 		request.setAttribute("totalCnt4", cnt4);
 		request.setAttribute("totalCnt5", cnt5);
 		request.setAttribute("totalCnt6", cnt6);
+		request.setAttribute("totalCnt7", cnt7);
 		
 		// 페이지 이동
 		forward.setPath("./adminMember/adminMain.jsp");

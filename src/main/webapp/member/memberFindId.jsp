@@ -5,7 +5,7 @@
 <html lang="en">
 
 <head>
-<title>Carbook - Free Bootstrap 4 Template by Colorlib</title> 
+<title>아이디 찾기</title> 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
 
@@ -32,6 +32,7 @@
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
+
 </head>
 
   <body>
@@ -46,10 +47,10 @@
 			<div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
 				<div class="col-md-9 ftco-animate pb-5">
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> 
-						<span>Contact <i class="ion-ios-arrow-forward"></i></span>
+						<span class="mr-2"><a href="./ReservationMain.rez">Home <i class="ion-ios-arrow-forward"></i></a></span> 
+						<span>로그인 <i class="ion-ios-arrow-forward"></i></span>
 					</p>
-					<h1 class="mb-3 bread">Contact Us</h1>
+					<h1 class="mb-3 bread">아이디 찾기</h1>
 				</div>
 			</div>
 		</div>
@@ -57,7 +58,7 @@
 	<!-- 중간제목 끝 -->
 
 	<!-- 본문 시작 -->
-	<section class="ftco-section contact-section">
+	<section class="bg-light">
 		<div class="formbold-main-wrapper">
 		<!-- Author: FormBold Team -->
 		<!-- Learn More: https://formbold.com -->
@@ -138,10 +139,12 @@ body {
 
 .formbold-form-wrapper {
 	margin: 0 auto;
-	max-width: 570px;
-	width: 100%;
-	background: white;
-	padding: 40px;
+    max-width: 570px;
+    width: 100%;
+    background: white;
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 20px 20px 80px rgb(218 218 218 / 47%)
 }
 
 .formbold-input-wrapp>div {
@@ -325,7 +328,9 @@ body {
     text-align: center;
     margin-bottom: 20px;
   }
-
+   .bg-light {
+    background: #f8f9fa !important;
+}
 </style>
 <!-- 본문 css -->
 

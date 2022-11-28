@@ -8789,7 +8789,7 @@ h1, h2, h3, h4, h5,
   background: #fff; }
   .car-wrap .img {
     width: 100%;
-    height: 220px; }
+    height: 170px; }
   .car-wrap .text {
     border-top: none;
     padding: 20px 30px 30px;
@@ -9155,7 +9155,7 @@ h1, h2, h3, h4, h5,
   position: relative; }
   .ftco-degree-bg:after {
     content: '';
-    position: absolute;
+    position: inherit;
     left: 0;
     bottom: -50px;
     overflow: visible;

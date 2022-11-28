@@ -5,7 +5,7 @@
 <html lang="en">
 
 <head>
-<title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
+<title>이메일 전송 완료</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -55,11 +55,11 @@ function javascript(){
 				class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
 				<div class="col-md-9 ftco-animate pb-5">
 					<p class="breadcrumbs">
-						<span class="mr-2"><a href="index.html">Home <i
-								class="ion-ios-arrow-forward"></i></a></span> <span>Contact <i
+						<span class="mr-2"><a href="./ReservationMain.rez">Home <i
+								class="ion-ios-arrow-forward"></i></a></span> <span>회원가입 <i
 							class="ion-ios-arrow-forward"></i></span>
 					</p>
-					<h1 class="mb-3 bread">Contact Us</h1>
+					<h1 class="mb-3 bread">인증메일 전송</h1>
 				</div>
 			</div>
 		</div>
@@ -67,13 +67,14 @@ function javascript(){
 	<!-- 중간제목 끝 -->
 
 	<!-- 본문 시작 -->
+	<div class="bg-light">
 	<div class="formbold-main-wrapper">
 	  <!-- Author: FormBold Team -->
 	  <!-- Learn More: https://formbold.com -->
 	  <div class="formbold-form-wrapper">
 	    <div class="formbold-form-title">
 	        <h3>회원가입 이메일</h3>
-	        <p>인증 메일이 전송되었습니다.</p>
+	         <p>인증 메일이 전송되었습니다.</p>
 	         <p>회원가입시 입력하셨던 이메일에 들어가셔서 인증해주세요.</p>
 	    </div>
 	    <form>
@@ -81,6 +82,7 @@ function javascript(){
 	        <button class="formbold-btn" onclick="javascript()"> 확 인 </button>
 		<div></div>
 	    </form>
+	    </div>
 	  </div>
 	</div>
 	<!-- 본문 끝 -->
@@ -101,14 +103,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 150px;
+    padding: 80px;
 }
 
 .formbold-form-wrapper {
-  margin: 0 auto;
-  max-width: 550px;
-  width: 100%;
-  background: white;
+	margin: 0 auto;
+    max-width: 570px;
+    width: 100%;
+    background: white;
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 20px 20px 80px rgb(218 218 218 / 47%)
 }
 
 .formbold-form-title {
@@ -162,6 +167,10 @@ body {
 }
 .formbold-btn:hover {
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.bg-light {
+    background: #f8f9fa !important;
 }
 
 </style>
