@@ -28,7 +28,13 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-    
+    <style type="text/css">
+        .ftco-section3 {
+	  padding: 6em 0;
+	  padding-left: 25em;
+	  position: relative;
+    }
+    </style>
     <script type ="text/javascript">
     	function carCheck(){
     		
@@ -98,6 +104,7 @@
 <!-- contact 작성Form -->
 	
 		<!-- <h1>예약하기</h1> 여기쓰면 화면 어그러짐-->
+		<div class="ftco-section3">
           <div class="col-md-8 block-9 mb-md-5">
             <form action="./AdminCarAddAction.ad" class="bg-light p-5 contact-form" method="post" enctype="multipart/form-data"
             		name="fr" onsubmit="return carCheck();">
@@ -156,7 +163,7 @@
            
             </form>  
           </div>
-	
+	</div>
 <!-- contact 작성Form -->
 
 

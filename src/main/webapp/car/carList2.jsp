@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
+<title>차량 목록</title>
 <meta charset="utf-8">
 <meta name="viewport"
    content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -53,7 +53,7 @@
                         class="ion-ios-arrow-forward"></i></a></span> <span>Cars <i
                      class="ion-ios-arrow-forward"></i></span>
                </p>
-               <h1 class="mb-3 bread">Choose Your Car</h1>
+               <h1 class="mb-3 bread">차량 목록</h1>
             </div>
          </div>
       </div>
