@@ -77,7 +77,7 @@ h2 {
 
 .accordion-menu {
   width: 100%;
-    max-width: 300px;
+    max-width: 300px; 
     margin: 20px 0px 0px 0px;
   background: #fff;
   border-radius: 4px;
