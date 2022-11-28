@@ -25,13 +25,12 @@ public class AdminMemberInfoAction implements Action {
 			forward.setRedirect(true);
 			
 		}
-						
 		
 		// 전달정보 저장
 		
 		int mem_num = Integer.parseInt(request.getParameter("mem_num"));
-		String pageNum =  request.getParameter("pageNum");
 		String mem_blacklist = request.getParameter("mem_blacklist");
+		String pageNum =  request.getParameter("pageNum");
 		
 		// DAO
 		AdminMemberDAO dao = new AdminMemberDAO();

@@ -28,6 +28,40 @@
     <link rel="stylesheet" href="./css/icomoon.css">
     <link rel="stylesheet" href="./css/style.css">
 
+
+<!-- 블로그 로딩 코드 start -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style type="text/css">
+#waiting {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    background: white;
+    z-index: 999;
+    opacity: 0.9;
+}
+#waiting > img {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+</style>
+<div id="waiting">
+   <img src="./img/loading.gif">
+</div>
+
+<script type="text/javascript">
+    $(window).on('load', function() {
+        setTimeout(function(){
+            $("#waiting").fadeOut();
+        }, 300);
+    });
+</script>
+<!-- 블로그 로딩 코드 end -->
     
     <style>
     .ftco-section3 {
@@ -71,7 +105,7 @@ function fralert(){
 		if(document.fr.name.value==""){
 			Swal.fire({
                 icon: 'warning',
-                text: '이름을 입력하세요!',
+                text: '이름을 입력하세요',
             });
 			document.fr.name.focus();
 			return;
@@ -79,7 +113,7 @@ function fralert(){
 		if(document.fr.phone.value==""){
 			Swal.fire({
                 icon: 'warning',
-                text: '전화번호를 입력하세요!',
+                text: '전화번호를 입력하세요',
             });
 			document.fr.phone.focus();
 			return;
@@ -87,7 +121,7 @@ function fralert(){
 		if(document.fr.msg.value==""){
 			Swal.fire({
                 icon: 'warning',
-                text: '내용을 입력하세요!',
+                text: '내용을 입력하세요',
             });
 			document.fr.msg.focus();
 			return;
@@ -95,14 +129,14 @@ function fralert(){
 		if(document.fr.car.value==""){
 			Swal.fire({
                 icon: 'warning',
-                text: '차종을 입력하세요!',
+                text: '차종을 입력하세요',
             });
 			document.fr.msg.focus();
 			return;
 		}
 		Swal.fire({
             icon: 'success',
-            text: '제출되었습니다!',
+            text: '제출되었습니다',
         });
 }
 </script>    
@@ -114,7 +148,7 @@ function fralert(){
 		<jsp:include page="../inc/top.jsp" />
 		<!-- 헤더들어가는 곳 -->
     
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_6.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">

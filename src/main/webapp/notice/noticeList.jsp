@@ -24,8 +24,43 @@
 <link rel="stylesheet" href="./css/board.css">
 <link rel="stylesheet" href="./css/admin_my.css">
 
-<!-- input에 오늘날짜 기본값으로 넣기 -->
+
+<!-- 블로그 로딩 코드 start -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style type="text/css">
+#waiting {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    background: white;
+    z-index: 999;
+    opacity: 0.9;
+}
+#waiting > img {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+</style>
+<div id="waiting">
+   <img src="./img/loading.gif">
+</div>
+
 <script type="text/javascript">
+    $(window).on('load', function() {
+        setTimeout(function(){
+            $("#waiting").fadeOut();
+        }, 300);
+    });
+</script>
+<!-- 블로그 로딩 코드 end -->
+
+<script type="text/javascript">
+<!-- input에 오늘날짜 기본값으로 넣기 -->
 	window.onload = function() {
 		today = new Date();
 		console.log("today.toISOString() >>>" + today.toISOString());
@@ -35,9 +70,10 @@
 		bir.value = today;
 	}
 </script>
-<!-- 사이드바 --> 
+	
 <style>
 
+<!-- 사이드바 --> 
 
 ul {
   list-style: none;
@@ -154,9 +190,8 @@ padding: 5px;
 float: right;
 
 }
-
+/* 사이드바 */
 </style>
-<!-- 사이드바 --> 
 
 </head>
 <body>
@@ -167,6 +202,18 @@ float: right;
 		<section class="hero-wrap hero-wrap-2 js-fullheight" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
+				<div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+				<div class="col-md-9 ftco-animate pb-5">
+					<p class="breadcrumbs">
+						<span class="mr-2"><a href="./ReservationMain.rez">Home <i class="ion-ios-arrow-forward"></i></a></span> 
+						<span>고객센터 <i class="ion-ios-arrow-forward"></i></span>
+					</p>
+					<h1 class="mb-3 bread">공지사항</h1>
+				</div>
+			</div>
+			
+			
+			
 			</div>
 		</section>
 		<!-- 헤더들어가는 곳 -->
@@ -259,7 +306,6 @@ float: right;
 			<circle class="path" cx="24" cy="24" r="22" fill="none"
 				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
-
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery-migrate-3.0.1.min.js"></script>

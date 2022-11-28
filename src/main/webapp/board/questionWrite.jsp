@@ -260,6 +260,15 @@ float: right;
     </style>
 	<!-- 배경색 -->
 
+	<!-- input 태그 -->
+	<style>
+	.sls {
+	padding:5px; 
+	font-size:15px;
+ 	  color: #757575;
+	}
+	</style>	
+	<!-- input 태그 -->
 </head>
 
 
@@ -324,7 +333,7 @@ float: right;
 							           
 							           <dl>
 						               <dt>카테고리</dt> 
-						               		<dd><select class="form-select" aria-label="Default select example" name="bo_cate">
+						               		<dd><select class="sls" aria-label="Default select example" name="bo_cate">
 												  <option selected value="">분류</option>
 												  <option value="1">이용안내</option>
 												  <option value="2">예약/결제</option>
@@ -334,7 +343,7 @@ float: right;
 											</select></dd>
 										<dt>작성일</dt>
 										<dd>
-											<input type="text" id="todaybirthday" readonly="readonly">
+											<input type="text" id="todaybirthday" readonly="readonly" style="color:#757575;">
 										</dd>
 										<dt>제목</dt>
 										<dd>
@@ -349,7 +358,7 @@ float: right;
 										<dt>비밀번호</dt>
 										<dd>
 											<input type="password" name="bo_pass"
-												placeholder="비밀번호를 입력해주세요">
+												placeholder="&nbsp;&nbsp;&nbsp;비밀번호를 입력해주세요" style="width:35%;">
 										</dd>
 									</dl>
 									<hr>
