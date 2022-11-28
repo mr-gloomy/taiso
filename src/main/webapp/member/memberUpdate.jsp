@@ -5,11 +5,13 @@
 <html lang="en">
 
 <head>
-<title>개인정보 수정</title>
+<title>타이소</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+
+<link rel="shortcut icon" type="image/x-icon" href="./images/logo.png">
 
 <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
 <link rel="stylesheet" href="css/animate.css">
@@ -102,6 +104,12 @@ if (document.getElementById("supportCheckbox").checked) { // 체크박스
 </script>
 
 <script type="text/javascript">
+$(document).on("keyup", "#mem_phone", function() {
+    $(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/([0-9]{3})+([0-9]{4})+([0-9]{4})$/,"$1-$2-$3").replace("--", "-"));
+   });
+</script>
+
+<script type="text/javascript">
 $(document).ready(function(){
 
 	$('#sbtn').click(function(){
@@ -112,7 +120,6 @@ $(document).ready(function(){
 
     var check_name = /^[가-힣]{0,10}$/; // 이름 유효성 검사 (10글자 제한)
     var check_nickName = /^[a-zA-Z0-9ㄱ-ㅎ|ㅏ-ㅣ|가-힣]{2,10}$/; // 닉네임 유효성 검사 (한글/영어/숫자 2-10)
-    var check_phone = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/; // 전화번호 유효성 검사
 	
 	
     //  이름 공백 확인
@@ -162,19 +169,7 @@ $(document).ready(function(){
          $('#mem_phone').focus();
          return false;
      }	
-
-    // 전화번호 유효성 체크
-    if (!check_phone.test(mem_phone)) {
-        $('.phoneCheck').html('전화번호 양식이 올바르지 않습니다.');
-        $('#mem_phone').val("");
-        $('#mem_phone').focus();
-        return false;
-	} else {
-     	$('.phoneCheck').html('');
-    }	
     
-
-	
 	});
 	
 });
@@ -251,10 +246,8 @@ $(document).ready(function(){
 					<div class="formbold-mb-3 formbold-input-wrapp">
 						<label for="mem_phone" class="formbold-form-label"> 전화번호 </label>
 						<div>
-							<input type="text" name="mem_phone" id="mem_phone" value="${mDTO.mem_phone }" class="formbold-form-input" required />
-							<div class="idPhone" id="textstyle"> </div>
+							<input type="text" name="mem_phone" id="mem_phone" value="${mDTO.mem_phone }" class="formbold-form-input" maxlength="13"  required />
 						</div>
-							<div class="phoneCheck" id="textstyle"> </div>
 					</div>
 					
 					<div class="formbold-mb-3">
