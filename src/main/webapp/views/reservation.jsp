@@ -183,10 +183,10 @@
 		    					<div class="img rounded d-flex align-items-end" style="background-image: url(./upload/${rCar.car_file.split(',')[0] });">
 		    					</div>
 		    					<div class="text">
-		    						<h2 class="mb-0"><a href="#">${rCar.car_brand }</a></h2>
+		    						<h2 class="mb-0"><a href="./ReviewList.rev?car_code=${rCar.car_code }">${rCar.car_name }</a></h2>
 		    						<div class="d-flex mb-3">
-			    						<span class="cat">${rCar.car_name }</span>
-			    						<p class="price ml-auto">${rCar.car_price }원 <span>/day</span></p>
+			    						<span class="cat">${rCar.car_brand }</span>
+			    						<p class="price ml-auto">${rCar.car_price }원 <span>/일</span></p>
 		    						</div>
 		    						<p class="d-flex mb-0 d-block">-->
 <!-- 			    						<a href="#" class="btn btn-primary py-2 mr-1">Book now</a> -->

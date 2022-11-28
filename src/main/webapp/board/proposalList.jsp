@@ -23,7 +23,164 @@
 <link rel="stylesheet" href="./css/style.css">
 <link rel="stylesheet" href="./css/board.css">
 <link rel="stylesheet" href="./css/admin_my.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<script type="text/javascript">
+$(function() {
+	  var Accordion = function(el, multiple) {
+	    this.el = el || {};
+	    // more then one submenu open?
+	    this.multiple = multiple || false;
+	    
+	    var dropdownlink = this.el.find('.dropdownlink');
+	    dropdownlink.on('click',
+	                    { el: this.el, multiple: this.multiple },
+	                    this.dropdown);
+	  };
+	  
+	  Accordion.prototype.dropdown = function(e) {
+	    var $el = e.data.el,
+	        $this = $(this),
+	        //this is the ul.submenuItems
+	        $next = $this.next();
+	    
+	    $next.slideToggle();
+	    $this.parent().toggleClass('open');
+	    
+	    if(!e.data.multiple) {
+	      //show only one menu at the same time
+	      $el.find('.submenuItems').not($next).slideUp().parent().removeClass('open');
+	    }
+	  }
+	  
+	  var accordion = new Accordion($('.accordion-menu'), false);
+	})
+
+</script>
+<!-- 사이드바 --> 
+<style>
+
+
+ul {
+  list-style: none;
+}
+
+#a-menu{
+color: #fffff !important; 
+}
+
+h2 {
+  text-align: center;
+  margin: 20px auto;
+  color: #fff;
+}
+
+.accordion-menu {
+  width: 100%;
+    max-width: 300px;
+    margin: 20px 0px 0px 0px;
+  background: #fff;
+  border-radius: 4px;
+}
+.accordion-menu li.open .dropdownlink {
+  color: #1089FF;
+  .fa-chevron-down {
+    transform: rotate(180deg);
+  }
+}
+.accordion-menu li:last-child .dropdownlink {
+  border-bottom: 0;
+}
+.dropdownlink {
+  cursor: pointer;
+  display: block;
+    padding: 15px 20px 15px 0px;
+    font-size: 16px;
+/*   border-bottom: 1px solid #ccc; */
+  color: #212121;
+  position: relative;
+  transition: all 0.4s ease-out;
+  i {
+    position: absolute;
+    top: 17px;
+    left: 16px;
+  }
+  .fa-chevron-down {
+    right: 12px;
+    left: auto;
+    padding: 10px;
+    top: 10px;
+    line-height: 1;
+  }
+}
+
+.dropdownlink2 {
+    cursor: pointer;
+    display: block;
+    padding: 15px 15px 20px 15px;
+    font-size: 18px;
+    border-bottom: 1px solid #ccc;
+    color: #ffffff !important;
+    position: relative;
+    background: #1089ff;
+    transition: all 0.4s ease-out;
+    border-radius: 10px;
+    box-shadow: rgb(0 0 0 / 15%) 0px 5px 15px 0px;
+    
+  i {
+    position: absolute;
+    top: 17px;
+    left: 16px;
+  }
+  .fa-chevron-down {
+    right: 12px;
+    left: auto;
+    padding: 10px;
+    top: 10px;
+    line-height: 1;
+  }
+}
+
+.submenuItems {
+  display: none;
+  background: #E5E5E5;
+  li {
+    border-bottom: 1px solid #B6B6B6;
+  }
+}
+
+.submenuItems a {
+  display: block;
+  color: #fffff !important;
+  padding: 12px 12px 12px 45px;
+  transition: all 0.4s ease-out;
+  &:hover {
+    background-color: #CDDC39;
+    color: #fff;
+  }
+}
+
+
+.m-col-md-4 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 33.33333%;
+    flex: 0 0 33.33333%;
+    max-width: 27.33333%; 
+    margin-right: 35px;
+/*     margin-top: 30px; */
+    border-radius: 22px;
+/*     box-shadow: rgb(0 0 0 / 20%) 0px 5px 15px 0px; */
+    }
+
+.fa{
+vertical-align:middle;
+padding: 5px;
+float: right;
+
+}
+
+</style>
+<!-- 사이드바 --> 
 
 <!-- input에 오늘날짜 기본값으로 넣기 -->
 <script type="text/javascript">

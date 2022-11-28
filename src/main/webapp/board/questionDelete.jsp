@@ -89,9 +89,9 @@ h2 {
 .dropdownlink2 {
     cursor: pointer;
     display: block;
-    padding: 15px 15px 20px 15px;
-    font-size: 18px;
-    border-bottom: 1px solid #ccc;
+    padding: 15px 20px 15px 0px;
+    font-size: 16px; 
+/*     border-bottom: 1px solid #ccc; */
     color: #ffffff;
     position: relative;
     background: #1089ff;
@@ -192,7 +192,11 @@ float: right;
 				<!-- @@@@@@@@@@@@여기까지 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
    	 <!-- 우측 -->
 	          <div class="col-md-8 block-9 mb-md-5">
-	          	<h4>1:1 문의하기</h4>
+	        <div class="board_wrap">
+			<div class="board_title">
+            <strong>1:1 문의하기</strong>
+        	</div>
+	          	
 	            <form action="./QuestionDeleteAction.bo" method="post" 
 	            	class="bg-light p-5 contact-form">
 	            
@@ -208,6 +212,7 @@ float: right;
 		              </div>
 				  </div>
 	            </form>
+	            </div>
 	           </div>
           </div>
         </div>

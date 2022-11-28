@@ -2,6 +2,7 @@ package com.taiso.board.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.taiso.board.db.BoardDAO;
 import com.taiso.board.db.BoardDTO;
@@ -26,9 +27,19 @@ public class QuestionDetailAction implements Action {
 		// 글번호에 해당 글 정보를 가져오기 
 		BoardDTO bodto = bodao.getQuestionDetail(bo_num);
 		
+		
+		// 세션에 아이디 저장 
+		HttpSession session = request.getSession();
+		String mem_id = (String) session.getAttribute("mem_id");
+		int myqnacnt = bodao.getMyqnacnt(mem_id);
+		int myreviewcnt = bodao.getMyreviewcnt(mem_id);
+	
+		request.setAttribute("myqnacnt", myqnacnt);
+		request.setAttribute("myreviewcnt", myreviewcnt);
 		// request 영역에 글정보를 저장 
 		request.setAttribute("bodto", bodto);
 		request.setAttribute("pageNum", pageNum);
+		
 		
 		// 페이지 이동(준비)
 		ActionForward forward = new ActionForward();
