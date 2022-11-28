@@ -57,7 +57,7 @@ public class AdminReviewDAO {
 			   int cnt = 0;
 			   try {
 				con = getConnection();
-				sql="select count(*) from car_review where rev_star != 0 ";
+				sql="select count(*) from car_review where rev_star != 0";
 				pstmt = con.prepareStatement(sql);
 				
 				rs = pstmt.executeQuery();
@@ -82,7 +82,7 @@ public class AdminReviewDAO {
 			   
 			   try {
 				con = getConnection();
-				sql = "select * from car_review where rev_star != 0 order by rev_num limit ?,? ";
+				sql = "select * from car_review where rev_star != 0 order by rev_num desc limit ?,? ";
 				pstmt = con.prepareStatement(sql);
 				
 				// ???
