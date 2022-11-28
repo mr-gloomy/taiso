@@ -5,7 +5,7 @@
 <html lang="en">
 
 <head>
-<title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
+<title>회원가입</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -299,11 +299,8 @@ $(document).ready(function(){
 	<!-- 중간제목 끝 -->
 
 	<!-- 본문 시작 -->
-<<<<<<< HEAD
 	<section class="bg-light">
-=======
 	<section class="ftco-section contact-section bg-light">
->>>>>>> branch 'master' of https://github.com/mr-gloomy/taiso.git
 		<div class="formbold-main-wrapper">
 		<!-- Author: FormBold Team -->
 		<!-- Learn More: https://formbold.com -->

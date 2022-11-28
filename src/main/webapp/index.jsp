@@ -29,8 +29,10 @@ response.sendRedirect("./ReservationMain.rez");
 // response.sendRedirect("./MemberRemove.me");
 // response.sendRedirect("./MemberFindId.me");
 // response.sendRedirect("./MemberFindIdResult.me");
-// response.sendRedirect("./MemberJoinClause.me");
-response.sendRedirect("./AdminMain.mb");
+
+response.sendRedirect("./MemberJoinClause.me");
+// response.sendRedirect("./AdminMain.mb");
+
 
 		
 

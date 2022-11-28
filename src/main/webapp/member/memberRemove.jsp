@@ -5,7 +5,7 @@
 <html lang="en">
 
 <head>
-<title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
+<title>회원탈퇴</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -322,6 +322,9 @@ body {
 	display: flex;
 	align-items: center;
 	gap: 10px;
+	padding-left: 15px;
+    text-indent: -11px;
+    word-break:keep-all
 }
 
 .formbold-event-details ol {
@@ -537,7 +540,7 @@ body {
 
 .formbold-event-details h6 { 
     font-size: 13px;
-    margin-left: 54px;
+    margin-left: 58px;
     font-weight: bold;
     color: #7a7a83;
 }
@@ -551,7 +554,7 @@ body {
     color: #536387;
     outline: none;
     resize: none;
-    width: 600px;
+    width: 500px;
     margin-left: 15px;
 }
 
