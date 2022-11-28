@@ -70,22 +70,21 @@ public class AdminCarDAO {
 				System.out.println(" DAO : car_code : " + car_code);
 				
 				// 2. 상품 등록
-				sql = "insert into car(car_code,car_brand,car_name,car_location,car_site,car_price,car_op,car_category,car_file,car_year,car_fuel) "
-						+ "value(?,?,?,?,?,?,?,?,?,?,?)";
+				sql = "insert into car(car_code,car_brand,car_name,car_site,car_price,car_op,car_category,car_file,car_year,car_fuel) "
+						+ "value(?,?,?,?,?,?,?,?,?,?)";
 				pstmt = con.prepareStatement(sql);
 				
 				// ???
 				pstmt.setInt(1, car_code);
 				pstmt.setString(2, cDTO.getCar_brand());
 				pstmt.setString(3, cDTO.getCar_name());
-				pstmt.setInt(4, cDTO.getCar_location());
-				pstmt.setString(5, cDTO.getCar_site());
-				pstmt.setInt(6, cDTO.getCar_price());
-				pstmt.setString(7, cDTO.getCar_op());
-				pstmt.setString(8, cDTO.getCar_category());
-				pstmt.setString(9, cDTO.getCar_file());
-				pstmt.setInt(10, cDTO.getCar_year());
-				pstmt.setString(11, cDTO.getCar_fuel());
+				pstmt.setString(4, cDTO.getCar_site());
+				pstmt.setInt(5, cDTO.getCar_price());
+				pstmt.setString(6, cDTO.getCar_op());
+				pstmt.setString(7, cDTO.getCar_category());
+				pstmt.setString(8, cDTO.getCar_file());
+				pstmt.setInt(9, cDTO.getCar_year());
+				pstmt.setString(10, cDTO.getCar_fuel());
 				
 				pstmt.executeUpdate();
 				
@@ -164,7 +163,6 @@ public class AdminCarDAO {
 					cDTO.setCar_code(rs.getInt("car_code"));
 					cDTO.setCar_file(rs.getString("car_file"));
 					cDTO.setCar_fuel(rs.getString("car_fuel"));
-					cDTO.setCar_location(rs.getInt("car_location"));
 					cDTO.setCar_name(rs.getString("car_name"));
 					cDTO.setCar_op(rs.getString("car_op"));
 					cDTO.setCar_price(rs.getInt("car_price"));
@@ -203,7 +201,6 @@ public class AdminCarDAO {
 					cDTO.setCar_code(rs.getInt("car_code"));
 					cDTO.setCar_file(rs.getString("car_file"));
 					cDTO.setCar_fuel(rs.getString("car_fuel"));
-					cDTO.setCar_location(rs.getInt("car_location"));
 					cDTO.setCar_name(rs.getString("car_name"));
 					cDTO.setCar_site(rs.getString("car_site"));
 					cDTO.setCar_op(rs.getString("car_op"));
@@ -226,7 +223,7 @@ public class AdminCarDAO {
 		  public void adminUpdateCar(CarDTO cDTO) {
 			  try {
 				con = getConnection();
-				sql ="update car set car_category=?, car_name=?, car_site=?, car_brand=?, car_price=?, car_year=?, car_fuel=?, car_op=?, car_location=? "
+				sql ="update car set car_category=?, car_name=?, car_site=?, car_brand=?, car_price=?, car_year=?, car_fuel=?, car_op=? "
 						+ "where car_code=?";
 				pstmt = con.prepareStatement(sql);
 				
@@ -238,8 +235,7 @@ public class AdminCarDAO {
 				pstmt.setInt(6, cDTO.getCar_year());
 				pstmt.setString(7, cDTO.getCar_fuel());
 				pstmt.setString(8, cDTO.getCar_op());
-				pstmt.setInt(9, cDTO.getCar_location());
-				pstmt.setInt(10, cDTO.getCar_code());
+				pstmt.setInt(9, cDTO.getCar_code());
 				
 				pstmt.executeUpdate();
 				
