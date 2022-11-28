@@ -502,7 +502,7 @@ public class ReservationDAO {
          ReservationDTO rezDTO = null;
          try {
          con = getConnection();
-         sql = "select * from rez_reservation rez where rez_uqNum=(select pay.rez_uqNum from rez_payment pay where pay.pay_uqNum=?)";
+         sql = "select * from rez_reservation rez where rez.rez_uqNum=(select pay.rez_uqNum from rez_payment pay where pay.pay_uqNum=?)";
          pstmt = con.prepareStatement(sql);
          pstmt.setString(1, pay_uqNum);
          rs = pstmt.executeQuery();
