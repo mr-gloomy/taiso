@@ -235,8 +235,9 @@ function chk(){
 }
 
 body {
-	font-family: 'Inter', sans-serif;
-	font-weight: 400;
+	font-family: 'InfinitySans-RegularA1';
+	font-weight: normal;
+    font-style: normal;
     color: #000000;
 }
 

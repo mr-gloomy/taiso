@@ -85,7 +85,9 @@ function mem_userNewName(){
 }
 
 body {
-	font-family: "Inter", sans-serif;
+	font-family: 'InfinitySans-RegularA1';
+	font-weight: normal;
+    font-style: normal;
 }
 
 .formbold-main-wrapper {

@@ -88,9 +88,11 @@
     padding: 0;
     box-sizing: border-box;
   }
-  body {
-    font-family: "Inter", sans-serif;
-  }
+body {
+	font-family: 'InfinitySans-RegularA1';
+	font-weight: normal;
+    font-style: normal;
+}
   .formbold-main-wrapper {
     display: flex;
     align-items: center;
