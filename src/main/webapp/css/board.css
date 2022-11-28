@@ -856,6 +856,14 @@ div.button, div.checker, div.radio, div.selector, div.uploader {
   border-bottom: 1px solid #333333;
   border-left: 1px solid #333333;
 }
+.date3 {
+  width: calc(100% / 7);
+  padding: 3px;
+  text-align: right;
+/*   border-bottom: 1px solid #333333; */
+/*   border-left: 1px solid #333333; */
+}
+
 .day:nth-child(7n + 1),
 .date:nth-child(7n + 1) {
   color: #D13E3E;

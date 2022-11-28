@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>TAISO</title>
+<title>타이소</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="shortcut icon" type="image/x-icon" href="./images/logo.png">
@@ -286,7 +286,7 @@ float: right;
 									<div class="bo_cate">카테고리</div>
 									<div class="title">제목</div>
 									<div class="mem_id">작성자</div>
-									<div class="date">작성일</div>
+									<div class="date3">작성일</div>
 								</div>
 									<c:forEach var="bodto" items="${QuestionList }">
 										<div>
@@ -302,7 +302,7 @@ float: right;
 											
 											<div class="title" id="titlepadding2">
 											<c:if test="${bodto.bo_re_lev > 0}">
-												<img src="./img/re3.png" width="${bodto.bo_re_lev * 20 }">
+												<img src="./img/re3.png" width="${bodto.bo_re_lev * 10 }">
 <!-- 												<img src="./img/re.gif"> -->
 											</c:if>
 											<a
@@ -328,7 +328,7 @@ float: right;
 											</a>
 											</div>
 												<div class="mem_id">${bodto.mem_nickName }</div>
-												<div class="date">${bodto.bo_sysdate }</div>
+												<div class="date3">${bodto.bo_sysdate }</div>
 										</div>
 									</c:forEach>
 									</div>

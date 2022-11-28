@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Vector;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -274,11 +275,10 @@ public class BoardDAO {
 				
 				return QuestionList;
 			}
-			// 글정보 가져오기 - getBoardList(int startRow, int pageSize)
 
-			// 글목록 가져오기 - getQuestionList(int startRow, int pageSize)
+
 			public ArrayList getMyQuestionList(String mem_id, int startRow, int pageSize) {
-			
+				
 				ArrayList MyQuestionList = new ArrayList();
 				
 				try {
@@ -319,8 +319,6 @@ public class BoardDAO {
 					while(rs.next()) {
 						
 					}
-					
-					
 					
 					System.out.println(" DAO : 게시판 목록 저장완료! ");
 					

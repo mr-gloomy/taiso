@@ -16,11 +16,13 @@
 
 
 <head>
-<title>로그인</title>
+<title>타이소</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <link href="./reservationDate.jsp" rel="stylesheet">
+
+<link rel="shortcut icon" type="image/x-icon" href="./images/logo.png">
 
 <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
 <link rel="stylesheet" href="css/animate.css">

@@ -11,10 +11,11 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 <link rel="shortcut icon" type="image/x-icon" href="./images/logo.png">
-<title>TAISO</title>
+<title>타이소</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
@@ -39,30 +40,11 @@
 <link rel="stylesheet" href="./css/icomoon.css">
 <link rel="stylesheet" href="./css/style2.css">
 
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
-
-<style>
-   .caricon:before {
-       content: "\f057";
-       font-family: FontAwesome;
-       line-height: 1;
-       font-size:100px;
-       color: #007bff;
-   }
-   
-   .listtest {
-	    -webkit-box-flex: 0;
-	    -ms-flex: 0 0 41.66667%;
-	    flex: 0 0 100%;
-	    max-width: 100%; 
-	    text-align: center;
-	    box-shadow: none;
-	    }
- </style>
 
 <!-- 블로그 로딩 코드 start -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <style type="text/css">
 #waiting {
 	width: 100%;

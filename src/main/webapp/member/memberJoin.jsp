@@ -5,11 +5,13 @@
 <html lang="en">
 
 <head>
-<title>회원가입</title>
+<title>타이소</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+
+<link rel="shortcut icon" type="image/x-icon" href="./images/logo.png">
 
 <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
 <link rel="stylesheet" href="css/animate.css">
@@ -31,6 +33,43 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+
+<!-- 블로그 로딩 코드 start -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style type="text/css">
+#waiting {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    background: white;
+    z-index: 999;
+    opacity: 0.9;
+}
+#waiting > img {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+</style>
+<div id="waiting">
+   <img src="./img/loading.gif">
+</div>
+
+<script type="text/javascript">
+    $(window).on('load', function() {
+        setTimeout(function(){
+            $("#waiting").fadeOut();
+        }, 300);
+    });
+</script>
+<!-- 블로그 로딩 코드 end -->
+
+
 
 <!-- sweetalert -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
@@ -85,6 +124,13 @@ if (document.getElementById("supportCheckbox").checked) { // 체크박스
 </script>
 
 <script type="text/javascript">
+$(document).on("keyup", "#mem_phone", function() {
+    $(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/([0-9]{3})+([0-9]{4})+([0-9]{4})$/,"$1-$2-$3").replace("--", "-"));
+   });
+</script>
+
+
+<script type="text/javascript">
 $(document).ready(function(){
 	
 	$('#sbtn').click(function(){
@@ -102,7 +148,6 @@ $(document).ready(function(){
     var check_pw = /^[a-zA-Z0-9]{8,16}$/; // 비밀번호 유효성 검사 (영문/숫자 8-16)
     var check_name = /^[가-힣]{0,10}$/; // 이름 유효성 검사 (10글자 제한)
     var check_nickName = /^[a-zA-Z0-9ㄱ-ㅎ|ㅏ-ㅣ|가-힣]{2,10}$/; // 닉네임 유효성 검사 (한글/영어/숫자 2-10)
-    var check_phone = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/; // 전화번호 유효성 검사
     var check_email = /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/; // 이메일 양식 검사
     
 	
@@ -211,16 +256,7 @@ $(document).ready(function(){
 			 });
          $('#mem_phone').focus();
          return false;
-     }	
-    // 전화번호 유효성 체크
-    if (!check_phone.test(mem_phone)) {
-        $('.phoneCheck').html('전화번호 양식이 올바르지 않습니다.');
-        $('#mem_phone').val("");
-        $('#mem_phone').focus();
-        return false;
-	} else {
-     	$('.phoneCheck').html('');
-    }	
+     }
     
     //  생년월일 공백 확인
     if (mem_birthday == "" || mem_birthday == null) {
@@ -353,13 +389,12 @@ $(document).ready(function(){
 							<input type="text" name="mem_nickName" id="mem_nickName" placeholder="영문과 한글, 숫자로 2-10자로 입력해주세요." class="formbold-form-input" style="width:80%" required />
 						    <button class="formbold-btn" onclick="return winopen2()"> 중복확인 </button>
 						</div>
-						<div class="nickNameCheck" id="textstyle"> </div>
+						<div class="nickNameCheck" id="textstyle"></div>
 					</div>
 					
 					<div class="formbold-mb-3">
 						<label for="mem_phone" class="formbold-form-label"> 전화번호 </label>
-						<input type="text" name="mem_phone" id="mem_phone" placeholder="010-0000-0000" class="formbold-form-input" required />
-						<div class="phoneCheck" id="textstyle"> </div>
+						<input type="text" name="mem_phone" id="mem_phone" placeholder="-없이 번호로만 입력해주세요." class="formbold-form-input" maxlength="13" required />
 					</div>
 					
 					<div class="formbold-mb-3">

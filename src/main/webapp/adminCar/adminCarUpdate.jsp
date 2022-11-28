@@ -6,7 +6,9 @@
 <html lang="ko">
 <head>
 <!-- 헤더 시작 -->
+
 <title>타이소-관리자</title>
+
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
