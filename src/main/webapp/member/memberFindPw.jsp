@@ -47,9 +47,9 @@
 				<div class="col-md-9 ftco-animate pb-5">
 					<p class="breadcrumbs">
 						<span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> 
-						<span>Contact <i class="ion-ios-arrow-forward"></i></span>
+						<span>로그인 <i class="ion-ios-arrow-forward"></i></span>
 					</p>
-					<h1 class="mb-3 bread">Contact Us</h1>
+					<h1 class="mb-3 bread">비밀번호 찾기</h1>
 				</div>
 			</div>
 		</div>
