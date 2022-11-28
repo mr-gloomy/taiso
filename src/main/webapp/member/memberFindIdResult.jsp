@@ -117,7 +117,7 @@ body {
 }
 
 .formbold-form-title h3 {
-	color: #07074D;
+	color: #000000;
 	font-weight: 700;
 	font-size: 28px;
 	line-height: 35px;
