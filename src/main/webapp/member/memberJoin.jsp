@@ -1,3 +1,4 @@
+<%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -39,7 +40,8 @@
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
 <!-- <script src="https://code.jquery.com/jquery-3.5.0.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
+
+
 <script type="text/javascript">
 function winopen(){ // 아이디 중복 체크
 	
@@ -107,7 +109,14 @@ $(document).ready(function(){
     var check_phone = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/; // 전화번호 유효성 검사
     var check_email = /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/; // 이메일 양식 검사
     
-	
+
+    if(id != null){
+    	alert("이미 로그인한 상태입니다.");
+    	history.back();
+    	return false;
+    }
+    
+    
     // 아이디 공백 확인
     if (mem_id == "" || mem_id == null) {
 		 Swal.fire({
@@ -282,7 +291,7 @@ $(document).ready(function(){
   	<!-- 헤더 끝-->
 	
 	<!-- 중간제목 시작 -->
-	<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+	<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_6.jpg');" data-stellar-background-ratio="0.5">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
@@ -297,7 +306,20 @@ $(document).ready(function(){
 		</div>
 	</section>
 	<!-- 중간제목 끝 -->
-
+	
+	<!-- 로그인제어 -->
+<%
+	String mem_id = (String) session.getAttribute("mem_id");
+	if(mem_id != null){
+		out.println("<script>");
+		out.println("alert('이미 로그인한 아이디입니다.');");
+		out.println("location.href='./ReservationMain.rez';"); 
+		out.println("</script>");
+		out.close();
+	}
+%>
+	<!-- 로그인제어 -->
+	
 	<!-- 본문 시작 -->
 	<section class="bg-light">
 	<section class="ftco-section contact-section bg-light">

@@ -79,6 +79,7 @@ public class MemberJoinEmailSendAction implements Action {
 			out.println("</script>");
 			out.close();
 			
+			mDAO.memberRemove(mem_id, mem_email);
 			session.removeAttribute("mem_id");
 			
 		}
@@ -86,8 +87,8 @@ public class MemberJoinEmailSendAction implements Action {
 		
 		// 페이지 이동(준비)
 		ActionForward forward = new ActionForward();
-		forward.setPath("/MemberJoinEmail.me");
-		forward.setRedirect(false);
+		forward.setPath("./MemberJoinEmail.me");
+		forward.setRedirect(true);
 		
 		return forward;
 	}

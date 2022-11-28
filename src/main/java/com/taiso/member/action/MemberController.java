@@ -413,7 +413,12 @@ public class MemberController extends HttpServlet {
 			forward.setRedirect(false);
 			
 		}
-		
+		else if(command.equals("/EmailMain.me")) {
+			System.out.println(" C : /EmailMain.me 호출");
+			
+			action = new EmailMainAction();
+			
+		}
 		
 		
 		
