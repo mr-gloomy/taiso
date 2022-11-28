@@ -126,8 +126,6 @@ $(function() {
 	
 </script>
 
-
-
 <!-- 블로그 로딩 코드 start -->
 <style type="text/css">
 #waiting {
@@ -368,9 +366,7 @@ float: right;
 					<div class="car-wrap rounded ftco-animate">
 									<c:choose>
 										<c:when test="${empty reservationList }">
-
-											<h3>예약내역이 없습니다.</h3>
-
+		            		<h3 style="text-align: center; padding-top: 50px;">예약 내역이 없습니다.</h3> <br>
 										</c:when>
 
 										<c:when test="${not empty reservationList }">
