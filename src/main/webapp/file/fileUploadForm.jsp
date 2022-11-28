@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>타이소</title>
 </head>
 <body>
      <h1>fileUploadForm.jsp</h1>
