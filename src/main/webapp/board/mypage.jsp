@@ -312,51 +312,76 @@ float: right;
 <!-- 			<div class="row"> -->
 				<div class="col-md-4-2">
 					<div class="car-wrap rounded ftco-animate">
-					
-						<c:forEach var = "rez" items="${reservationList }" step="1">
-							<div class="text">
-								<div class="d-flex mb-3">
-									<span class="cat">단기렌트</span>
-									<span class="cat" style="text-align:right;width:90%;">예약번호 : ${rez.rez_uqNum }</span>
-			
-								</div>
+									<c:choose>
+										<c:when test="${empty reservationList }">
 
-								<h2 class="mb-0">
-									<c:if test="${rez.rez_status == 1}">
-										<a href="car-single.html">${rez.car_name }</a>ㅤ<input type = "button" class="btn btn-primary py-1 mr-1" value="예약 완료">
-									</c:if>
-									<c:if test="${rez.rez_status == 0}">
-										<a href="car-single.html">${rez.car_name }</a>ㅤ<input type = "button" class="btn btn-primary3 py-1 mr-1" value="예약 취소">
-									</c:if>	
-								</h2>
-								<div class="d-flex mb-3">
-									<span class="cat">${rez.rez_rentalDate} ~ ${rez.rez_returnDate}</span>
-								</div>
+											<h3>예약내역이 없습니다.</h3>
 
-								<div class="d-flex mb-3" style="display: flex; justify-content: center;">
-									<input type = "button" class="btn btn-primary2 py-2 mr-1" value = "예약 상세 조회" onclick="location.href='./ReservationInfo.rez?rez_uqNum=${rez.rez_uqNum }';" >ㅤ
-									<c:set var="loop_flag" value="false"/>
-									<c:set var="check" value ="0"/>
-									<c:forEach var="rev" items="${reviewList }" varStatus="status">
-										<c:if test="${not loop_flag }">
-											<c:if test="${check == 0}">
-												<c:if test="${rev.rez_uqNum == rez.rez_uqNum }">
-													<input type = "button" class="btn btn-primary py-2 mr-1" value = "리뷰수정" onclick="updateOpen(${rez.rez_uqNum});">
-													<input type = "button" class="btn btn-primary py-2 mr-1" value = "리뷰삭제" onclick="deleteBoard(${rez.rez_uqNum});">
-													<c:set var="loop_flag" value="true"/>
-													<c:set var="check" value ="1"/>
-												</c:if>
-											</c:if>
-										</c:if>
-									</c:forEach>
-										<c:if test="${check != 1}">
-											<input type = "button" class="btn btn-primary py-2 mr-1" value = "리뷰작성" onclick="writeOpen(${rez.car_code}+','+${rez.rez_uqNum});">
-											<c:set var="loop_flag" value="true"/>
-										</c:if>
-								</div>
-							</div>
-						</c:forEach>
-						<hr>
+										</c:when>
+
+										<c:when test="${not empty reservationList }">
+											<c:forEach var="rez" items="${reservationList }" end="3"
+												step="1">
+												<div class="text">
+													<div class="d-flex mb-3">
+														<span class="cat">단기렌트</span> <span class="cat"
+															style="text-align: right; width: 90%;">예약번호 :
+															${rez.rez_uqNum }</span>
+
+													</div>
+
+													<h2 class="mb-0">
+														<c:if test="${rez.rez_status == 1}">
+															<a href="car-single.html">${rez.car_name }</a>ㅤ<input
+																type="button" class="btn btn-primary py-1 mr-1"
+																value="예약 완료">
+														</c:if>
+														<c:if test="${rez.rez_status == 0}">
+															<a href="car-single.html">${rez.car_name }</a>ㅤ<input
+																type="button" class="btn btn-primary3 py-1 mr-1"
+																value="예약 취소">
+														</c:if>
+													</h2>
+													<div class="d-flex mb-3">
+														<span class="cat">${rez.rez_rentalDate} ~
+															${rez.rez_returnDate}</span>
+													</div>
+
+													<div class="d-flex mb-3"
+														style="display: flex; justify-content: center;">
+														<input type="button" class="btn btn-primary2 py-2 mr-1"
+															value="예약 상세 조회"
+															onclick="location.href='./ReservationInfo.rez?rez_uqNum=${rez.rez_uqNum }';">ㅤ
+														<c:set var="loop_flag" value="false" />
+														<c:set var="check" value="0" />
+														<c:forEach var="rev" items="${reviewList }"
+															varStatus="status">
+															<c:if test="${not loop_flag }">
+																<c:if test="${check == 0}">
+																	<c:if test="${rev.rez_uqNum == rez.rez_uqNum }">
+																		<input type="button" class="btn btn-primary py-2 mr-1"
+																			value="리뷰수정" onclick="updateOpen(${rez.rez_uqNum});">
+																		<input type="button" class="btn btn-primary py-2 mr-1"
+																			value="리뷰삭제" onclick="deleteBoard(${rez.rez_uqNum});">
+																		<c:set var="loop_flag" value="true" />
+																		<c:set var="check" value="1" />
+																	</c:if>
+																</c:if>
+															</c:if>
+														</c:forEach>
+														<c:if test="${check != 1}">
+														</c:if>
+														<input type="button" class="btn btn-primary py-2 mr-1"
+															value="리뷰작성"
+															onclick="writeOpen(${rez.car_code}+','+${rez.rez_uqNum});">
+														<c:set var="loop_flag" value="true" />
+													</div>
+												</div>
+											</c:forEach>
+										</c:when>
+
+									</c:choose>
+									<hr>
 				</div>
 			</div>
 <!-- 			</div> -->
