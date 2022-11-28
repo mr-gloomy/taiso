@@ -99,7 +99,7 @@
 	               <div class="col-md-4">
 	                  <div class="car-wrap rounded ftco-animate">
 	                     <div class="img rounded d-flex align-items-end"
-	                        style="background-image: url(./upload/${cars.car_file.split(',')[0] });">
+	                        style="background-image: url(./upload/${cars.car_file.split(',')[0] } );">
 	                     </div>
 	                     <div class="text">
 	                        <h2 class="mb-0">
@@ -111,6 +111,7 @@
 	                              <fmt:formatNumber value="${cars.car_price }" />
 	                              원
 	                           </p>
+	                            <span>/일</span>
 	                        </div>
 	                        <p class="d-flex mb-0 d-block">
 	                           <a href="./Reservation.rez?car_code=${cars.car_code }"

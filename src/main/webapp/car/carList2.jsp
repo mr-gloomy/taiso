@@ -90,6 +90,7 @@
                               <fmt:formatNumber value="${cars.car_price }" />
                               원
                            </p>
+                           <span>/일</span>
                         </div>
                         <p class="d-flex mb-0 d-block">
 <%--                            <a href="./ReservationAction.rez?car_code=${cars.car_code }" --%>
