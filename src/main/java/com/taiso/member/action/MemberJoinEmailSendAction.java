@@ -34,7 +34,7 @@ public class MemberJoinEmailSendAction implements Action {
 		System.out.println(" M : 이메일 : " +mem_email);
 		
 		// 사용자 인증 이메일 발송 내용
-		String host = "http://localhost:8088/project_taiso/";
+		String host = "http://itwillbs2.cafe24.com/project_taiso/";
 		String from = "welcometaiso@gmail.com";
 		String to = mem_email;
 		System.out.println(to+"to");
