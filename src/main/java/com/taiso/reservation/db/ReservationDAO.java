@@ -384,7 +384,7 @@ public class ReservationDAO {
    // select ---> update
 
    public int reservationCancelChange(int rez_uqNum, String mem_id, String mem_pw) { 
-      int result = 18;
+      int result = 0;
 
 
       try {
@@ -407,16 +407,20 @@ public class ReservationDAO {
                   
                   result = pstmt2.executeUpdate();
                   
+                  if(result == 1) {
                   // 결제정보 삭제하기
-                  sql = "delete rezp from rez_payment rezp "
-                        + "join rez_reservation rezr "
-                        + "on rezp.rez_uqNum = rezr.rez_uqNum "
-                        + "where rezr.rez_uqNum = ?";
+//                  sql = "delete rezp from rez_payment rezp "
+//                        + "join rez_reservation rezr "
+//                        + "on rezp.rez_uqNum = rezr.rez_uqNum "
+//                        + "where rezr.rez_uqNum = ?";
+                  sql ="update rez_payment set pay_status=? where rez_uqNum=?";
                   PreparedStatement pstmt3 = con.prepareStatement(sql);
-                  pstmt3.setInt(1, rez_uqNum);
+                  pstmt3.setString(1, "refunded");
+                  pstmt3.setInt(2, rez_uqNum);
                   pstmt3.executeUpdate();
                   System.out.println("@@@@@@@@@@@@@@@결제정보 삭제완료!");
-
+                  }
+                  
              }
              else {
          	   result = 0;
