@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>마이페이지</title>
+<title>타이소</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="shortcut icon" type="image/x-icon" href="./images/logo.png">
@@ -82,6 +82,7 @@ h2 {
     margin: 20px 0px 0px 0px;
   background: #fff;
   border-radius: 4px;
+      box-shadow: rgb(0 0 0 / 15%) 0px 5px 15px 0px;
 }
 .accordion-menu li.open .dropdownlink {
   color: #1089FF;
@@ -95,7 +96,7 @@ h2 {
 .dropdownlink {
   cursor: pointer;
   display: block;
-    padding: 15px 20px 15px 0px;
+    padding: 15px 20px 15px 15px;
     font-size: 16px;
 /*   border-bottom: 1px solid #ccc; */
   color: #212121;

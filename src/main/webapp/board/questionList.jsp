@@ -220,6 +220,7 @@ float: right;
 
 		<!--  -->  
 		<section class="hero-wrap hero-wrap-2 js-fullheight"
+			style="background-image: url('images/bg_6.jpg');"
 			data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
@@ -302,8 +303,8 @@ float: right;
 											
 											<div class="title" id="titlepadding2">
 											<c:if test="${bodto.bo_re_lev > 0}">
-												<img src="./img/re3.png" width="${bodto.bo_re_lev * 10 }">
-<!-- 												<img src="./img/re.gif"> -->
+												<img src="./img/level.gif" width="${bodto.bo_re_lev * 10 }">
+												<img src="./img/re.gif">
 											</c:if>
 											<a
 												href="./QuestionDetail.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}">
