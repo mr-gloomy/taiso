@@ -71,7 +71,7 @@
 	    var _top = Math.ceil(( window.screen.height - _height )/2); 
 
  		// 새 창 열기
- 		document.domain = "localhost"; //document.domain 값이 팝업과 부모창 동일해야 합니다.
+ 		document.domain = "itwillbs2.cafe24.com"; //document.domain 값이 팝업과 부모창 동일해야 합니다.
  		window.open("./ReviewWrite.rev","",'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top);
  		 
 
@@ -85,7 +85,7 @@
 	    var _left = Math.ceil(( window.screen.width - _width )/2);
 	    var _top = Math.ceil(( window.screen.height - _height )/2); 
  		// 새 창 열기
- 		document.domain = "localhost"; //document.domain 값이 팝업과 부모창 동일해야 합니다.
+ 		document.domain = "itwillbs2.cafe24.com"; //document.domain 값이 팝업과 부모창 동일해야 합니다.
  		window.open("./ReviewUpdate.rev?rev_num=2","",'width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top);
 	}
 </script>

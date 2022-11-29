@@ -162,7 +162,6 @@ public class ReservationDAO {
          
          System.out.println(" 1) 예약정보 저장 완료");
 
-         var chkLicense = rezDTO.getLicense_num();
          
          // 면허정보 기존 존재 여부 확인
          sql = "select license_num from rez_driverlicense where mem_id=?";
