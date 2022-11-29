@@ -300,10 +300,41 @@ padding: 5px;
 float: right;
 
 }
-
-</style>
-<!-- 사이드바 --> 
 	
+	.footCenter {
+    display: inline-block;
+    width: 302px;
+    height: 190px;
+    padding: 16px 22px 16px 22px;
+    vertical-align: top;
+    margin: 20px 0px 0px 0px;
+    border-radius: 13px;
+    background: #1089ff;
+}
+	.footCenter span {
+	color: #fff;
+	}
+	
+	.footCenter li {
+	color: #dcdcdc;
+margin-left: -40px;
+font-size: 14px;
+	}
+	
+	.footCenter p {
+	color: #000;
+	font-size: 20px;
+/* 	text-align: center; */
+	}	
+	
+	.footCenter h5 {
+	font-size: 21px;
+    font-weight: bold;
+    border-bottom: 3px solid #fff;
+	}
+	
+	
+	</style>
 	
   </head>
  

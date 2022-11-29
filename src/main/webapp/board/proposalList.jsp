@@ -99,7 +99,7 @@ h2 {
 .dropdownlink {
   cursor: pointer;
   display: block;
-    padding: 15px 20px 15px 0px;
+    padding: 15px 20px 15px 15px;
     font-size: 16px;
 /*   border-bottom: 1px solid #ccc; */
   color: #212121;
@@ -273,14 +273,14 @@ float: right;
 							<div class="board_list">
 								<div class="top">
 									<div class="num">번호</div>
-									<div class="title">제목</div>
+									<div class="title3">제목</div>
 									<div class="mem_id">작성자</div>
 									<div class="date3">작성일</div>
 								</div>
 										<c:forEach var="bodto" items="${ProposalList }">
 											<div>
 												<div class="num">${bodto.bo_num }</div>
-												<div class="title">
+												<div class="title3">
 													 <a href="./ProposalDetail.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}">${bodto.bo_title }</a>
 												</div>
 												<div class="mem_id">${bodto.mem_id }</div>

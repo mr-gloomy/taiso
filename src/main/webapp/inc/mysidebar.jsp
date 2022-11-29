@@ -50,6 +50,18 @@
   </li>
 
 </ul>
+      <div class="footCenter">
+        <h5>전화예약 / 고객상담</h5>
+        <span class="txt">이용에 궁금하신 점이 있으신가요?</span>
+        <div class="callInfo">
+          <p class="callNum">1544-0445</p>
+          <ul class="callTime">
+            <li><span class="tit">평일 </span> 09:00 ~ 18:00</li>
+            <li><span class="tit">점심시간 </span> 12:00 ~ 13:00</li>
+          </ul>
+        </div>
+        </div>
+
 </div>
 
 
