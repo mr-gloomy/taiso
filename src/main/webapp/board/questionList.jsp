@@ -304,7 +304,7 @@ float: right;
 											<div class="title" id="titlepadding2">
 											<c:if test="${bodto.bo_re_lev > 0}">
 												<img src="./img/level.gif" width="${bodto.bo_re_lev * 10 }">
-												<img src="./img/re.gif">
+												<img src="./img/re3.png" width="25px">
 											</c:if>
 											<a
 												href="./QuestionDetail.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}">
