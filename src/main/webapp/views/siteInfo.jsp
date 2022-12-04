@@ -427,7 +427,6 @@
  		  
  		  // 내 주변 지점
  		  $("button[id='site_search2']").click(function(){
- 			  
  				Swal.fire({
  	                icon: 'info',
  	                text: '정보가 뜨지 않는다면 위치 액세스 권한을 허용해주세요',
