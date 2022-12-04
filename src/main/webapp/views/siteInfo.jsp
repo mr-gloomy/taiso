@@ -425,7 +425,7 @@
 				});	// ajax 끝
 		  });
  		  
- 		  // 내 위치
+ 		  // 내 주변 지점
  		  $("button[id='site_search2']").click(function () {
 				
  				Swal.fire({
