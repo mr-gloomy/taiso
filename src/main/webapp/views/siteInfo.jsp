@@ -69,7 +69,7 @@
 
     <style>
 	.site-table {
-	  font-size: 1.2em;
+	  font-size: 18px;
  	  box-shadow: none;
 	  width: 100%;
 	  border-collapse: collapse;
@@ -161,12 +161,12 @@
 		color:#2e2e2e; !important
 	}
     .sls {
-    border:1px solid #2E2E2E;
-    padding:5px; 
-    font-size:20px;
-    font-weight:600; 
-    color:#2E2E2E;
-    width:200px;
+	    border:1px solid #2E2E2E;
+	    padding:5px; 
+	    font-size:17px;
+	    font-weight:600; 
+	    color:#2E2E2E;
+	    width:200px;
     }
 	</style>
 	
@@ -239,8 +239,8 @@
 								</div>						    		
 				    		<div class="site-info">
    								<select id="sido_select" class="sls">
-							          <option value="" selected disabled hidden>지역을 선택하세요</option>	
-							          <option value="경상/부산/대구/울산">경상/부산/대구/울산</option>
+							          <option value="" selected disabled hidden>지역을 선택하세요</option>		
+							          <option value="부산/울산/경남/대구">부산/울산/경남/대구</option>
 							          <option value="제주">제주</option>
 							          <option value="서울">서울</option>
 							          <option value="인천/경기">인천/경기</option>
@@ -251,7 +251,9 @@
 								<select id="site_select" class="sls">
 							          <option value="" selected disabled hidden>지점을 선택하세요</option>	
 								</select>
-								<button type="button" class="btn btn-secondary" id="site_search" style="height:45px;">검색</button>
+								<button type="button" class="btn btn-secondary" id="site_search" style="height:38px;">검색</button>
+								<button type="button" class="btn btn-secondary" id="site_search2" style="height:38px;">내 주변 지점</button>
+								<div class="site-msg"></div>
 								<div class="site-list" style="padding-top: 20px";>
 									<table class="site-table" style="border:1 solid;">
 										<thead class="site-thead">
@@ -304,77 +306,94 @@
 <!--   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> -->
 <!--   <script src="js/google-map.js"></script> -->
   <script src="js/main.js"></script>
+  <!-- sweetalert -->
+  <script src="sweetalert2.all.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   
   <!-- 카카오지도API -->
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4f2b3314b4b648f582b93600574cd923"></script>
   <script src="http://code.jquery.com/jquery-latest.js"></script> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script type="text/javascript">
-	$(function() {
-		$("#sido_select").change(function(){
-			var sido=$(this).val();
-	// 		alert("sido : "+sido);
-			$("#site_select option").remove();
-			$.ajax({
-				url : "site.json",
-				type : "get",
-				datatype : "json",
-				success : function(data) {
-	// 				alert('success');
-	// 				let str = JSON.stringify(data);	// 데이터 확인
-	// 				alert(str);
-					$(data).each(function(i){
-						if(sido==data[i].sido){
-	// 						alert('일치');
-							$('#site_select').append("<option>"+data[i].name+"</option>");
-						}
-					});
-				},
-				error : function() {
-					alert('error');			
-				}
-			});	// ajax 끝
-		});	// selectBox_test 끝
-	});
-	
-		// 지도 생성
-		var container = document.getElementById('map');
-		var options = {
-			center: new kakao.maps.LatLng(35.1586, 129.0621),
-			level: 3
-		};
-		
-		var map = new kakao.maps.Map(container, options);
-		
-		// 마커 생성
-		var markerPosition  = new kakao.maps.LatLng(35.1586, 129.0621); 
-		var marker = new kakao.maps.Marker({
-		    position: markerPosition
-		});
-		marker.setMap(map);
-		
-		// 인포윈도우 생성
-		var iwContent = '<div style="padding:2px;">아이티윌지점</div>',
-	    iwPosition = new kakao.maps.LatLng(35.1586, 129.0621);
-		var infowindow = new kakao.maps.InfoWindow({
-		    position : iwPosition, 
-		    content : iwContent 
-		});
-		infowindow.open(map, marker);
- 	</script>
+  
+  <script type="text/javascript">
+  // 좌표간 거리 구하기
+	function getDistance(lat1, lon1, lat2, lon2, unit) {
+		var radlat1 = Math.PI * lat1/180;
+		var radlat2 = Math.PI * lat2/180;
+		var radlon1 = Math.PI * lon1/180;
+		var radlon2 = Math.PI * lon2/180;
+		var theta = lon1-lon2;
+		var radtheta = Math.PI * theta/180;
+		var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+		dist = Math.acos(dist);
+		dist = dist * 180/Math.PI;
+		dist = dist * 60 * 1.1515;
+		if (unit=="K") { dist = dist * 1.609344 }
+		if (unit=="N") { dist = dist * 0.8684 }
+		return dist;
+	}
+  </script>
+  
+  <script type="text/javascript">
  	
- 	<script type="text/javascript">
+ 	// 지도 기본 위치로 생성
+	var container = document.getElementById('map');
+	var options = {
+		center: new kakao.maps.LatLng(35.1586, 129.0621),
+		level: 3
+	};
+	
+	var map = new kakao.maps.Map(container, options);
+	
+	// 마커 생성
+	var markerPosition  = new kakao.maps.LatLng(35.1586, 129.0621); 
+	var marker = new kakao.maps.Marker({
+	    position: markerPosition
+	});
+	marker.setMap(map);
+	
+	// 인포윈도우 생성
+	var iwContent = '<div style="padding:2px;">아이티윌지점</div>',
+    iwPosition = new kakao.maps.LatLng(35.1586, 129.0621);
+	var infowindow = new kakao.maps.InfoWindow({
+	    position : iwPosition, 
+	    content : iwContent 
+	});
+	infowindow.open(map, marker);
+
  	$(function(){
+
+ 		// select box
+ 		$(function() {
+ 			$("#sido_select").change(function(){
+ 				var sido=$(this).val();
+ 				$("#site_select option").remove();
+ 				$.ajax({
+ 					url : "site.json",
+ 					type : "get",
+ 					datatype : "json",
+ 					success : function(data) {
+ 						$(data).each(function(i){
+ 							if(sido==data[i].sido){
+ 								$('#site_select').append("<option>"+data[i].name+"</option>");
+ 							}
+ 						});
+ 					},
+ 					error : function() {
+ 						alert('error');			
+ 					}
+ 				});	// ajax 끝
+ 			});	// selectBox_test 끝
+ 		}); 		
+ 		
+ 		  // 지점 선택
  		  $("button[id='site_search']").click(function () {
 				var name = $('select#site_select').val();
-// 				alert(jb);
 				$.ajax({
 					url : "site.json",
 					type : "get",
 					datatype : "json",
 					success : function(data) {
-// 						alert('success');
-// 						let str = JSON.stringify(data);	// 데이터 확인
 						$(data).each(function(i){
 							if(name==data[i].name){
 								// 지도 이동
@@ -394,11 +413,90 @@
 								    content : iwContent 
 								});
 								infowindow.open(map, marker);
+								$('.site-msg').empty();
 								$('.table-select').empty();
 								$('.table-select').append("<tr><td>"+data[i].sido+"</td><td> "+data[i].name+"</td><td> "+data[i].addr+"</td><td> "+data[i].tel+"</td><tr>");
 							}
 						});
 					},
+					error : function() {
+						alert('error');			
+					}
+				});	// ajax 끝
+		  });
+ 		  
+ 		  // 내 위치
+ 		  $("button[id='site_search2']").click(function () {
+				
+ 				Swal.fire({
+ 	                icon: 'info',
+ 	                text: '정보가 뜨지 않는다면 위치 액세스 권한을 허용해주세요',
+ 	            });
+ 			  
+ 			  	$.ajax({
+					url : "site.json",
+					type : "get",
+					datatype : "json",
+					success : function(data) {
+						let str = JSON.stringify(data);	// 데이터 확인
+// 						alert(str);
+						// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
+						if (navigator.geolocation) {
+						    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+						    navigator.geolocation.getCurrentPosition(function(position) {
+						        
+						        var lat = position.coords.latitude,		// 위도
+						            lng = position.coords.longitude;	// 경도
+						            
+						         for(let i=0; i<data.length;i++){
+						        	 let distance = getDistance(lat, lng, data[i].lat, data[i].lng, "K");
+// 						        	 console.log(distance);
+									data[i].distance = distance;
+						         }
+						          
+						         let newData = data.sort(function (a, b){
+					        		  if (a.distance > b.distance) {
+					        		    return 1;
+					        		  }
+					        		  if (a.distance < b.distance) {
+					        		    return -1;
+					        		  }
+					        		  return 0;
+				        		  });
+// 						         console.log(newData[0].name);
+						         
+								var moveLatLon = new kakao.maps.LatLng(newData[0].lat, newData[0].lng);
+								map.setCenter(moveLatLon);
+								// 마커 생성
+								var markerPosition  = new kakao.maps.LatLng(newData[0].lat, newData[0].lng); 
+								var marker = new kakao.maps.Marker({
+								    position: markerPosition
+								});
+								marker.setMap(map);
+								// 인포윈도우 생성
+								var iwContent = '<div style="padding:2px;">'+newData[0].name+'</div>',
+							    iwPosition = new kakao.maps.LatLng(newData[0].lat, newData[0].lng);
+								var infowindow = new kakao.maps.InfoWindow({
+								    position : iwPosition, 
+								    content : iwContent 
+								});
+								
+								infowindow.open(map, marker);
+								$('.site-msg').empty();
+								$('.site-msg').append("고객님의 위치에서 가장 가까운 지점입니다.");
+								$('.table-select').empty();
+								$('.table-select').append("<tr><td>"+newData[0].sido+"</td><td> "+newData[0].name+"</td><td> "+newData[0].addr+"</td><td> "+newData[0].tel+"</td><tr>");
+					      	});
+						    
+						} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+						    ㄴ
+						    var locPosition = new kakao.maps.LatLng(35.1586, 129.0621),    
+						        message = '위치 정보를 받아올 수 없습니다'
+						        
+						    displayMarker(locPosition, message);
+						}
+						
+					},	// success
 					error : function() {
 						alert('error');			
 					}
