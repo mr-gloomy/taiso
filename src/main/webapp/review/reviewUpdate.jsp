@@ -112,7 +112,7 @@
 				})
 	 		}
 			var f= document.forms.fr;
-			document.domain = "itwillbs2.cafe24.com"; 
+			document.domain = "localhost"; 
 		    opener.name = "openerNames";
 		    f.target = opener.name;
 		    
@@ -137,7 +137,7 @@
 		  if (result.value) {
 	          //"등록" 버튼을 눌렀을 때 작업할 내용을 이곳에 넣어주면 된다. 
 				var f= document.forms.fr;
-				document.domain = "itwillbs2.cafe24.com"; 
+				document.domain = "localhost"; 
 			    opener.name = "openerNames";
 			    f.target = opener.name;
 			    
