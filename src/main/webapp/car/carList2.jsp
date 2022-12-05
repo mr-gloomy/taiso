@@ -127,10 +127,8 @@
                            <span>/일</span>
                         </div>
                         <p class="d-flex mb-0 d-block">
-<%--                            <a href="./ReservationAction.rez?car_code=${cars.car_code }" --%>
-<!--                               class="btn btn-primary py-2 mr-1">예약하기</a> -->
                                <a
-                              href="./ReviewList.rev?car_code=${cars.car_code }&car_name=${cars.car_name }"
+                              href="./CarDetailList.ca?car_code=${cars.car_code }&car_name=${cars.car_name }"
                               class="btn btn-secondary py-2 ml-1">차량상세정보 </a>
                         </p>
                      </div>
@@ -142,26 +140,7 @@
          
 
          <!-- 페이지처리 -->
-
-         <!--        <div class="row mt-5"> -->
-         <!--           <div class="col text-center"> -->
-         <!--             <div class="block-27"> -->
-         <%--             <c:if test="${totalCnt != 0}"> --%>
-         <!--                 페이지번호 -->
-         <%--                 <c:forEach var="i" begin="${startPage }" end="${endPage }" step="1"> --%>
-         <%--                    <a href="./CarList.ca?pageNum=${i }" class="btn btn-outline-primary" >${i }</a>  --%>
-         <%--              </c:forEach>   --%>
-         <%--           </c:if> --%>
-         <!--          </div>    -->
-         <!--           </div> -->
-         <!--           </div> -->
          <c:if test="${totalCnt != 0 }">
-
-            <!-- 이전 -->
-<%--             <c:if test="${startPage > pageBlock }"> --%>
-<%--                <a href="./CarListAll.ca?pageNum=${startPage-pageBlock }">[이전]</a> --%>
-<%--             </c:if> --%>
-            <!--        <div class="row mt-5"> -->
             <div class="col text-center">
                <div class="block-27">
                   <ul>
@@ -189,62 +168,9 @@
                   </ul>
                </div>
             </div>
-
-            <!-- 다음 -->
-<%--             <c:if test="${endPage < pageCount }"> --%>
-<%--                <a href="./CarListAll.ca?pageNum=${startPage+pageBlock }">[다음]</a> --%>
-<%--             </c:if> --%>
-
          </c:if>
-
-
-         <!--        <div class="row mt-5"> -->
-         <!--           <div class="col text-center"> -->
-         <!--             <div class="block-27"> -->
-         <!--               <ul> -->
-         <!--                 <li><a href="#">&lt;</a></li> -->
-         <!--                 <li class="active"><span>1</span></li> -->
-         <!--                 <li><a href="#">2</a></li> -->
-         <!--                 <li><a href="#">3</a></li> -->
-         <!--                 <li><a href="#">4</a></li> -->
-         <!--                 <li><a href="#">5</a></li> -->
-         <!--                 <li><a href="#">&gt;</a></li> -->
-         <!--               </ul> -->
-         <!--             </div> -->
-         <!--           </div> -->
-         <!--         </div> -->
       </div>
    </section>
-
-		<!-- 하단 네비바 -->
-         <!--       <div class="r-horizon">
-         <div class="r-horizon-bar">
-            <div class="r-horizon-button"></div>
-         </div>
-          <div class="r-horizon-content">
-             <table class="r-table">
-                <tbody>
-                   <tr>
-                      <th><span class="r-h-info r-h-infoA">대여지점</span></th>
-                      <th><span class="r-h-info r-h-infoB">대여일시</span></th>
-                      <th><span class="r-h-info r-h-infoC">픽업시간</span></th>
-                   </tr>
-                   <tr>
-                      <td>
-                         <p class="r-horizon-text" id="h-rental_branch">${rez_site }</p>
-                      </td>
-                      <td>
-                         <p class="r-horizon-text" id="h-redDate">${rez_pick_date } ~ ${rez_off_date }</p>
-                      </td>
-                      <td class="ellipsis">
-                         <p class="r-horizon-text ellipsis" id="h-car_name">${rez_pick_time }</p>
-                      </td>
-                   </tr>
-                </tbody>
-             </table>
-          </div>
-      </div> -->
-	<!-- 하단 네비바 -->
 
    <!-- 푸터들어가는 곳 -->
    <jsp:include page="../inc/bottom.jsp" />

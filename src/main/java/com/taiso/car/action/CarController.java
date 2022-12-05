@@ -56,6 +56,18 @@ public class CarController extends HttpServlet {
 			}
 			
 		}
+		else if(command.equals("/CarDetailList.ca")) {
+			System.out.println(" C : /CarDetailList.ca 호출");
+			
+			action = new CarDetailListAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
 		
 		System.out.println(" C : 2. 가상주소 매핑 끝 \n");
