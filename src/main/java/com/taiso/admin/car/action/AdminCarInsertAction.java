@@ -51,7 +51,7 @@ public class AdminCarInsertAction implements Action {
 			carDTO.setCar_year(Integer.parseInt(multi.getParameter("car_year")));
 			carDTO.setCar_brand(multi.getParameter("car_brand"));
 			carDTO.setCar_fuel(multi.getParameter("car_fuel"));
-			carDTO.setCar_site(multi.getParameter("car_site"));
+			carDTO.setCar_site(multi.getParameter("rez_site"));
 			String img = multi.getFilesystemName("car_file");
 			
 			carDTO.setCar_file(img);
