@@ -129,10 +129,19 @@ public class BoardFrontController extends HttpServlet{
 					e.printStackTrace();
 				}
 		} 
-	
+
+		else if(command.equals("/QuestionPUpdate.bo")) {
+			System.out.println(" C : /QuestionPUpdate.bo 호출 ");
+			System.out.println(" C : [패턴1]");
+			
+			forward = new ActionForward();
+			forward.setPath("./board/questionPUpdate.jsp");
+			forward.setRedirect(false);		
+		}
+		
 		else if(command.equals("/QuestionUpdate.bo")) {
 			System.out.println(" C : /QuestionUpdate.bo 호출 ");
-			System.out.println(" C : [패턴3] DB사용o, view출력");
+			System.out.println(" C : [패턴3]");
 			
 			// QuestionUpdateAction 객체
 			action = new QuestionUpdateAction();
@@ -145,7 +154,7 @@ public class BoardFrontController extends HttpServlet{
 		}
 		else if(command.equals("/QuestionUpdateProAction.bo")) {
 			System.out.println(" C : /QuestionUpdateProAction.bo 호출 ");
-			System.out.println(" C : [패턴2] DB사용 O, 페이지 이동(화면전환)");
+			System.out.println(" C : [패턴2]");
 			
 			// QuestionUpdateProAction 객체 생성
 			action = new QuestionUpdateProAction();
@@ -159,7 +168,7 @@ public class BoardFrontController extends HttpServlet{
 		
 		else if(command.equals("/QuestionDelete.bo")) {
 			System.out.println(" C : /BoardDelete.bo 호출 ");
-			System.out.println(" C : [패턴1] DB사용 X, view페이지 이동");
+			System.out.println(" C : [패턴1]");
 			
 			forward = new ActionForward();
 			forward.setPath("./board/questionDelete.jsp");
@@ -168,7 +177,7 @@ public class BoardFrontController extends HttpServlet{
 		
 		else if(command.equals("/QuestionDeleteAction.bo")) {
 			System.out.println(" C : /BoardDeleteAction.bo 호출 ");
-			System.out.println(" C : [패턴2] DB사용 O, 페이지 이동(화면전환)");
+			System.out.println(" C : [패턴2]");
 			
 			// BoardDeleteAction() 객체
 			action = new QuestionDeleteAction();
@@ -182,7 +191,7 @@ public class BoardFrontController extends HttpServlet{
 		
 		else if(command.equals("/AdminQuestionReWrite.bo")){
 			System.out.println(" C : /AdminQuestionReWrite.bo 호출 ");
-			System.out.println(" C : [패턴3] DB사용 X, view페이지 이동");
+			System.out.println(" C : [패턴3]");
 			
 			//adminQuestionReWriteAction() 객체 - execute()
 			action = new AdminQuestionReWriteAction();
@@ -198,7 +207,7 @@ public class BoardFrontController extends HttpServlet{
 		
 		else if(command.equals("/AdminQuestionReWriteAction.bo")) {
 			System.out.println(" C : /adminQuestionReWriteAction.bo 호출");
-			System.out.println(" C : [패턴2] DB사용 O, 페이지 이동(화면전환)");
+			System.out.println(" C : [패턴2]");
 		
 			//adminQuestionReWriteAction() 객체 - execute()
 			action = new AdminQuestionReWriteProAction();

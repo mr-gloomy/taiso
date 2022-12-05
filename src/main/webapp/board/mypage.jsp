@@ -159,13 +159,6 @@ $(function() {
 </script>
 <!-- 블로그 로딩 코드 end -->
     
-    
-    <!-- css 초기화 -->
-    
-
-    
-    <!-- css 초기화 -->
-
 
     <!-- 배경색 -->
     <style> 
@@ -179,7 +172,6 @@ $(function() {
 	   
 <!-- 사이드바 --> 
 <style>
-
 
 ul {
   list-style: none;

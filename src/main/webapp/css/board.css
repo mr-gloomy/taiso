@@ -817,7 +817,7 @@ div.button, div.checker, div.radio, div.selector, div.uploader {
 }
 .nav {
   display: flex;
-  border: 1px solid #333333;
+/*   border: 1px solid #333333; */
   border-radius: 4px;
 }
 .nav-btn {

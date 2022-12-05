@@ -27,7 +27,7 @@ body{
   margin-bottom: 8px;
   border-radius: 3px;
   box-shadow: 0px 0px 15px rgba(0,0,0,0.18);
-  border:1px solid #1089FF;
+/*   border:1px solid #1089FF; */
 }
 .wrapper .parent-tab label,
 .wrapper .child-tab label{

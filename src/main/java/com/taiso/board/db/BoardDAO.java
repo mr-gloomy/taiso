@@ -284,7 +284,7 @@ public class BoardDAO {
             try {
                con = getConnection();
                
-               sql = "select * from member_board where bo_re_ref=(select bo_re_ref from member_board where (bo_cate between 1 and 5) && mem_id = ? order by bo_re_ref desc, bo_re_seq asc limit ?,?);";
+               sql = "select * from member_board where (bo_cate between 1 and 5) && mem_id = ? order by bo_re_ref desc, bo_re_seq asc limit ?,?";
                pstmt = con.prepareStatement(sql);
                
                // ???
@@ -313,10 +313,6 @@ public class BoardDAO {
                   
                   // DTO -> List
                   MyQuestionList.add(bodto);
-                  
-               }
-               
-               while(rs.next()) {
                   
                }
                
@@ -352,7 +348,6 @@ public class BoardDAO {
             rs = pstmt.executeQuery();
             
             if(rs.next()) { 
-               //데이터 있을 때만 bodto 객체 생성
                bodto = new BoardDTO();
                
              // DB->DAO 
@@ -600,21 +595,23 @@ public class BoardDAO {
       // 글 전체 개수 확인 - getProposalCount()
       
       // 글정보 가져오기 - getProposalList(int startRow, int pageSize)
-      public ArrayList getProposalList(int startRow, int pageSize) {
+      public ArrayList getProposalList(String mem_id, int startRow, int pageSize) {
       
          ArrayList ProposalList = new ArrayList();
          
          try {
             con = getConnection();
             
-            sql = "select * from member_board where bo_cate = '6' order by bo_re_ref desc, bo_re_seq asc;";
-            sql = "select * from member_board where bo_cate = '6' order by bo_re_ref desc, bo_re_seq asc limit ?,?";
-            
+//            sql = "select * from member_board where bo_cate = '6' order by bo_re_ref desc, bo_re_seq asc;";
+//            sql = "select * from member_board where bo_cate = '6' order by bo_re_ref desc, bo_re_seq asc limit ?,?";
+            sql = "select * from member_board where (bo_cate = '6' && mem_id = ?) order by bo_re_ref desc, bo_re_seq asc limit ?,?";
+
             pstmt = con.prepareStatement(sql);
             
             // ???
-            pstmt.setInt(1, startRow-1);   // 시작행-1
-            pstmt.setInt(2, pageSize);       // 개수       
+            pstmt.setString(1, mem_id);
+            pstmt.setInt(2, startRow-1);   // 시작행-1
+            pstmt.setInt(3, pageSize);
             
             rs = pstmt.executeQuery();
             
@@ -640,6 +637,7 @@ public class BoardDAO {
                ProposalList.add(bodto);
                
             }
+            
             System.out.println(" DAO : 게시판 목록 저장완료! ");
             
          } catch (Exception e) {

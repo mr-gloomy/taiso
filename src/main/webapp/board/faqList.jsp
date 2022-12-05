@@ -246,33 +246,36 @@ float: right;
 								    <div class="parent-tab">
 								      <input type="radio" name="tab" id="tab-1" checked>
 								      <label for="tab-1">
-								        <span id="cate">Q. 질문합니다 </span> 
+								        <span id="cate">Q. 기존 예약을 취소하고 변경하고 싶어요  </span> 
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 답변입니다 </p>
+								        <p>A. 예약 변경은 새로운 예약 진행 후, 기존 예약을 취소하는 방법으로 가능합니다. <br>
+											SK 렌터카 홈페이지에서 변경을 원하시는 일정에 차량 대여 가능 여부 확인 후 재 예약으로 진행해주셔야 하며, 재 예약 후 기존 예약은 취소 부탁드립니다.<br>
+											실시간으로 예약이 진행되고 있어 재 예약 진행 시 반드시 이용 가능 여부를 먼저 확인 부탁드립니다. </p>
 								      </div>
 								    </div>
 								    <!-- Accordion Heading Two -->
 								    <div class="parent-tab">
 								      <input type="radio" name="tab" id="tab-2">
 								      <label for="tab-2">
-								        <span>Q. 질문합니다</span>
+								        <span>Q. 단기렌터카 예약은 어떻게 하나요?</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 답변입니다 </p>
+								        <p>A. 타이소 메인 페이지 속 예약하기를 이용하시면 빠르게 예약하실 수 있습니다. </p>
 								      </div>
 								    </div>
 								    <!-- Accordion Heading Three -->
 								    <div class="parent-tab tab-3">
 								      <input type="radio" name="tab" id="tab-3">
 								      <label for="tab-3" class="tab-3">
-								        <span>Q. 질문합니다</span>
+								        <span>Q. 지점 영업시간이 궁금합니다</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 답변입니다 </p>
+								        <p>A. 타이소 월~금 08:00~18:00 (고객문의 응대 가능시간) / 인수 07:30~22:00, 반납 06:00~21:00 입니다. 감사합니다.
+								         </p>
 								
 								      </div>
 								    </div>
@@ -280,11 +283,11 @@ float: right;
 								    <div class="parent-tab">
 								      <input type="radio" name="tab" id="tab-6">
 								      <label for="tab-6">
-								        <span>Q. 질문합니다</span>
+								        <span>Q. 딜리버리 서비스도 가능한가요?</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 답변입니다 </p>
+								        <p>A. 단기예약 시 딜리버리 서비스는 제공이 되지 않는 점 양해 부탁드립니다. </p>
 								      </div>
 								    </div>
 								  </div>
@@ -301,33 +304,34 @@ float: right;
 								    <div class="parent-tab">
 								      <input type="radio" name="tab" id="tab-555" checked>
 								      <label for="tab-555">
-								        <span>Q. 질문합니다</span>
+								        <span>Q. 대여 렌트료 결제는 어떻게 해야 하나요?</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 답변입니다 </p>
+								        <p>A. 차량 대여료는 신용카드 결제를 원칙으로 하며, 대여료 선결제 시 예약이 완료됩니다.
+								         </p>
 								      </div>
 								    </div>
 								    <!-- Accordion Heading Two -->
 								    <div class="parent-tab">
 								      <input type="radio" name="tab" id="tab-666">
 								      <label for="tab-666">
-								        <span>Q. 질문합니다</span>
+								        <span>Q. 내비게이션 예약하고 싶어요</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 답변입니다 </p>
+								        <p>A. 선착순으로 지급되는 점 양해 부탁드립니다.  </p>
 								      </div>
 								    </div>
 								    <!-- Accordion Heading Three -->
 								    <div class="parent-tab tab-3">
 								      <input type="radio" name="tab" id="tab-777">
 								      <label for="tab-777" class="tab-3">
-								        <span>Q. 질문합니다</span>
+								        <span>Q. 한 아이디로 여러 대를 예약할 수 있나요?</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 답변입니다</p>
+								        <p>A. 네, 여러 대 예약 가능합니다.</p>
 								
 								      </div>
 								    </div>
@@ -335,11 +339,11 @@ float: right;
 								    <div class="parent-tab">
 								      <input type="radio" name="tab" id="tab-888">
 								      <label for="tab-888">
-								        <span>Q. 질문합니다</span>
+								        <span>Q. 예약 변경 가능한가요? </span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 답변입니다 </p>
+								        <p>A. 예약 시간 변경을 희망하실 경우, 예약을 취소하신 후 다시 예약해주셔야 합니다. </p>
 								      </div>
 								    </div>
 								  </div>
@@ -358,33 +362,35 @@ float: right;
 								    <div class="parent-tab">
 								      <input type="radio" name="tab" id="tab-8888" checked>
 								      <label for="tab-8888">
-								        <span>Q. 질문합니다</span>
+								        <span>Q. 예약 취소 방법이 궁금합니다</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 답변입니다 </p>
+								        <p>A. [ 마이페이지 > 렌탈 내역 조회 ]에서 취소 가능합니다. </p>
 								      </div>
 								    </div>
 								    <!-- Accordion Heading Two -->
 								    <div class="parent-tab">
 								      <input type="radio" name="tab" id="tab-9999">
 								      <label for="tab-9999">
-								        <span>Q. 질문합니다</span>
+								        <span>Q. 단기렌트 취소, 변경 등 환불 수수료가 있나요? </span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 답변입니다 </p>
+								        <p>A. [ 국내 단기렌트 취소 정책 ] <br>
+										※ 성수기, 비수기 구분 없이 아래 취소수수료로 적용됩니다. <br>
+										※ 결제 후 무료취소 구간에 취소를 하였더라도 대여 시간이 지났을 경우 예약 금액에 대한 환불이 불가능합니다. </p>
 								      </div>
 								    </div>
 								    <!-- Accordion Heading Three -->
 								    <div class="parent-tab tab-3">
 								      <input type="radio" name="tab" id="tab-0000">
 								      <label for="tab-0000" class="tab-3">
-								        <span>Q. 질문합니다</span>
+								        <span>Q. 환불하고 싶은데 계좌를 다르게 할 수 있나요?</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 답변입니다 </p>
+								        <p>A. 1:1 문의하기로 문의해주시면 빠르게 처리해드리겠습니다. </p>
 								
 								      </div>
 								    </div>
@@ -392,11 +398,11 @@ float: right;
 								    <div class="parent-tab">
 								      <input type="radio" name="tab" id="tab-141">
 								      <label for="tab-14">
-								        <span>Q. 질문합니다</span>
+								        <span>Q. 취소한 후에 바로 재예약 가능한가요?</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 답변입니다 </p>
+								        <p>A. 가능합니다. 다시 이용해주시면 됩니다. </p>
 								      </div>
 								    </div>
 								  </div>
@@ -414,109 +420,43 @@ float: right;
 								    <div class="parent-tab">
 								      <input type="radio" name="tab" id="tab-15" checked>
 								      <label for="tab-15">
-								        <span>Q. 질문합니다 </span>
+								        <span>Q. 사고가 발생하면 처리 과정이 어떻게 되나요? </span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 답변입니다 </p>
+								        <p>A. 자차보험은 1회 소멸성으로 사고가 나면 반납을 해주셔야 합니다.<BR>
+											또한 사고 처리가 완료될 때까지는 차량 예약이 불가합니다.<br>
+											사고 발생했던 렌트사에서 사고 처리가 모두 완료되었을 경우, 예약이 가능합니다.
 								      </div>
 								    </div>
 								    <!-- Accordion Heading Two -->
 								    <div class="parent-tab">
 								      <input type="radio" name="tab" id="tab-20">
 								      <label for="tab-20">
-								        <span>Q. 질문합니다</span>
+								        <span>Q. 자차보험을 꼭 선택해야 하나요?</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 답변입니다 </p>
+								        <p>A. 고객의 손해를 예방하고자 자차보험을 의무가입하고 있으며 자차보험 종류에 따라 보상한도와 자기부담금(면책금)이 다르며, 차량 예약시 고객이 직접 선택할 수 있습니다. </p>
 								      </div>
 								    </div>
 								    <!-- Accordion Heading Three -->
 								    <div class="parent-tab tab-30">
 								      <input type="radio" name="tab" id="tab-30">
 								      <label for="tab-30" class="tab-3">
-								        <span>Q. 질문합니다</span>
+								        <span>Q. 자차보험은 사고날 때마다 보험처리가 가능한가요?</span>
 								        <div class="icon"><i class="fas fa-plus"></i></div>
 								      </label>
 								      <div class="content">
-								        <p>A. 답변입니다 </p>
+								        <p>A. 자차보험은 1회 소멸성으로 중복 보장이 되지 않습니다.
+										 </p>
 								
 								      </div>
 								    </div>
-								    <!-- Accordion Heading Four -->
-								    <div class="parent-tab">
-								      <input type="radio" name="tab" id="tab-60">
-								      <label for="tab-60">
-								        <span>Q. 질문합니다</span>
-								        <div class="icon"><i class="fas fa-plus"></i></div>
-								      </label>
-								      <div class="content">
-								        <p>A. 답변입니다 </p>
-								      </div>
-								    </div>
-								  </div>
 								      	
 								      <!-- -------------아코디언 메뉴--------------- -->	
 							</div>
 							
-							
-							
-							
-							
-							<div class="tab-pane fade" id="pills-5" role="tabpanel" aria-labelledby="pills-5-tab">
-								 <!-- -------------아코디언 메뉴--------------- -->
-								  
-								  <div class="wrapper">
-								    <!-- Accordion Heading One -->
-								    <div class="parent-tab">
-								      <input type="radio" name="tab" id="tab-1908" checked>
-								      <label for="tab-1908">
-								        <span>Q. 질문합니다</span>
-								        <div class="icon"><i class="fas fa-plus"></i></div>
-								      </label>
-								      <div class="content">
-								        <p>A. 답변입니다 </p>
-								      </div>
-								    </div>
-								    <!-- Accordion Heading Two -->
-								    <div class="parent-tab">
-								      <input type="radio" name="tab" id="tab-29">
-								      <label for="tab-29">
-								        <span>Q. 질문합니다</span>
-								        <div class="icon"><i class="fas fa-plus"></i></div>
-								      </label>
-								      <div class="content">
-								        <p>A. 답변입니다 </p>
-								      </div>
-								    </div>
-								    <!-- Accordion Heading Three -->
-								    <div class="parent-tab tab-3">
-								      <input type="radio" name="tab" id="tab-39">
-								      <label for="tab-39" class="tab-39">
-								        <span>Q. 질문합니다</span>
-								        <div class="icon"><i class="fas fa-plus"></i></div>
-								      </label>
-								      <div class="content">
-								        <p>A. 답변입니다 </p>
-								
-								      </div>
-								    </div>
-								    <!-- Accordion Heading Four -->
-								    <div class="parent-tab">
-								      <input type="radio" name="tab" id="tab-69">
-								      <label for="tab-69">
-								        <span>Q. 질문합니다</span>
-								        <div class="icon"><i class="fas fa-plus"></i></div>
-								      </label>
-								      <div class="content">
-								        <p>A. 답변입니다 </p>
-								      </div>
-								    </div>
-								  </div>
-								      	
-								      <!-- -------------아코디언 메뉴--------------- -->	
-							</div>
 							
 							
 		   			   </div>	<!-- tab-content -->

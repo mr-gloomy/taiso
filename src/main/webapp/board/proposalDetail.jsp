@@ -218,50 +218,13 @@ float: right;
 		<section class="ftco-section contact-section bg-light">
 			<div class="container">
 				<div class="row d-flex mb-5 contact-info">
-					<div class="col-md-4">
-		<!-- 아래 컨테이너 틀 -->			
+<!-- 					<div class="col-md-4"> -->
+					
+					
+				<!-- @@@@@@@@@@@@여기부터 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
+					<jsp:include page="../inc/sidebar.jsp" />
+				<!-- @@@@@@@@@@@@여기까지 사이드바.jsp@@@@@@@@@@@@@@@@@@ -->
 		
-		<!-- 메뉴바 -->
-
-     <div class="middle-md-12">
-        <div class="menu">
-            <ul id="noul">
-                <li class="buttonitem" id="profile" >
-                    <a href="/NoticeList.nb" class="menubtn" ><i class="fa fa-cog"></i>공지사항</a>
-<!--                     <div class="smenu" > -->
-<!--                         <a href="">1</a> -->
-<!--                         <a href="">2</a> -->
-<!--                     </div> -->
-                </li>
-
-                <li class="buttonitem" id="messages">
-                    <a href="/FaqList.bo" class="menubtn"><i class="fa fa-user"></i>FAQ</a>
-<!--                     <div class="smenu" style="display:block;" > -->
-<!--                         <a href="./QuestionList.bo">1:1 문의 내역</a> -->
-<!--                         <a href="">수정제안</a> -->
-<!--                     </div> -->
-                </li>
-
-                <li class="buttonitem" id="settings">
-                    <a href="/QuestionList.bo" class="menubtn"><i class="fa fa-cog"></i>1:1 문의하기</a>
-<!--                     <div class="smenu"> -->
-<!--                         <a href="./MemberUpdate.me">회원정보 변경(탈퇴)</a> -->
-<!-- <!--                         <a href="">비밀번호 변경</a> --> 
-<!--                     </div> -->
-                </li>
-                <li class="buttonitem" id="profile" >
-                    <a href="/ProposalWrite.bo" class="menubtn" ><i class="fa fa-cog"></i>수정제안</a>
-<!--                     <div class="smenu" > -->
-<!--                         <a href="">1</a> -->
-<!--                         <a href="">2</a> -->
-<!--                     </div> -->
-                </li>
-                
-               </ul>
-             </div>
-            </div>
-		<!-- 메뉴바 -->
-					</div>
 		
 
 		<!-- @@@@@@@@@@@@@@@@@우측@@@@@@@@@@@@@@@@ -->
@@ -310,7 +273,7 @@ float: right;
 							
 							<dl>
 							<dt>비밀번호</dt>
-							<dd>${bodto.bo_pass }</dd>
+							<dd><input type="password" value="${bodto.bo_pass }" disabled="disabled"></dd>
 							</dl>
 					</div>
 				</div>
@@ -320,19 +283,15 @@ float: right;
 				<!-- 버튼 -->
 				<div align="center" >
 					<div class=>
-						<a href="./QuestionList.bo" class="btn btn-primary">목록이동</a>
-						<a href="./QuestionUpdate.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}"
-							class="btn btn-primary">수정하기</a> 
-						<a href="./QuestionDelete.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}"
-							class="btn btn-primary">삭제하기</a> 
-					
-						<!-- 답변은 관리자만 가능 -->
-						<a href="./AdminProposalReWrite.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}&bo_re_ref=${bodto.bo_re_ref}&bo_re_lev=${bodto.bo_re_lev}&bo_re_seq=${bodto.bo_re_seq}"
-							class="btn btn-primary">답변하기</a> 	
-		
-						
-						<!--  <input type="button" value="수정하기" -->
-						<%-- onclick=" location.href='./QuestionUpdateAction.bo?bo_num=${bodto.bo_num}'; "> --%>
+						<a href="./ProposalList.bo" class="btn btn-primary">목록이동</a>
+					<!-- 답변은 관리자만 가능 -->
+						<c:choose>
+					    	<c:when test="${mem_id=='admin'}">
+							<a href="./AdminQuestionReWrite.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}&bo_re_ref=${bodto.bo_re_ref}&bo_re_lev=${bodto.bo_re_lev}&bo_re_seq=${bodto.bo_re_seq}"
+								class="btn btn-primary">답변하기</a> 	
+					    	</c:when>
+					    </c:choose>
+  					<!-- 답변은 관리자만 가능 -->
 					</div>
 				</div>
 			</div>
