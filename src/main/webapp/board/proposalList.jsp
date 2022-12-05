@@ -59,12 +59,14 @@ $(function() {
 	})
 
 </script>
+
+
 <!-- 사이드바 --> 
 <style>
 
-
 ul {
   list-style: none;
+  padding-inline-start: -40px;
 }
 
 #a-menu{
@@ -72,19 +74,19 @@ color: #fffff !important;
 }
 
 h2 {
-  text-align: center;
-  margin: 20px auto;
+/*   text-align: center; */
+/*   margin: 20px auto; */
   color: #fff;
 }
 
 .accordion-menu {
+  
   width: 100%;
-    max-width: 300px; 
-     padding: 15px 20px 15px 15px;
+    max-width: 300px;
+    margin: 20px 0px 0px 0px;
   background: #fff;
   border-radius: 4px;
   box-shadow: rgb(0 0 0 / 15%) 0px 5px 15px 0px;
-
 }
 .accordion-menu li.open .dropdownlink {
   color: #1089FF;
@@ -94,7 +96,6 @@ h2 {
 }
 .accordion-menu li:last-child .dropdownlink {
   border-bottom: 0;
-      padding: 15px 20px 15px 15px;
 }
 .dropdownlink {
   cursor: pointer;
@@ -122,15 +123,14 @@ h2 {
 .dropdownlink2 {
     cursor: pointer;
     display: block;
-    padding: 15px 15px 20px 15px;
-    font-size: 18px;
-    border-bottom: 1px solid #ccc;
+    padding: 15px 20px 15px 0px;
+    font-size: 16px;
+/*     border-bottom: 1px solid #ccc; */
     color: #ffffff !important;
     position: relative;
     background: #1089ff;
     transition: all 0.4s ease-out;
     border-radius: 10px;
-    box-shadow: rgb(0 0 0 / 15%) 0px 5px 15px 0px;
     
   i {
     position: absolute;
@@ -183,9 +183,44 @@ padding: 5px;
 float: right;
 
 }
+	
+	.footCenter {
+    display: inline-block;
+    width: 302px;
+    height: 190px;
+    padding: 16px 22px 16px 22px;
+    vertical-align: top;
+    margin: 20px 0px 0px 0px;
+    border-radius: 13px;
+    background: #1089ff;
+}
+	.footCenter span {
+	color: #fff;
+	}
+	
+	.footCenter li {
+	color: #dcdcdc;
+margin-left: -40px;
+font-size: 14px;
+	}
+	
+	.footCenter p {
+	color: #000;
+	font-size: 20px;
+/* 	text-align: center; */
+	}	
+	
+	.footCenter h5 {
+	font-size: 21px;
+    font-weight: bold;
+    border-bottom: 3px solid #fff;
+	}
+	
+	
+	</style>
+	
+<!-- 사이드바 -->
 
-</style>
-<!-- 사이드바 --> 
 
 <!-- input에 오늘날짜 기본값으로 넣기 -->
 <script type="text/javascript">

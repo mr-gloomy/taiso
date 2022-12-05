@@ -103,7 +103,7 @@ public class ProposalListAction implements Action {
 		/////////////////////////////////////////////////////////////////
 		
 		// DB에 배열 저장
-		ArrayList ProposalList = bodao.getProposalList(startRow, pageSize);
+		ArrayList ProposalList = bodao.getProposalList(mem_id, startRow, pageSize);
 		System.out.println(" M : ProposalList 출력"+ProposalList);
 		
 		// request 객체에 정보 저장

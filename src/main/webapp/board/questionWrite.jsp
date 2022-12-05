@@ -82,7 +82,7 @@
 	
 	
 	function QuestionWrite() {
-		var bo_cate = $('.form-select').val();
+		var bo_cate = $('.sls').val();
 		if(bo_cate==""){
 			Swal.fire({
                 icon: 'warning',

@@ -310,7 +310,7 @@ float: right;
 										<dt>제목</dt>
 										<dd>
 											<input type="text" name="bo_title"
-												placeholder="제목을 입력해주세요" value="">
+												placeholder="입력해주세요" value="">
 										</dd>
 <!-- 										<dt>작성자</dt> -->
 <!-- 										<dd> -->
@@ -320,13 +320,13 @@ float: right;
 										<dt>비밀번호</dt>
 										<dd>
 											<input type="password" name="bo_pass"
-												placeholder="비밀번호를 입력해주세요">
+												placeholder="입력해주세요">
 										</dd>
 									</dl>
 									<hr>
 								</div>
 								<div class="cont">
-									<textarea name="bo_content" placeholder="내용을 입력해주세요"></textarea>
+									<textarea name="bo_content" placeholder="입력해주세요"></textarea>
 								</div>
 								<br>
 								<div class="input-group">
