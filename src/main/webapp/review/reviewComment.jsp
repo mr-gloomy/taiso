@@ -90,7 +90,7 @@
 		 		}
 				
 				var f= document.forms.fr;
-				document.domain = "localhost"; 
+				document.domain = "itwillbs2.cafe24.com"; 
 			    opener.name = "openerNames";
 			    f.target = opener.name;
 			    
