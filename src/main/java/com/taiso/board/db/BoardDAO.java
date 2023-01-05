@@ -512,24 +512,24 @@ public class BoardDAO {
             System.out.println(" DAO : 답글 재정렬 완료! ");
          }
          
-         
          //////////////////////////////////////////////
          // [답글 쓰기]
       
          //쿼리 작성 및 객체 생성(닉네임)
          sql = "select member.mem_nickName from member_board join member on member_board.mem_id = member.mem_id where member.mem_id=?";
-         pstmt = con.prepareStatement(sql);
-         pstmt.setString(1, mem_id);
+         pstmt = con.prepareStatement(sql); 
+         pstmt.setString(1, bodto.getMem_id());
          rs = pstmt.executeQuery();
          
          if(rs.next()) {
             mem_nickName = rs.getString(1);
-         }
+         
          
          System.out.println(" DAO : bo_num : "+bo_num);
          System.out.println(" DAO : mem_nickName : "+mem_nickName);
+         }
          
-      
+         
             //3. sql + pstmt
             sql = "insert into member_board(bo_num,mem_id,bo_cate,bo_title,bo_pass,bo_content,"
                   + "bo_file,bo_sysdate,bo_re_ref,bo_re_lev,bo_re_seq,mem_nickName) "
@@ -554,6 +554,7 @@ public class BoardDAO {
             pstmt.executeUpdate();
             
             System.out.println(" DAO : 답글 쓰기 완료! ");
+         
          
          } catch (Exception e) {
             e.printStackTrace();
