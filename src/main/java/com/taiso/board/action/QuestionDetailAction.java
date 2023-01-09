@@ -36,17 +36,18 @@ public class QuestionDetailAction implements Action {
 	
 		request.setAttribute("myqnacnt", myqnacnt);
 		request.setAttribute("myreviewcnt", myreviewcnt);
+		
 		// request 영역에 글정보를 저장 
 		request.setAttribute("bodto", bodto);
 		request.setAttribute("pageNum", pageNum);
-		
+		request.setAttribute("mem_id", mem_id);
 		
 		// 페이지 이동(준비)
 		ActionForward forward = new ActionForward();
 		forward.setPath("./board/questionDetail.jsp");
 		forward.setRedirect(false); //request 가져가니까 false 
 		
-		return forward; //잊지 말고 null에서 바꿔주기 우리는 controller로 간다
+		return forward; //
 	}
 		
 

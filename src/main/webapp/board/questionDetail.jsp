@@ -264,11 +264,24 @@ float: right;
 					<div class=>
 						<a href="./QuestionList.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}" 
 							class="btn btn-primary">목록이동</a>
-						<a href="./QuestionUpdate.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}"
-							class="btn btn-primary">수정하기</a> 
-						<a href="./QuestionDelete.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}"
-							class="btn btn-primary">삭제하기</a> 
-							<c:choose>
+<%-- 							<c:choose> --%>
+<%-- 						    	<c:when test="${${sessionScope.mem_id == bodto.mem_id}}"> --%>
+<%-- 								<a href="./QuestionUpdate.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}" --%>
+<!-- 								class="btn btn-primary">수정하기</a>  -->
+<%-- 						    	</c:when> --%>
+<%-- 						    </c:choose>	 --%>
+						    
+						    <c:if test="${sessionScope.mem_id == bodto.mem_id}">
+								<a href="./QuestionUpdate.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}"
+									class="btn btn-primary">수정하기</a> 
+						    </c:if>
+						    
+						    <c:if test="${sessionScope.mem_id == bodto.mem_id}">						    
+								<a href="./QuestionDelete.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}"
+									class="btn btn-primary">삭제하기</a> 
+						    </c:if>	
+						    
+						    <c:choose>						
 						    	<c:when test="${mem_id=='admin'}">
 								<a href="./AdminQuestionReWrite.bo?bo_num=${bodto.bo_num }&pageNum=${pageNum}&bo_re_ref=${bodto.bo_re_ref}&bo_re_lev=${bodto.bo_re_lev}&bo_re_seq=${bodto.bo_re_seq}"
 									class="btn btn-primary">답변하기</a> 	
