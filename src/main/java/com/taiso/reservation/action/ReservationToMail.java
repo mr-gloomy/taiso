@@ -69,7 +69,7 @@ public class ReservationToMail implements Action {
 		
         // 발신자의 메일 계정, 비밀번호 설정
         final String user = "welcometaiso@gmail.com";
-        final String password = "bqdcftxqqeauylik";		
+        final String password = "rqywgqbssmshuoew";		
 		
         // Property에 SMTP 서버 정보 설정
         Properties props = System.getProperties();
